@@ -8,12 +8,23 @@ public class Controlador {
 
 	@RequestMapping("/")
 	public String showIndex() {
-		return "index.html";
+		return "index";
 	}
-	
+	@RequestMapping("/login")
+	public String showLogin() {
+		return "login";
+	}
+	@RequestMapping("/quiniela")
+	public String showQuiniela() {
+		return "quiniela";
+	}
+	@RequestMapping("/register")
+	public String showRegister() {
+		return "register";
+	}
 	@RequestMapping("/pag2")
 	public String showPag2() {
-		return "pag2.html";
+		return "500";
 	}
 	
 }
