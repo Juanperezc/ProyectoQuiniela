@@ -24,6 +24,10 @@ public class Controlador {
 	public String showQuiniela() {
 		return "quiniela";
 	}
+	@RequestMapping("/quiniela2")
+	public String showQuiniela2() {
+		return "quiniela2";
+	}
 	@RequestMapping("/register")
 	public String showRegister() {
 		return "register";
@@ -31,6 +35,18 @@ public class Controlador {
 	@RequestMapping("/profile")
 	public String showProfile() {
 		return "profile";
+	}
+	@RequestMapping("/request")
+	public String showRequest() {
+		return "request";
+	}
+	@RequestMapping("/report")
+	public String showReport() {
+		return "report";
+	}
+	@RequestMapping("/manage_accounts")
+	public String showMAccount() {
+		return "manage_accounts";
 	}
 	@RequestMapping("/pag2")
 	public String showPag2() {

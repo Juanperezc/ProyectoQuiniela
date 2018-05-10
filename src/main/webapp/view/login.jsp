@@ -36,7 +36,7 @@
 				<div class="ibox-content">
 					<form class="m-t" role="form" action="/">
 						<div class="form-group">
-							<input type="email" class="form-control" placeholder="Usuario"
+							<input type="email" class="form-control" placeholder="Correo"
 								required="">
 						</div>
 						<div class="form-group">

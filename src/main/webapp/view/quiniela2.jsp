@@ -35,270 +35,282 @@
 
 			<!--  content ! -->
 			<div class="wrapper wrapper-content animated fadeInRight">
+				<!-- Primer Nivel de la pg -->
 				<div class="row">
+					<!-- Datos quiniela -->
 					<div class="col-lg-12">
 						<div class="jumbotron">
-							<h2>Mundial de Futbol 2018</h2>
-							<h5 class="text-right">Codigo de la Quiniela:</h5>
-							<h5 class="text-right">Administrador:</h5>
-							<h5 class="text-right">Fecha de Apertura:</h5>
-							<h5 class="text-right">Fecha de Cierre:</h5>
+							<h2>YankeesVsMets</h2>
+							<h5 class="text-right">Codigo de la Quiniela: 008</h5>
+							<h5 class="text-right">Administrador: Maria</h5>
+							<h5 class="text-right">Fecha de Apertura:16/5/2018</h5>
+							<h5 class="text-right">Fecha de Cierre: 26/5/2018</h5>
 							<h3>Descripcion y Reglas:</h3>
-							<p>This is a template for a simple marketing or informational
-								website. It includes a large callout called the hero unit and
-								three supporting pieces of content. Use it as a starting point
-								to create something more unique.</p>
+							<p>	Quiniela para el juego de yankees contra los mets
+							las reglas son : - Acertar quien gana 4pts - Puntaje correcto por equipo
+								+2t (c/u) - Acetar todo +2ts.</p>
 							<p>
-								<a class="btn btn-primary btn-large" href="#">Solicitar
+								<a class="btn btn-primary btn-large hide" href="#">Solicitar
 									Subcripcion de Participacion</a>
 							</p>
 
-                <div class="dropdown">
-                    <div><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope"></i>
-                    </a>
-                    <h6>Solicitudes de Subcripcion</h6>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <div class="dropdown-messages-box">
-                                
-                                <div class="media-body">
-                                    <small class="pull-right">4h ago</small>
-                                    <strong>Mike</strong> Quiere ser parte de esta quiniela. <br>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="dropdown-messages-box">
-                                
-                                <div class="media-body ">
-                                    <small class="pull-right text-navy">5h ago</small>
-                                    <strong>Isac</strong> Quiere ser parte de esta quiniela. <br>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="dropdown-messages-box">
-                                
-                                <div class="media-body ">
-                                    <small class="pull-right">23h ago</small>
-                                    <strong>Alex</strong> Quiere ser parte de esta quiniela. <br>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="text-center link-block">
-                                <a href="mailbox.html">
-                                    <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="dropdown">
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope"></i>
-                    </a>
-                    <h6>Preguntas de usuarios</h6>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <div class="dropdown-messages-box">
-                                
-                                <div class="media-body">
-                                    <small class="pull-right">4h ago</small>
-                                    <strong>Mike</strong> ¿Cuantos juegos contara esta quiniela?. <br>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="dropdown-messages-box">
-                                
-                                <div class="media-body ">
-                                    <small class="pull-right text-navy">5h ago</small>
-                                    <strong>Isac</strong> ¿Es de toda la copa mundial? <br>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="dropdown-messages-box">
-                                
-                                <div class="media-body ">
-                                    <small class="pull-right">23h ago</small>
-                                    <strong>Alex</strong> ¿Los goles por fase de penales cuentan como un gol o el juego cuenta como empate? <br>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="text-center link-block">
-                                <a href="mailbox.html">
-                                    <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-                
-                
-                
-                
+							<div class="dropdown hide">
+								<div>
+									<a class="dropdown-toggle count-info" data-toggle="dropdown"
+										href="#"> <i class="fa fa-envelope"></i>
+									</a>
+									<h6>Solicitudes de Subcripcion</h6>
+									<ul class="dropdown-menu dropdown-messages">
+										<li>
+											<div class="dropdown-messages-box">
+
+												<div class="media-body">
+													<small class="pull-right">4h ago</small> <strong>Mike</strong>
+													Quiere ser parte de esta quiniela. <br>
+												</div>
+											</div>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<div class="dropdown-messages-box">
+
+												<div class="media-body ">
+													<small class="pull-right text-navy">5h ago</small> <strong>Isac</strong>
+													Quiere ser parte de esta quiniela. <br>
+												</div>
+											</div>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<div class="dropdown-messages-box">
+
+												<div class="media-body ">
+													<small class="pull-right">23h ago</small> <strong>Alex</strong>
+													Quiere ser parte de esta quiniela. <br>
+												</div>
+											</div>
+										</li>
+										<li class="divider"></li>
+										<li>
+											<div class="text-center link-block">
+												<a href="mailbox.html"> <i class="fa fa-envelope"></i> <strong>Read
+														All Messages</strong>
+												</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<!-- Segundo nivel de la pg -->
+				<div class="row">
+					<!-- datos del juego -->
+					<div class="col-md-6">
+						<div class="ibox-content">
+							<h2 class="text-center">Resultado</h2>
+							<table class="table table-sm">
+								<thead>
+									<tr>
+										<th>Equipo</th>
+										<th>Resultado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Yankees</td>
+										<td>0</td>
+									</tr>
+									<tr class="table-active">
+										<td>Mets</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+
+
+							<!-- datos del usuario para participar -->
+							<div class="row">
+								<div class="col-md-6 b-r">
+									<form role="form">
+										<h2>Participa</h2>
+										<div class="form-group">
+
+											<label for="imput-equipo"> Yankees</label>
+											<div class="input-group mb-3">
+												<div class="input-group-prepend">
+													<div class="input-group-text"></div>
+												</div>
+												<input type="text" class="form-control"
+													aria-label="Text input with checkbox">
+											</div>
+											<label for="imput-equipo"> Mets</label>
+											<div class="input-group mb-3">
+												<div class="input-group-prepend">
+													<div class="input-group-text"></div>
+												</div>
+												<input type="text" class="form-control"
+													aria-label="Text input with checkbox">
+											</div>
+										</div>
+										<button class="btn btn-large btn-primary"
+											data-toggle="confirmation" data-btn-ok-label="SI"
+											data-btn-ok-class="btn-success"
+											data-btn-ok-icon-class="material-icons"
+											data-btn-ok-icon-content="check" data-btn-cancel-label="NO"
+											data-btn-cancel-class="btn-danger"
+											data-btn-cancel-icon-class="material-icons"
+											data-btn-cancel-icon-content="close"
+											data-title="¿Esta Seguro?"
+											data-content="Estos resultados no podran ser cambiados"
+											data-placement="right">Confirmar</button>
+									</form>
+								</div>
+								<!-- Segundo Reglas de la quiniela -->
+								<div class="col-md-6">
+									<table class="table table-sm">
+										<thead>
+											<tr>
+												<th>Condicion</th>
+												<th>Puntaje</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Acertar quien gana</td>
+												<td>4 Pts</td>
+											</tr>
+											<tr class="table-active">
+												<td>Puntaje correcto por equipo</td>
+												<td>2 pt(c/u)</td>
+											</tr>
+											<tr class="table-active">
+												<td>Acetar todo</td>
+												<td>2 pts</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Columna para el ranking -->
+					<div class="col-md-6">
+						<div class="jumbotron">
+							<h2 class="text-center">Ranking</h2>
+							<table class="table table-sm">
+								<thead>
+									<tr>
+										<th>Participantes</th>
+										<th>Resultado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Moises</td>
+										<td>0</td>
+									</tr>
+									<tr class="table-active">
+										<td>Valentina</td>
+										<td>0</td>
+									</tr>
+									<tr class="table-active">
+										<td>Luis</td>
+										<td>0</td>
+									</tr>
+									<tr class="table-active">
+										<td>Rafael</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Seccion de preguntas de usuarios -->
+			<div class="row">
+				<div class="col-lg-12">
+					<br /> <br />
+					<div class="jumbotron">
+						<h2>Pregunta</h2>
+						<div class="social-feed-box">
+							<div class="social-avatar">
+								<a href="" class="pull-left"> </a>
+								<div class="media-body">
+									<a href="#"> Moises </a> <small class="text-muted"> 18/5/2018</small>
+								</div>
+							</div>
+							<div class="social-body">
+								<p>¿Solo el resultado final o todo los demas datos tambien?</p>
+							</div>
+							<div class="social-footer">
+								<div class="social-comment">
+									<a href="" class="pull-left"> </a>
+									<div class="media-body">
+										<a href="#"> Maria </a> Solo el resutado del juego final. <br /> <small
+											class="text-muted">19/5/2018</small>
+									</div>
+								</div>
+
+								<div class="social-comment">
+									<a href="" class="pull-left"> </a>
+									<div class="media-body">
+										<textarea class="form-control" placeholder="Write comment..."></textarea>
+									</div>
+								</div>
+
+							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-md-6">
-					<table class="table table-sm" >
-						<thead>
-							<tr>
-								<th>
-									Equipo
-								</th>
-								<th>
-									Resultado
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									Equipo 1
-								</td>
-								<td>
-									0
-								</td>
-							</tr>
-							<tr class="table-active">
-								<td>
-									Equipo 2
-								</td>
-								<td>
-									0
-								</td>
-							</tr>
-						</tbody>
-					</table>
-						<form role="form">
-							<div class="form-group">
-
-								<label for="imput-equipo"> Equipo 1</label>
-								<div class="input-group mb-3">
-									<div class="input-group-prepend">
-										<div class="input-group-text"> </div>
-									</div>
-									<input type="text" class="form-control"
-										aria-label="Text input with checkbox">
-								</div>
-								<label for="imput-equipo"> Equipo 2</label>
-								<div class="input-group mb-3">
-									<div class="input-group-prepend">
-										<div class="input-group-text">
-										</div>
-									</div>
-									<input type="text" class="form-control"
-										aria-label="Text input with checkbox">
-								</div>
-							</div>
-							<a href="#" class="btn btn-default" data-toggle="confirmation">Confirmation</a>
-						</form>
-					</div>
-					<div class="col-md-6">
-					<table class="table table-sm" >
-						<thead>
-							<tr>
-								<th>
-									Participantes
-								</th>
-								<th>
-									Resultado
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									Perez
-								</td>
-								<td>
-									0
-								</td>
-							</tr>
-							<tr class="table-active">
-								<td>
-									Marco
-								</td>
-								<td>
-									0
-								</td>
-							</tr>
-							<tr class="table-active">
-								<td>
-									Luis
-								</td>
-								<td>
-									0
-								</td>
-							</tr>
-							<tr class="table-active">
-								<td>
-									Jose
-								</td>
-								<td>
-									0
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					 
-
-				<!--  end content! -->
-
-
 			</div>
-							<%@ include file="layouts/footer.jsp"%>
+			<%@ include file="layouts/footer.jsp"%>
 		</div>
 
+		<!--  end content! -->
+	</div>
 
 
 
 
-		<!-- Mainly scripts -->
-		<script src="js/jquery-3.1.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/bootstrap-confirmation.js"></script>
-		<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-		<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-		
-		
-		
-    	
-    	
-		<!-- FooTable -->
-		<script src="js/plugins/footable/footable.all.min.js"></script>
 
-		<!-- Custom and plugin javascript -->
-		<script src="js/inspinia.js"></script>
-		<script src="js/plugins/pace/pace.min.js"></script>
 
-		<!-- Page-Level Scripts -->
-		<script>
-			
-				$(document).ready(function() {
 
-				$('.footable').footable();
-				$('.footable2').footable();
-				$('[data-toggle=confirmation]').confirmation({
-					  rootSelector: '[data-toggle=confirmation]',
-					  // other options
-					});
-				});
-		</script>
+	<!-- Mainly scripts -->
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-confirmation.js"></script>
+	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+
+
+
+
+	<!-- FooTable -->
+	<script src="js/plugins/footable/footable.all.min.js"></script>
+
+	<!-- Custom and plugin javascript -->
+	<script src="js/inspinia.js"></script>
+	<script src="js/plugins/pace/pace.min.js"></script>
+
+	<!-- Page-Level Scripts -->
+	<script>
+		$(document).ready(function() {
+
+			$('.footable').footable();
+			$('.footable2').footable();
+			$('[data-toggle=confirmation]').confirmation({
+				rootSelector : '[data-toggle=confirmation]',
+			// other options
+			});
+		});
+	</script>
 </body>
 
 </html>
