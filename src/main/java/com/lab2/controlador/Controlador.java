@@ -48,9 +48,17 @@ public class Controlador {
 	public String showMAccount() {
 		return "manage_accounts";
 	}
+	
+	@RequestMapping("/crearQuiniela")
+	public String showCrearQuiniela() {
+		return "crearQuiniela";
+	}
+	
 	@RequestMapping("/pag2")
 	public String showPag2() {
 		return "500";
 	}
+	
+	
 	
 }

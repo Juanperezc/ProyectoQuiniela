@@ -141,22 +141,24 @@
 												<label class="col-sm-2 control-label">Puntuación
 													para acierto de score del equipo ganador </label>
 												<div class="col-sm-2">
-													<input class="touchspin" type="text" value="0" name="">
-
+													<input class="touchspin" type="text" value="0" name=""
+														readonly="readonly">
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="col-sm-2 control-label">Puntuación
 													para acierto de score del Equipo 1 </label>
 												<div class="col-sm-2">
-													<input class="touchspin" type="text" value="0" name="">
+													<input class="touchspin" type="text" value="0" name=""
+														readonly="readonly">
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="col-sm-2 control-label">Puntuación
 													para acierto de score del Equipo 2 </label>
 												<div class="col-sm-2">
-													<input class="touchspin" type="text" value="0" name="">
+													<input class="touchspin" type="text" value="0" name=""
+														readonly="readonly">
 												</div>
 											</div>
 										</fieldset>
@@ -310,5 +312,4 @@
 		});
 	</script>
 </body>
-
 </html>

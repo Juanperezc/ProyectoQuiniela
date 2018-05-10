@@ -28,7 +28,7 @@
                 <li>
                     <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Admin de Quinielas</span><span class="fa arrow"></span></a>
                      <ul class="nav nav-second-level collapse">
-                        <li><a href="typography.html">Crear Quinielas</a></li>
+                        <li><a href="/crearQuiniela">Crear Quinielas</a></li> <!-- test -->
                         <li><a href="icons.html">Mis quinielas (editar, ver, responder comentarios)</a></li>
                            <li><a href="/request">Administrar Solicitudes</a></li>
                         <li><a href="/report">Estadisticas</a></li> 
