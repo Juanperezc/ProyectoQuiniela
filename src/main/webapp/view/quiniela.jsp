@@ -41,8 +41,8 @@
 							<h2>Mundial de Futbol 2018</h2>
 							<h5 class="text-right">Codigo de la Quiniela:</h5>
 							<h5 class="text-right">Admonistrador:</h5>
-							<h5 class="text-right">Fin del Registro:</h5>
-							<h5 class="text-right">Fin de la Quiniela:</h5>
+							<h5 class="text-right">Fecha de Apertura:</h5>
+							<h5 class="text-right">Fecha de Cierre:</h5>
 							<h3>Descripcion y Reglas:</h3>
 							<p>This is a template for a simple marketing or informational
 								website. It includes a large callout called the hero unit and
@@ -52,6 +52,100 @@
 								<a class="btn btn-primary btn-large" href="#">Solicitar
 									Subcripcion de Participacion</a>
 							</p>
+							<div>
+                <div class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <div class="dropdown-messages-box">
+                                
+                                <div class="media-body">
+                                    <small class="pull-right">4h ago</small>
+                                    <strong>Mike</strong> Quiere ser parte de esta quiniela. <br>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                
+                                <div class="media-body ">
+                                    <small class="pull-right text-navy">5h ago</small>
+                                    <strong>Isac</strong> Quiere ser parte de esta quiniela. <br>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                
+                                <div class="media-body ">
+                                    <small class="pull-right">23h ago</small>
+                                    <strong>Alex</strong> Quiere ser parte de esta quiniela. <br>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="mailbox.html">
+                                    <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <div class="dropdown-messages-box">
+                                
+                                <div class="media-body">
+                                    <small class="pull-right">4h ago</small>
+                                    <strong>Mike</strong> Quiere ser parte de esta quiniela. <br>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                
+                                <div class="media-body ">
+                                    <small class="pull-right text-navy">5h ago</small>
+                                    <strong>Isac</strong> Quiere ser parte de esta quiniela. <br>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                
+                                <div class="media-body ">
+                                    <small class="pull-right">23h ago</small>
+                                    <strong>Alex</strong> Quiere ser parte de esta quiniela. <br>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="mailbox.html">
+                                    <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                
+                
+                
+                
 						</div>
 					</div>
 				</div>
@@ -112,13 +206,60 @@
 							<button class="btn btn-default" data-toggle="confirmation">Confirmation</button>
 						</form>
 					</div>
-					
+					<div class="col-md-6">
+					<table class="table table-sm" >
+						<thead>
+							<tr>
+								<th>
+									Participantes
+								</th>
+								<th>
+									Resultado
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									Perez
+								</td>
+								<td>
+									0
+								</td>
+							</tr>
+							<tr class="table-active">
+								<td>
+									Marco
+								</td>
+								<td>
+									0
+								</td>
+							</tr>
+							<tr class="table-active">
+								<td>
+									Luis
+								</td>
+								<td>
+									0
+								</td>
+							</tr>
+							<tr class="table-active">
+								<td>
+									Jose
+								</td>
+								<td>
+									0
+								</td>
+							</tr>
+						</tbody>
+					</table>
 					 
 
 				<!--  end content! -->
 
-				<%@ include file="layouts/footer.jsp"%>
+
 			</div>
+							<%@ include file="layouts/footer.jsp"%>
 		</div>
 
 
