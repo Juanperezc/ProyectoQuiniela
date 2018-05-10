@@ -7,7 +7,7 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <a href="#">
+                        <a href="/login">
                             <i class="fa fa-sign-out"></i> Entrar
                         </a>
                     </li>
