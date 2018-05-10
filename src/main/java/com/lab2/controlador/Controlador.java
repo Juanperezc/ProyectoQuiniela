@@ -23,6 +23,10 @@ public class Controlador {
 	public String showRegister() {
 		return "register";
 	}
+	@RequestMapping("/profile")
+	public String showProfile() {
+		return "profile";
+	}
 	@RequestMapping("/pag2")
 	public String showPag2() {
 		return "500";

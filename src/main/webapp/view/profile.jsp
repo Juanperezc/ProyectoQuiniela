@@ -35,136 +35,203 @@
 
 			<!--  content ! -->
 			<div class="wrapper wrapper-content animated fadeInRight">
-			
-				<div class="row">
+			   <div class="row animated fadeInRight">
+                <div class="col-md-4">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Profile Detail</h5>
+                        </div>
+                        <div>
+                            <div class="ibox-content no-padding border-left-right">
+                                <img alt="image" class="img-responsive" src="img/profile_big.jpg">
+                            </div>
+                            <div class="ibox-content profile-content">
+                                <h4><strong>Monica Smith</strong></h4>
+                                <p><i class="fa fa-map-marker"></i> Riviera State 32/106</p>
+                                <h5>
+                                    About me
+                                </h5>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
+                                </p>
+                                <div class="row m-t-lg">
+                                    <div class="col-md-4">
+                                        <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
+                                        <h5><strong>169</strong> Posts</h5>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="line">5,3,9,6,5,9,7,3,5,2</span>
+                                        <h5><strong>28</strong> Following</h5>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="bar">5,3,2,-1,-3,-2,2,3,5,2</span>
+                                        <h5><strong>240</strong> Followers</h5>
+                                    </div>
+                                </div>
+                                <div class="user-button">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-coffee"></i> Buy a coffee</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                    </div>
+                <div class="col-md-8">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Activites</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
 
-					<div class="col-lg-8">
-					
-						<div class="ibox-content">
+                            <div>
+                                <div class="feed-activity-list">
 
-							<div class="float-e-margins">
+                                    <div class="feed-element">
+                                        <a href="#" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/a1.jpg">
+                                        </a>
+                                        <div class="media-body ">
+                                            <small class="pull-right text-navy">1m ago</small>
+                                            <strong>Sandra Momot</strong> started following <strong>Monica Smith</strong>. <br>
+                                            <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                                            <div class="actions">
+                                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                                <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Love</a>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="feed-element">
+                                        <a href="#" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/profile.jpg">
+                                        </a>
+                                        <div class="media-body ">
+                                            <small class="pull-right">5m ago</small>
+                                            <strong>Monica Smith</strong> posted a new blog. <br>
+                                            <small class="text-muted">Today 5:60 pm - 12.06.2014</small>
 
-								<div class="carousel slide" id="carousel2">
-									<ol class="carousel-indicators">
-										<li data-slide-to="0" data-target="#carousel2" class="active"></li>
-										<li data-slide-to="1" data-target="#carousel2"></li>
-										<li data-slide-to="2" data-target="#carousel2" class=""></li>
-									</ol>
-									<div class="carousel-inner">
-										<div class="item active">
-											<img alt="image" class="img-responsive" src="https://hdwallsource.com/img/2015/9/sports-wallpaper-47735-49291-hd-wallpapers.jpg">
-											<div class="carousel-caption">
-												<p>This is simple caption 1</p>
-											</div>
-										</div>
-										<div class="item ">
-											<img alt="image" class="img-responsive" src="http://www.gsfdcy.com/data/img/81/2086778-sport-wallpaper.jpg">
-											<div class="carousel-caption">
-												<p>This is simple caption 2</p>
-											</div>
-										</div>
-										<div class="item">
-											<img alt="image" class="img-responsive" src="https://images.alphacoders.com/484/484929.jpg">
-											<div class="carousel-caption">
-												<p>This is simple caption 3</p>
-											</div>
-										</div>
-									</div>
-									<a data-slide="prev" href="#carousel2"
-										class="left carousel-control"> <span class="icon-prev"></span>
-									</a> <a data-slide="next" href="#carousel2"
-										class="right carousel-control"> <span class="icon-next"></span>
-									</a>
-								</div>
+                                        </div>
+                                    </div>
 
-							</div>
+                                    <div class="feed-element">
+                                        <a href="#" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/a2.jpg">
+                                        </a>
+                                        <div class="media-body ">
+                                            <small class="pull-right">2h ago</small>
+                                            <strong>Mark Johnson</strong> posted message on <strong>Monica Smith</strong> site. <br>
+                                            <small class="text-muted">Today 2:10 pm - 12.06.2014</small>
+                                            <div class="well">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                                Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                            </div>
+                                            <div class="pull-right">
+                                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                                <a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a>
+                                                <a class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Message</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feed-element">
+                                        <a href="#" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/a3.jpg">
+                                        </a>
+                                        <div class="media-body ">
+                                            <small class="pull-right">2h ago</small>
+                                            <strong>Janet Rosowski</strong> add 1 photo on <strong>Monica Smith</strong>. <br>
+                                            <small class="text-muted">2 days ago at 8:30am</small>
+                                            <div class="photos">
+                                                <a target="_blank" href="http://24.media.tumblr.com/20a9c501846f50c1271210639987000f/tumblr_n4vje69pJm1st5lhmo1_1280.jpg"> <img alt="image" class="feed-photo" src="img/p1.jpg"></a>
+                                                <a target="_blank" href="http://37.media.tumblr.com/9afe602b3e624aff6681b0b51f5a062b/tumblr_n4ef69szs71st5lhmo1_1280.jpg"> <img alt="image" class="feed-photo" src="img/p3.jpg"></a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="feed-element">
+                                        <a href="#" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/a4.jpg">
+                                        </a>
+                                        <div class="media-body ">
+                                            <small class="pull-right text-navy">5h ago</small>
+                                            <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                                            <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                                            <div class="actions">
+                                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                                <a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feed-element">
+                                        <a href="#" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/a5.jpg">
+                                        </a>
+                                        <div class="media-body ">
+                                            <small class="pull-right">2h ago</small>
+                                            <strong>Kim Smith</strong> posted message on <strong>Monica Smith</strong> site. <br>
+                                            <small class="text-muted">Yesterday 5:20 pm - 12.06.2014</small>
+                                            <div class="well">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                                Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                            </div>
+                                            <div class="pull-right">
+                                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feed-element">
+                                        <a href="#" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/profile.jpg">
+                                        </a>
+                                        <div class="media-body ">
+                                            <small class="pull-right">23h ago</small>
+                                            <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                                            <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+                                        </div>
+                                    </div>
+                                    <div class="feed-element">
+                                        <a href="#" class="pull-left">
+                                            <img alt="image" class="img-circle" src="img/a7.jpg">
+                                        </a>
+                                        <div class="media-body ">
+                                            <small class="pull-right">46h ago</small>
+                                            <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                                            <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                                        </div>
+                                    </div>
+                                </div>
 
-						</div>
-					</div>
-					<div class="col-lg-4">
-					<a class="twitter-timeline" data-height="500" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-					</div>
+                                <button class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> Show More</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 				
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="ibox float-e-margins">
-							<div class="ibox-title">
-								<h5>Quinielas disponibles</h5>
-							</div>
-							<div class="ibox-content">
-								<input type="text" class="form-control input-sm m-b-xs"
-									id="filter" placeholder="Buscar..">
-
-								<table class="footable table table-stripped" data-page-size="8"
-									data-filter=#filter>
-									<thead>
-										<tr>
-											<th>Participar</th>
-											<th>Codigo</th>
-											<th>Quiniela</th>
-											<th data-hide="phone,tablet">Deporte</th>
-											<th>Fin de Registros</th>
-											<th data-hide="phone,tablet">Fin de la Quiniela</th>
-											<th>Privada</th>
-											<th>Ingresar</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="gradeX">
-											<td class="center">x</td>
-											<td class="center">002</td>
-											<td class="center">Mundial de Futbol 2018</td>
-											<td class="center hide-text"> <img alt="Bootstrap Image Preview" src="/ico/football.png" class="img-responsive icono-deporte"> <div> Football</div> </td>
-											<td class="center">5/5/2018</td>
-											<td class="center">5/6/2018</td>
-											<td class="center">SI</td>
-											<td class="center"> <a href="/quiniela" ><button type="button" class="btn btn-success">ir</button> </a></td>
-										</tr>
-										<tr class="gradeC">
-											<td class="center"></td>
-											<td class="center">003</td>
-											<td class="center">Mundial de Futbol 2018</td>
-											<td class="center"><img alt="Bootstrap Image Preview" src="/ico/football.png" class="img-responsive icono-deporte"><div> Football</div></td>
-											<td class="center">5/5/2018</td>
-											<td class="center">5/6/2018</td>
-											<td class="center">NO</td>
-											<td class="center"> <a href="#" ><button type="button" class="btn btn-success">ir</button> </a></td>
-										</tr>
-										<tr class="gradeA">
-											<td class="center">x</td>
-											<td class="center">015</td>
-											<td class="center">BarcaVsRealMadrid</td>
-											<td class="center"><img alt="Bootstrap Image Preview" src="/ico/football.png" class="img-responsive icono-deporte"><div> Football</div></td>
-											<td class="center">10/5/2018</td>
-											<td class="center">15/6/2018</td>
-											<td class="center">NO</td>
-											<td class="center"> <a href="#" ><button type="button" class="btn btn-success">ir</button> </a></td>
-										</tr>
-										<tr class="gradeA">
-											<td class="center"></td>
-											<td class="center">008</td>
-											<td class="center">YankesVsMets</td>
-											<td class="center"><img alt="Bootstrap Image Preview" src="/ico/baseball.png" class="img-responsive icono-deporte"><div> Baseball</div></td>
-											<td class="center">25/5/2018</td>
-											<td class="center">26/5/2018</td>
-											<td class="center">NO</td>
-											<td class="center"> <a href="#" ><button type="button" class="btn btn-success">ir</button> </a></td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td colspan="5">
-												<ul class="pagination pull-right"></ul>
-											</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 
 			<!--  end content! -->
@@ -190,15 +257,15 @@
 	<script src="js/inspinia.js"></script>
 	<script src="js/plugins/pace/pace.min.js"></script>
 
-	<!-- Page-Level Scripts -->
-	<script>
-		$(document).ready(function() {
 
-			$('.footable').footable();
-			$('.footable2').footable();
 
-		});
-	</script>
+    <!-- Peity -->
+    <script src="js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Peity -->
+    <script src="js/demo/peity-demo.js"></script>
+
+
 </body>
 
 </html>
