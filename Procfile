@@ -1,1 +1,1 @@
-web: java -jar target/proyectoquiniela-1.0.0.war
+web: java -war target/proyectoquiniela-1.0.war
