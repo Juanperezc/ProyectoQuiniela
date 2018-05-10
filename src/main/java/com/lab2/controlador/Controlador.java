@@ -40,6 +40,10 @@ public class Controlador {
 	public String showReport() {
 		return "report";
 	}
+	@RequestMapping("/manage_accounts")
+	public String showMAccount() {
+		return "manage_accounts";
+	}
 	@RequestMapping("/pag2")
 	public String showPag2() {
 		return "500";

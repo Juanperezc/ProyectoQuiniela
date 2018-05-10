@@ -1,21 +1,16 @@
 $(function () {
 
     var lineData = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
         datasets: [
 
             {
-                label: "Data 1",
+                label: "Usuarios",
                 backgroundColor: 'rgba(26,179,148,0.5)',
                 borderColor: "rgba(26,179,148,0.7)",
                 pointBackgroundColor: "rgba(26,179,148,1)",
                 pointBorderColor: "#fff",
-                data: [28, 48, 40, 19, 86, 27, 90]
-            },{
-                label: "Data 2",
-                backgroundColor: 'rgba(220, 220, 220, 0.5)',
-                pointBorderColor: "#fff",
-                data: [65, 59, 80, 81, 56, 55, 40]
+                data: [28, 48, 40, 19, 86, 27, 90, 30 ,40, 100, 200,300]
             }
         ]
     };
@@ -29,21 +24,16 @@ $(function () {
     new Chart(ctx, {type: 'line', data: lineData, options:lineOptions});
 
     var barData = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+    		 labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
         datasets: [
+     
             {
-                label: "Data 1",
-                backgroundColor: 'rgba(220, 220, 220, 0.5)',
-                pointBorderColor: "#fff",
-                data: [65, 59, 80, 81, 56, 55, 40]
-            },
-            {
-                label: "Data 2",
+                label: "Puntos",
                 backgroundColor: 'rgba(26,179,148,0.5)',
                 borderColor: "rgba(26,179,148,0.7)",
                 pointBackgroundColor: "rgba(26,179,148,1)",
                 pointBorderColor: "#fff",
-                data: [28, 48, 40, 19, 86, 27, 90]
+                data: [28, 48, 40, 19, 86, 27, 90, 30, 20, 15, 30, 15]
             }
         ]
     };
@@ -56,36 +46,12 @@ $(function () {
     var ctx2 = document.getElementById("barChart").getContext("2d");
     new Chart(ctx2, {type: 'bar', data: barData, options:barOptions});
 
-    var polarData = {
-        datasets: [{
-            data: [
-                300,140,200
-            ],
-            backgroundColor: [
-                "#a3e1d4", "#dedede", "#b5b8cf"
-            ],
-            label: [
-                "My Radar chart"
-            ]
-        }],
-        labels: [
-            "App","Software","Laptop"
-        ]
-    };
 
-    var polarOptions = {
-        segmentStrokeWidth: 2,
-        responsive: true
-
-    };
-
-    var ctx3 = document.getElementById("polarChart").getContext("2d");
-    new Chart(ctx3, {type: 'polarArea', data: polarData, options:polarOptions});
 
     var doughnutData = {
-        labels: ["App","Software","Laptop" ],
+        labels: ["Ganador","Perdedor","Empate" ],
         datasets: [{
-            data: [300,50,100],
+            data: [300,250,100],
             backgroundColor: ["#a3e1d4","#dedede","#b5b8cf"]
         }]
     } ;

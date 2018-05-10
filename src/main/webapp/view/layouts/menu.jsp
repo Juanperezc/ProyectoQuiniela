@@ -34,7 +34,7 @@
                 <li>
                     <a href="#"> <i class="fa fa-th-large"></i> <span class="nav-label">Admin</span> <span class="fa arrow"></span> </a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="typography.html">Administrar cuentas</a></li>
+                        <li><a href="/mange_accounts">Administrar cuentas</a></li>
                         <li><a href="/request">Administrar Solicitudes</a></li>
                         <li><a href="/report">Estadisticas</a></li> 
                     </ul>
