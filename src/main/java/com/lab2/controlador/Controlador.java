@@ -32,6 +32,14 @@ public class Controlador {
 	public String showProfile() {
 		return "profile";
 	}
+	@RequestMapping("/request")
+	public String showRequest() {
+		return "request";
+	}
+	@RequestMapping("/report")
+	public String showReport() {
+		return "report";
+	}
 	@RequestMapping("/pag2")
 	public String showPag2() {
 		return "500";
