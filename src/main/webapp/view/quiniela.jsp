@@ -288,9 +288,9 @@
                                 </a>
                                 <div class="media-body">
                                     <a href="#">
-                                        Andrew Williams
+                                        Alex
                                     </a>
-                                    Making this the first true generator on the Internet. It uses a dictionary of.
+                                     ¿Los goles por fase de penales cuentan como un gol o el juego cuenta como empate? .
                                     <br/>
                                     <small class="text-muted">10.07.2014</small>
                                 </div>
