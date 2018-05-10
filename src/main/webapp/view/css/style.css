@@ -4550,7 +4550,7 @@ table.table-mail tr td {
 }
 /* BACKGROUNDS */
 .gray-bg, .bg-muted {
-	background-color: #f3f3f4;
+	background-color: #b1d4e8;
 }
 
 .white-bg {
@@ -9474,7 +9474,7 @@ body.skin-1 {
 }
 
 .skin-1 #page-wrapper {
-	background: #f4f6fa;
+	background: #b1d4e8;
 }
 
 .skin-1 .ibox-title, .skin-1 .ibox-content {

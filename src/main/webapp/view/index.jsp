@@ -140,17 +140,17 @@
 											<td class="center">10/5/2018</td>
 											<td class="center">15/6/2018</td>
 											<td class="center">NO</td>
-											<td class="center"> <a href="#" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a href="/quiniela" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 										<tr class="gradeA">
 											<td class="center"></td>
 											<td class="center">008</td>
-											<td class="center">YankesVsMets</td>
+											<td class="center">YankeesVsMets</td>
 											<td class="center"><img alt="Bootstrap Image Preview" src="/ico/baseball.png" class="img-responsive icono-deporte"><div> Baseball</div></td>
 											<td class="center">25/5/2018</td>
 											<td class="center">26/5/2018</td>
 											<td class="center">NO</td>
-											<td class="center"> <a href="#" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a href="/quiniela2" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 									</tbody>
 									<tfoot>

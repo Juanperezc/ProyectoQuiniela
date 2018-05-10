@@ -24,6 +24,10 @@ public class Controlador {
 	public String showQuiniela() {
 		return "quiniela";
 	}
+	@RequestMapping("/quiniela2")
+	public String showQuiniela2() {
+		return "quiniela2";
+	}
 	@RequestMapping("/register")
 	public String showRegister() {
 		return "register";
