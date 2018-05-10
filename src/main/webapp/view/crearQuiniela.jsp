@@ -3,7 +3,7 @@
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Crear quiniela</title>
@@ -170,31 +170,35 @@
 
 										<fieldset class="form-horizontal">
 											<div class="form-group">
-												<label class="col-sm-2 control-label">ID:</label>
+												<label class="col-sm-2 control-label">Nombre del Equipo 1:</label>
 												<div class="col-sm-10">
-													<input type="text" class="form-control" placeholder="543">
+													<input type="text" class="form-control" placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Model:</label>
+												<label class="col-sm-2 control-label">Nombre del Equipo 2:</label>
 												<div class="col-sm-10">
-													<input type="text" class="form-control" placeholder="...">
+													<input type="text" class="form-control" placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Location:</label>
+												<label class="col-sm-2 control-label">Descripción:</label>
 												<div class="col-sm-10">
 													<input type="text" class="form-control"
-														placeholder="location">
+														placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Tax Class:</label>
-												<div class="col-sm-10">
-													<select class="form-control">
-														<option>option 1</option>
-														<option>option 2</option>
-													</select>
+												<label class="col-sm-2 control-label">Fecha</label>
+												<div class="col-sm-2">
+													<div class="form-group" id="fecha_1">
+														<div class="input-group date">
+															<span class="input-group-addon"><i
+																class="fa fa-calendar"></i></span><input type="text"
+																class="form-control" value="11/05/2018"
+																disabled="disabled">
+														</div>
+													</div>
 												</div>
 											</div>
 											<div class="form-group">
