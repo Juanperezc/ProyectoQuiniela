@@ -51,7 +51,7 @@
                             <div class="clients-list">
                             <ul class="nav nav-tabs">
                                 <span class="pull-right small text-muted">5 Cuentas</span>
-                                <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-user"></i> Contacts</a></li>
+                                <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-user"></i>Cuentas</a></li>
                                 
                             </ul>
                             <div class="tab-content">
@@ -63,28 +63,34 @@
                                                 <tr>
       
                                                     <td><a data-toggle="tab" href="#contact-1" class="client-link">Anthony Jackson</a></td>
-                                                    <td> Tellus Institute</td>
+                                                    <td> 05/05/2018</td>
                                                     <td class="contact-type"><i class="fa fa-envelope"> </i></td>
                                                     <td> gravida@rbisit.com</td>
                                                     <td class="client-status"><span class="label label-primary">Active</span></td>
+                                                    <td class="client-status"><div class="btn-group">   
+ 
+                                            <button class="btn-danger btn btn-xs">Desactivar</button>
+                                        </div> </td>
                                                 </tr>
                                                 <tr>
                                                   
                                                     <td><a data-toggle="tab" href="#contact-2" class="client-link">Rooney Lindsay</a></td>
-                                                    <td>Proin Limited</td>
+                                                    <td>05/05/2018</td>
                                                     <td class="contact-type"><i class="fa fa-envelope"> </i></td>
                                                     <td> rooney@proin.com</td>
                                                     <td class="client-status"><span class="label label-primary">Active</span></td>
+                                                    <td class="client-status">  <button class="btn-danger btn btn-xs">Desactivar</button></td>
                                                 </tr>
                                              
                                           
                                                 <tr>
                                                     
                                                     <td><a data-toggle="tab" href="#contact-4" class="client-link">Jasper Carson</a></td>
-                                                    <td>Mone Industries</td>
+                                                    <td>06/05/2018</td>
                                                     <td class="contact-type"><i class="fa fa-phone"> </i></td>
                                                     <td> +400 468 921</td>
                                                     <td class="client-status"><span class="label label-primary">Active</span></td>
+                                                    <td class="client-status">  <button class="btn-danger btn btn-xs">Desactivar</button></td>
                                                 </tr>
                                                
                                                 </tbody>
@@ -107,13 +113,13 @@
                                 <div id="contact-1" class="tab-pane active">
                                     <div class="row m-b-lg">
                                         <div class="col-lg-4 text-center">
-                                            <h2>Nicki Smith</h2>
+                                            <h2>Anthony Jackson</h2>
 
                                           
                                         </div>
                                         <div class="col-lg-8">
                                      <br><br>
-                                            <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message
+                                            <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Enviar Mensaje
                                             </button>
                                         </div>
                                     </div>
@@ -124,25 +130,18 @@
 
                                         <ul class="list-group clear-list">
                                             <li class="list-group-item fist-item">
-                                                <span class="pull-right"> 09:00 pm </span>
-                                                Please contact me
+                                                <span class="pull-right"> 20 </span>
+                                               Quinielas Creadas
                                             </li>
                                             <li class="list-group-item">
-                                                <span class="pull-right"> 10:16 am </span>
-                                                Sign a contract
+                                                <span class="pull-right"> 50 </span>
+                                               Participacion en Quinielas
                                             </li>
                                             <li class="list-group-item">
-                                                <span class="pull-right"> 08:22 pm </span>
-                                                Open new shop
+                                                <span class="pull-right"> 122 </span>
+                                                Total de Puntos
                                             </li>
-                                            <li class="list-group-item">
-                                                <span class="pull-right"> 11:06 pm </span>
-                                                Call back to Sylvia
-                                            </li>
-                                            <li class="list-group-item">
-                                                <span class="pull-right"> 12:00 am </span>
-                                                Write a letter to Sandra
-                                            </li>
+                                         
                                         </ul>
                                      
                                         <hr>

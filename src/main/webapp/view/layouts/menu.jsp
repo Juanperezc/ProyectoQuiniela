@@ -3,6 +3,9 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
+                    <span>
+                            <img alt="image" class="img-circle img-menu" src="img/man.png">
+                             </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"> Usuario </strong>
                              </span> <span class="text-muted text-xs block">Administrador <b class="caret"></b></span> </span> </a>
@@ -17,9 +20,9 @@
                 <li class="active">
                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Usuario Normal</span><span class="fa arrow"></span></a>
                      <ul class="nav nav-second-level collapse">
-                        <li><a href="typography.html">Editar perfil </a></li>
+                        <li><a href="/profile">Editar perfil </a></li>
                         <li><a href="icons.html">Ver quinielas</a></li>
-                        <li><a href="draggable_panels.html">Estadisticas</a></li> 
+                        <li><a href="/report">Estadisticas</a></li> 
                     </ul>
                 </li>
                 <li>
@@ -34,7 +37,7 @@
                 <li>
                     <a href="#"> <i class="fa fa-th-large"></i> <span class="nav-label">Admin</span> <span class="fa arrow"></span> </a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="/mange_accounts">Administrar cuentas</a></li>
+                        <li><a href="/manage_accounts">Administrar cuentas</a></li>
                         <li><a href="/request">Administrar Solicitudes</a></li>
                         <li><a href="/report">Estadisticas</a></li> 
                     </ul>
