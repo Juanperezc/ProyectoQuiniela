@@ -120,7 +120,7 @@
 											<td class="center">5/5/2018</td>
 											<td class="center">5/6/2018</td>
 											<td class="center">SI</td>
-											<td class="center"> <a href="/quiniela4" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a href="/quinielaMundialPrivada" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 										<tr class="gradeC">
 											<td class="center"></td>
@@ -130,7 +130,7 @@
 											<td class="center">5/5/2018</td>
 											<td class="center">5/6/2018</td>
 											<td class="center">NO</td>
-											<td class="center"> <a href="/quiniela3" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a href="/quinielaMundialPublica" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 										<tr class="gradeA">
 											<td class="center"></td>
@@ -140,7 +140,7 @@
 											<td class="center">10/5/2018</td>
 											<td class="center">15/6/2018</td>
 											<td class="center">NO</td>
-											<td class="center"> <a href="/quiniela" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a href="/quinielaFootballPublica" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 										<tr class="gradeA">
 											<td class="center"></td>
@@ -150,7 +150,7 @@
 											<td class="center">25/5/2018</td>
 											<td class="center">26/5/2018</td>
 											<td class="center">NO</td>
-											<td class="center"> <a href="/quiniela2" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a href="/quinielaBaseballPublica" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 									</tbody>
 									<tfoot>
