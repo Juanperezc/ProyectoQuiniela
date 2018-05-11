@@ -32,7 +32,7 @@
 			<div class="row border-bottom">
 				<%@ include file="layouts/topbar.jsp"%>
 			</div>
-
+	<!--  include file="layouts/heading.jsp"  -->
 			<!--  content ! -->
 		<div class="wrapper wrapper-content  animated fadeInRight">
             <div class="row">
