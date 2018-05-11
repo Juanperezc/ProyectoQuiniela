@@ -52,7 +52,7 @@
 										<strong>Juan Perez</strong>
 									</h4>
 									<p>
-										<i class="fa fa-map-marker"></i> 21 años
+										<i class="fa fa-map-marker"></i> 21 aï¿½os
 									</p>
 								
 									<div class="row m-t-lg">

@@ -83,7 +83,7 @@
 						</div>
 					</div>
 					<div class="col-lg-4">
-					<a class="twitter-timeline" data-height="500" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+					<a class="twitter-timeline" data-height="500" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets de TwitterDev</a> 
 					</div>
 				
 				</div>
@@ -97,7 +97,7 @@
 								<input type="text" class="form-control input-sm m-b-xs"
 									id="filter" placeholder="Buscar..">
 
-								<table class="footable table table-stripped" data-page-size="8"
+								<table class="footable table table-stripped" data-page-size="4"
 									data-filter=#filter>
 									<thead>
 										<tr>
@@ -195,10 +195,10 @@
 		$(document).ready(function() {
 
 			$('.footable').footable();
-			$('.footable2').footable();
 
 		});
 	</script>
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 
 </html>
