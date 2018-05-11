@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Quiniela | Main view</title>
+<title>Quiniela | Administrar Cuenta</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 			<div class="row border-bottom">
 				<%@ include file="layouts/topbar.jsp"%>
 			</div>
-
+	<!--  include file="layouts/heading.jsp"  -->
 			<!--  content ! -->
 		<div class="wrapper wrapper-content  animated fadeInRight">
             <div class="row">
