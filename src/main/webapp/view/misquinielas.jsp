@@ -73,7 +73,7 @@
 											<td class="center"> 
 											
 											<div class="btn-group" role="group" aria-label="...">
-  										 		 <a href="/quinielaFootballPublica" class="btn btn-success">ir </a>
+  										 		 <a href="/quinielaFootballPublica" class="btn btn-success">Ver </a>
   												<a href="/modificarQuinielas" class="btn btn-warning"> Modificar </a>
   												<button class="btn btn-large btn-primary btn-danger" 
 											data-toggle="confirmation" data-btn-ok-label="SI"

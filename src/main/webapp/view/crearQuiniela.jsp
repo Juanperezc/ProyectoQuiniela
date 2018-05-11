@@ -172,9 +172,203 @@
 												<div class="form-group">
 													<div class="col-sm-6 col-sm-offset-5">
 														<label class="control-label">Agregar Juego:</label> <input
-															type="button" class="btn btn-primary" value="Agregar">
+															type="button" class="btn btn-primary" data-toggle="modal"
+															data-target="#modalNuevo" value="Agregar">
+													</div>
+
+													<!-- Modales aqui -->
+													<div class="modal inmodal" id="modalNuevo" tabindex="-1"
+														role="dialog" aria-hidden="true">
+														<div class="modal-dialog">
+															<div class="modal-content animated bounceInRight">
+																<div class="modal-header">
+																	<button type="button" class="close"
+																		data-dismiss="modal">
+																		<span aria-hidden="true">&times;</span><span
+																			class="sr-only">Close</span>
+																	</button>
+																	<i class="fa fa-futbol-o modal-icon"></i>
+																	<h4 class="modal-title">Nuevo juego</h4>
+																	<small class="font-bold">Por favor introduzca
+																		todos los campos para agregar el juego a la quiniela</small>
+																</div>
+																<div class="modal-body">
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Nombre
+																			del Equipo 1:</label>
+																		<div class="col-sm-10">
+																			<input type="text" class="form-control"
+																				placeholder="">
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Nombre
+																			del Equipo 2:</label>
+																		<div class="col-sm-10">
+																			<input type="text" class="form-control"
+																				placeholder="">
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Descripción:</label>
+																		<div class="col-sm-10">
+																			<input type="text" class="form-control"
+																				placeholder="">
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Fecha</label>
+																		<div class="col-sm-3">
+																			<div class="form-group" id="fecha_1">
+																				<div class="input-group date">
+																					<span class="input-group-addon"><i
+																						class="fa fa-calendar"></i></span><input type="text"
+																						class="form-control" value="" disabled="disabled"
+																						style="background-color: white">
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+
+
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-white"
+																		data-dismiss="modal">Cerrar</button>
+																	<button type="button" class="btn btn-primary" data-dismiss="modal">Agregar
+																		juego</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="modal inmodal" id="modalVer" tabindex="-1"
+														role="dialog" aria-hidden="true">
+														<div class="modal-dialog">
+															<div class="modal-content animated bounceInRight">
+																<div class="modal-header">
+																	<button type="button" class="close"
+																		data-dismiss="modal">
+																		<span aria-hidden="true">&times;</span><span
+																			class="sr-only">Close</span>
+																	</button>
+																	<i class="fa fa-futbol-o modal-icon"></i>
+																	<h3 class="modal-title">Información de juego
+																		seleccionado</h3>
+																</div>
+																<div class="modal-body">
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Nombre
+																			del Equipo 1:</label>
+																		<div class="col-sm-10">
+																			<input type="text" class="form-control"
+																				placeholder="" disabled="disabled">
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Nombre
+																			del Equipo 2:</label>
+																		<div class="col-sm-10">
+																			<input type="text" class="form-control"
+																				placeholder="" disabled="disabled">
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Descripción:</label>
+																		<div class="col-sm-10">
+																			<input type="text" class="form-control"
+																				placeholder="" disabled="disabled">
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Fecha</label>
+																		<div class="col-sm-3">
+																			<div class="form-group" id="fecha_1">
+																				<div class="input-group date">
+																					<span class="input-group-addon"><i
+																						class="fa fa-calendar"></i></span><input type="text"
+																						class="form-control" value="" disabled="disabled"
+																						>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+
+
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-white"
+																		data-dismiss="modal">Cerrar</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="modal inmodal" id="modalEditar" tabindex="-1"
+														role="dialog" aria-hidden="true">
+														<div class="modal-dialog">
+															<div class="modal-content animated bounceInRight">
+																<div class="modal-header">
+																	<button type="button" class="close"
+																		data-dismiss="modal">
+																		<span aria-hidden="true">&times;</span><span
+																			class="sr-only">Close</span>
+																	</button>
+																	<i class="fa fa-futbol-o modal-icon"></i>
+																	<h4 class="modal-title">Edición de informacion</h4>
+																	<small class="font-bold">Por favor modifique
+																		los datos de su interes, sin dejar campos sin llenar</small>
+																</div>
+																<div class="modal-body">
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Nombre
+																			del Equipo 1:</label>
+																		<div class="col-sm-10">
+																			<input type="text" class="form-control"
+																				placeholder="">
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Nombre
+																			del Equipo 2:</label>
+																		<div class="col-sm-10">
+																			<input type="text" class="form-control"
+																				placeholder="">
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Descripción:</label>
+																		<div class="col-sm-10">
+																			<input type="text" class="form-control"
+																				placeholder="">
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Fecha</label>
+																		<div class="col-sm-3">
+																			<div class="form-group" id="fecha_1">
+																				<div class="input-group date">
+																					<span class="input-group-addon"><i
+																						class="fa fa-calendar"></i></span><input type="text"
+																						class="form-control" value="" disabled="disabled"
+																						style="background-color: white">
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+
+
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-white"
+																		data-dismiss="modal">Cerrar</button>
+																	<button type="button" class="btn btn-primary" data-dismiss="modal">Guardar
+																		Cambios</button>
+																</div>
+															</div>
+														</div>
 													</div>
 												</div>
+
+
 											</div>
 											<div class="row">
 												<div class="col-lg-12">
@@ -207,19 +401,22 @@
 																				Disputar</span></td>
 																		<td class="text-right">
 																			<div class="btn-group">
-																				<button class="btn btn-info">Ver</button>
-																				<button class="btn btn-warning">Editar</button>
-																				<button class="btn btn-large btn-primary btn-danger" 
-											data-toggle="confirmation" data-btn-ok-label="SI"
-											data-btn-ok-class="btn-success"
-											data-btn-ok-icon-class="material-icons"
-											data-btn-ok-icon-content="check" data-btn-cancel-label="NO"
-											data-btn-cancel-class="btn-danger"
-											data-btn-cancel-icon-class="material-icons"
-											data-btn-cancel-icon-content="close"
-											data-title="¿Esta Seguro?"
-											data-content="Estos resultados no podran ser cambiados"
-											data-placement="top">Eliminar</button>
+																				<button class="btn btn-info" data-toggle="modal"
+																					data-target="#modalVer">Ver</button>
+																				<button class="btn btn-warning" data-toggle="modal"
+																					data-target="#modalEditar">Editar</button>
+																				<button class="btn btn-large btn-primary btn-danger"
+																					data-toggle="confirmation" data-btn-ok-label="SI"
+																					data-btn-ok-class="btn-success"
+																					data-btn-ok-icon-class="material-icons"
+																					data-btn-ok-icon-content="check"
+																					data-btn-cancel-label="NO"
+																					data-btn-cancel-class="btn-danger"
+																					data-btn-cancel-icon-class="material-icons"
+																					data-btn-cancel-icon-content="close"
+																					data-title="¿Esta Seguro?"
+																					data-content="Estos resultados no podran ser cambiados"
+																					data-placement="top">Eliminar</button>
 																			</div>
 																		</td>
 																	</tr>
@@ -233,45 +430,51 @@
 																				Disputar</span></td>
 																		<td class="text-right">
 																			<div class="btn-group">
-																				<button class="btn btn-info">Ver</button>
-																				<button class="btn btn-warning">Editar</button>
-																				<button class="btn btn-large btn-primary btn-danger" 
-											data-toggle="confirmation" data-btn-ok-label="SI"
-											data-btn-ok-class="btn-success"
-											data-btn-ok-icon-class="material-icons"
-											data-btn-ok-icon-content="check" data-btn-cancel-label="NO"
-											data-btn-cancel-class="btn-danger"
-											data-btn-cancel-icon-class="material-icons"
-											data-btn-cancel-icon-content="close"
-											data-title="¿Esta Seguro?"
-											data-content="Estos resultados no podran ser cambiados"
-											data-placement="top">Eliminar</button>
+																				<button class="btn btn-info" data-toggle="modal"
+																					data-target="#modalVer">Ver</button>
+																				<button class="btn btn-warning" data-toggle="modal"
+																					data-target="#modalEditar">Editar</button>
+																				<button class="btn btn-large btn-primary btn-danger"
+																					data-toggle="confirmation" data-btn-ok-label="SI"
+																					data-btn-ok-class="btn-success"
+																					data-btn-ok-icon-class="material-icons"
+																					data-btn-ok-icon-content="check"
+																					data-btn-cancel-label="NO"
+																					data-btn-cancel-class="btn-danger"
+																					data-btn-cancel-icon-class="material-icons"
+																					data-btn-cancel-icon-content="close"
+																					data-title="¿Esta Seguro?"
+																					data-content="Estos resultados no podran ser cambiados"
+																					data-placement="top">Eliminar</button>
 																			</div>
 																		</td>
 																	</tr>
 																	<tr>
 																		<td>003</td>
-																		<td>México</td>
-																		<td>0</td>
 																		<td>Corea del Sur</td>
+																		<td>0</td>
+																		<td>México</td>
 																		<td>0</td>
 																		<td><span class="label label-success">Por
 																				Disputar</span></td>
 																		<td class="text-right">
 																			<div class="btn-group">
-																				<button class="btn btn-info">Ver</button>
-																				<button class="btn btn-warning">Editar</button>
-																				<button class="btn btn-large btn-primary btn-danger" 
-											data-toggle="confirmation" data-btn-ok-label="SI"
-											data-btn-ok-class="btn-success"
-											data-btn-ok-icon-class="material-icons"
-											data-btn-ok-icon-content="check" data-btn-cancel-label="NO"
-											data-btn-cancel-class="btn-danger"
-											data-btn-cancel-icon-class="material-icons"
-											data-btn-cancel-icon-content="close"
-											data-title="¿Esta Seguro?"
-											data-content="Estos resultados no podran ser cambiados"
-											data-placement="top">Eliminar</button>
+																				<button class="btn btn-info" data-toggle="modal"
+																					data-target="#modalVer">Ver</button>
+																				<button class="btn btn-warning" data-toggle="modal"
+																					data-target="#modalEditar">Editar</button>
+																				<button class="btn btn-large btn-primary btn-danger"
+																					data-toggle="confirmation" data-btn-ok-label="SI"
+																					data-btn-ok-class="btn-success"
+																					data-btn-ok-icon-class="material-icons"
+																					data-btn-ok-icon-content="check"
+																					data-btn-cancel-label="NO"
+																					data-btn-cancel-class="btn-danger"
+																					data-btn-cancel-icon-class="material-icons"
+																					data-btn-cancel-icon-content="close"
+																					data-title="¿Esta Seguro?"
+																					data-content="Estos resultados no podran ser cambiados"
+																					data-placement="top">Eliminar</button>
 																			</div>
 																		</td>
 																	</tr>
@@ -282,9 +485,10 @@
 																		<td colspan="2">
 																			<ul class="pagination pull-right"></ul>
 																		</td>
-																		<td colspan="8"><input type="button" class="btn pull-right btn-primary"
+																		<td colspan="8"><input type="button"
+																			class="btn pull-right btn-primary"
 																			value="Completar creación"></td>
-																		
+
 																	</tr>
 
 																</tfoot>
