@@ -20,13 +20,21 @@ public class Controlador {
 	public String showLogin() {
 		return "login";
 	}
-	@RequestMapping("/quiniela")
-	public String showQuiniela() {
-		return "quiniela";
+	@RequestMapping("/quinielafootballpublica")
+	public String showquinielafootballpublica() {
+		return "quinielafootballpublica";
 	}
-	@RequestMapping("/quiniela2")
-	public String showQuiniela2() {
-		return "quiniela2";
+	@RequestMapping("/quinielabaseballpublica")
+	public String showquinielabaseballpublica() {
+		return "quinielabaseballpublica";
+	}
+	@RequestMapping("/quinielamundialpublica")
+	public String showquinielamundialpublica() {
+		return "quinielamundialpublica";
+	}
+	@RequestMapping("/QuinielaMundialPrivada")
+	public String showQuinielaMundialPrivada() {
+		return "QuinielaMundialPrivada";
 	}
 	@RequestMapping("/register")
 	public String showRegister() {
