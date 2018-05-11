@@ -53,19 +53,19 @@
 									</ol>
 									<div class="carousel-inner">
 										<div class="item active">
-											<img alt="image" class="img-responsive" src="/mundial-russia.jpg">
+											<img alt="image" class="img-responsive" src="/img/mundial-russia.jpg">
 											<div class="carousel-caption">
-												<p>Quinielas listas para el mundial, que gane el mejor</p>
+												<p></p>
 											</div>
 										</div>
 										<div class="item ">
-											<img alt="image" class="img-responsive" src="/bvsm.jpg">
+											<img alt="image" class="img-responsive" src="/img/bvsm.png">
 											<div class="carousel-caption">
 												<p>El ultimo clasico del futbol español se disputara, igual que su quiniela</p>
 											</div>
 										</div>
 										<div class="item">
-											<img alt="image" class="img-responsive" src="/twitter.jpeg">
+											<img alt="image" class="img-responsive" src="/img/twitter.png">
 											<div class="carousel-caption">
 												<p>Siguenos en Twitter</p>
 											</div>
