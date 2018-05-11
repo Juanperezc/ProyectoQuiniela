@@ -20,7 +20,6 @@
 <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
 
 <!-- componentes personalizados  -->
-<link href="css/plugins/iCheck/custom.css" rel="stylesheet">
 <link href="css/plugins/select2/select2.min.css" rel="stylesheet">
 <link
 	href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css"
@@ -118,7 +117,7 @@
 															<span class="input-group-addon"><i
 																class="fa fa-calendar"></i></span><input type="text"
 																class="form-control" value="11/05/2018"
-																disabled="disabled">
+																disabled="disabled" style="background-color: white">
 														</div>
 													</div>
 												</div>
@@ -132,7 +131,7 @@
 															<span class="input-group-addon"><i
 																class="fa fa-calendar"></i></span><input type="text"
 																class="form-control" value="11/05/2018"
-																disabled="disabled">
+																disabled="disabled" style="background-color: white">
 														</div>
 													</div>
 												</div>
@@ -142,7 +141,7 @@
 													para acierto de score del equipo ganador </label>
 												<div class="col-sm-2">
 													<input class="touchspin" type="text" value="0" name=""
-														readonly="readonly">
+														readonly="readonly" style="background-color: white">
 												</div>
 											</div>
 											<div class="form-group">
@@ -150,7 +149,7 @@
 													para acierto de score del Equipo 1 </label>
 												<div class="col-sm-2">
 													<input class="touchspin" type="text" value="0" name=""
-														readonly="readonly">
+														readonly="readonly" style="background-color: white">
 												</div>
 											</div>
 											<div class="form-group">
@@ -158,7 +157,7 @@
 													para acierto de score del Equipo 2 </label>
 												<div class="col-sm-2">
 													<input class="touchspin" type="text" value="0" name=""
-														readonly="readonly">
+														readonly="readonly" style="background-color: white">
 												</div>
 											</div>
 										</fieldset>
@@ -169,67 +168,103 @@
 									<div class="panel-body">
 
 										<fieldset class="form-horizontal">
-											<div class="form-group">
-												<label class="col-sm-2 control-label">Nombre del Equipo 1:</label>
-												<div class="col-sm-10">
-													<input type="text" class="form-control" placeholder="">
+											<div class="row">
+												<div class="form-group">
+													<div class="col-sm-6 col-sm-offset-5">
+														<label class="control-label">Agregar Juego:</label> <input
+															type="button" class="btn btn-primary" value="Agregar">
+													</div>
 												</div>
 											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">Nombre del Equipo 2:</label>
-												<div class="col-sm-10">
-													<input type="text" class="form-control" placeholder="">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">Descripción:</label>
-												<div class="col-sm-10">
-													<input type="text" class="form-control"
-														placeholder="">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">Fecha</label>
-												<div class="col-sm-2">
-													<div class="form-group" id="fecha_1">
-														<div class="input-group date">
-															<span class="input-group-addon"><i
-																class="fa fa-calendar"></i></span><input type="text"
-																class="form-control" value="11/05/2018"
-																disabled="disabled">
+											<div class="row">
+												<div class="col-lg-12">
+													<div class="ibox">
+														<div class="ibox-content">
+															<table
+																class="footable table table-stripped toggle-arrow-tiny"
+																data-page-size="15">
+																<thead>
+																	<tr>
+
+																		<th data-toggle="true">Id</th>
+																		<th data-hide="phone">Equipo 1</th>
+																		<th data-hide="all">Puntuación E1</th>
+																		<th data-hide="phone">Equipo 2</th>
+																		<th data-hide="phone,tablet">Puntuación E2</th>
+																		<th data-hide="phone">Status</th>
+																		<th class="text-center" data-sort-ignore="true">Acción</th>
+
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>001</td>
+																		<td>Alemania</td>
+																		<td>0</td>
+																		<td>México</td>
+																		<td>0</td>
+																		<td><span class="label label-success">Por
+																				Disputar</span></td>
+																		<td class="text-right">
+																			<div class="btn-group">
+																				<button class="btn btn-info">Ver</button>
+																				<button class="btn btn-warning">Editar</button>
+																				<button class="btn btn-danger">Eliminar</button>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>002</td>
+																		<td>Suecia</td>
+																		<td>0</td>
+																		<td>Corea del Sur</td>
+																		<td>0</td>
+																		<td><span class="label label-success">Por
+																				Disputar</span></td>
+																		<td class="text-right">
+																			<div class="btn-group">
+																				<button class="btn btn-info">Ver</button>
+																				<button class="btn btn-warning">Editar</button>
+																				<button class="btn btn-danger">Eliminar</button>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>003</td>
+																		<td>México</td>
+																		<td>0</td>
+																		<td>Corea del Sur</td>
+																		<td>0</td>
+																		<td><span class="label label-success">Por
+																				Disputar</span></td>
+																		<td class="text-right">
+																			<div class="btn-group">
+																				<button class="btn btn-info">Ver</button>
+																				<button class="btn btn-warning">Editar</button>
+																				<button class="btn btn-danger">Eliminar</button>
+																			</div>
+																		</td>
+																	</tr>
+
+																</tbody>
+																<tfoot>
+																	<tr>
+																		<td colspan="2">
+																			<ul class="pagination pull-right"></ul>
+																		</td>
+																		<td colspan="8"><input type="button" class="btn pull-right btn-primary"
+																			value="Completar creación"></td>
+																		
+																	</tr>
+
+																</tfoot>
+															</table>
+
 														</div>
 													</div>
 												</div>
 											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">Quantity:</label>
-												<div class="col-sm-10">
-													<input type="text" class="form-control"
-														placeholder="Quantity">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">Minimum
-													quantity:</label>
-												<div class="col-sm-10">
-													<input type="text" class="form-control" placeholder="2">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">Sort order:</label>
-												<div class="col-sm-10">
-													<input type="text" class="form-control" placeholder="0">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="col-sm-2 control-label">Status:</label>
-												<div class="col-sm-10">
-													<select class="form-control">
-														<option>option 1</option>
-														<option>option 2</option>
-													</select>
-												</div>
-											</div>
+
 										</fieldset>
 									</div>
 								</div>
