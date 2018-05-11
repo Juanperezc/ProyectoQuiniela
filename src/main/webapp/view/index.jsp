@@ -55,7 +55,8 @@
 										<div class="item active">
 											<img alt="image" class="img-responsive" src="https://hdwallsource.com/img/2015/9/sports-wallpaper-47735-49291-hd-wallpapers.jpg">
 											<div class="carousel-caption">
-												<p>This is simple caption 1</p>
+												<p>El clásico más visto del mundo se llevó acabo el cual fue un encuentro muy 
+												   emocionante tanto para los televidentes, como los que lo presenciaron</p>
 											</div>
 										</div>
 										<div class="item ">
