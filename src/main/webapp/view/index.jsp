@@ -53,21 +53,21 @@
 									</ol>
 									<div class="carousel-inner">
 										<div class="item active">
-											<img alt="image" class="img-responsive" src="https://hdwallsource.com/img/2015/9/sports-wallpaper-47735-49291-hd-wallpapers.jpg">
+											<img alt="image" class="img-responsive" src="/mundial-russia.jpg">
 											<div class="carousel-caption">
-												<p>This is simple caption 1</p>
+												<p>Quinielas listas para el mundial, que gane el mejor</p>
 											</div>
 										</div>
 										<div class="item ">
-											<img alt="image" class="img-responsive" src="http://www.gsfdcy.com/data/img/81/2086778-sport-wallpaper.jpg">
+											<img alt="image" class="img-responsive" src="/bvsm.jpg">
 											<div class="carousel-caption">
-												<p>This is simple caption 2</p>
+												<p>El ultimo clasico del futbol español se disputara, igual que su quiniela</p>
 											</div>
 										</div>
 										<div class="item">
-											<img alt="image" class="img-responsive" src="https://images.alphacoders.com/484/484929.jpg">
+											<img alt="image" class="img-responsive" src="/twitter.jpeg">
 											<div class="carousel-caption">
-												<p>This is simple caption 3</p>
+												<p>Siguenos en Twitter</p>
 											</div>
 										</div>
 									</div>

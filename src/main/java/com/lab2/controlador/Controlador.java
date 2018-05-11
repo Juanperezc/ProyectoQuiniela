@@ -62,6 +62,18 @@ public class Controlador {
 		return "crearQuiniela";
 	}
 	
+	@RequestMapping("/misQuinielas")
+	public String showmisQuinielas() {
+		return "misquinielas";
+	}
+	@RequestMapping("/verQuinielas")
+	public String showverQuinielas() {
+		return "verquinielas";
+	}
+	@RequestMapping("/modificarQuinielas")
+	public String showmodificarQuinielas() {
+		return "modificarQuinielas";
+	}
 	@RequestMapping("/pag2")
 	public String showPag2() {
 		return "500";

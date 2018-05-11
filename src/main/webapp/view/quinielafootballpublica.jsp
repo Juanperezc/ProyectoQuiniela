@@ -39,6 +39,7 @@
 				<div class="row">
 					<!-- Datos quiniela -->
 					<div class="col-lg-12">
+					<a class="btn btn-success pull-right" href="/index"> <i class = "fa fa-home"></i> </a>
 						<div class="jumbotron">
 							<h2>BarcaVsRealMadrid</h2>
 							<h5 class="text-right">Codigo de la Quiniela: 015</h5>

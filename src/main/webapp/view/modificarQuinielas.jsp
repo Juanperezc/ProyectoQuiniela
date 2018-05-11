@@ -65,14 +65,14 @@
 													quiniela:</label>
 												<div class="col-sm-6">
 													<input type="text" class="form-control"
-														placeholder="quiniela 1">
+														placeholder="BarcaVsRealMadrid">
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="col-sm-2 control-label">Deporte:</label>
 												<div class="col-sm-6">
 													<div class="form-group">
-														<select data-placeholder="Escoge un deporte..."
+														<select data-placeholder="Futbol"
 															class="chosen-select" tabindex="-1">
 															<option value="">Seleccione un deporte</option>
 															<option value="Futbol">Futbol</option>
@@ -105,7 +105,7 @@
 											<div class="form-group">
 												<label class="col-sm-2 control-label">Descripción </label>
 												<div class="col-sm-6">
-													<input type="text" class="form-control" placeholder="...">
+													<input type="text" class="form-control" placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
@@ -116,7 +116,7 @@
 														<div class="input-group date">
 															<span class="input-group-addon"><i
 																class="fa fa-calendar"></i></span><input type="text"
-																class="form-control" value="11/05/2018"
+																class="form-control" value="10/05/2018"
 																disabled="disabled" style="background-color: white">
 														</div>
 													</div>
@@ -130,7 +130,7 @@
 														<div class="input-group date">
 															<span class="input-group-addon"><i
 																class="fa fa-calendar"></i></span><input type="text"
-																class="form-control" value="11/05/2018"
+																class="form-control" value="15/06/2018"
 																disabled="disabled" style="background-color: white">
 														</div>
 													</div>
@@ -140,7 +140,7 @@
 												<label class="col-sm-2 control-label">Puntuación
 													para acierto de score del equipo ganador </label>
 												<div class="col-sm-2">
-													<input class="touchspin" type="text" value="0" name=""
+													<input class="touchspin" type="text" value="3" name=""
 														readonly="readonly" style="background-color: white">
 												</div>
 											</div>
@@ -148,7 +148,7 @@
 												<label class="col-sm-2 control-label">Puntuación
 													para acierto de score del Equipo 1 </label>
 												<div class="col-sm-2">
-													<input class="touchspin" type="text" value="0" name=""
+													<input class="touchspin" type="text" value="1" name=""
 														readonly="readonly" style="background-color: white">
 												</div>
 											</div>
@@ -156,7 +156,7 @@
 												<label class="col-sm-2 control-label">Puntuación
 													para acierto de score del Equipo 2 </label>
 												<div class="col-sm-2">
-													<input class="touchspin" type="text" value="0" name=""
+													<input class="touchspin" type="text" value="1" name=""
 														readonly="readonly" style="background-color: white">
 												</div>
 											</div>
@@ -199,61 +199,9 @@
 																<tbody>
 																	<tr>
 																		<td>001</td>
-																		<td>Alemania</td>
+																		<td>Barca</td>
 																		<td>0</td>
-																		<td>México</td>
-																		<td>0</td>
-																		<td><span class="label label-success">Por
-																				Disputar</span></td>
-																		<td class="text-right">
-																			<div class="btn-group">
-																				<button class="btn btn-info">Ver</button>
-																				<button class="btn btn-warning">Editar</button>
-																				<button class="btn btn-large btn-primary btn-danger" 
-											data-toggle="confirmation" data-btn-ok-label="SI"
-											data-btn-ok-class="btn-success"
-											data-btn-ok-icon-class="material-icons"
-											data-btn-ok-icon-content="check" data-btn-cancel-label="NO"
-											data-btn-cancel-class="btn-danger"
-											data-btn-cancel-icon-class="material-icons"
-											data-btn-cancel-icon-content="close"
-											data-title="¿Esta Seguro?"
-											data-content="Estos resultados no podran ser cambiados"
-											data-placement="top">Eliminar</button>
-																			</div>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>002</td>
-																		<td>Suecia</td>
-																		<td>0</td>
-																		<td>Corea del Sur</td>
-																		<td>0</td>
-																		<td><span class="label label-success">Por
-																				Disputar</span></td>
-																		<td class="text-right">
-																			<div class="btn-group">
-																				<button class="btn btn-info">Ver</button>
-																				<button class="btn btn-warning">Editar</button>
-																				<button class="btn btn-large btn-primary btn-danger" 
-											data-toggle="confirmation" data-btn-ok-label="SI"
-											data-btn-ok-class="btn-success"
-											data-btn-ok-icon-class="material-icons"
-											data-btn-ok-icon-content="check" data-btn-cancel-label="NO"
-											data-btn-cancel-class="btn-danger"
-											data-btn-cancel-icon-class="material-icons"
-											data-btn-cancel-icon-content="close"
-											data-title="¿Esta Seguro?"
-											data-content="Estos resultados no podran ser cambiados"
-											data-placement="top">Eliminar</button>
-																			</div>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td>003</td>
-																		<td>México</td>
-																		<td>0</td>
-																		<td>Corea del Sur</td>
+																		<td>Real Madrid</td>
 																		<td>0</td>
 																		<td><span class="label label-success">Por
 																				Disputar</span></td>
@@ -283,7 +231,7 @@
 																			<ul class="pagination pull-right"></ul>
 																		</td>
 																		<td colspan="8"><input type="button" class="btn pull-right btn-primary"
-																			value="Completar creación"></td>
+																			value="Completar modificacion"></td>
 																		
 																	</tr>
 
