@@ -34,7 +34,7 @@
 <body class="skin-1 pace-done fixed-sidebar mini-navbar body-small">
 
 	<div id="wrapper">
-		<!--  menu sidebar -->
+		<!--  menu sidebar  -->
 		<%@ include file="layouts/menu.jsp"%>
 		<!--  end menu sidebar -->
 		<div id="page-wrapper" class="gray-bg">
