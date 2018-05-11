@@ -105,8 +105,8 @@
 											<th>Codigo</th>
 											<th>Quiniela</th>
 											<th data-hide="phone,tablet">Deporte</th>
-											<th>Fin de Registros</th>
-											<th data-hide="phone,tablet">Fin de la Quiniela</th>
+											<th>Fecha de Apertura</th>
+											<th data-hide="phone,tablet">Fecha de Cierre</th>
 											<th>Privada</th>
 											<th>Ingresar</th>
 										</tr>
@@ -115,22 +115,22 @@
 										<tr class="gradeX">
 											<td class="center"></td>
 											<td class="center">002</td>
-											<td class="center">Mundial de Futbol 2018</td>
+											<td class="center">Mundial de Futbol 2018 Grupo B</td>
 											<td class="center hide-text"> <img alt="Bootstrap Image Preview" src="/ico/football.png" class="img-responsive icono-deporte"> <div> Football</div> </td>
 											<td class="center">5/5/2018</td>
 											<td class="center">5/6/2018</td>
 											<td class="center">SI</td>
-											<td class="center"> <a href="/quiniela" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a href="/quiniela4" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 										<tr class="gradeC">
 											<td class="center"></td>
 											<td class="center">003</td>
-											<td class="center">Mundial de Futbol 2018</td>
+											<td class="center">Mundial de Futbol 2018 Grupo F</td>
 											<td class="center"><img alt="Bootstrap Image Preview" src="/ico/football.png" class="img-responsive icono-deporte"><div> Football</div></td>
 											<td class="center">5/5/2018</td>
 											<td class="center">5/6/2018</td>
 											<td class="center">NO</td>
-											<td class="center"> <a href="#" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a href="/quiniela3" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 										<tr class="gradeA">
 											<td class="center"></td>
