@@ -52,7 +52,7 @@
 										<strong>Juan Perez</strong>
 									</h4>
 									<p>
-										<i class="fa fa-map-marker"></i> 21 aï¿½os
+										<i class="fa fa-map-marker"></i> 21 años
 									</p>
 								
 									<div class="row m-t-lg">
@@ -111,7 +111,7 @@
 									</div>
 									<div class="hr-line-dashed"></div>
 									<div class="form-group">
-										<label class="col-sm-2 control-label">ContraseÃ±a</label>
+										<label class="col-sm-2 control-label">Contraseña</label>
 
 										<div class="col-sm-10">
 											<input type="password" class="form-control" name="password">
@@ -119,7 +119,7 @@
 									</div>
 															<div class="hr-line-dashed"></div>
 									<div class="form-group">
-										<label class="col-sm-2 control-label">Repite tu contraseÃ±a</label>
+										<label class="col-sm-2 control-label">Repite tu contraseña</label>
 
 										<div class="col-sm-10">
 											<input type="password" class="form-control" name="password">
