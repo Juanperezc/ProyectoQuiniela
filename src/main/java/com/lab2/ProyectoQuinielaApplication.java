@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ProyectoQuinielaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ProyectoQuinielaApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(ProyectoQuinielaApplication.class, args);
+  }
 }
