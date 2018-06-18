@@ -27,10 +27,10 @@ public class Controlador {
 		return "index";
 	}
 
-	@RequestMapping("/login")
+	/*@RequestMapping("/login")
 	public String showLogin() {
 		return "login";
-	}
+	}*/
 
 	@RequestMapping("/quinielaFootballPublica")
 	public String showquinielafootballpublica() {
@@ -52,10 +52,10 @@ public class Controlador {
 		return "quinielamundialprivada";
 	}
 
-	@RequestMapping("/register")
+	/*@RequestMapping("/register")
 	public String showRegister() {
 		return "register";
-	}
+	}*/
 
 	@RequestMapping("/profile")
 	public String showProfile() {
