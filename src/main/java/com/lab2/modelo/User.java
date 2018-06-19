@@ -19,7 +19,7 @@ import javax.validation.constraints.NotEmpty;
 import org.springframework.data.annotation.Transient;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User extends AuditModel{
 
 	@Id
