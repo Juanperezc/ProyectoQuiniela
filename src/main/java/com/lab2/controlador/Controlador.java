@@ -1,6 +1,5 @@
 package com.lab2.controlador;
 
-import java.util.List;
 import com.lab2.modelo.User;
 import com.lab2.repositorio.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
