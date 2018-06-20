@@ -17,10 +17,7 @@ public class Controlador {
 
 
 	
-	@RequestMapping("/")
-	public String index() {
-		return "index";
-	}
+
 
 	@RequestMapping("/index")
 	public String showIndex() {
