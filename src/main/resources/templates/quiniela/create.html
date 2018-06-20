@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 
 <meta charset="UTF-8">
@@ -8,24 +8,24 @@
 
 <title>Crear quiniela</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
 
-<link href="css/animate.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link th:href="@{/css/animate.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
 
 <!--  separados -->
 
 <!-- FooTable -->
-<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+<link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
 
 <!-- componentes personalizados  -->
-<link href="css/plugins/select2/select2.min.css" rel="stylesheet">
+<link th:href="@{/css/plugins/select2/select2.min.css}" rel="stylesheet">
 <link
-	href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css"
+	th:href="@{/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css}"
 	rel="stylesheet">
-<link href="css/plugins/chosen/bootstrap-chosen.css" rel="stylesheet">
-<link href="css/plugins/touchspin/jquery.bootstrap-touchspin.min.css"
+<link th:href="@{/css/plugins/chosen/bootstrap-chosen.css}" rel="stylesheet">
+<link th:href="@{/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css}"
 	rel="stylesheet">
 
 
@@ -35,11 +35,11 @@
 
 	<div id="wrapper">
 		<!--  menu sidebar  -->
-		<%@ include file="layouts/menu.jsp"%>
+		<div th:replace="layouts/menu :: menu"/>
 		<!--  end menu sidebar -->
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row border-bottom">
-				<%@ include file="layouts/topbar.jsp"%>
+					<div th:replace="layouts/topbar :: topbar"/>
 			</div>
 
 			<!--  content ! -->
@@ -50,8 +50,8 @@
 						<div class="tabs-container">
 							<ul class="nav nav-tabs">
 								<li class="active"><a data-toggle="tab" href="#tab-1">
-										Información general</a></li>
-								<li class=""><a data-toggle="tab" href="#tab-2">Información
+										Informaciï¿½n general</a></li>
+								<li class=""><a data-toggle="tab" href="#tab-2">Informaciï¿½n
 										juegos</a></li>
 
 							</ul>
@@ -103,7 +103,7 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Descripción </label>
+												<label class="col-sm-2 control-label">Descripciï¿½n </label>
 												<div class="col-sm-6">
 													<input type="text" class="form-control" placeholder="...">
 												</div>
@@ -137,7 +137,7 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Puntuación
+												<label class="col-sm-2 control-label">Puntuaciï¿½n
 													para acierto de score del equipo ganador </label>
 												<div class="col-sm-2">
 													<input class="touchspin" type="text" value="0" name=""
@@ -145,7 +145,7 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Puntuación
+												<label class="col-sm-2 control-label">Puntuaciï¿½n
 													para acierto de score del Equipo 1 </label>
 												<div class="col-sm-2">
 													<input class="touchspin" type="text" value="0" name=""
@@ -153,7 +153,7 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="col-sm-2 control-label">Puntuación
+												<label class="col-sm-2 control-label">Puntuaciï¿½n
 													para acierto de score del Equipo 2 </label>
 												<div class="col-sm-2">
 													<input class="touchspin" type="text" value="0" name=""
@@ -210,7 +210,7 @@
 																		</div>
 																	</div>
 																	<div class="form-group">
-																		<label class="col-sm-2 control-label">Descripción:</label>
+																		<label class="col-sm-2 control-label">Descripciï¿½n:</label>
 																		<div class="col-sm-10">
 																			<input type="text" class="form-control"
 																				placeholder="">
@@ -252,7 +252,7 @@
 																			class="sr-only">Close</span>
 																	</button>
 																	<i class="fa fa-futbol-o modal-icon"></i>
-																	<h3 class="modal-title">Información de juego
+																	<h3 class="modal-title">Informaciï¿½n de juego
 																		seleccionado</h3>
 																</div>
 																<div class="modal-body">
@@ -273,7 +273,7 @@
 																		</div>
 																	</div>
 																	<div class="form-group">
-																		<label class="col-sm-2 control-label">Descripción:</label>
+																		<label class="col-sm-2 control-label">Descripciï¿½n:</label>
 																		<div class="col-sm-10">
 																			<input type="text" class="form-control"
 																				placeholder="" disabled="disabled">
@@ -313,7 +313,7 @@
 																			class="sr-only">Close</span>
 																	</button>
 																	<i class="fa fa-futbol-o modal-icon"></i>
-																	<h4 class="modal-title">Edición de informacion</h4>
+																	<h4 class="modal-title">Ediciï¿½n de informacion</h4>
 																	<small class="font-bold">Por favor modifique
 																		los datos de su interes, sin dejar campos sin llenar</small>
 																</div>
@@ -335,7 +335,7 @@
 																		</div>
 																	</div>
 																	<div class="form-group">
-																		<label class="col-sm-2 control-label">Descripción:</label>
+																		<label class="col-sm-2 control-label">Descripciï¿½n:</label>
 																		<div class="col-sm-10">
 																			<input type="text" class="form-control"
 																				placeholder="">
@@ -382,11 +382,11 @@
 
 																		<th data-toggle="true">Id</th>
 																		<th data-hide="phone">Equipo 1</th>
-																		<th data-hide="all">Puntuación E1</th>
+																		<th data-hide="all">Puntuaciï¿½n E1</th>
 																		<th data-hide="phone">Equipo 2</th>
-																		<th data-hide="phone,tablet">Puntuación E2</th>
+																		<th data-hide="phone,tablet">Puntuaciï¿½n E2</th>
 																		<th data-hide="phone">Status</th>
-																		<th class="text-center" data-sort-ignore="true">Acción</th>
+																		<th class="text-center" data-sort-ignore="true">Acciï¿½n</th>
 
 																	</tr>
 																</thead>
@@ -395,7 +395,7 @@
 																		<td>001</td>
 																		<td>Alemania</td>
 																		<td>0</td>
-																		<td>México</td>
+																		<td>Mï¿½xico</td>
 																		<td>0</td>
 																		<td><span class="label label-success">Por
 																				Disputar</span></td>
@@ -414,7 +414,7 @@
 																					data-btn-cancel-class="btn-danger"
 																					data-btn-cancel-icon-class="material-icons"
 																					data-btn-cancel-icon-content="close"
-																					data-title="¿Esta Seguro?"
+																					data-title="ï¿½Esta Seguro?"
 																					data-content="Estos resultados no podran ser cambiados"
 																					data-placement="top">Eliminar</button>
 																			</div>
@@ -443,7 +443,7 @@
 																					data-btn-cancel-class="btn-danger"
 																					data-btn-cancel-icon-class="material-icons"
 																					data-btn-cancel-icon-content="close"
-																					data-title="¿Esta Seguro?"
+																					data-title="ï¿½Esta Seguro?"
 																					data-content="Estos resultados no podran ser cambiados"
 																					data-placement="top">Eliminar</button>
 																			</div>
@@ -453,7 +453,7 @@
 																		<td>003</td>
 																		<td>Corea del Sur</td>
 																		<td>0</td>
-																		<td>México</td>
+																		<td>Mï¿½xico</td>
 																		<td>0</td>
 																		<td><span class="label label-success">Por
 																				Disputar</span></td>
@@ -472,7 +472,7 @@
 																					data-btn-cancel-class="btn-danger"
 																					data-btn-cancel-icon-class="material-icons"
 																					data-btn-cancel-icon-content="close"
-																					data-title="¿Esta Seguro?"
+																					data-title="ï¿½Esta Seguro?"
 																					data-content="Estos resultados no podran ser cambiados"
 																					data-placement="top">Eliminar</button>
 																			</div>
@@ -487,7 +487,7 @@
 																		</td>
 																		<td colspan="8"><input type="button"
 																			class="btn pull-right btn-primary"
-																			value="Completar creación"></td>
+																			value="Completar creaciï¿½n"></td>
 
 																	</tr>
 
@@ -507,7 +507,7 @@
 					</div>
 				</div>
 			</div>
-			<%@ include file="layouts/footer.jsp"%>
+			<div th:replace="layouts/footer :: footer"/>
 		</div>
 
 	</div>
@@ -515,30 +515,30 @@
 
 
 	<!-- Mainly scripts -->
-	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-confirmation.js"></script>
-	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-	<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/bootstrap-confirmation.js}"></script>
+	<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+	<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
 	<!-- Select2 -->
-	<script src="js/plugins/select2/select2.full.min.js"></script>
+	<script th:src="@{/js/plugins/select2/select2.full.min.js}"></script>
 
 	<!-- Chosen -->
-	<script src="js/plugins/chosen/chosen.jquery.js"></script>
+	<script th:src="@{/js/plugins/chosen/chosen.jquery.js}"></script>
 
 	<!-- FooTable -->
-	<script src="js/plugins/footable/footable.all.min.js"></script>
+	<script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
 
 	<!-- Custom and plugin javascript -->
-	<script src="js/inspinia.js"></script>
-	<script src="js/plugins/pace/pace.min.js"></script>
+	<script th:src="@{/js/inspinia.js}"></script>
+	<script th:src="@{/js/plugins/pace/pace.min.js}"></script>
 	<!-- Date picker -->
-	<script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
-	<script src="js/plugins/fullcalendar/moment.min.js"></script>
-	<script src="js/plugins/daterangepicker/daterangepicker.js"></script>
+	<script th:src="@{/js/plugins/datapicker/bootstrap-datepicker.js}"></script>
+	<script th:src="@{/js/plugins/fullcalendar/moment.min.js}"></script>
+	<script th:src="@{/js/plugins/daterangepicker/daterangepicker.js}"></script>
 	<!-- TouchSpin -->
-	<script src="js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
+	<script th:src="@{/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js}"></script>
 	<script>
 		$('#fecha_1 .input-group.date').datepicker({
 			todayBtn : "linked",

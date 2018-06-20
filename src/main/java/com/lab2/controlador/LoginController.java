@@ -27,6 +27,13 @@ public class LoginController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value = { "/index" }, method = RequestMethod.GET)
+	public ModelAndView index() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("index");
+		return modelAndView;
+	}
+
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView register() {
 		ModelAndView modelAndView = new ModelAndView();

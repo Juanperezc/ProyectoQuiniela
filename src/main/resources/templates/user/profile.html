@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 
 <meta charset="utf-8">
@@ -8,16 +8,16 @@
 
 <title>Quiniela | Main view</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+<link th:href="css/bootstrap.min.css" rel="stylesheet">
+<link th:href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
-<link href="css/animate.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link th:href="css/animate.css" rel="stylesheet">
+<link th:href="css/style.css" rel="stylesheet">
 
 <!--  separados -->
 
 <!-- FooTable -->
-<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+<link th:href="css/plugins/footable/footable.core.css" rel="stylesheet">
 
 <!--   -->
 </head>
@@ -26,11 +26,11 @@
 
 	<div id="wrapper">
 		<!--  menu sidebar -->
-		<%@ include file="layouts/menu.jsp"%>
+		<div th:replace="layouts/menu :: menu"/>
 		<!--  end menu sidebar -->
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row border-bottom">
-				<%@ include file="layouts/topbar.jsp"%>
+					<div th:replace="layouts/topbar :: topbar"/>
 			</div>
 
 			<!--  content ! -->
@@ -52,7 +52,7 @@
 										<strong>Juan Perez</strong>
 									</h4>
 									<p>
-										<i class="fa fa-map-marker"></i> 21 años
+										<i class="fa fa-map-marker"></i> 21 aï¿½os
 									</p>
 								
 									<div class="row m-t-lg">
@@ -111,7 +111,7 @@
 									</div>
 									<div class="hr-line-dashed"></div>
 									<div class="form-group">
-										<label class="col-sm-2 control-label">Contraseña</label>
+										<label class="col-sm-2 control-label">Contraseï¿½a</label>
 
 										<div class="col-sm-10">
 											<input type="password" class="form-control" name="password">
@@ -119,7 +119,7 @@
 									</div>
 															<div class="hr-line-dashed"></div>
 									<div class="form-group">
-										<label class="col-sm-2 control-label">Repite tu contraseña</label>
+										<label class="col-sm-2 control-label">Repite tu contraseï¿½a</label>
 
 										<div class="col-sm-10">
 											<input type="password" class="form-control" name="password">
@@ -144,7 +144,7 @@
 
 			<!--  end content! -->
 
-			<%@ include file="layouts/footer.jsp"%>
+			<div th:replace="layouts/footer :: footer"/>
 		</div>
 	</div>
 

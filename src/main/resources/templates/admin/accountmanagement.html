@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 
 <meta charset="utf-8">
@@ -8,16 +8,16 @@
 
 <title>Quiniela | Administrar Cuenta</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
 
-<link href="css/animate.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link th:href="@{/css/animate.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
 
 <!--  separados -->
 
 <!-- FooTable -->
-<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+<link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
 
 <!--   -->
 </head>
@@ -26,11 +26,11 @@
 
 	<div id="wrapper">
 		<!--  menu sidebar -->
-		<%@ include file="layouts/menu.jsp"%>
+		<div th:replace="layouts/menu :: menu"/>
 		<!--  end menu sidebar -->
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row border-bottom">
-				<%@ include file="layouts/topbar.jsp"%>
+                    <div th:replace="layouts/topbar :: topbar"/>
 			</div>
 	<!--  include file="layouts/heading.jsp"  -->
 			<!--  content ! -->
@@ -159,7 +159,7 @@
 
 			<!--  end content! -->
 
-			<%@ include file="layouts/footer.jsp"%>
+			<div th:replace="layouts/footer :: footer"/>
 		</div>
 	</div>
 
@@ -168,17 +168,17 @@
 
 
 	<!-- Mainly scripts -->
-	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-	<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+	<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
 	<!-- FooTable -->
-	<script src="js/plugins/footable/footable.all.min.js"></script>
+	<script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
 
 	<!-- Custom and plugin javascript -->
-	<script src="js/inspinia.js"></script>
-	<script src="js/plugins/pace/pace.min.js"></script>
+	<script th:src="@{/js/inspinia.js}"></script>
+	<script th:src="@{/js/plugins/pace/pace.min.js}"></script>
 
 	<!-- Page-Level Scripts -->
 	<script>

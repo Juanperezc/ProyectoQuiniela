@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 
 <meta charset="utf-8">
@@ -8,16 +8,16 @@
 
 <title>Quiniela | Main view</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
 
-<link href="css/animate.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link th:href="@{/css/animate.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
 
 <!--  separados -->
 
 <!-- FooTable -->
-<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+<link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
 
 <!--   -->
 </head>
@@ -26,11 +26,12 @@
 
 	<div id="wrapper">
 		<!--  menu sidebar -->
-		<%@ include file="layouts/menu.jsp"%>
+
+		<div th:replace="layouts/menu :: menu"/>
 		<!--  end menu sidebar -->
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row border-bottom">
-				<%@ include file="layouts/topbar.jsp"%>
+				<div th:replace="layouts/topbar :: topbar"/>
 			</div>
 
 			<!--  content ! -->
@@ -61,7 +62,7 @@
 										<div class="item ">
 											<img alt="image" class="img-responsive" src="/img/bvsm.png">
 											<div class="carousel-caption">
-												<p>El ultimo clasico del futbol español se disputara, igual que su quiniela</p>
+												<p>El ultimo clasico del futbol espaï¿½ol se disputara, igual que su quiniela</p>
 											</div>
 										</div>
 										<div class="item">
@@ -120,7 +121,7 @@
 											<td class="center">5/5/2018</td>
 											<td class="center">5/6/2018</td>
 											<td class="center">SI</td>
-											<td class="center"> <a href="/quinielaMundialPrivada" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a  href="/quinielaMundialPrivada" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 										<tr class="gradeC">
 											<td class="center"></td>
@@ -130,7 +131,7 @@
 											<td class="center">5/5/2018</td>
 											<td class="center">5/6/2018</td>
 											<td class="center">NO</td>
-											<td class="center"> <a href="/quinielaMundialPublica" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a  href="/quinielaMundialPublica" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 										<tr class="gradeA">
 											<td class="center"></td>
@@ -140,7 +141,7 @@
 											<td class="center">10/5/2018</td>
 											<td class="center">15/6/2018</td>
 											<td class="center">NO</td>
-											<td class="center"> <a href="/quinielaFootballPublica" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a  href="/quinielaFootballPublica" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 										<tr class="gradeA">
 											<td class="center"></td>
@@ -150,7 +151,7 @@
 											<td class="center">25/5/2018</td>
 											<td class="center">26/5/2018</td>
 											<td class="center">NO</td>
-											<td class="center"> <a href="/quinielaBaseballPublica" ><button type="button" class="btn btn-success">ir</button> </a></td>
+											<td class="center"> <a  href="/quinielaBaseballPublica" ><button type="button" class="btn btn-success">ir</button> </a></td>
 										</tr>
 									</tbody>
 									<tfoot>
@@ -168,8 +169,7 @@
 			</div>
 
 			<!--  end content! -->
-
-			<%@ include file="layouts/footer.jsp"%>
+			<div th:insert="layouts/footer :: footer"/>
 		</div>
 	</div>
 

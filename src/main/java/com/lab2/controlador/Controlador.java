@@ -18,11 +18,12 @@ public class Controlador {
 
 	
 
+	
 
-	@RequestMapping("/index")
+	/* @RequestMapping("/index")
 	public String showIndex() {
 		return "index";
-	}
+	} */
 
 	/*@RequestMapping("/login")
 	public String showLogin() {

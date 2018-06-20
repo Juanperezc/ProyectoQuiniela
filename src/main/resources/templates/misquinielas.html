@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 
 <meta charset="utf-8">
@@ -8,16 +8,16 @@
 
 <title>Quiniela | Main view</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+<link th:href="css/bootstrap.min.css" rel="stylesheet">
+<link th:href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
-<link href="css/animate.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link th:href="css/animate.css" rel="stylesheet">
+<link th:href="css/style.css" rel="stylesheet">
 
 <!--  separados -->
 
 <!-- FooTable -->
-<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+<link th:href="css/plugins/footable/footable.core.css" rel="stylesheet">
 
 <!--   -->
 </head>
@@ -26,11 +26,11 @@
 
 	<div id="wrapper">
 		<!--  menu sidebar -->
-		<%@ include file="layouts/menu.jsp"%>
+		<div th:replace="layouts/menu :: menu"/>
 		<!--  end menu sidebar -->
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row border-bottom">
-				<%@ include file="layouts/topbar.jsp"%>
+					<div th:replace="layouts/topbar :: topbar"/>
 			</div>
 
 			<!--  content ! -->
@@ -73,8 +73,8 @@
 											<td class="center"> 
 											
 											<div class="btn-group" role="group" aria-label="...">
-  										 		 <a href="/quinielaFootballPublica" class="btn btn-success">Ver </a>
-  												<a href="/modificarQuinielas" class="btn btn-warning"> Modificar </a>
+  										 		 <a th:href="/quinielaFootballPublica" class="btn btn-success">Ver </a>
+  												<a th:href="/modificarQuinielas" class="btn btn-warning"> Modificar </a>
   												<button class="btn btn-large btn-primary btn-danger" 
 											data-toggle="confirmation" data-btn-ok-label="SI"
 											data-btn-ok-class="btn-success"
@@ -83,7 +83,7 @@
 											data-btn-cancel-class="btn-danger"
 											data-btn-cancel-icon-class="material-icons"
 											data-btn-cancel-icon-content="close"
-											data-title="¿Esta Seguro?"
+											data-title="ï¿½Esta Seguro?"
 											data-content="Estos resultados no podran ser cambiados"
 											data-placement="top">Eliminar</button>
 											</div>	
@@ -110,7 +110,7 @@
 
 			<!--  end content! -->
 
-			<%@ include file="layouts/footer.jsp"%>
+			<div th:replace="layouts/topbar :: topbar"/>
 		</div>
 	</div>
 
