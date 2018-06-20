@@ -11,16 +11,24 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "team")
+@Table(name = "sport")
 
-public class Team extends AuditModel {
+public class Sport extends AuditModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	@Column(name = "team_id")
-	private int id;
+	@Column(name = "sport_id")
+    private int id;
+    
+    @Column(name = "name")
+	private String name;
+
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "liga_id", nullable = false)
+	private Liga liga;
 	
-	private Team() {
+	private Sport() {
 		
 	}
 	public int getId() {
@@ -39,11 +47,6 @@ public class Team extends AuditModel {
 		this.name = name;
 	}
 
-	@Column(name = "name")
-	private String name;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "liga_id", nullable = false)
-	private Liga liga;
 }
 
