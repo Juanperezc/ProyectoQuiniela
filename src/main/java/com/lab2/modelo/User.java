@@ -1,5 +1,7 @@
 package com.lab2.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -48,9 +50,18 @@ public class User extends AuditModel{
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "quiniela_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Quiniela> quinielas;
+	@OneToMany(
+        mappedBy = "user",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+	)	
+	private List<QuinielaUser> quinielas = new ArrayList<>();
+
+	@OneToMany(
+		mappedBy = "user",
+		cascade = javax.persistence.CascadeType.ALL,
+		orphanRemoval = true)	
+	private List<GameUser> games = new ArrayList<>();
 	public int getId() {
 		return id;
 	}
