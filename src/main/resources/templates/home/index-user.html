@@ -139,7 +139,7 @@
                                                 <td class="center" th:text="${quiniela.id}"></td>
                                                 <td class="center" th:text="${quiniela.name}"></td>
                                                 <td class="center hide-text" th:switch="${quiniela.sport}">
-                                                    <span th:case="'Futbol'">
+                                                   <!--  <span th:case="'Futbol'">
                                                         <img 
                                                             alt="Futbol"
                                                             src="/ico/football.png"
@@ -194,11 +194,11 @@
                                                                 src="/ico/dota2.png"
                                                                 class="img-responsive icono-deporte">
                                                                 Dota 2
-                                                    </span>
+                                                    </span> -->
                                                     <span th:case="*">
                                                             <img 
                                                                 th:alt="${deporte.name}"
-                                                                th:src="/ico/${deporte.name}.png"
+                                                                th:src="ico/${deporte.name}.png"
                                                                 class="img-responsive icono-deporte">
                                                                 <span th:text="${quiniela.start}"></span>
                                                     </span>
