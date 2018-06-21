@@ -139,68 +139,12 @@
                                                 <td class="center" th:text="${quiniela.id}"></td>
                                                 <td class="center" th:text="${quiniela.name}"></td>
                                                 <td class="center hide-text" th:switch="${quiniela.sport}">
-                                                   <!--  <span th:case="'Futbol'">
-                                                        <img 
-                                                            alt="Futbol"
-                                                            src="/ico/football.png"
-                                                            class="img-responsive icono-deporte">
-                                                            Futbol
-                                                    </span>    
-                                                    <span th:case="'Beisbol'">
-                                                        <img 
-                                                            alt="Beisbol"
-                                                            src="/ico/baseball.png"
-                                                            class="img-responsive icono-deporte">
-                                                            Beisbol
-                                                    </span> 
-                                                    <span th:case="'Baloncesto'">
-                                                            <img 
-                                                                alt="Baloncesto"
-                                                                src="/ico/basketball.png"
-                                                                class="img-responsive icono-deporte">
-                                                                Baloncesto
-                                                    </span>
-                                                    <span th:case="'Hockey'">
-                                                            <img 
-                                                                alt="Hockey"
-                                                                src="/ico/hockey.png"
-                                                                class="img-responsive icono-deporte">
-                                                                Hockey
-                                                    </span>
-                                                    <span th:case="'Rugby'">
-                                                            <img 
-                                                                alt="Rugby"
-                                                                src="/ico/rugby.png"
-                                                                class="img-responsive icono-deporte">
-                                                                Rugby
-                                                    </span>
-                                                    <span th:case="'WaterPolo'">
-                                                            <img 
-                                                                alt="WaterPolo"
-                                                                src="/ico/water-polo.png"
-                                                                class="img-responsive icono-deporte">
-                                                                WaterPolo
-                                                    </span> 
-                                                    <span th:case="'Lol'">
-                                                            <img 
-                                                                alt="Lol"
-                                                                src="/ico/lol.png"
-                                                                class="img-responsive icono-deporte">
-                                                                Lol
-                                                    </span>
-                                                    <span th:case="'Dota2'">
-                                                            <img 
-                                                                alt="Dota 2"
-                                                                src="/ico/dota2.png"
-                                                                class="img-responsive icono-deporte">
-                                                                Dota 2
-                                                    </span> -->
                                                     <span th:case="*">
                                                             <img 
-                                                                th:alt="${deporte.name}"
-                                                                th:src="ico/${deporte.name}.png"
+                                                                th:alt="${quiniela.sport}"
+                                                                th:src="@{${'/ico/'+quiniela.sport+'.png'}}"
                                                                 class="img-responsive icono-deporte">
-                                                                <span th:text="${quiniela.start}"></span>
+                                                                <span th:text="${quiniela.sport}"></span>
                                                     </span>
 
                                                 </td>
