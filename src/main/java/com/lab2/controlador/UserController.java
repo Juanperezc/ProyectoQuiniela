@@ -15,16 +15,23 @@ import com.lab2.modelo.User;
 import com.lab2.servicios.UserService;
 
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/user")
+public class UserController {
 
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = { "/account-management" }, method = RequestMethod.GET)
-	public ModelAndView accountmanagement() {
+	@RequestMapping(value = {"/myprofile"}, method = RequestMethod.GET)
+	public ModelAndView profile() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/admin/account-management");
+		modelAndView.setViewName("/user/profile");
 		return modelAndView;
 	}
+	@RequestMapping(value = {"/myleague" }, method = RequestMethod.GET)
+	public ModelAndView league() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/user/league");
+		return modelAndView;
+	}
+
 }

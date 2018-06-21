@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Crear Liga</title>
+
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
+
+<link th:href="@{/css/animate.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+
+<!--  separados -->
+
+<!-- FooTable -->
+<link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
+
+<!-- componentes personalizados  -->
+<link th:href="@{/css/plugins/select2/select2.min.css}" rel="stylesheet">
+<link
+	th:href="@{/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css}"
+	rel="stylesheet">
+<link th:href="@{/css/plugins/chosen/bootstrap-chosen.css}" rel="stylesheet">
+<link th:href="@{/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css}"
+	rel="stylesheet">
+
+
+</head>
+
+<body class="skin-1 pace-done fixed-sidebar mini-navbar body-small">
+
+	<div id="wrapper">
+		<!--  menu sidebar  -->
+		<div th:replace="layouts/menu :: menu"/>
+		<!--  end menu sidebar -->
+		<div id="page-wrapper" class="gray-bg">
+			<div class="row border-bottom">
+					<div th:replace="layouts/topbar :: topbar"/>
+			</div>
+
+			<!--  content ! -->
+			<div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="tabs-container">
+							<ul class="nav nav-tabs">
+								<li class="active"><a data-toggle="tab" href="#tab-1">
+										Información general</a></li>
+								<li class=""><a data-toggle="tab" href="#tab-2">Información
+										juegos</a></li>
+
+							</ul>
+							<div class="tab-content">
+								<div id="tab-1" class="tab-pane active">
+									<div class="panel-body">
+
+										<fieldset class="form-horizontal">
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Nombre de la
+													liga:</label>
+												<div class="col-sm-6">
+													<input type="text" class="form-control"
+														placeholder="quiniela 1">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label">Deporte:</label>
+												<div class="col-sm-6">
+													<div class="form-group">
+														<select data-placeholder="Escoge un deporte..."
+															class="chosen-select" tabindex="-1">
+															<option value="">Seleccione un deporte</option>
+															<option value="Futbol">Futbol</option>
+															<option value="Beisbol">Beisbol</option>
+															<option value="Hockey">Hockey</option>
+															<option value="Rugby">Rugby</option>
+															<option value="waterpolo">Waterpolo</option>
+															<option value="Lol">Lol</option>
+															<option value="Dota">Dota 2</option>
+														</select>
+													</div>
+												</div>
+
+											</div>
+										</fieldset>
+
+									</div>
+								</div>
+								<div id="tab-2" class="tab-pane">
+									<div class="panel-body">
+
+										<fieldset class="form-horizontal">
+											<div class="row">
+												<div class="form-group">
+													<div class="col-sm-6 col-sm-offset-5">
+														<label class="control-label">Agregar equipo:</label> <input
+															type="button" class="btn btn-primary" data-toggle="modal"
+															data-target="#modalNuevo" value="Agregar">
+													</div>
+
+													<!-- Modales aqui -->
+													<div class="modal inmodal" id="modalNuevo" tabindex="-1"
+														role="dialog" aria-hidden="true">
+														<div class="modal-dialog">
+															<div class="modal-content animated bounceInRight">
+																<div class="modal-header">
+																	<button type="button" class="close"
+																		data-dismiss="modal">
+																		<span aria-hidden="true">&times;</span><span
+																			class="sr-only">Close</span>
+																	</button>
+																	<i class="fa fa-futbol-o modal-icon"></i>
+																	<h4 class="modal-title">Nuevo equipo</h4>
+																	<small class="font-bold">Por favor introduzca
+																		todos los campos para agregar el juego a la Liga</small>
+																</div>
+																<div class="modal-body">
+																	<div class="form-group">
+																		<label class="col-sm-2 control-label">Nombre
+																			del Equipo</label>
+																		<div class="col-sm-10">
+																			<input type="text" class="form-control"
+																				placeholder="">
+																		</div>
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-white"
+																		data-dismiss="modal">Cerrar</button>
+																	<button type="button" class="btn btn-primary" data-dismiss="modal">Agregar
+																		Equipo</button>
+																</div>
+															</div>
+														</div>
+													</div>
+											</div>
+											<div
+                                                        class="modal inmodal" id="modalEditar" tabindex="-1" role="dialog" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content animated bounceInRight">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">
+                                                                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                                                    </button>
+                                                                    <i class="fa fa-futbol-o modal-icon"></i>
+                                                                    <h4 class="modal-title">Edici�n de informacion</h4>
+                                                                    <small class="font-bold">Por favor modifique los datos de su interes, sin dejar campos sin llenar</small>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label class="col-sm-2 control-label">Nombre del Equipo:</label>
+                                                                        <div class="col-sm-10">
+                                                                            <input type="text" class="form-control" placeholder="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+											<div class="row">
+												<div class="col-lg-12">
+													<div class="ibox">
+														<div class="ibox-content">
+															<table
+																class="footable table table-stripped toggle-arrow-tiny"
+																data-page-size="15">
+																<thead>
+																	<tr>
+
+																		<th data-toggle="true">Id</th>
+																		<th data-hide="phone">Equipo</th>
+																		<th class="text-center" data-sort-ignore="true">Acción</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>001</td>
+																		<td>Alemania</td>
+																		<td class="text-right">
+																			<div class="btn-group">
+																				<button class="btn btn-warning" data-toggle="modal" data-target="#modalEditar">Editar</button>
+																				<button class="btn btn-large btn-primary btn-danger"
+																					data-toggle="confirmation" data-btn-ok-label="SI"
+																					data-btn-ok-class="btn-success"
+																					data-btn-ok-icon-class="material-icons"
+																					data-btn-ok-icon-content="check"
+																					data-btn-cancel-label="NO"
+																					data-btn-cancel-class="btn-danger"
+																					data-btn-cancel-icon-class="material-icons"
+																					data-btn-cancel-icon-content="close"
+																					data-title="�Esta Seguro?"
+																					data-content="Estos resultados no podran ser cambiados"
+																					data-placement="top">Eliminar</button>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>002</td>
+																		<td>Suecia</td>
+																		<td class="text-right">
+																			<div class="btn-group">
+																				<button class="btn btn-warning" data-toggle="modal" data-target="#modalEditar">Editar</button>
+																				<button class="btn btn-large btn-primary btn-danger"
+																					data-toggle="confirmation" data-btn-ok-label="SI"
+																					data-btn-ok-class="btn-success"
+																					data-btn-ok-icon-class="material-icons"
+																					data-btn-ok-icon-content="check"
+																					data-btn-cancel-label="NO"
+																					data-btn-cancel-class="btn-danger"
+																					data-btn-cancel-icon-class="material-icons"
+																					data-btn-cancel-icon-content="close"
+																					data-title="�Esta Seguro?"
+																					data-content="Estos resultados no podran ser cambiados"
+																					data-placement="top">Eliminar</button>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>003</td>
+																		<td>Corea del Sur</td>
+																		<td class="text-right">
+																			<div class="btn-group">
+																				<button class="btn btn-warning" data-toggle="modal" data-target="#modalEditar">Editar</button>
+																				<button class="btn btn-large btn-primary btn-danger"
+																					data-toggle="confirmation" data-btn-ok-label="SI"
+																					data-btn-ok-class="btn-success"
+																					data-btn-ok-icon-class="material-icons"
+																					data-btn-ok-icon-content="check"
+																					data-btn-cancel-label="NO"
+																					data-btn-cancel-class="btn-danger"
+																					data-btn-cancel-icon-class="material-icons"
+																					data-btn-cancel-icon-content="close"
+																					data-title="�Esta Seguro?"
+																					data-content="Estos resultados no podran ser cambiados"
+																					data-placement="top">Eliminar</button>
+																			</div>
+																		</td>
+																	</tr>
+
+																</tbody>
+																<tfoot>
+																	<tr>
+																		<td colspan="2">
+																			<ul class="pagination pull-right"></ul>
+																		</td>
+																		<td colspan="8"><input type="button"
+																			class="btn pull-right btn-primary"
+																			value="Completar creación"></td>
+
+																	</tr>
+
+																</tfoot>
+															</table>
+
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</fieldset>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div th:replace="layouts/footer :: footer"/>
+		</div>
+
+	</div>
+
+
+
+	<!-- Mainly scripts -->
+	<script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+            <script th:src="@{/js/bootstrap.min.js}"></script>
+            <script th:src="@{/js/bootstrap-confirmation.js}"></script>
+            <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+            <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+
+            <!-- Select2 -->
+            <script th:src="@{/js/plugins/select2/select2.full.min.js}"></script>
+
+            <!-- Chosen -->
+            <script th:src="@{/js/plugins/chosen/chosen.jquery.js}"></script>
+
+            <!-- FooTable -->
+            <script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
+
+            <!-- Custom and plugin javascript -->
+            <script th:src="@{/js/inspinia.js}"></script>
+            <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+            <!-- Date picker -->
+            <script th:src="@{/js/plugins/datapicker/bootstrap-datepicker.js}"></script>
+            <script th:src="@{/js/plugins/fullcalendar/moment.min.js}"></script>
+            <script th:src="@{/js/plugins/daterangepicker/daterangepicker.js}"></script>
+            <!-- TouchSpin -->
+            <script th:src="@{/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js}"></script>
+
+            <!-- Steps -->
+            <script th:src="@{/js/plugins/steps/jquery.steps.min.js}"></script>
+            <!-- Jquery Validate -->
+            <script th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
+
+            <script>
+                $('#fecha_1 .input-group.date').datepicker({
+                    todayBtn: "linked",
+                    keyboardNavigation: false,
+                    forceParse: false,
+                    calendarWeeks: true,
+                    autoclose: true,
+                    format: 'dd/mm/yyyy'
+                });
+                $('#fecha_2 .input-group.date').datepicker({
+                    todayBtn: "linked",
+                    keyboardNavigation: false,
+                    forceParse: false,
+                    calendarWeeks: true,
+                    autoclose: true,
+                    format: 'dd/mm/yyyy'
+                });
+            </script>
+
+            <!-- Page-Level Scripts -->
+            <script>
+                $(document).ready(function () {
+
+                    $('.footable').footable();
+                    $('.footable2').footable();
+                    $('[data-toggle=confirmation]').confirmation({
+                        rootSelector: '[data-toggle=confirmation]',
+                        // other options
+                    });
+                    $('.chosen-select').chosen({width: "100%"});
+
+                    $(".touchspin").TouchSpin({
+                        min: 1,
+                        max: 10,
+                        step: 1,
+                        decimals: 0,
+                        boostat: 5,
+                        maxboostedstep: 10,
+                        buttondown_class: 'btn btn-white',
+                        buttonup_class: 'btn btn-white'
+                    });
+                });
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    $("#wizard").steps();
+                    $("#form")
+                        .steps({
+                            bodyTag: "fieldset",
+                            onStepChanging: function (event, currentIndex, newIndex) {
+                                // Always allow going backward even if the current step contains invalid fields!
+                                if (currentIndex > newIndex) {
+                                    return true;
+                                }
+
+                                // Forbid suppressing "Warning" step if the user is to young
+                                if (newIndex === 2) {
+                                    return false;
+                                }
+
+                                var form = $(this);
+
+                                // Clean up if user went backward before
+                                if (currentIndex < newIndex) {
+                                    // To remove error styles
+                                    $(".body:eq(" + newIndex + ") label.error", form).remove();
+                                    $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                                }
+
+                                // Disable validation on fields that are disabled or hidden.
+                                form
+                                    .validate()
+                                    .settings
+                                    .ignore = ":disabled,:hidden";
+
+                                // Start validation; Prevent going forward if false
+                                return form.valid();
+                            },
+                            onStepChanged: function (event, currentIndex, priorIndex) {
+                                // Suppress (skip) "Warning" step if the user is old enough.
+                                if (currentIndex === 1) {
+                                    $(this).steps("next");
+                                }
+
+                                // Suppress (skip) "Warning" step if the user is old enough and wants to the
+                                // previous step.
+                                if (currentIndex === 2) {
+                                    $(this).steps("previous");
+                                }
+                            },
+                            onFinishing: function (event, currentIndex) {
+                                var form = $(this);
+
+                                // Disable validation on fields that are disabled. At this point it's
+                                // recommended to do an overall check (mean ignoring only disabled fields)
+                                form
+                                    .validate()
+                                    .settings
+                                    .ignore = ":disabled";
+
+                                // Start validation; Prevent form submission if false
+                                return form.valid();
+                            },
+                            onFinished: function (event, currentIndex) {
+                                var form = $(this);
+
+                                // Submit form input
+                                form.submit();
+                            }
+                        })
+                        .validate({
+                            errorPlacement: function (error, element) {
+                                element.before(error);
+                            },
+                            rules: {
+                                confirm: {
+                                    equalTo: "#password"
+                                }
+                            }
+                        });
+                });
+            </script>
+
+</body>
+</html>
