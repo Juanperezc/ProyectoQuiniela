@@ -130,84 +130,88 @@
                                                 <th>Ingresar</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody th:each="quiniela : ${quinielas}" th:remove="tag">
                                             <tr class="gradeX">
-                                                <td class="center"></td>
-                                                <td class="center">002</td>
-                                                <td class="center">Mundial de Futbol 2018 Grupo B</td>
-                                                <td class="center hide-text">
-                                                    <img
-                                                        alt="Bootstrap Image Preview"
-                                                        src="/ico/football.png"
-                                                        class="img-responsive icono-deporte">
-                                                    <div>
-                                                        Football</div>
+                                                <td class="center">
+                                                        <!-- <span th:if="">X</span>
+                                                        <span th:unless=""></span> -->
                                                 </td>
-                                                <td class="center">5/5/2018</td>
-                                                <td class="center">5/6/2018</td>
-                                                <td class="center">SI</td>
+                                                <td class="center" th:text="${quiniela.id}"></td>
+                                                <td class="center" th:text="${quiniela.name}"></td>
+                                                <td class="center hide-text" th:switch="${quiniela.sport}">
+                                                    <span th:case="'Futbol'">
+                                                        <img 
+                                                            alt="Futbol"
+                                                            src="/ico/football.png"
+                                                            class="img-responsive icono-deporte">
+                                                            Futbol
+                                                    </span>    
+                                                    <span th:case="'Beisbol'">
+                                                        <img 
+                                                            alt="Beisbol"
+                                                            src="/ico/baseball.png"
+                                                            class="img-responsive icono-deporte">
+                                                            Beisbol
+                                                    </span> 
+                                                    <span th:case="'Baloncesto'">
+                                                            <img 
+                                                                alt="Baloncesto"
+                                                                src="/ico/basketball.png"
+                                                                class="img-responsive icono-deporte">
+                                                                Baloncesto
+                                                    </span>
+                                                    <span th:case="'Hockey'">
+                                                            <img 
+                                                                alt="Hockey"
+                                                                src="/ico/hockey.png"
+                                                                class="img-responsive icono-deporte">
+                                                                Hockey
+                                                    </span>
+                                                    <span th:case="'Rugby'">
+                                                            <img 
+                                                                alt="Rugby"
+                                                                src="/ico/rugby.png"
+                                                                class="img-responsive icono-deporte">
+                                                                Rugby
+                                                    </span>
+                                                    <span th:case="'WaterPolo'">
+                                                            <img 
+                                                                alt="WaterPolo"
+                                                                src="/ico/water-polo.png"
+                                                                class="img-responsive icono-deporte">
+                                                                WaterPolo
+                                                    </span> 
+                                                    <span th:case="'Lol'">
+                                                            <img 
+                                                                alt="Lol"
+                                                                src="/ico/lol.png"
+                                                                class="img-responsive icono-deporte">
+                                                                Lol
+                                                    </span>
+                                                    <span th:case="'Dota2'">
+                                                            <img 
+                                                                alt="Dota 2"
+                                                                src="/ico/dota2.png"
+                                                                class="img-responsive icono-deporte">
+                                                                Dota 2
+                                                    </span>
+                                                    <span th:case="*">
+                                                            <img 
+                                                                th:alt="${deporte.name}"
+                                                                th:src="/ico/${deporte.name}.png"
+                                                                class="img-responsive icono-deporte">
+                                                                <span th:text="${quiniela.start}"></span>
+                                                    </span>
+
+                                                </td>
+                                                <td class="center" th:text="${quiniela.start}"></td>
+                                                <td class="center" th:text="${quiniela.end}"></td>
+                                                <td class="center" th:switch=${quiniela.type}>
+                                                    <span class="center" th:case="'1'" >SI</span>
+                                                    <span class="center" th:case="'2'">NO</span>
+                                                </td>
                                                 <td class="center">
                                                     <a href="/quinielaMundialPrivada">
-                                                        <button type="button" class="btn btn-success">ir</button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="gradeC">
-                                                <td class="center"></td>
-                                                <td class="center">003</td>
-                                                <td class="center">Mundial de Futbol 2018 Grupo F</td>
-                                                <td class="center"><img
-                                                    alt="Bootstrap Image Preview"
-                                                    src="/ico/football.png"
-                                                    class="img-responsive icono-deporte">
-                                                    <div>
-                                                        Football</div>
-                                                </td>
-                                                <td class="center">5/5/2018</td>
-                                                <td class="center">5/6/2018</td>
-                                                <td class="center">NO</td>
-                                                <td class="center">
-                                                    <a href="/quinielaMundialPublica">
-                                                        <button type="button" class="btn btn-success">ir</button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td class="center"></td>
-                                                <td class="center">015</td>
-                                                <td class="center">BarcaVsRealMadrid</td>
-                                                <td class="center"><img
-                                                    alt="Bootstrap Image Preview"
-                                                    src="/ico/football.png"
-                                                    class="img-responsive icono-deporte">
-                                                    <div>
-                                                        Football</div>
-                                                </td>
-                                                <td class="center">10/5/2018</td>
-                                                <td class="center">15/6/2018</td>
-                                                <td class="center">NO</td>
-                                                <td class="center">
-                                                    <a href="/quinielaFootballPublica">
-                                                        <button type="button" class="btn btn-success">ir</button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td class="center"></td>
-                                                <td class="center">008</td>
-                                                <td class="center">YankeesVsMets</td>
-                                                <td class="center"><img
-                                                    alt="Bootstrap Image Preview"
-                                                    src="/ico/baseball.png"
-                                                    class="img-responsive icono-deporte">
-                                                    <div>
-                                                        Baseball</div>
-                                                </td>
-                                                <td class="center">25/5/2018</td>
-                                                <td class="center">26/5/2018</td>
-                                                <td class="center">NO</td>
-                                                <td class="center">
-                                                    <a href="/quinielaBaseballPublica">
                                                         <button type="button" class="btn btn-success">ir</button>
                                                     </a>
                                                 </td>

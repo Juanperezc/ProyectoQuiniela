@@ -21,9 +21,10 @@ public class Quiniela extends AuditModel {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="quiniela_id")
-	private int id;
-	@Column(name="type")
-	private String type;
+  private int id;
+  //privada 1 y publica 2
+  @Column(name="type")
+	private int type;
 	@Column(name="name")
     private String name;
     @Column(name="start_date")
@@ -59,10 +60,10 @@ public class Quiniela extends AuditModel {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getType() {
+	public int getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
     public String getName() {
