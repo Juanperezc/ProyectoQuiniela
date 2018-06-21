@@ -7,12 +7,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.CascadeType;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 @Entity
 @Table(name = "Quiniela")
 public class Quiniela extends AuditModel {
@@ -43,6 +45,12 @@ public class Quiniela extends AuditModel {
     cascade =  javax.persistence.CascadeType.ALL,
     mappedBy = "quiniela")
     private Rule regla; 
+
+    @OneToMany(
+      mappedBy = "quiniela",
+      cascade = javax.persistence.CascadeType.ALL,
+      orphanRemoval = true)	
+  private List<QuinielaUser> users = new ArrayList<>();
 
 
 	public int getId() {
