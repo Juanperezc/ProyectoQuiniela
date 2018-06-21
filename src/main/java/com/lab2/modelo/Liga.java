@@ -31,10 +31,12 @@ public class Liga extends AuditModel {
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 
-	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("sport_id")
+	@JoinColumn(name = "sport_id", nullable = false)
 	private Sport sport;
+
+
+
 	
 	private Liga() {
 

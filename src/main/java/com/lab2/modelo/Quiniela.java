@@ -48,7 +48,7 @@ public class Quiniela extends AuditModel {
     private Rule regla;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("sport_id")
+    @JoinColumn(name = "sport_id", nullable = false)
     private Sport sport;
   
     @OneToMany(
