@@ -31,7 +31,7 @@ public class Request extends AuditModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	@Column(name = "sport_id")
+	@Column(name = "request_id")
     private int id;
     
     @Column(name = "name")
