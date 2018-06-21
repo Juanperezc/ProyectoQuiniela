@@ -15,30 +15,30 @@ import com.lab2.modelo.User;
 import com.lab2.servicios.UserService;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/report")
 public class ReportController {
 
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = { "/admin-report" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/admin" }, method = RequestMethod.GET)
 	public ModelAndView adminreport() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/report/adminreport");
+		modelAndView.setViewName("/report/admin");
 		return modelAndView;
 	}
 
-	@RequestMapping(value = { "/user-report" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/user" }, method = RequestMethod.GET)
 	public ModelAndView userreport() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/report/userreport");
+		modelAndView.setViewName("/report/user");
 		return modelAndView;
-	}
+	}	
 
-	@RequestMapping(value = {"/member-report" }, method = RequestMethod.GET)
+	@RequestMapping(value = {"/member"}, method = RequestMethod.GET)
 	public ModelAndView memberreport() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/report/memberreport");
+		modelAndView.setViewName("/report/member");
 		return modelAndView;
 	}
 
