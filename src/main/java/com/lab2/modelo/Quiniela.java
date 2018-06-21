@@ -32,9 +32,6 @@ public class Quiniela extends AuditModel {
     @Column(name="end_date")
     private Date end;
 
-    @Column(name="sport")
-    private String sport;
-
     @Column(name="description")
     private String description;
 
@@ -47,6 +44,11 @@ public class Quiniela extends AuditModel {
     mappedBy = "quiniela")
     private Rule regla; 
 
+    @OneToOne(fetch = FetchType.LAZY,
+    cascade =  javax.persistence.CascadeType.ALL,
+    mappedBy = "quiniela")
+    private Sport sport ; 
+
     @OneToMany(
       mappedBy = "quiniela",
       cascade = javax.persistence.CascadeType.ALL,
@@ -56,6 +58,12 @@ public class Quiniela extends AuditModel {
 
 	public int getId() {
 		return id;
+  }
+  public Sport getSport() {
+		return sport;
+  }
+  void setSport(Sport sport) {
+	this.sport = sport;
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -85,12 +93,7 @@ public class Quiniela extends AuditModel {
 		this.start = start;
     }
    
-    public void setSport(String sport) {
-		this.sport = sport;
-    }
-    public String getSport() {
-		return sport;
-    }
+
     public void setDescription(String description) {
 		this.description = description;
     }

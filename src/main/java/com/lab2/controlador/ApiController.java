@@ -1,11 +1,12 @@
 package com.lab2.controlador;
 
 import java.util.List;
-
+import com.lab2.modelo.Sport;
 import com.lab2.modelo.Quiniela;
 import com.lab2.modelo.User;
 import com.lab2.repositorio.UserRepository;
 import com.lab2.servicios.QuinielaService;
+import com.lab2.servicios.SportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,10 @@ public class ApiController {
 	@Autowired
 	private QuinielaService quinielaService;
 
+	@Autowired
+	private SportService sportService;
+
+
 	@RequestMapping("/users")
 	public List<User> getAllusers() {
 		return userRepository.findAll();
@@ -28,6 +33,10 @@ public class ApiController {
 	@RequestMapping("/quinielas")
 	public List<Quiniela> getAllQuinielas() {
 		return quinielaService.findAll();
+	}
+	@RequestMapping("/sports")
+	public List<Sport> getAllSport() {
+		return sportService.findAll();
 	}
 	// Get All Notes
 

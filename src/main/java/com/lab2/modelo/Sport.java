@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,7 +25,10 @@ public class Sport extends AuditModel {
     
     @Column(name = "name")
 	private String name;
-
+	
+	@OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "quiniela_id", nullable = false)
+    private Quiniela quiniela; 
 
 
 	
