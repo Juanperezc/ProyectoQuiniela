@@ -61,7 +61,7 @@
                                     <h2>
                                         Crea una quiniela en pocos pasos
                                     </h2>
-                                    <form id="form" action="#" class="wizard-big">
+                                    <form id="form" action="#">
                                         <h1>Quinielas</h1>
                                         <fieldset class="form-horizontal">
                                             <div class="form-group">
@@ -71,7 +71,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label ">Deporte:</label>
+                                                <label class="col-sm-2 control-label ">liga:</label>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <select class="form-control m-b required" name="sport" id="dropOperator">
@@ -91,18 +91,39 @@
                                                     <textarea type="text" class="form-control required" placeholder=""></textarea>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                    <div class='input-group date' id='datetimepicker1'>
-                                                        <input type='text' class="form-control" />
-                                                        <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                    </div>
-                                                </div>
+                                           
+                                            
                                         </fieldset>
                                         <h1>Reglas</h1>
-                                        <fieldset class="form-horizontal"></fieldset>
-                                        <h1>Profile</h1>
+                                        <fieldset class="form-horizontal">
+
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                            <form>
+                                                                    <input type="radio" name="gender" value="male" checked>Privada<br>
+                                                                    <input type="radio" name="gender" value="female">Publica<br>
+                                                                  </form>
+                                                        <form > <h5>Fecha de apertura</h5>
+                                                        <input type="date" name="bday">
+                                                      </form>
+                                                      <form> <h5>Fecha de cierre</h5>
+                                                        <input type="date" name="bday">
+                                                      </form>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                        <form>
+                                                            Puntuaci�n para acierto de score del equipo ganador:<br>
+                                                            <input type="text" name="puntajeVictoria" value=""><br>
+                                                            Puntuaci�n para acierto de score del Equipo:<br>
+                                                            <input type="text" name="puntajeFinal" value=""><br><br>
+                                                            <input type="submit" value="Submit">
+                                                          </form>
+                                                        </div>
+
+                                        </fieldset>
+                                        <h1>Juegos</h1>
                                         <fieldset class="form-horizontal">
                                             <div class="row">
                                                 <div class="form-group">
@@ -407,7 +428,7 @@
             <!-- TouchSpin -->
             <script th:src="@{/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js}"></script>
             <!-- Steps -->
-            <script th:src="@{/js/plugins/steps/jquery.steps.min.js}"></script>
+           
             <!-- Jquery Validate -->
             <script th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
 
@@ -428,81 +449,7 @@
                         rootSelector: '[data-toggle=confirmation]',
                         // other options
                     });
-                    $("#wizard").steps();
-                    $("#form")
-                        .steps({
-                            bodyTag: "fieldset",
-                            onStepChanging: function (event, currentIndex, newIndex) {
-                                // Always allow going backward even if the current step contains invalid fields!
-                                if (currentIndex > newIndex) {
-                                    return true;
-                                }
-
-                                // Forbid suppressing "Warning" step if the user is to young
-                                if (newIndex === 3) {
-                                    return false;
-                                }
-
-                                var form = $(this);
-
-                                // Clean up if user went backward before
-                                if (currentIndex < newIndex) {
-                                    // To remove error styles
-                                    $(".body:eq(" + newIndex + ") label.error", form).remove();
-                                    $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
-                                }
-
-                                // Disable validation on fields that are disabled or hidden.
-                                form
-                                    .validate()
-                                    .settings
-                                    .ignore = ":disabled,:hidden";
-
-                                // Start validation; Prevent going forward if false
-                                return form.valid();
-                            },
-                            onStepChanged: function (event, currentIndex, priorIndex) {
-                                // Suppress (skip) "Warning" step if the user is old enough.
-                                if (currentIndex === 2) {
-                                    $(this).steps("next");
-                                }
-
-                                // Suppress (skip) "Warning" step if the user is old enough and wants to the
-                                // previous step.
-                                if (currentIndex === 2 && priorIndex === 3) {
-                                    $(this).steps("previous");
-                                }
-                            },
-                            onFinishing: function (event, currentIndex) {
-                                var form = $(this);
-
-                                // Disable validation on fields that are disabled. At this point it's
-                                // recommended to do an overall check (mean ignoring only disabled fields)
-                                form
-                                    .validate()
-                                    .settings
-                                    .ignore = ":disabled";
-
-                                // Start validation; Prevent form submission if false
-                                return form.valid();
-                            },
-                            onFinished: function (event, currentIndex) {
-                                var form = $(this);
-
-                                // Submit form input
-                                form.submit();
-                            }
-                        })
-                        .validate({
-                            errorPlacement: function (error, element) {
-                                element.before(error);
-                            },
-                            rules: {
-                                confirm: {
-                                    equalTo: "#password"
-                                }
-                            }
-                        });
+                    
                 });
             </script>
 

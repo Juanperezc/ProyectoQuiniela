@@ -38,51 +38,104 @@
 	
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Visitas
-                           
-                            </h5>
-                        </div>
-                        <div class="ibox-content">
-                            <div>
-                                <canvas id="lineChart" height="140"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Puntos Ganados </h5>
-                        </div>
-                        <div class="ibox-content">
-                            <div>
-                                <canvas id="barChart" height="140"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-         
-                <div class="col-lg-6">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Resultados totales de las quinielas </h5>
+                        <div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>Mis Quinielas Creadas</h5>
+							</div>
+							<div class="ibox-content">
+								<input type="text" class="form-control input-sm m-b-xs"
+									id="filter" placeholder="Buscar..">
 
+								<table class="footable table table-stripped" data-page-size="4"
+									data-filter=#filter>
+									<thead>
+										<tr>
+											<th>Codigo</th>
+											<th>Quiniela</th>
+											<th data-hide="phone,tablet">Deporte</th>
+											<th>Fecha de Apertura</th>
+											<th data-hide="phone,tablet">Fecha de Cierre</th>
+                                            <th>Privada</th>
+                                            <th>Cantidad de Usuarios Registrados</th>
+                                            <th>Cantidad de Comentarios</th>
+											<th>Accion</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="gradeA">
+											<td class="center">015</td>
+											<td class="center">BarcaVsRealMadrid</td>
+											<td class="center"><img alt="Bootstrap Image Preview" src="/ico/football.png" class="img-responsive icono-deporte"><div> Football</div></td>
+											<td class="center">10/5/2018</td>
+											<td class="center">15/6/2018</td>
+                                            <td class="center">NO</td>
+                                            <td class="center">10</td>
+                                            <td class="center">30</td>
+											<td class="center"> <div class="btn-group" role="group" aria-label="...">
+  										 		 <a th:href="@{/quinielaFootballPublica}" class="btn btn-success">ir </a>
+											</div>		
+											</td>
+										</tr>
+									</tbody>	
+									<tfoot>
+										<tr>
+											<td colspan="5">
+												<ul class="pagination pull-right"></ul>
+											</td>
+										</tr>
+									</tfoot>
+                                </table>
+							</div>
+						</div>
                         </div>
-                        <div class="ibox-content">
-                            <div>
-                                <canvas id="doughnutChart" height="140"></canvas>
+                        <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="ibox float-e-margins">
+                                        <div class="ibox-title">
+                                            <h5>Total de mi participacion</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <div>
+                                                <canvas id="doughnutChart" height="140"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-6">
+                                    <div class="ibox float-e-margins">
+                                        <div class="ibox-title">
+                                            <h5>Total de mis tipos de quinielas</h5>
+                                        </div>
+                                        <div class="ibox-content">
+                                            <div>
+                                                <canvas id="doughnutChart" height="140"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                    <div class="col-lg-6">
+                                            <div class="ibox float-e-margins">
+                                                <div class="ibox-title">
+                                                    <h5>Porcentaje de victorias</h5>
+                                                </div>
+                                                <div class="ibox-content">
+                                                    <div>
+                                                        <canvas id="doughnutChart" height="140"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
                     </div>
                 </div>
             </div>
-    
-        </div>
+ 
 			
 		
 
@@ -90,7 +143,7 @@
 
 			<div th:replace="layouts/footer :: footer"/>
 		</div>
-	</div>
+    </div>
 
 
 

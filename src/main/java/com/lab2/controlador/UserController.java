@@ -27,7 +27,7 @@ public class UserController {
 		modelAndView.setViewName("/user/profile");
 		return modelAndView;
 	}
-	@RequestMapping(value = {"/myleague" }, method = RequestMethod.GET)
+	@RequestMapping(value = {"/myleagues" }, method = RequestMethod.GET)
 	public ModelAndView league() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("/user/league");
