@@ -141,10 +141,10 @@
                                                 <td class="center hide-text" th:switch="${quiniela.sport}">
                                                     <span th:case="*">
                                                             <img 
-                                                                th:alt="${quiniela.sport}"
-                                                                th:src="@{${'/ico/'+quiniela.sport+'.png'}}"
+                                                                th:alt="${quiniela.sport.name}"
+                                                                th:src="@{${'/ico/'+quiniela.sport.name+'.png'}}"
                                                                 class="img-responsive icono-deporte">
-                                                                <span th:text="${quiniela.sport}"></span>
+                                                                <span th:text="${quiniela.sport.name}"></span>
                                                     </span>
 
                                                 </td>

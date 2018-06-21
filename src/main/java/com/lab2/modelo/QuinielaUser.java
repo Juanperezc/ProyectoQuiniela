@@ -24,11 +24,11 @@ public class QuinielaUser extends AuditModel implements Serializable {
 	@Column(name = "quiniela_user_id")
     private int id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
     @MapsId("quiniela_id")
 	private Quiniela quiniela;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
     @MapsId("user_id")
     private User user;
 

@@ -1,6 +1,5 @@
 package com.lab2.modelo;
 
-import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -17,11 +15,11 @@ import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-@Entity
-@Table(name = "Quiniela")
+@Entity(name = "Quiniela")
+@Table(name = "quiniela")
 public class Quiniela extends AuditModel {
-    private static final String SPORT_ID = "sport_id";
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "quiniela_id")
     private int id;
     //privada 1 y publica 2
@@ -33,10 +31,10 @@ public class Quiniela extends AuditModel {
     private Date start;
     @Column(name = "end_date")
     private Date end;
-
     @Column(name = "description")
     private String description;
-
+    @Column(name = "sport")
+    private String sport;
     @Column(name = "imagenFondo")
     private String imagenFondo;
 
@@ -46,11 +44,6 @@ public class Quiniela extends AuditModel {
         mappedBy = "quiniela"
     )
     private Rule regla;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sport_id", nullable = false)
-    private Sport sport;
-  
     @OneToMany(
         mappedBy = "quiniela",
         cascade = javax.persistence.CascadeType.ALL,
@@ -60,12 +53,6 @@ public class Quiniela extends AuditModel {
 
     public int getId() {
         return id;
-    }
-    public Sport getSport() {
-        return sport;
-    }
-    void setSport(Sport sport) {
-        this.sport = sport;
     }
     public void setId(int id) {
         this.id = id;
@@ -99,6 +86,12 @@ public class Quiniela extends AuditModel {
         this.description = description;
     }
     public Date getDescription() {
+        return end;
+    }
+    public void setSport(String sport) {
+        this.sport = sport;
+    }
+    public Date getSport() {
         return end;
     }
     public void set(String imagenFondo) {

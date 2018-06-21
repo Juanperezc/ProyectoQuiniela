@@ -20,7 +20,6 @@ import javax.persistence.Table;
 
 public class Sport extends AuditModel {
 	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
@@ -30,22 +29,19 @@ public class Sport extends AuditModel {
     @Column(name = "name")
 	private String name;
 	
-	@OneToMany(fetch = FetchType.LAZY,
-    cascade =  javax.persistence.CascadeType.ALL,
-	mappedBy = "sport")
-	private List<Quiniela> quinielas = new ArrayList<>();
- 
+	
 	
 	@OneToMany(fetch = FetchType.LAZY,
     cascade =  javax.persistence.CascadeType.ALL,
     mappedBy = "sport")
-	private List<Liga> ligas = new ArrayList<>();
+	private List<Liga> liga = new ArrayList<>();
 
 
 	
 	private Sport() {
 		
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -61,18 +57,13 @@ public class Sport extends AuditModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Liga> getLigas(){
-		return ligas;
+	public List<Liga> getLiga(){
+		return liga;
 	}
-	public void setLigas(List<Liga> ligas){
-		this.ligas = ligas;
+	public void setLiga(List<Liga> liga){
+		this.liga = liga;
 	}
-	public List<Quiniela> getQuinielas(){
-		return quinielas;
-	}
-	public void setQuinielas(List<Quiniela> quinielas){
-		this.quinielas = quinielas;
-	}
+	
 
 
 }
