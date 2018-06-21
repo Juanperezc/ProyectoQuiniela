@@ -28,7 +28,7 @@ public class Controlador {
 	public String showLogin() {
 		return "login";
 	}*/
-
+/* 
 	@RequestMapping("/quinielaFootballPublica")
 	public String showquinielafootballpublica() {
 		return "quinielafootballpublica";
@@ -52,7 +52,7 @@ public class Controlador {
 	/*@RequestMapping("/register")
 	public String showRegister() {
 		return "register";
-	}*/
+	}
 
 	@RequestMapping("/profile")
 	public String showProfile() {
@@ -98,5 +98,5 @@ public class Controlador {
 	public String showPag2() {
 		return "500";
 	}
-
+ */
 }
