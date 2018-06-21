@@ -26,13 +26,14 @@ public class Liga extends AuditModel {
 	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "sport")
-	private String sport;
+
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
-
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "sport_id", nullable = false)
+	private Sport sport;
 	private Liga() {
 
 	}
@@ -53,13 +54,7 @@ public class Liga extends AuditModel {
 		this.name = name;
 	}
 
-	public String getSport() {
-		return sport;
-	}
 
-	public void setSport(String sport) {
-		this.sport = sport;
-	}
 
 	public User getUser() {
 		return user;
