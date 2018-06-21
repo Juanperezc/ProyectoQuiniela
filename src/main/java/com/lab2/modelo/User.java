@@ -1,7 +1,5 @@
 package com.lab2.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -44,25 +42,15 @@ public class User extends AuditModel{
 	@Column(name = "last_name")
 	@NotEmpty(message = "*Please provide your last name")
 	private String lastName;
-
+	@Column(name = "active")
+	private int active;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
-	
-	@OneToMany(
-        mappedBy = "user",
-        cascade = CascadeType.ALL,
-        orphanRemoval = true
-	)	
-	private List<QuinielaUser> quinielas = new ArrayList<>();
-
-	@OneToMany(
-		mappedBy = "user",
-		cascade = javax.persistence.CascadeType.ALL,
-		orphanRemoval = true)	
-	private List<GameUser> games = new ArrayList<>();
-
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "quiniela_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Quiniela> quinielas;
 	public int getId() {
 		return id;
 	}
@@ -103,7 +91,13 @@ public class User extends AuditModel{
 		this.email = email;
 	}
 
+	public int getActive() {
+		return active;
+	}
 
+	public void setActive(int active) {
+		this.active = active;
+	}
 
 	public Set<Role> getRoles() {
 		return roles;
