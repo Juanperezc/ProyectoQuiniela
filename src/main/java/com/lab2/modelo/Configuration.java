@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Configuration extends AuditModel {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="game_id")
+	@Column(name="configuration_id")
 	
 	private int id;
 	@Column(name = "img1")
