@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -26,14 +27,15 @@ public class Liga extends AuditModel {
 	@Column(name = "name")
 	private String name;
 	
-
-
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
+
+	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "sport_id", nullable = false)
+    @MapsId("sport_id")
 	private Sport sport;
+	
 	private Liga() {
 
 	}

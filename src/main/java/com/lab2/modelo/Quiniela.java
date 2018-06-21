@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -47,15 +48,14 @@ public class Quiniela extends AuditModel {
     private Rule regla;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = SPORT_ID, nullable = false)
+    @MapsId("sport_id")
     private Sport sport;
-
+  
     @OneToMany(
         mappedBy = "quiniela",
         cascade = javax.persistence.CascadeType.ALL,
         orphanRemoval = true
     )
-
     private List<QuinielaUser> users = new ArrayList<>();
 
     public int getId() {

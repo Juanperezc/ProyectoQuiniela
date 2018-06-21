@@ -9,7 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -33,13 +33,13 @@ public class Sport extends AuditModel {
 	@OneToMany(fetch = FetchType.LAZY,
     cascade =  javax.persistence.CascadeType.ALL,
 	mappedBy = "sport")
-	private List<Quiniela> quiniela = new ArrayList<>();
+	private List<Quiniela> quinielas = new ArrayList<>();
  
 	
 	@OneToMany(fetch = FetchType.LAZY,
     cascade =  javax.persistence.CascadeType.ALL,
     mappedBy = "sport")
-	private List<Liga> liga = new ArrayList<>();
+	private List<Liga> ligas = new ArrayList<>();
 
 
 	
@@ -61,11 +61,17 @@ public class Sport extends AuditModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Liga> getLiga(){
-		return liga;
+	public List<Liga> getLigas(){
+		return ligas;
 	}
-	public void setLiga(List<Liga> liga){
-		this.liga = liga;
+	public void setLigas(List<Liga> ligas){
+		this.ligas = ligas;
+	}
+	public List<Quiniela> getQuinielas(){
+		return quinielas;
+	}
+	public void setQuinielas(List<Quiniela> quinielas){
+		this.quinielas = quinielas;
 	}
 
 
