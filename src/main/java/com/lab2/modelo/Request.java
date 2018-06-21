@@ -34,9 +34,6 @@ public class Request extends AuditModel {
 	@Column(name = "request_id")
     private int id;
     
-    @Column(name = "name")
-	private String name;
-
 	@Column(name = "tipo")
 	private Tipo tipo;
 
@@ -52,14 +49,6 @@ public class Request extends AuditModel {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public int getTipo() {
