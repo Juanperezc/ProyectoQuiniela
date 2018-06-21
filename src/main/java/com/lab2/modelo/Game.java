@@ -8,10 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "game")
@@ -46,7 +49,13 @@ public class Game extends AuditModel{
     @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "quiniela_id", nullable = false)
 	private Quiniela quiniela; 
-    
+	
+	@OneToMany(
+		mappedBy = "game",
+		cascade = javax.persistence.CascadeType.ALL,
+		orphanRemoval = true)	
+	private List<GameUser> users = new ArrayList<>();
+
     private Game(){
     	
     }
