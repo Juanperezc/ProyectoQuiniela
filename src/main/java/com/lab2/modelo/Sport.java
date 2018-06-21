@@ -14,6 +14,8 @@ import javax.persistence.Table;
 @Table(name = "sport")
 
 public class Sport extends AuditModel {
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
