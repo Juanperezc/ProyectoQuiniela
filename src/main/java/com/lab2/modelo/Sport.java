@@ -26,9 +26,7 @@ public class Sport extends AuditModel {
 	private String name;
 
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "liga_id", nullable = false)
-	private Liga liga;
+
 	
 	private Sport() {
 		

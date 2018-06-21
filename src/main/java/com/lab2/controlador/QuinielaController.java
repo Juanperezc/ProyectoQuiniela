@@ -31,14 +31,14 @@ public class QuinielaController {
 	@RequestMapping(value = { "/","/index" }, method = RequestMethod.GET)
 	public ModelAndView index() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/quiniela/index");
+		modelAndView.setViewName("quiniela/index");
 		return modelAndView;
 	}
 
 	@RequestMapping(value = {"/create" }, method = RequestMethod.GET)
 	public ModelAndView create() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/quiniela/create");
+		modelAndView.setViewName("quiniela/create");
 		return modelAndView;
 	}
 
