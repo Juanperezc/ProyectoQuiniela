@@ -85,6 +85,12 @@ public class QuinielaController {
 		modelAndView.setViewName("quiniela/index");
 		return modelAndView;
 	}
+	@RequestMapping(value = { "/","/myindex" }, method = RequestMethod.GET)
+	public ModelAndView myindex() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("quiniela/myindex");
+		return modelAndView;
+	}
 
 	@RequestMapping(value = {"/create" }, method = RequestMethod.GET)
 	public ModelAndView create() {
