@@ -1,5 +1,8 @@
 package com.lab2.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,9 +30,16 @@ public class Sport extends AuditModel {
     @Column(name = "name")
 	private String name;
 	
-	@OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "quiniela_id", nullable = false)
-    private Quiniela quiniela; 
+	@OneToMany(fetch = FetchType.LAZY,
+    cascade =  javax.persistence.CascadeType.ALL,
+	mappedBy = "sport")
+	private List<Quiniela> quiniela = new ArrayList<>();
+ 
+	
+	@OneToMany(fetch = FetchType.LAZY,
+    cascade =  javax.persistence.CascadeType.ALL,
+    mappedBy = "sport")
+	private List<Liga> liga = new ArrayList<>();
 
 
 	
@@ -49,6 +60,12 @@ public class Sport extends AuditModel {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public List<Liga> getLiga(){
+		return liga;
+	}
+	public void setLiga(List<Liga> liga){
+		this.liga = liga;
 	}
 
 
