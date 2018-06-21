@@ -130,84 +130,56 @@
                                                 <th>Ingresar</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody th:each="quiniela : ${quinielas}" th:remove="tag">
                                             <tr class="gradeX">
-                                                <td class="center"></td>
-                                                <td class="center">002</td>
-                                                <td class="center">Mundial de Futbol 2018 Grupo B</td>
-                                                <td class="center hide-text">
-                                                    <img
-                                                        alt="Bootstrap Image Preview"
+                                                <td class="center">
+                                                        <!-- <span th:if="">X</span>
+                                                        <span th:unless=""></span> -->
+                                                </td>
+                                                <td class="center" th:text="${quiniela.id}"></td>
+                                                <td class="center" th:text="${quiniela.name}"></td>
+                                                <td class="center hide-text" th:switch="${quiniela.sport}">
+                                                    <img th:case="'Futbol'"
+                                                        alt="Futbol"
                                                         src="/ico/football.png"
                                                         class="img-responsive icono-deporte">
-                                                    <div>
-                                                        Football</div>
+                                                    <img th:case="'Beisbol'"
+                                                        alt="Beisbol"
+                                                        src="/ico/baseball.png"
+                                                        class="img-responsive icono-deporte">
+                                                    <img th:case="'Baloncesto'"
+                                                        alt="Baloncesto"
+                                                        src="/ico/basketball.png"
+                                                        class="img-responsive icono-deporte">
+                                                    <img th:case="'Hockey'"
+                                                        alt="Hockey"
+                                                        src="/ico/hockey.png"
+                                                        class="img-responsive icono-deporte">
+                                                    <img th:case="'Rugby'"
+                                                        alt="Rugby"
+                                                        src="/ico/rugby.png"
+                                                        class="img-responsive icono-deporte">
+                                                    <img th:case="'WaterPolo'"
+                                                        alt="WaterPolo"
+                                                        src="/ico/water-polo.png"
+                                                        class="img-responsive icono-deporte">  
+                                                    <img th:case="'Lol'"
+                                                        alt="Lol"
+                                                        src="/ico/lol.png"
+                                                        class="img-responsive icono-deporte">
+                                                    <img th:case="'Dota2'"
+                                                        alt="Dota 2"
+                                                        src="/ico/dota2.png"
+                                                        class="img-responsive icono-deporte">   
                                                 </td>
-                                                <td class="center">5/5/2018</td>
-                                                <td class="center">5/6/2018</td>
-                                                <td class="center">SI</td>
+                                                <td class="center" th:text="${quiniela.start}"></td>
+                                                <td class="center" th:text="${quiniela.end}"></td>
+                                                <td class="center" th:switch=${quiniela.type}>
+                                                    <span class="center" th:case="'privado'" >SI</span>
+                                                    <span class="center" th:case="'publico'">NO</span>
+                                                </td>
                                                 <td class="center">
                                                     <a href="/quinielaMundialPrivada">
-                                                        <button type="button" class="btn btn-success">ir</button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="gradeC">
-                                                <td class="center"></td>
-                                                <td class="center">003</td>
-                                                <td class="center">Mundial de Futbol 2018 Grupo F</td>
-                                                <td class="center"><img
-                                                    alt="Bootstrap Image Preview"
-                                                    src="/ico/football.png"
-                                                    class="img-responsive icono-deporte">
-                                                    <div>
-                                                        Football</div>
-                                                </td>
-                                                <td class="center">5/5/2018</td>
-                                                <td class="center">5/6/2018</td>
-                                                <td class="center">NO</td>
-                                                <td class="center">
-                                                    <a href="/quinielaMundialPublica">
-                                                        <button type="button" class="btn btn-success">ir</button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td class="center"></td>
-                                                <td class="center">015</td>
-                                                <td class="center">BarcaVsRealMadrid</td>
-                                                <td class="center"><img
-                                                    alt="Bootstrap Image Preview"
-                                                    src="/ico/football.png"
-                                                    class="img-responsive icono-deporte">
-                                                    <div>
-                                                        Football</div>
-                                                </td>
-                                                <td class="center">10/5/2018</td>
-                                                <td class="center">15/6/2018</td>
-                                                <td class="center">NO</td>
-                                                <td class="center">
-                                                    <a href="/quinielaFootballPublica">
-                                                        <button type="button" class="btn btn-success">ir</button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td class="center"></td>
-                                                <td class="center">008</td>
-                                                <td class="center">YankeesVsMets</td>
-                                                <td class="center"><img
-                                                    alt="Bootstrap Image Preview"
-                                                    src="/ico/baseball.png"
-                                                    class="img-responsive icono-deporte">
-                                                    <div>
-                                                        Baseball</div>
-                                                </td>
-                                                <td class="center">25/5/2018</td>
-                                                <td class="center">26/5/2018</td>
-                                                <td class="center">NO</td>
-                                                <td class="center">
-                                                    <a href="/quinielaBaseballPublica">
                                                         <button type="button" class="btn btn-success">ir</button>
                                                     </a>
                                                 </td>
