@@ -21,7 +21,7 @@
 
         <!-- FooTable -->
         <link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
-
+        <link th:href="@{/css/plugins/datapicker/datepicker3.css}" rel="stylesheet">
         <!-- componentes personalizados -->
         <link th:href="@{/css/plugins/select2/select2.min.css}" rel="stylesheet">
         <link
@@ -30,6 +30,9 @@
         <link th:href="@{/css/plugins/chosen/bootstrap-chosen.css}" rel="stylesheet">
         <link
             th:href="@{/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css}"
+            rel="stylesheet">
+        <link
+            th:href="@{/css/plugins/daterangepicker/daterangepicker-bs3.css}"
             rel="stylesheet">
 
     </head>
@@ -47,20 +50,17 @@
 
                 <!-- content ! -->
                 <div class="wrapper wrapper-content animated fadeInRight ecommerce">
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="ibox">
                                 <div class="ibox-title">
                                     <h5>Crear Quiniela</h5>
-                                   
+
                                 </div>
                                 <div class="ibox-content">
                                     <h2>
-                                    Crea una quiniela en pocos pasos
+                                        Crea una quiniela en pocos pasos
                                     </h2>
-                                
-
                                     <form id="form" action="#" class="wizard-big">
                                         <h1>Quinielas</h1>
                                         <fieldset class="form-horizontal">
@@ -74,127 +74,34 @@
                                                 <label class="col-sm-2 control-label ">Deporte:</label>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-															<select class="form-control m-b" name="account">
-																	<option>option 1</option>
-																	<option>option 2</option>
-																	<option>option 3</option>
-																	<option>option 4</option>
-																</select>
+                                                        <select class="form-control m-b required" name="sport" id="dropOperator">
+                                                            <option
+                                                                th:each="sport : ${sports}"
+                                                                th:value="${sport.name}"
+                                                                th:text="${sport.name}"></option>
+
+                                                        </select>
                                                     </div>
                                                 </div>
 
-											</div>
-											<div class="form-group">
-													<label class="col-sm-2 control-label ">Liga:</label>
-													<div class="col-sm-6">
-														<div class="form-group">
-															
-																<select class="form-control m-b" name="account">
-																		<option>option 1</option>
-																		<option>option 2</option>
-																		<option>option 3</option>
-																		<option>option 4</option>
-																	</select>
-														</div>
-													</div>
-	
-												</div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Tipo:</label>
-                                                <div class="col-sm-10">
-                                                    <div class="radio radio-inline radio-primary">
-                                                        <input  <input class="form-control required" type="radio" id="inlineRadio1" value="publica" name="radioInline">
-                                                        <label for="inlineRadio1">Publica
-                                                        </label>
-                                                    </div>
-                                                    <div class="radio radio-inline radio-primary">
-                                                        <input class="form-control required" type="radio" id="inlineRadio2" value="privada" name="radioInline">
-                                                        <label for="inlineRadio2">Privada
-                                                        </label>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Descripción
-                                                </label>
+                                                <label class="col-sm-2 control-label">Descripcion de la quiniela:</label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control required" placeholder="...">
+                                                    <textarea type="text" class="form-control required" placeholder=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Fecha de apertura:</label>
-                                                <div class="col-sm-2">
-                                                    <div class="form-group" id="fecha_1">
-                                                        <div class="input-group date">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-calendar"></i>
-                                                            </span><input
-                                                                type="text"
-                                                                class="form-control"
-                                                                value="11/05/2018"
-                                                                disabled="disabled"
-                                                                style="background-color: white">
-                                                        </div>
+                                                    <div class='input-group date' id='datetimepicker1'>
+                                                        <input type='text' class="form-control" />
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Fecha de cierre:</label>
-                                                <div class="col-sm-2">
-                                                    <div class="form-group" id="fecha_2">
-                                                        <div class="input-group date">
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-calendar"></i>
-                                                            </span><input
-                                                                type="text"
-                                                                class="form-control"
-                                                                value="11/05/2018"
-                                                                disabled="disabled"
-                                                                style="background-color: white">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Puntuaci�n para acierto de score del equipo ganador
-                                                </label>
-                                                <div class="col-sm-2">
-                                                    <input
-                                                        class="touchspin"
-                                                        type="text"
-                                                        value="0"
-                                                        name=""
-                                                        readonly="readonly"
-                                                        style="background-color: white">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Puntuaci�n para acierto de score del Equipo 1
-                                                </label>
-                                                <div class="col-sm-2">
-                                                    <input
-                                                        class="touchspin"
-                                                        type="text"
-                                                        value="0"
-                                                        name=""
-                                                        readonly="readonly"
-                                                        style="background-color: white">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Puntuaci�n para acierto de score del Equipo 2
-                                                </label>
-                                                <div class="col-sm-2">
-                                                    <input
-                                                        class="touchspin"
-                                                        type="text"
-                                                        value="0"
-                                                        name=""
-                                                        readonly="readonly"
-                                                        style="background-color: white">
-                                                </div>
-                                            </div>
                                         </fieldset>
+                                        <h1>Reglas</h1>
+                                        <fieldset class="form-horizontal"></fieldset>
                                         <h1>Profile</h1>
                                         <fieldset class="form-horizontal">
                                             <div class="row">
@@ -460,17 +367,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </fieldset>
+                                        </fieldset>
+                                    </div>
 
                                 </form>
 
                             </div>
                         </div>
-					</div>
-					
+                    </div>
 
-					
                     <div th:replace="layouts/footer :: footer"/>
                 </div>
 
@@ -501,34 +406,21 @@
             <script th:src="@{/js/plugins/daterangepicker/daterangepicker.js}"></script>
             <!-- TouchSpin -->
             <script th:src="@{/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js}"></script>
-
             <!-- Steps -->
             <script th:src="@{/js/plugins/steps/jquery.steps.min.js}"></script>
             <!-- Jquery Validate -->
             <script th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
 
             <script>
-                $('#fecha_1 .input-group.date').datepicker({
-                    todayBtn: "linked",
-                    keyboardNavigation: false,
-                    forceParse: false,
-                    calendarWeeks: true,
-                    autoclose: true,
-                    format: 'dd/mm/yyyy'
-                });
-                $('#fecha_2 .input-group.date').datepicker({
-                    todayBtn: "linked",
-                    keyboardNavigation: false,
-                    forceParse: false,
-                    calendarWeeks: true,
-                    autoclose: true,
-                    format: 'dd/mm/yyyy'
-                });
+            
             </script>
 
             <!-- Page-Level Scripts -->
+        
+
             <script>
                 $(document).ready(function () {
+         
 
                     $('.footable').footable();
                     $('.footable2').footable();
@@ -536,23 +428,6 @@
                         rootSelector: '[data-toggle=confirmation]',
                         // other options
                     });
-                    $('.chosen-select').chosen({width: "100%"});
-
-                    $(".touchspin").TouchSpin({
-                        min: 1,
-                        max: 10,
-                        step: 1,
-                        decimals: 0,
-                        boostat: 5,
-                        maxboostedstep: 10,
-                        buttondown_class: 'btn btn-white',
-                        buttonup_class: 'btn btn-white'
-                    });
-                });
-            </script>
-
-            <script>
-                $(document).ready(function () {
                     $("#wizard").steps();
                     $("#form")
                         .steps({
@@ -564,7 +439,7 @@
                                 }
 
                                 // Forbid suppressing "Warning" step if the user is to young
-                                if (newIndex === 2) {
+                                if (newIndex === 3) {
                                     return false;
                                 }
 
@@ -588,13 +463,13 @@
                             },
                             onStepChanged: function (event, currentIndex, priorIndex) {
                                 // Suppress (skip) "Warning" step if the user is old enough.
-                                if (currentIndex === 1) {
+                                if (currentIndex === 2) {
                                     $(this).steps("next");
                                 }
 
                                 // Suppress (skip) "Warning" step if the user is old enough and wants to the
                                 // previous step.
-                                if (currentIndex === 2) {
+                                if (currentIndex === 2 && priorIndex === 3) {
                                     $(this).steps("previous");
                                 }
                             },

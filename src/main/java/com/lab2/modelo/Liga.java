@@ -1,6 +1,8 @@
 package com.lab2.modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,13 +37,23 @@ public class Liga extends AuditModel {
 	@JoinColumn(name = "sport_id", nullable = false)
 	private Sport sport;
 
-
+    @OneToMany(
+        mappedBy = "liga",
+        cascade = javax.persistence.CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<Team> team = new ArrayList<>();
 
 	
 	private Liga() {
 
 	}
-
+	public void setTeam(List<Team> team){
+		this.team = team;
+	}
+	public List<Team> getTeam(){
+	return team;
+	}
 	public int getId() {
 		return id;
 	}
@@ -67,6 +79,8 @@ public class Liga extends AuditModel {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+
 	
 	
 }
