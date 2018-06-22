@@ -62,7 +62,7 @@ public class QuinielaController {
 		return modelAndView;
 	}*/
 
-	@RequestMapping(value = { "/joinrequest/{id}" }, method = RequestMethod.GET)
+	/* @RequestMapping(value = { "/joinrequest/{id}" }, method = RequestMethod.GET)
 	public ModelAndView joinrequest(@PathVariable("id") Integer id) {
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -74,8 +74,8 @@ public class QuinielaController {
 		modelAndView.addObject("quiniela", quiniela);
 		modelAndView.addObject("admin", admin);
 		modelAndView.setViewName("quiniela/show");
-		return modelAndView; */
-	}
+		return modelAndView; 
+	} */
 
 
 	@RequestMapping(value = { "/show" }, method = RequestMethod.GET)

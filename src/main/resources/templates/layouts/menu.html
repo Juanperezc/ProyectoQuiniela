@@ -19,24 +19,15 @@
                                             Usuario
                                         </strong>
                                     </span>
-                                    <span class="text-muted text-xs block">Administrador
+                                        <span sec:authorize="hasAuthority('USER')" class="text-muted text-xs block" >Usuario
+                                            <b class="caret"></b>
+                                        </span>                                    
+                                        <span sec:authorize="hasAuthority('ADMIN')" class="text-muted text-xs block">Administrator del Portal
                                             <b class="caret"></b>
                                         </span>
-
-                                    <!-- 
-                                    <div th:switch="${user_role.role_id}">
-                                        <span th:case="ADMIN" class="text-muted text-xs block">Administrator del Sistema
+                                        <span sec:authorize="hasAuthority('MEMBER')" class="text-muted text-xs block">Administrador de quinielas
                                             <b class="caret"></b>
                                         </span>
-                                        <span th:case="MEMBER" class="text-muted text-xs block">Administrador de quinielas
-                                            <b class="caret"></b>
-                                        </span>
-                                        <span th:case="USER" class="text-muted text-xs block">Usuario
-                                            <b class="caret"></b>
-                                        </span>
-                                      </div> -->
-
-                                    
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
