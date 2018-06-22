@@ -15,4 +15,5 @@ import com.lab2.modelo.Quiniela;
 public interface QuinielaRepository extends JpaRepository<Quiniela, Integer>{
 	//Quiniela findByRole(String role);
 	List<Quiniela> findAll(); 
+	Quiniela findByid(Integer id);
 }

@@ -26,5 +26,9 @@ public class QuinielaServiceImpl implements QuinielaService{
 	public List<Quiniela> findAll() {
 		return quinielaRepository.findAll();
 	}
+	@Override
+	public Quiniela findByID(Integer id){
+		return quinielaRepository.findByid(id);
+	}
 
 }

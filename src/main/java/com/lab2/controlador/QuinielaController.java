@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,12 +32,32 @@ public class QuinielaController {
 	@Autowired
 	private SportService sportService;
 
-	@RequestMapping(value = { "/show" }, method = RequestMethod.GET)
-	public ModelAndView show() {
-
+	@RequestMapping(value = { "/show/{id}" }, method = RequestMethod.GET)
+	public ModelAndView show(@PathVariable("id") Integer id) {
+		Quiniela quiniela = quinielaService.findByID(id);
+		User admin = userService.findUserByid(quiniela.getAdmin());		
 		ModelAndView modelAndView = new ModelAndView();
-	
+		modelAndView.addObject("quiniela", quiniela);
+		modelAndView.addObject("admin", admin);
 		modelAndView.setViewName("/quiniela/show");
+		
+		return modelAndView;
+	}
+
+	@RequestMapping(value = { "/joinrequest/{id}" }, method = RequestMethod.GET)
+	public ModelAndView joinrequest(@PathVariable("id") Integer id) {
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User customUser = (User)auth.getPrincipal();
+		int userId = customUser.getId();
+		Quiniela quiniela = quinielaService.findByID(id);
+		
+
+		User admin = userService.findUserByid(quiniela.getAdmin());		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("quiniela", quiniela);
+		modelAndView.addObject("admin", admin);
+		modelAndView.setViewName("quiniela/show");
 		return modelAndView;
 	}
 
@@ -55,5 +76,7 @@ public class QuinielaController {
 		modelAndView.setViewName("quiniela/create");
 		return modelAndView;
 	}
+
+	
 
 }

@@ -25,6 +25,8 @@ public class Quiniela extends AuditModel {
     //privada 1 y publica 2
     @Column(name = "type")
     private int type;
+    @Column(name = "admin")
+    private int admin;
     @Column(name = "name")
     private String name;
     @Column(name = "start_date")
@@ -49,7 +51,7 @@ public class Quiniela extends AuditModel {
         cascade = javax.persistence.CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<QuinielaUser> users = new ArrayList<>();
+            private List<QuinielaUser> users = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -62,6 +64,12 @@ public class Quiniela extends AuditModel {
     }
     public void setType(int type) {
         this.type = type;
+    }
+    public int getAdmin() {
+        return admin;
+    }
+    public void setAdmin(int admin) {
+        this.admin = admin;
     }
     public String getName() {
         return name;
@@ -88,6 +96,7 @@ public class Quiniela extends AuditModel {
     public Date getDescription() {
         return end;
     }
+    
     public void setSport(String sport) {
         this.sport = sport;
     }
@@ -100,5 +109,9 @@ public class Quiniela extends AuditModel {
     public String getimagenFondo() {
         return imagenFondo;
     }
+    public void setQuinielaUser(List<QuinielaUser> users){
+        this.users = users;
+    }
+
 
 }
