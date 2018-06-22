@@ -37,9 +37,9 @@
 
     </head>
 
-    <body class="skin-1 pace-done fixed-sidebar mini-navbar body-small">
+    <body class="skin-1 pace-done fixed-sidebar mini-navbar body-small" sec:authorize="hasAuthority('MEMBER')">
 
-        <div id="wrapper">
+        <div id="wrapper" >
             <!-- menu sidebar -->
             <div th:replace="layouts/menu :: menu"/>
             <!-- end menu sidebar -->
