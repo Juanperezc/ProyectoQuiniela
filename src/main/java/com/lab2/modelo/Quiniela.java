@@ -26,7 +26,7 @@ public class Quiniela extends AuditModel {
     @Column(name = "type")
     private int type;
     @Column(name = "admin")
-    private int admin;
+    private Integer admin;
     @Column(name = "name")
     private String name;
     @Column(name = "start_date")
@@ -65,10 +65,10 @@ public class Quiniela extends AuditModel {
     public void setType(int type) {
         this.type = type;
     }
-    public int getAdmin() {
+    public Integer getAdmin() {
         return admin;
     }
-    public void setAdmin(int admin) {
+    public void setAdmin(Integer admin) {
         this.admin = admin;
     }
     public String getName() {

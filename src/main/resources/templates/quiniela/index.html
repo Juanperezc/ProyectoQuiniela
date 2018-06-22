@@ -61,21 +61,37 @@
 											<th>Accion</th>
 										</tr>
 									</thead>
-									<tbody>
-										<tr class="gradeA">
-											<td class="center">SI</td>
-											<td class="center">015</td>
-											<td class="center">BarcaVsRealMadrid</td>
-											<td class="center"><img alt="Bootstrap Image Preview" src="/ico/football.png" class="img-responsive icono-deporte"><div> Football</div></td>
-											<td class="center">10/5/2018</td>
-											<td class="center">15/6/2018</td>
-											<td class="center">NO</td>
-											<td class="center"> <div class="btn-group" role="group" aria-label="...">
-  										 		 <a th:href="@{/quinielaFootballPublica}" class="btn btn-success">ir </a>
-											</div>		
-											</td>
-										</tr>
-									</tbody>	
+									<tbody th:each="quiniela : ${quinielas}" th:remove="tag">
+                                            <tr class="gradeX">
+                                                <td class="center">
+                                                        <!-- <span th:if="">X</span>
+                                                        <span th:unless=""></span> -->
+                                                </td>
+                                                <td class="center" th:text="${quiniela.id}"></td>
+                                                <td class="center" th:text="${quiniela.name}"></td>
+                                                <td class="center hide-text" th:switch="${quiniela.sport}">
+                                                    <span th:case="*">
+                                                            <img 
+                                                                th:alt="${quiniela.sport}"
+                                                                th:src="@{${'/ico/'+ quiniela.sport + '.png'}}"
+                                                                class="img-responsive icono-deporte">
+                                                                <span th:text="${quiniela.sport}"></span>
+                                                    </span>
+
+                                                </td>
+                                                <td class="center" th:text="${quiniela.start}"></td>
+                                                <td class="center" th:text="${quiniela.end}"></td>
+                                                <td class="center" th:switch=${quiniela.type}>
+                                                    <span class="center" th:case="1" >NO</span>
+                                                    <span class="center" th:case="2">SI</span>
+                                                </td>
+                                                <td class="center">
+                                                    <a th:href="@{${'/quiniela/show/'+ quiniela.id}}">
+                                                        <button type="button" class="btn btn-success">ir</button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>	
 									<tfoot>
 										<tr>
 											<td colspan="5">

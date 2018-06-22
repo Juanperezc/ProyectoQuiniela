@@ -39,10 +39,28 @@ public class QuinielaController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("quiniela", quiniela);
 		modelAndView.addObject("admin", admin);
-		modelAndView.setViewName("/quiniela/show");
+		modelAndView.setViewName("quiniela/show");
 		
 		return modelAndView;
 	}
+
+
+	
+
+	/*@RequestMapping(value = { "/me" }, method = RequestMethod.GET)
+	public ModelAndView me() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User customUser = (User)auth.getPrincipal();
+		int userId = customUser.getId();
+		Quiniela quiniela = quinielaService.findByID(userId);
+		User admin = userService.findUserByid(quiniela.getAdmin());		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("quinielas", quiniela);
+		modelAndView.addObject("admin", admin);
+		modelAndView.setViewName("/quiniela/index");
+		
+		return modelAndView;
+	}*/
 
 	@RequestMapping(value = { "/joinrequest/{id}" }, method = RequestMethod.GET)
 	public ModelAndView joinrequest(@PathVariable("id") Integer id) {
