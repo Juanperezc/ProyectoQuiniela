@@ -8,16 +8,16 @@
 
 <title>Quiniela | Main view</title>
 
-<link th:href="css/bootstrap.min.css" rel="stylesheet">
-<link th:href="font-awesome/css/font-awesome.css" rel="stylesheet">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
 
-<link th:href="css/animate.css" rel="stylesheet">
-<link th:href="css/style.css" rel="stylesheet">
+<link th:href="@{/css/animate.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
 
 <!--  separados -->
 
 <!-- FooTable -->
-<link th:href="css/plugins/footable/footable.core.css" rel="stylesheet">
+<link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
 
 <!--   -->
 </head>
@@ -73,8 +73,8 @@
 											<td class="center"> 
 											
 											<div class="btn-group" role="group" aria-label="...">
-  										 		 <a th:href="/quinielaFootballPublica" class="btn btn-success">Ver </a>
-  												<a th:href="/modificarQuinielas" class="btn btn-warning"> Modificar </a>
+  										 		 <a th:href="@{/quinielaFootballPublica}" class="btn btn-success">Ver </a>
+  												<a th:href="@{/modificarQuinielas}" class="btn btn-warning"> Modificar </a>
   												<button class="btn btn-large btn-primary btn-danger" 
 											data-toggle="confirmation" data-btn-ok-label="SI"
 											data-btn-ok-class="btn-success"
@@ -110,7 +110,7 @@
 
 			<!--  end content! -->
 
-			<div th:replace="layouts/topbar :: topbar"/>
+			<div th:replace="layouts/footer :: footer"/>
 		</div>
 	</div>
 
@@ -119,18 +119,18 @@
 
 
 	<!-- Mainly scripts -->
-	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-confirmation.js"></script>
-	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-	<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/bootstrap-confirmation.js}"></script>
+	<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+	<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
 	<!-- FooTable -->
-	<script src="js/plugins/footable/footable.all.min.js"></script>
+	<script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
 
 	<!-- Custom and plugin javascript -->
-	<script src="js/inspinia.js"></script>
-	<script src="js/plugins/pace/pace.min.js"></script>
+	<script th:src="@{/js/inspinia.js}"></script>
+	<script th:src="@{/js/plugins/pace/pace.min.js}"></script>
 
 	<!-- Page-Level Scripts -->
 	<script>
@@ -145,7 +145,7 @@
 						});
 		});
 	</script>
-	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<script async src="https://platform.twitter.com/widgets.js}" charset="utf-8"></script>
 </body>
 
 </html>
