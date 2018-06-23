@@ -75,7 +75,7 @@
                                             <div class="ibox-content">
 
                                                 <div class="row">
-                                                    <div class="form-group col-sm-6">
+                                                    <div class="form-group col-sm-5">
                                                         <label
                                                             th:if="${#fields.hasErrors('txt1')}"
                                                             th:errors="*{txt1}"
@@ -85,6 +85,7 @@
                                                             <input type="text" th:field="*{txt1}" class="form-control" placeholder="texto">
                                                         </div>
                                                     </div>
+                                                    <div class="col-sm-1">  </div>
                                                     <div class="form-group col-sm-6">
                                                         <label
                                                             th:if="${#fields.hasErrors('img1')}"
@@ -115,12 +116,13 @@
                                                         th:if="${#fields.hasErrors('txt2')}"
                                                         th:errors="*{txt2}"
                                                         class="validation-message"></label>
-                                                    <div class="form-group col-sm-6">
+                                                    <div class="form-group col-sm-5">
                                                         <label class="control-label">Texto de la 2º imagen para el portal:</label>
                                                         <div>
                                                             <input type="text" th:field="*{txt2}" class="form-control" placeholder="texto">
                                                         </div>
                                                     </div>
+                                                    <div class="col-sm-1">  </div>
                                                     <div class="form-group col-sm-6">
                                                         <label
                                                             th:if="${#fields.hasErrors('img2')}"
@@ -145,7 +147,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="form-group col-sm-6">
+                                                    <div class="form-group col-sm-5">
                                                         <label
                                                             th:if="${#fields.hasErrors('txt3')}"
                                                             th:errors="*{txt3}"
@@ -155,6 +157,7 @@
                                                             <input type="text" th:field="*{txt3}" class="form-control" placeholder="texto">
                                                         </div>
                                                     </div>
+                                                    <div class="col-sm-1">  </div>
                                                     <div class="form-group col-sm-6">
                                                         <label class="control-label">Selecione 3º la imagen a usar para portal:</label>
                                                         <div class="fileinput fileinput-new input-group" data-provides="fileinput">
