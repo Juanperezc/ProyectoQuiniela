@@ -27,4 +27,16 @@ public class AdminController {
 		modelAndView.setViewName("pgadmin/account-management");
 		return modelAndView;
 	}
+	@RequestMapping(value = { "/sport" }, method = RequestMethod.GET)
+	public ModelAndView sport() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("pgadmin/sport");
+		return modelAndView;
+	}
+	@RequestMapping(value = { "/page-config" }, method = RequestMethod.GET)
+	public ModelAndView pageconfig() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("pgadmin/page-config");
+		return modelAndView;
+	}
 }
