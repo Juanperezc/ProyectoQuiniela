@@ -9,11 +9,12 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@EnableJpaAuditing
-
 @EnableConfigurationProperties({
   FileStorageProperties.class
 })
+@EnableJpaAuditing
+
+
 public class ProyectoQuinielaApplication {
 
   public static void main(String[] args) {
