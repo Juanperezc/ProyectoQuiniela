@@ -33,8 +33,8 @@ public class Configuration extends AuditModel {
 	@Column(name = "txt3")
 	private String txt3;
 
-	@Column(name = "twitterurl")
-	private String twitterurl;
+	@Column(name = "twitter")
+	private String twitter;
 
 	public String getImg1() {
 		return img1;
@@ -83,12 +83,12 @@ public class Configuration extends AuditModel {
 	public void setTxt3(String txt3) {
 		this.txt3 = txt3;
 	}
-	public String getTwitterUrl() {
-		return twitterurl;
+	public String getTwitter() {
+		return twitter;
 	}
 
-	public void setTwitterUrl(String twitterurl) {
-		this.twitterurl = twitterurl;
+	public void setTwitter(String twitter) {
+		this.twitter = twitter;
 	}
 	public void setId( int id){
 		this.id = id;

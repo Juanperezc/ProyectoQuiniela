@@ -48,10 +48,17 @@ public class AdminController {
 	@RequestMapping(value = { "/config" }, method = RequestMethod.POST)
 	public ModelAndView saveCarousel(@Valid Configuration configuration, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
+		Configuration configlast = confiService.findConfigurationByid(1);
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("pgadmin/page-config");
 		} else {
 			configuration.setId(1);
+			if (configuration.getImg1().equals(""))
+			configuration.setImg1(configlast.getImg1());
+			if (configuration.getImg2().equals(""))
+			configuration.setImg2(configlast.getImg2());
+			if (configuration.getImg3().equals(""))
+			configuration.setImg3(configlast.getImg3());
 			confiService.saveConfiguration(configuration);
 			modelAndView.addObject("configuration", configuration);
 			modelAndView.addObject("successMessage", "Los Datos se han guardado correctamente");
