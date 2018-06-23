@@ -1,170 +1,160 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Quiniela | Main view</title>
+  <title>Quiniela | Main view</title>
 
-<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-<link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
 
-<link th:href="@{/css/animate.css}" rel="stylesheet">
-<link th:href="@{/css/style.css}" rel="stylesheet">
+  <link th:href="@{/css/animate.css}" rel="stylesheet">
+  <link th:href="@{/css/style.css}" rel="stylesheet">
 
-<!--  separados -->
+  <!--  separados -->
 
-<!-- FooTable -->
-<link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
+  <!-- FooTable -->
+  <link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
 
-<!--   -->
+  <!--   -->
 </head>
 
 <body class="skin-1 pace-done fixed-sidebar mini-navbar body-small">
 
-	<div id="wrapper">
-		<!--  menu sidebar -->
-		<div th:replace="layouts/menu :: menu"/>
-		<!--  end menu sidebar -->
-		<div id="page-wrapper" class="gray-bg">
-			<div class="row border-bottom">
-				<div th:replace="layouts/topbar :: topbar"/>
-			</div>
-        <div class="wrapper wrapper-content animated fadeInRight">
-            
-                <div class="row">
-                        <div class="col-lg-12">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
-                                    <h5>Quinielas disponibles</h5>
-                                </div>
-                                <div class="ibox-content">
-                                    <input
-                                        type="text"
-                                        class="form-control input-sm m-b-xs"
-                                        id="filter"
-                                        placeholder="Buscar..">
+  <div id="wrapper">
+    <!--  menu sidebar -->
+    <div th:replace="layouts/menu :: menu" />
+    <!--  end menu sidebar -->
+    <div id="page-wrapper" class="gray-bg">
+      <div class="row border-bottom">
+        <div th:replace="layouts/topbar :: topbar" />
+      </div>
+      <div class="wrapper wrapper-content animated fadeInRight">
 
-                                    <table
-                                        class="footable table table-stripped"
-                                        data-page-size="4"
-                                        data-filter="#filter">
-                                        <thead>
-                                            <tr>
-                                                <th>Codigo</th>
-                                                <th>Quiniela</th>
-                                                <th data-hide="phone,tablet">Deporte</th>
-                                                <th>Fecha de Apertura</th>
-                                                <th data-hide="phone,tablet">Fecha de Cierre</th>
-                                                <th>Privada</th>
-                                                <th>Posicion</th>
-                                                <th>Accion</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody th:each="quiniela : ${quinielas}" th:remove="tag">
-                                            <tr class="gradeX">
-                                                <td class="center">
-                                                        <!-- <span th:if="">X</span>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>Quinielas disponibles</h5>
+              </div>
+              <div class="ibox-content">
+                <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Buscar..">
+
+                <table class="footable table table-stripped" data-page-size="4" data-filter="#filter">
+                  <thead>
+                    <tr>
+                      <th>Codigo</th>
+                      <th>Quiniela</th>
+                      <th data-hide="phone,tablet">Deporte</th>
+                      <th>Fecha de Apertura</th>
+                      <th data-hide="phone,tablet">Fecha de Cierre</th>
+                      <th>Privada</th>
+                      <th>Posicion</th>
+                      <th>Accion</th>
+                    </tr>
+                  </thead>
+                  <tbody th:each="quiniela : ${quinielas}" th:remove="tag">
+                    <tr class="gradeX">
+                      <td class="center">
+                        <!-- <span th:if="">X</span>
                                                         <span th:unless=""></span> -->
-                                                </td>
-                                                <td class="center" th:text="${quiniela.id}"></td>
-                                                <td class="center" th:text="${quiniela.name}"></td>
-                                                <td class="center hide-text" th:switch="${quiniela.sport}">
-                                                    <span th:case="*">
-                                                            <img 
-                                                                th:alt="${quiniela.sport}"
-                                                                th:src="@{${'/ico/'+quiniela.sport+'.png'}}"
-                                                                class="img-responsive icono-deporte">
-                                                                <span th:text="${quiniela.sport}"></span>
-                                                    </span>
+                      </td>
+                      <td class="center" th:text="${quiniela.id}"></td>
+                      <td class="center" th:text="${quiniela.name}"></td>
+                      <td class="center hide-text" th:switch="${quiniela.sport}">
+                        <span th:case="*">
+                          <img th:alt="${quiniela.sport}" th:src="@{${'/ico/'+quiniela.sport+'.png'}}" class="img-responsive icono-deporte">
+                          <span th:text="${quiniela.sport}"></span>
+                        </span>
 
-                                                </td>
-                                                <td class="center" th:text="${quiniela.start}"></td>
-                                                <td class="center" th:text="${quiniela.end}"></td>
-                                                <td class="center" th:switch=${quiniela.type}>
-                                                    <span class="center" th:case="'1'" >SI</span>
-                                                    <span class="center" th:case="'2'">NO</span>
-                                                </td>
-                                                <td class="center">
-                                                    <a href="/quinielaMundialPrivada">
-                                                        <button type="button" class="btn btn-success">ir</button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="5">
-                                                    <ul class="pagination pull-right"></ul>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                        
-                                        <div class="row">     
-                                            <div class="col-lg-6">
-                                                <div class="ibox float-e-margins">
-                                                    <div class="ibox-title">
-                                                        <h5>Total de mis tipos de quinielas</h5>
-                                                    </div>
-                                                    <div class="ibox-content">
-                                                        <div>
-                                                            <canvas id="doughnutChart" height="140"></canvas>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                    <div class="ibox float-e-margins">
-                                                        <div class="ibox-title">
-                                                            <h5>Porcentaje de victorias</h5>
-                                                        </div>
-                                                        <div class="ibox-content">
-                                                            <div>
-                                                                <canvas id="doughnutChart" height="140"></canvas>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-			<!--  end content! -->
-			<div th:replace="layouts/footer :: footer"/>
-		</div>
-	</div>
+                      </td>
+                      <td class="center" th:text="${quiniela.start}"></td>
+                      <td class="center" th:text="${quiniela.end}"></td>
+                      <td class="center" th:switch=${quiniela.type}>
+                        <span class="center" th:case="'1'">SI</span>
+                        <span class="center" th:case="'2'">NO</span>
+                      </td>
+                      <td class="center">
+                        <a href="/quinielaMundialPrivada">
+                          <button type="button" class="btn btn-success">ir</button>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="5">
+                        <ul class="pagination pull-right"></ul>
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>Total de mis tipos de quinielas</h5>
+              </div>
+              <div class="ibox-content">
+                <div>
+                  <canvas id="doughnutChart" height="140"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>Porcentaje de victorias</h5>
+              </div>
+              <div class="ibox-content">
+                <div>
+                  <canvas id="doughnutChart" height="140"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!--  end content! -->
+  <div th:replace="layouts/footer :: footer" />
+  </div>
+  </div>
 
 
 
-	<!-- Mainly scripts -->
-	<script th:src="@{/js/jquery-3.1.1.min.js}"></script>
-	<script th:src="@{/js/bootstrap.min.js}"></script>
-	<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
-	<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+  <!-- Mainly scripts -->
+  <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+  <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+  <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
 
 
-	<!-- Custom and plugin javascript -->
-	<script th:src="@{/js/inspinia.js}"></script>
-	<script th:src="@{/js/plugins/pace/pace.min.js}"></script>
-	
-	
-	
-    <!-- ChartJS-->
-    <script th:src="@{/js/plugins/chartJs/Chart.min.js}"></script>
-    <script th:src="@{/js/demo/chartjs-demo.js}"></script>
-    
-    
-    
+  <!-- Custom and plugin javascript -->
+  <script th:src="@{/js/inspinia.js}"></script>
+  <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+
+
+
+  <!-- ChartJS-->
+  <script th:src="@{/js/plugins/chartJs/Chart.min.js}"></script>
+  <script th:src="@{/js/demo/chartjs-demo.js}"></script>
+
+
+
 </body>
 
 </html>

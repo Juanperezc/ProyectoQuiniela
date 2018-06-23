@@ -1,118 +1,118 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Quiniela | Main view</title>
+  <title>Quiniela | Main view</title>
 
-<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-<link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
 
-<link th:href="@{/css/animate.css}" rel="stylesheet">
-<link th:href="@{/css/style.css}" rel="stylesheet">
+  <link th:href="@{/css/animate.css}" rel="stylesheet">
+  <link th:href="@{/css/style.css}" rel="stylesheet">
 
-<!--  separados -->
+  <!--  separados -->
 
-<!-- FooTable -->
-<link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
+  <!-- FooTable -->
+  <link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
 
-<!--   -->
+  <!--   -->
 </head>
 
 <body class="skin-1 pace-done fixed-sidebar mini-navbar body-small" sec:authorize="hasAuthority('ADMIN')">
 
-	<div id="wrapper">
-		<!--  menu sidebar -->
-		<div th:replace="layouts/menu :: menu"/>
-		<!--  end menu sidebar -->
-		<div id="page-wrapper" class="gray-bg">
-			<div class="row border-bottom">
-				<div th:replace="layouts/topbar :: topbar"/>
-			</div>
+  <div id="wrapper">
+    <!--  menu sidebar -->
+    <div th:replace="layouts/menu :: menu" />
+    <!--  end menu sidebar -->
+    <div id="page-wrapper" class="gray-bg">
+      <div class="row border-bottom">
+        <div th:replace="layouts/topbar :: topbar" />
+      </div>
 
-			<!--  content ! -->
+      <!--  content ! -->
 
-	
-        <div class="wrapper wrapper-content animated fadeInRight">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Visitas
-                           
-                            </h5>
-                        </div>
-                        <div class="ibox-content">
-                            <div>
-                                <canvas id="lineChart" height="140"></canvas>
-                            </div>
-                        </div>
-                    </div>
+
+      <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>Visitas
+
+                </h5>
+              </div>
+              <div class="ibox-content">
+                <div>
+                  <canvas id="lineChart" height="140"></canvas>
                 </div>
-                <div class="col-lg-6">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>cantidad de tipos de usuarios </h5>
-                        </div>
-                        <div class="ibox-content">
-                            <div>
-                                <canvas id="doughnutChart" height="140"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-            <div class="row">
-         
-                <div class="col-lg-6">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>cantidad de quinielas por deporte </h5>
-                        </div>
-                        <div class="ibox-content">
-                            <div>
-                                <canvas id="doughnutChart" height="140"></canvas>
-                            </div>
-                        </div>
-                    </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>cantidad de tipos de usuarios </h5>
+              </div>
+              <div class="ibox-content">
+                <div>
+                  <canvas id="doughnutChart" height="140"></canvas>
                 </div>
+              </div>
             </div>
-    
+          </div>
         </div>
-			
-		
+        <div class="row">
 
-			<!--  end content! -->
+          <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>cantidad de quinielas por deporte </h5>
+              </div>
+              <div class="ibox-content">
+                <div>
+                  <canvas id="doughnutChart" height="140"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-			<div th:replace="layouts/footer :: footer"/>
-		</div>
-	</div>
+      </div>
 
 
 
-	<!-- Mainly scripts -->
-	<script th:src="@{/js/jquery-3.1.1.min.js}"></script>
-	<script th:src="@{/js/bootstrap.min.js}"></script>
-	<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
-	<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+      <!--  end content! -->
+
+      <div th:replace="layouts/footer :: footer" />
+    </div>
+  </div>
 
 
 
-	<!-- Custom and plugin javascript -->
-	<script th:src="@{/js/inspinia.js}"></script>
-	<script th:src="@{/js/plugins/pace/pace.min.js}"></script>
-	
-	
-	
-    <!-- ChartJS-->
-    <script th:src="@{/js/plugins/chartJs/Chart.min.js}"></script>
-    <script th:src="@{/js/demo/chartjs-demo.js}"></script>
-    
-    
-    
+  <!-- Mainly scripts -->
+  <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+  <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+  <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+
+
+
+  <!-- Custom and plugin javascript -->
+  <script th:src="@{/js/inspinia.js}"></script>
+  <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+
+
+
+  <!-- ChartJS-->
+  <script th:src="@{/js/plugins/chartJs/Chart.min.js}"></script>
+  <script th:src="@{/js/demo/chartjs-demo.js}"></script>
+
+
+
 </body>
 
 </html>

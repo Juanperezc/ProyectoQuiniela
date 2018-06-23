@@ -1,475 +1,440 @@
 <!DOCTYPE html>
-<html
-    lang="en"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
-    <head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
 
-        <title>Crear quiniela</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-        <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
+  <title>Crear quiniela</title>
 
-        <link th:href="@{/css/animate.css}" rel="stylesheet">
-        <link th:href="@{/css/style.css}" rel="stylesheet">
-        <link th:href="@{/css/plugins/steps/jquery.steps.css}" rel="stylesheet">
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
 
-        <!-- separados -->
+  <link th:href="@{/css/animate.css}" rel="stylesheet">
+  <link th:href="@{/css/style.css}" rel="stylesheet">
+  <link th:href="@{/css/plugins/steps/jquery.steps.css}" rel="stylesheet">
 
-        <!-- FooTable -->
-        <link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
-        <link th:href="@{/css/plugins/datapicker/datepicker3.css}" rel="stylesheet">
-        <!-- componentes personalizados -->
-        <link th:href="@{/css/plugins/select2/select2.min.css}" rel="stylesheet">
-        <link
-            th:href="@{/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css}"
-            rel="stylesheet">
-        <link th:href="@{/css/plugins/chosen/bootstrap-chosen.css}" rel="stylesheet">
-        <link
-            th:href="@{/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css}"
-            rel="stylesheet">
-        <link
-            th:href="@{/css/plugins/daterangepicker/daterangepicker-bs3.css}"
-            rel="stylesheet">
+  <!-- separados -->
 
-    </head>
+  <!-- FooTable -->
+  <link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
+  <link th:href="@{/css/plugins/datapicker/datepicker3.css}" rel="stylesheet">
+  <!-- componentes personalizados -->
+  <link th:href="@{/css/plugins/select2/select2.min.css}" rel="stylesheet">
+  <link th:href="@{/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css}" rel="stylesheet">
+  <link th:href="@{/css/plugins/chosen/bootstrap-chosen.css}" rel="stylesheet">
+  <link th:href="@{/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css}" rel="stylesheet">
+  <link th:href="@{/css/plugins/daterangepicker/daterangepicker-bs3.css}" rel="stylesheet">
 
-    <body class="skin-1 pace-done fixed-sidebar mini-navbar body-small" sec:authorize="hasAuthority('MEMBER')">
+</head>
 
-        <div id="wrapper" >
-            <!-- menu sidebar -->
-            <div th:replace="layouts/menu :: menu"/>
-            <!-- end menu sidebar -->
-            <div id="page-wrapper" class="gray-bg">
-                <div class="row border-bottom">
-                    <div th:replace="layouts/topbar :: topbar"/>
-                </div>
+<body class="skin-1 pace-done fixed-sidebar mini-navbar body-small" sec:authorize="hasAuthority('MEMBER')">
 
-                <!-- content ! -->
-                <div class="wrapper wrapper-content animated fadeInRight ecommerce">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="ibox">
-                                <div class="ibox-title">
-                                    <h5>Crear Quiniela</h5>
+  <div id="wrapper">
+    <!-- menu sidebar -->
+    <div th:replace="layouts/menu :: menu" />
+    <!-- end menu sidebar -->
+    <div id="page-wrapper" class="gray-bg">
+      <div class="row border-bottom">
+        <div th:replace="layouts/topbar :: topbar" />
+      </div>
 
-                                </div>
-                                <div class="ibox-content">
-                                    <h2>
-                                        Crea una quiniela en pocos pasos
-                                    </h2>
-                                    <form id="form" action="#">
-                                        <h1>Quinielas</h1>
-                                        <fieldset class="form-horizontal">
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Nombre de la quiniela:</label>
-                                                <div class="col-sm-6">
-                                                    <input type="text" class="form-control required" placeholder="quiniela 1">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label ">liga:</label>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <select class="form-control m-b required" name="sport" id="dropOperator">
-                                                            <option
-                                                                th:each="sport : ${sports}"
-                                                                th:value="${sport.name}"
-                                                                th:text="${sport.name}"></option>
+      <!-- content ! -->
+      <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ibox">
+              <div class="ibox-title">
+                <h5>Crear Quiniela</h5>
 
-                                                        </select>
-                                                    </div>
-                                                </div>
+              </div>
+              <div class="ibox-content">
+                <h2>
+                  Crea una quiniela en pocos pasos
+                </h2>
+                <form id="form" action="#">
+                  <h1>Quinielas</h1>
+                  <fieldset class="form-horizontal">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Nombre de la quiniela:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control required" placeholder="quiniela 1">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label ">liga:</label>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <select class="form-control m-b required" name="sport" id="dropOperator">
+                            <option th:each="sport : ${sports}" th:value="${sport.name}" th:text="${sport.name}"></option>
 
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Descripcion de la quiniela:</label>
-                                                <div class="col-sm-6">
-                                                    <textarea type="text" class="form-control required" placeholder=""></textarea>
-                                                </div>
-                                            </div>
-                                           
-                                            
-                                        </fieldset>
-                                        <h1>Reglas</h1>
-                                        <fieldset class="form-horizontal">
-
-                                                <div class="row">
-                                                    <div class="col-sm-3">
-                                                            <form>
-                                                                    <input type="radio" name="gender" value="male" checked>Privada<br>
-                                                                    <input type="radio" name="gender" value="female">Publica<br>
-                                                                  </form>
-                                                        <form > <h5>Fecha de apertura</h5>
-                                                        <input type="date" name="bday">
-                                                      </form>
-                                                      <form> <h5>Fecha de cierre</h5>
-                                                        <input type="date" name="bday">
-                                                      </form>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                        <form>
-                                                            Puntuaci�n para acierto de score del equipo ganador:<br>
-                                                            <input type="text" name="puntajeVictoria" value=""><br>
-                                                            Puntuaci�n para acierto de score del Equipo:<br>
-                                                            <input type="text" name="puntajeFinal" value=""><br><br>
-                                                            <input type="submit" value="Submit">
-                                                          </form>
-                                                        </div>
-
-                                        </fieldset>
-                                        <h1>Juegos</h1>
-                                        <fieldset class="form-horizontal">
-                                            <div class="row">
-                                                <div class="form-group">
-                                                    <div class="col-sm-6 col-sm-offset-5">
-                                                        <label class="control-label">Agregar Juego:</label>
-                                                        <input
-                                                            type="button"
-                                                            class="btn btn-primary"
-                                                            data-toggle="modal"
-                                                            data-target="#modalNuevo"
-                                                            value="Agregar">
-                                                    </div>
-
-                                                    <!-- Modales aqui -->
-                                                    <div
-                                                        class="modal inmodal"
-                                                        id="modalNuevo"
-                                                        tabindex="-1"
-                                                        role="dialog"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content animated bounceInRight">
-                                                                <div class="modal-header">
-                                                                    <button type="button" class="close" data-dismiss="modal">
-                                                                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                                                                    </button>
-                                                                    <i class="fa fa-futbol-o modal-icon"></i>
-                                                                    <h4 class="modal-title">Nuevo juego</h4>
-                                                                    <small class="font-bold">Por favor introduzca todos los campos para agregar el juego a la quiniela</small>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Nombre del Equipo 1:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" placeholder="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Nombre del Equipo 2:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" placeholder="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Descripci�n:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" placeholder="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Fecha</label>
-                                                                        <div class="col-sm-3">
-                                                                            <div class="form-group" id="fecha_1">
-                                                                                <div class="input-group date">
-                                                                                    <span class="input-group-addon">
-                                                                                        <i class="fa fa-calendar"></i>
-                                                                                    </span><input
-                                                                                        type="text"
-                                                                                        class="form-control"
-                                                                                        value=""
-                                                                                        disabled="disabled"
-                                                                                        style="background-color: white">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
-                                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Agregar juego</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="modal inmodal"
-                                                        id="modalVer"
-                                                        tabindex="-1"
-                                                        role="dialog"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content animated bounceInRight">
-                                                                <div class="modal-header">
-                                                                    <button type="button" class="close" data-dismiss="modal">
-                                                                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                                                                    </button>
-                                                                    <i class="fa fa-futbol-o modal-icon"></i>
-                                                                    <h3 class="modal-title">Informaci�n de juego seleccionado</h3>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Nombre del Equipo 1:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" placeholder="" disabled="disabled">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Nombre del Equipo 2:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" placeholder="" disabled="disabled">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Descripci�n:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" placeholder="" disabled="disabled">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Fecha</label>
-                                                                        <div class="col-sm-3">
-                                                                            <div class="form-group" id="fecha_1">
-                                                                                <div class="input-group date">
-                                                                                    <span class="input-group-addon">
-                                                                                        <i class="fa fa-calendar"></i>
-                                                                                    </span><input type="text" class="form-control" value="" disabled="disabled">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="modal inmodal"
-                                                        id="modalEditar"
-                                                        tabindex="-1"
-                                                        role="dialog"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content animated bounceInRight">
-                                                                <div class="modal-header">
-                                                                    <button type="button" class="close" data-dismiss="modal">
-                                                                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                                                                    </button>
-                                                                    <i class="fa fa-futbol-o modal-icon"></i>
-                                                                    <h4 class="modal-title">Edici�n de informacion</h4>
-                                                                    <small class="font-bold">Por favor modifique los datos de su interes, sin dejar campos sin llenar</small>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Nombre del Equipo 1:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" placeholder="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Nombre del Equipo 2:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" placeholder="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Descripci�n:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" placeholder="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="col-sm-2 control-label">Fecha</label>
-                                                                        <div class="col-sm-3">
-                                                                            <div class="form-group" id="fecha_1">
-                                                                                <div class="input-group date">
-                                                                                    <span class="input-group-addon">
-                                                                                        <i class="fa fa-calendar"></i>
-                                                                                    </span><input
-                                                                                        type="text"
-                                                                                        class="form-control"
-                                                                                        value=""
-                                                                                        disabled="disabled"
-                                                                                        style="background-color: white">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
-                                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="ibox">
-                                                        <div class="ibox-content">
-                                                            <table
-                                                                class="footable table table-stripped toggle-arrow-tiny"
-                                                                data-page-size="15">
-                                                                <thead>
-                                                                    <tr>
-
-                                                                        <th data-toggle="true">Id</th>
-                                                                        <th data-hide="phone">Equipo 1</th>
-                                                                        <th data-hide="all">Puntuaci�n E1</th>
-                                                                        <th data-hide="phone">Equipo 2</th>
-                                                                        <th data-hide="phone,tablet">Puntuaci�n E2</th>
-                                                                        <th data-hide="phone">Status</th>
-                                                                        <th class="text-center" data-sort-ignore="true">Acci�n</th>
-
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>001</td>
-                                                                        <td>Alemania</td>
-                                                                        <td>0</td>
-                                                                        <td>México</td>
-                                                                        <td>0</td>
-                                                                        <td>
-                                                                            <span class="label label-success">Por Disputar</span></td>
-                                                                        <td class="text-right">
-                                                                            <div class="btn-group">
-                                                                                <button class="btn btn-info" data-toggle="modal" data-target="#modalVer">Ver</button>
-                                                                                <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditar">Editar</button>
-                                                                                <button
-                                                                                    class="btn btn-large btn-primary btn-danger"
-                                                                                    data-toggle="confirmation"
-                                                                                    data-btn-ok-label="SI"
-                                                                                    data-btn-ok-class="btn-success"
-                                                                                    data-btn-ok-icon-class="material-icons"
-                                                                                    data-btn-ok-icon-content="check"
-                                                                                    data-btn-cancel-label="NO"
-                                                                                    data-btn-cancel-class="btn-danger"
-                                                                                    data-btn-cancel-icon-class="material-icons"
-                                                                                    data-btn-cancel-icon-content="close"
-                                                                                    data-title="¿Esta Seguro?"
-                                                                                    data-content="Estos resultados no podran ser cambiados"
-                                                                                    data-placement="top">Eliminar</button>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                </tbody>
-                                                                <tfoot>
-                                                                    <tr>
-                                                                        <td colspan="2">
-                                                                            <ul class="pagination pull-right"></ul>
-                                                                        </td>
-                                                                        <td colspan="8"><input
-                                                                            type="button"
-                                                                            class="btn pull-right btn-primary"
-                                                                            value="Completar creación"></td>
-
-                                                                    </tr>
-
-                                                                </tfoot>
-                                                            </table>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-
-                                </form>
-
-                            </div>
+                          </select>
                         </div>
+                      </div>
+
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Descripcion de la quiniela:</label>
+                      <div class="col-sm-6">
+                        <textarea type="text" class="form-control required" placeholder=""></textarea>
+                      </div>
                     </div>
 
-                    <div th:replace="layouts/footer :: footer"/>
-                </div>
+
+                  </fieldset>
+                  <h1>Reglas</h1>
+                  <fieldset class="form-horizontal">
+
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <form>
+                          <input type="radio" name="gender" value="male" checked>Privada
+                          <br>
+                          <input type="radio" name="gender" value="female">Publica
+                          <br>
+                        </form>
+                        <form>
+                          <h5>Fecha de apertura</h5>
+                          <input type="date" name="bday">
+                        </form>
+                        <form>
+                          <h5>Fecha de cierre</h5>
+                          <input type="date" name="bday">
+                        </form>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <form>
+                        Puntuaci�n para acierto de score del equipo ganador:
+                        <br>
+                        <input type="text" name="puntajeVictoria" value="">
+                        <br> Puntuaci�n para acierto de score del Equipo:
+                        <br>
+                        <input type="text" name="puntajeFinal" value="">
+                        <br>
+                        <br>
+                        <input type="submit" value="Submit">
+                      </form>
+                    </div>
+
+                  </fieldset>
+                  <h1>Juegos</h1>
+                  <fieldset class="form-horizontal">
+                    <div class="row">
+                      <div class="form-group">
+                        <div class="col-sm-6 col-sm-offset-5">
+                          <label class="control-label">Agregar Juego:</label>
+                          <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo" value="Agregar">
+                        </div>
+
+                        <!-- Modales aqui -->
+                        <div class="modal inmodal" id="modalNuevo" tabindex="-1" role="dialog" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content animated bounceInRight">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                  <span aria-hidden="true">&times;</span>
+                                  <span class="sr-only">Close</span>
+                                </button>
+                                <i class="fa fa-futbol-o modal-icon"></i>
+                                <h4 class="modal-title">Nuevo juego</h4>
+                                <small class="font-bold">Por favor introduzca todos los campos para agregar el juego a la quiniela</small>
+                              </div>
+                              <div class="modal-body">
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Nombre del Equipo 1:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Nombre del Equipo 2:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Descripci�n:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Fecha</label>
+                                  <div class="col-sm-3">
+                                    <div class="form-group" id="fecha_1">
+                                      <div class="input-group date">
+                                        <span class="input-group-addon">
+                                          <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="text" class="form-control" value="" disabled="disabled" style="background-color: white">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Agregar juego</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal inmodal" id="modalVer" tabindex="-1" role="dialog" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content animated bounceInRight">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                  <span aria-hidden="true">&times;</span>
+                                  <span class="sr-only">Close</span>
+                                </button>
+                                <i class="fa fa-futbol-o modal-icon"></i>
+                                <h3 class="modal-title">Informaci�n de juego seleccionado</h3>
+                              </div>
+                              <div class="modal-body">
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Nombre del Equipo 1:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="" disabled="disabled">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Nombre del Equipo 2:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="" disabled="disabled">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Descripci�n:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="" disabled="disabled">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Fecha</label>
+                                  <div class="col-sm-3">
+                                    <div class="form-group" id="fecha_1">
+                                      <div class="input-group date">
+                                        <span class="input-group-addon">
+                                          <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="text" class="form-control" value="" disabled="disabled">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal inmodal" id="modalEditar" tabindex="-1" role="dialog" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content animated bounceInRight">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                  <span aria-hidden="true">&times;</span>
+                                  <span class="sr-only">Close</span>
+                                </button>
+                                <i class="fa fa-futbol-o modal-icon"></i>
+                                <h4 class="modal-title">Edici�n de informacion</h4>
+                                <small class="font-bold">Por favor modifique los datos de su interes, sin dejar campos sin llenar</small>
+                              </div>
+                              <div class="modal-body">
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Nombre del Equipo 1:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Nombre del Equipo 2:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Descripci�n:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Fecha</label>
+                                  <div class="col-sm-3">
+                                    <div class="form-group" id="fecha_1">
+                                      <div class="input-group date">
+                                        <span class="input-group-addon">
+                                          <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="text" class="form-control" value="" disabled="disabled" style="background-color: white">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="ibox">
+                          <div class="ibox-content">
+                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+                              <thead>
+                                <tr>
+
+                                  <th data-toggle="true">Id</th>
+                                  <th data-hide="phone">Equipo 1</th>
+                                  <th data-hide="all">Puntuaci�n E1</th>
+                                  <th data-hide="phone">Equipo 2</th>
+                                  <th data-hide="phone,tablet">Puntuaci�n E2</th>
+                                  <th data-hide="phone">Status</th>
+                                  <th class="text-center" data-sort-ignore="true">Acci�n</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>001</td>
+                                  <td>Alemania</td>
+                                  <td>0</td>
+                                  <td>México</td>
+                                  <td>0</td>
+                                  <td>
+                                    <span class="label label-success">Por Disputar</span>
+                                  </td>
+                                  <td class="text-right">
+                                    <div class="btn-group">
+                                      <button class="btn btn-info" data-toggle="modal" data-target="#modalVer">Ver</button>
+                                      <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditar">Editar</button>
+                                      <button class="btn btn-large btn-primary btn-danger" data-toggle="confirmation" data-btn-ok-label="SI" data-btn-ok-class="btn-success"
+                                        data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check" data-btn-cancel-label="NO"
+                                        data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
+                                        data-title="¿Esta Seguro?" data-content="Estos resultados no podran ser cambiados"
+                                        data-placement="top">Eliminar</button>
+                                    </div>
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                              <tfoot>
+                                <tr>
+                                  <td colspan="2">
+                                    <ul class="pagination pull-right"></ul>
+                                  </td>
+                                  <td colspan="8">
+                                    <input type="button" class="btn pull-right btn-primary" value="Completar creación">
+                                  </td>
+
+                                </tr>
+
+                              </tfoot>
+                            </table>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+              </div>
+
+              </form>
 
             </div>
+          </div>
+        </div>
 
-            <!-- Mainly scripts -->
-            <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
-            <script th:src="@{/js/bootstrap.min.js}"></script>
-            <script th:src="@{/js/bootstrap-confirmation.js}"></script>
-            <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
-            <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+        <div th:replace="layouts/footer :: footer" />
+      </div>
 
-            <!-- Select2 -->
-            <script th:src="@{/js/plugins/select2/select2.full.min.js}"></script>
+    </div>
 
-            <!-- Chosen -->
-            <script th:src="@{/js/plugins/chosen/chosen.jquery.js}"></script>
+    <!-- Mainly scripts -->
+    <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/bootstrap-confirmation.js}"></script>
+    <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+    <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
-            <!-- FooTable -->
-            <script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
+    <!-- Select2 -->
+    <script th:src="@{/js/plugins/select2/select2.full.min.js}"></script>
 
-            <!-- Custom and plugin javascript -->
-            <script th:src="@{/js/inspinia.js}"></script>
-            <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
-            <!-- Date picker -->
-            <script th:src="@{/js/plugins/datapicker/bootstrap-datepicker.js}"></script>
-            <script th:src="@{/js/plugins/fullcalendar/moment.min.js}"></script>
-            <script th:src="@{/js/plugins/daterangepicker/daterangepicker.js}"></script>
-            <!-- TouchSpin -->
-            <script th:src="@{/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js}"></script>
-            <!-- Steps -->
-           
-            <!-- Jquery Validate -->
-            <script th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
+    <!-- Chosen -->
+    <script th:src="@{/js/plugins/chosen/chosen.jquery.js}"></script>
 
-            <script>
-            
-            </script>
+    <!-- FooTable -->
+    <script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
 
-            <!-- Page-Level Scripts -->
-        
+    <!-- Custom and plugin javascript -->
+    <script th:src="@{/js/inspinia.js}"></script>
+    <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+    <!-- Date picker -->
+    <script th:src="@{/js/plugins/datapicker/bootstrap-datepicker.js}"></script>
+    <script th:src="@{/js/plugins/fullcalendar/moment.min.js}"></script>
+    <script th:src="@{/js/plugins/daterangepicker/daterangepicker.js}"></script>
+    <!-- TouchSpin -->
+    <script th:src="@{/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js}"></script>
+    <!-- Steps -->
 
-            <script>
-                $(document).ready(function () {
-         
+    <!-- Jquery Validate -->
+    <script th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
 
-                    $('.footable').footable();
-                    $('.footable2').footable();
-                    $('[data-toggle=confirmation]').confirmation({
-                        rootSelector: '[data-toggle=confirmation]',
-                        // other options
-                    });
-            
-                $('#fecha_1 .input-group.date').datepicker({
-                    todayBtn: "linked",
-                    keyboardNavigation: false,
-                    forceParse: false,
-                    calendarWeeks: true,
-                    autoclose: true,
-                    format: 'dd/mm/yyyy'
-                });
-                $('#fecha_2 .input-group.date').datepicker({
-                    todayBtn: "linked",
-                    keyboardNavigation: false,
-                    forceParse: false,
-                    calendarWeeks: true,
-                    autoclose: true,
-                    format: 'dd/mm/yyyy'
-                });
-            
-                    
-                });
-            </script>
+    <script>
 
-        </body>
-    </html>
+
+    </script>
+
+    <!-- Page-Level Scripts -->
+
+
+    <script>
+      $(document).ready(function () {
+
+
+        $('.footable').footable();
+        $('.footable2').footable();
+        $('[data-toggle=confirmation]').confirmation({
+          rootSelector: '[data-toggle=confirmation]',
+          // other options
+        });
+
+        $('#fecha_1 .input-group.date').datepicker({
+          todayBtn: "linked",
+          keyboardNavigation: false,
+          forceParse: false,
+          calendarWeeks: true,
+          autoclose: true,
+          format: 'dd/mm/yyyy'
+        });
+        $('#fecha_2 .input-group.date').datepicker({
+          todayBtn: "linked",
+          keyboardNavigation: false,
+          forceParse: false,
+          calendarWeeks: true,
+          autoclose: true,
+          format: 'dd/mm/yyyy'
+        });
+
+
+      });
+
+    </script>
+
+</body>
+
+</html>
