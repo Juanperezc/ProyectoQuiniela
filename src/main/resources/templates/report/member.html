@@ -155,6 +155,9 @@
   <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
   <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
+  <!-- FooTable -->
+  <script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
+
 
 
   <!-- Custom and plugin javascript -->
@@ -167,7 +170,17 @@
   <script th:src="@{/js/plugins/chartJs/Chart.min.js}"></script>
   <script th:src="@{/js/demo/chartjs-demo.js}"></script>
 
+  <script>
+      $(document).ready(function () {
+        $('.footable').footable();
 
+              $('[data-toggle=confirmation]').confirmation({
+                  rootSelector: '[data-toggle=confirmation]',
+                  // other options
+              });
+            });
+
+          </script>
 
 </body>
 
