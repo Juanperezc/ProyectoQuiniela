@@ -10,5 +10,6 @@ import com.lab2.modelo.Configuration;
 @Repository("configurationRepository")
 public interface ConfigurationRepository extends JpaRepository<Configuration, Integer>{
 	//Configuration findByRole(String role);
+	Configuration findByid(Integer id);
 
 }

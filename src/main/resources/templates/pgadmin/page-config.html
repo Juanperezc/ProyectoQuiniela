@@ -51,19 +51,27 @@
                 <H2>CONFIGURACIONES DEL LA PAGINA QUINIELA EXPRESS</H2>
               </div>
               <div class="ibox-content" style="background-color: #0e9aef">
+                  <form autocomplete="off" action="#" th:action="@{/pgadmin/carousel}"
+                    th:object="${configuration}" method="post" class="form-horizontal"
+                    role="form" >
                 <div class="ibox">
                   <div class="ibox-title">
                     <H2>CONFIGURACIONES DEL LAS IMAGENES DEL INICIO DEL PORTAL</H2>
                   </div>
                   <div class="ibox-content">
+                 
                     <div class="row">
                       <div class="form-group col-sm-6">
+                          <label th:if="${#fields.hasErrors('txt1')}" th:errors="*{txt1}"
+                          class="validation-message"></label>
                         <label class="control-label">Texto de la 1º imagen para el portal:</label>
                         <div>
-                          <input type="text" class="form-control" placeholder="texto">
+                          <input type="text" th:field="*{txt1}" class="form-control" placeholder="texto">
                         </div>
                       </div>
                       <div class="form-group col-sm-6">
+                          <label th:if="${#fields.hasErrors('img1')}" th:errors="*{img1}"
+                          class="validation-message"></label>
                         <label class="control-label">Selecione 1º la imagen a usar para portal:</label>
                         <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                           <div class="form-control" data-trigger="fileinput">
@@ -73,20 +81,24 @@
                           <span class="input-group-addon btn btn-default btn-file">
                             <span class="fileinput-new">Select file</span>
                             <span class="fileinput-exists">Change</span>
-                            <input type="file" name="..." />
+                            <input type="file" th:field="*{img1}" />
                           </span>
                           <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                         </div>
                       </div>
                     </div>
                     <div class="row">
+                        <label th:if="${#fields.hasErrors('txt2')}" th:errors="*{txt2}"
+                        class="validation-message"></label>
                       <div class="form-group col-sm-6">
                         <label class="control-label">Texto de la 2º imagen para el portal:</label>
                         <div>
-                          <input type="text" class="form-control" placeholder="texto">
+                          <input type="text" th:field="*{txt2}" class="form-control" placeholder="texto">
                         </div>
                       </div>
                       <div class="form-group col-sm-6">
+                          <label th:if="${#fields.hasErrors('img2')}" th:errors="*{img2}"
+                          class="validation-message"></label>
                         <label class="control-label">Selecione 2º la imagen a usar para portal:</label>
                         <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                           <div class="form-control" data-trigger="fileinput">
@@ -96,7 +108,7 @@
                           <span class="input-group-addon btn btn-default btn-file">
                             <span class="fileinput-new">Select file</span>
                             <span class="fileinput-exists">Change</span>
-                            <input type="file" name="..." />
+                            <input type="file" th:field="*{img2}" />
                           </span>
                           <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                         </div>
@@ -104,30 +116,36 @@
                     </div>
                     <div class="row">
                       <div class="form-group col-sm-6">
+                          <label th:if="${#fields.hasErrors('txt3')}" th:errors="*{txt3}"
+                          class="validation-message"></label>
                         <label class="control-label">Texto de la 3º imagen para el portal:</label>
                         <div>
-                          <input type="text" class="form-control" placeholder="texto">
+                          <input type="text" th:field="*{txt3}" class="form-control" placeholder="texto">
                         </div>
                       </div>
                       <div class="form-group col-sm-6">
                         <label class="control-label">Selecione 3º la imagen a usar para portal:</label>
                         <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                           <div class="form-control" data-trigger="fileinput">
+                              <label th:if="${#fields.hasErrors('img3')}" th:errors="*{img3}"
+                              class="validation-message"></label>
                             <i class="glyphicon glyphicon-file fileinput-exists"></i>
                             <span class="fileinput-filename"></span>
                           </div>
                           <span class="input-group-addon btn btn-default btn-file">
                             <span class="fileinput-new">Select file</span>
                             <span class="fileinput-exists">Change</span>
-                            <input type="file" name="..." />
+                            <input type="file" th:field="*{img3}" />
                           </span>
                           <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <input type="button" class="btn pull-right btn-primary" value="Guardar">
+                      <input type="submit" class="btn pull-right btn-primary" value="Guardar">
                     </div>
+                    <span th:utext="${successMessage}"></span>
+                 
                   </div>
                 </div>
                 <div class="ibox">
@@ -139,15 +157,17 @@
                       <div class="form-group col-sm-6">
                         <label class="control-label">INGRESE AQUI EL LINK DE TWITTER A USAR EN EL PORTAL :</label>
                         <div>
-                          <input type="text" class="form-control" placeholder="link aqui">
+                          <input type="text" th:field="*{twitterurl}" class="form-control" placeholder="link aqui">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <input type="button" class="btn pull-right btn-primary" value="Guardar">
+                      <input type="submit" class="btn pull-right btn-primary" value="Guardar">
                     </div>
+                    <span th:utext="${successMessage}"></span>
                   </div>
                 </div>
+              </form>
               </div>
             </div>
 
@@ -218,9 +238,12 @@
         buttondown_class: 'btn btn-white',
         buttonup_class: 'btn btn-white'
       });
+
+
     });
 
   </script>
+
 
 </body>
 

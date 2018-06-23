@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotEmpty;
 @Entity
 @Table(name = "configuration")
 public class Configuration extends AuditModel {
@@ -32,6 +32,9 @@ public class Configuration extends AuditModel {
 	
 	@Column(name = "txt3")
 	private String txt3;
+
+	@Column(name = "twitterurl")
+	private String twitterurl;
 
 	public String getImg1() {
 		return img1;
@@ -80,6 +83,18 @@ public class Configuration extends AuditModel {
 	public void setTxt3(String txt3) {
 		this.txt3 = txt3;
 	}
-	
+	public String getTwitterUrl() {
+		return twitterurl;
+	}
+
+	public void setTwitterUrl(String twitterurl) {
+		this.twitterurl = twitterurl;
+	}
+	public void setId( int id){
+		this.id = id;
+	}
+	public int getId(){
+		return this.id;
+	}
 	
 }
