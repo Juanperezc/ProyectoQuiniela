@@ -16,7 +16,6 @@ public class GameServiceImpl implements GameService{
 
 	@Autowired
 	private GameRepository gameRepository;
-
 	@Override
 	public void saveGame(Game game) {
 		gameRepository.save(game);

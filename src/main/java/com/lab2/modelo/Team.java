@@ -21,6 +21,17 @@ public class Team extends AuditModel {
 
 	@Column(name = "team_id")
 	private int id;
+
+	@Column(name = "name")
+	private String name;
+
+	@Column(name = "img")
+	private String img;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "liga_id", nullable = false)
+	private Liga liga;
+
 	
 	private Team() {
 		
@@ -40,12 +51,14 @@ public class Team extends AuditModel {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getImg() {
+		return img;
+	}
 
-	@Column(name = "name")
-	private String name;
+	public void setImg(String img) {
+		this.img = img;
+	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "liga_id", nullable = false)
-	private Liga liga;
+
 }
 

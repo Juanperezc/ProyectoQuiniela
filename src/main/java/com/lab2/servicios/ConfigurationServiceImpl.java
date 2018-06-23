@@ -19,7 +19,10 @@ public class ConfigurationServiceImpl implements ConfigurationService{
 
 	@Override
 	public void saveConfiguration(Configuration configuration) {
+
 		configurationRepository.save(configuration);
 	}
+	
+
 
 }

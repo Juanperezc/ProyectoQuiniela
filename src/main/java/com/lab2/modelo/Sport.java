@@ -29,7 +29,8 @@ public class Sport extends AuditModel {
     @Column(name = "name")
 	private String name;
 	
-	
+	@Column(name = "img")
+	private String img;
 	
 	@OneToMany(fetch = FetchType.LAZY,
     cascade =  javax.persistence.CascadeType.ALL,
@@ -56,6 +57,13 @@ public class Sport extends AuditModel {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 	public List<Liga> getLiga(){
 		return liga;
