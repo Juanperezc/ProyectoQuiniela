@@ -15,7 +15,7 @@ import com.lab2.modelo.User;
 import com.lab2.servicios.UserService;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/pgadmin")
 public class AdminController {
 
 	@Autowired
@@ -24,7 +24,7 @@ public class AdminController {
 	@RequestMapping(value = { "/account-management" }, method = RequestMethod.GET)
 	public ModelAndView accountmanagement() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/admin/account-management");
+		modelAndView.setViewName("pgadmin/account-management");
 		return modelAndView;
 	}
 }

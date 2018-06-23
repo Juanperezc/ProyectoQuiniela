@@ -19,9 +19,15 @@
                                             Usuario
                                         </strong>
                                     </span>
-                                    <span class="text-muted text-xs block">Administrador
-                                        <b class="caret"></b>
-                                    </span>
+                                        <span sec:authorize="hasAuthority('USER')" class="text-muted text-xs block" >Usuario
+                                            <b class="caret"></b>
+                                        </span>                                    
+                                        <span sec:authorize="hasAuthority('ADMIN')" class="text-muted text-xs block">Administrator del Portal
+                                            <b class="caret"></b>
+                                        </span>
+                                        <span sec:authorize="hasAuthority('MEMBER')" class="text-muted text-xs block">Administrador de quinielas
+                                            <b class="caret"></b>
+                                        </span>
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -46,14 +52,14 @@
                             <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="/profile">Editar perfil
+                                <a th:href="@{/user/myprofile}">Editar perfil
                                 </a>
                             </li>
                             <li>
-                                <a href="/verQuinielas">Ver quinielas</a>
+                                <a th:href="@{/quiniela/index}">Ver quinielas</a>
                             </li>
                             <li>
-                                <a href="/report">Estadisticas</a>
+                                <a th:href="@{/report/user}">Estadisticas</a>
                             </li>
                         </ul>
                     </li>
@@ -64,17 +70,20 @@
                             <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="/crearQuiniela">Crear Quinielas</a>
+                                <a th:href="@{/quiniela/create}">Crear Quinielas</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/user/myleagues}">Crear Ligas</a>
                             </li>
                             <!-- test -->
                             <li>
-                                <a href="/misQuinielas">Mis quinielas (editar, ver, responder comentarios)</a>
+                                <a th:href="@{/quiniela/myindex}">Mis quinielas (editar, ver, responder comentarios)</a>
                             </li>
                             <li>
-                                <a href="/request">Administrar Solicitudes</a>
+                                <a th:href="@{/user/solicitudes}">Administrar Solicitudes</a>
                             </li>
                             <li>
-                                <a href="/report">Estadisticas</a>
+                                <a th:href="@{/report/member}">Estadisticas</a>
                             </li>
                         </ul>
                     </li>
@@ -86,13 +95,13 @@
                         </a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="/manage_accounts">Administrar cuentas</a>
+                                <a th:href="@{/pgadmin/account-management}">Administrar cuentas</a>
                             </li>
                             <li>
-                                <a href="/request">Administrar Solicitudes</a>
+                                <a th:href="@{/pgadmin/account-management}">Administrar Solicitudes</a>
                             </li>
                             <li>
-                                <a href="/report">Estadisticas</a>
+                                <a th:href="@{/report/admin}">Estadisticas</a>
                             </li>
                         </ul>
                     </li>
