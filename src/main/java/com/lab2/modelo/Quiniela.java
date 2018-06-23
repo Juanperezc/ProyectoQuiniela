@@ -1,5 +1,6 @@
 package com.lab2.modelo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,14 +8,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 @Entity(name = "Quiniela")
 @Table(name = "quiniela")
 public class Quiniela extends AuditModel {
@@ -24,7 +33,7 @@ public class Quiniela extends AuditModel {
     private int id;
     //privada 1 y publica 2
     @Column(name = "type")
-    private int type;
+    private Integer type;
     @Column(name = "admin")
     private Integer admin;
     @Column(name = "name")
@@ -35,10 +44,13 @@ public class Quiniela extends AuditModel {
     private Date end;
     @Column(name = "description")
     private String description;
-    @Column(name = "sport")
-    private String sport;
+
     @Column(name = "imagenFondo")
     private String imagenFondo;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "sport_id")
+    private Sport sport;
 
     @OneToOne(
         fetch = FetchType.LAZY,
@@ -51,7 +63,7 @@ public class Quiniela extends AuditModel {
         cascade = javax.persistence.CascadeType.ALL,
         orphanRemoval = true
     )
-            private List<QuinielaUser> users = new ArrayList<>();
+    private List<QuinielaUser> users = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -59,10 +71,10 @@ public class Quiniela extends AuditModel {
     public void setId(int id) {
         this.id = id;
     }
-    public int getType() {
+    public Integer getType() {
         return type;
     }
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
     public Integer getAdmin() {
@@ -93,16 +105,18 @@ public class Quiniela extends AuditModel {
     public void setDescription(String description) {
         this.description = description;
     }
-    public Date getDescription() {
-        return end;
+    public String getDescription() {
+        return description;
     }
     
-    public void setSport(String sport) {
-        this.sport = sport;
-    }
-    public Date getSport() {
-        return end;
-    }
+    public Sport getSport() {
+		return sport;
+	}
+
+	public void setSport(Sport sport) {
+		this.sport = sport;
+	}
+
     public void set(String imagenFondo) {
         this.imagenFondo = imagenFondo;
     }

@@ -3,6 +3,7 @@ package com.lab2.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,11 +34,14 @@ public class Sport extends AuditModel {
 	private String img;
 	
 	@OneToMany(fetch = FetchType.LAZY,
-    cascade =  javax.persistence.CascadeType.ALL,
+    cascade =  CascadeType.ALL,
     mappedBy = "sport")
 	private List<Liga> liga = new ArrayList<>();
 
-
+    @OneToMany( fetch = FetchType.LAZY,
+        mappedBy = "sport"
+    )
+    private List<Quiniela> quinielas = new ArrayList<>();
 	
 	private Sport() {
 		
@@ -72,6 +76,12 @@ public class Sport extends AuditModel {
 		this.liga = liga;
 	}
 	
+/*	public List<Quiniela> getQuinielas(){
+		return quinielas;
+	}
+	public void setQuinielas(List<Quiniela> quinielas){
+		this.quinielas = quinielas;
+	}*/
 
 
 }
