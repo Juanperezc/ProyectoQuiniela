@@ -45,6 +45,8 @@ public class AdminController {
 
 		ModelAndView modelAndView = new ModelAndView();
 		List<Sport> sports = sportService.findAll();
+		Sport sport = new Sport();
+		modelAndView.addObject("sport", sport);
 		modelAndView.addObject("sports", sports);
 		modelAndView.setViewName("pgadmin/sport");
 		return modelAndView;
@@ -55,6 +57,29 @@ public class AdminController {
 		Configuration configuration = confiService.findConfigurationByid(1);
 		modelAndView.addObject("configuration", configuration);
 		modelAndView.setViewName("pgadmin/page-config");
+		return modelAndView;
+	}
+
+	@RequestMapping(value = { "/sport" }, method = RequestMethod.POST)
+	public ModelAndView saveSport(@Valid Sport sport, BindingResult bindingResult) {
+		ModelAndView modelAndView = new ModelAndView();
+
+
+		Sport sportExists = sportService.findSportByName(sport.getName());
+		if (sportExists != null) {
+			bindingResult.rejectValue("name", "error.sport",
+					"Ya existe un deporte con este nombre");
+		}
+		if (bindingResult.hasErrors()) {
+			modelAndView.setViewName("pgadmin/sport");
+		} else {
+			sportService.saveSport(sport);
+			modelAndView.addObject("sport", new Sport());
+			modelAndView.addObject("successMessage", "Los Datos se han guardado correctamente");
+		}
+		List<Sport> sports = sportService.findAll();
+		modelAndView.addObject("sports", sports);
+		modelAndView.setViewName("pgadmin/sport");
 		return modelAndView;
 	}
 	@RequestMapping(value = { "/config" }, method = RequestMethod.POST)

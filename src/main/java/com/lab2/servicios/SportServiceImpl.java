@@ -26,6 +26,10 @@ public class SportServiceImpl implements SportService{
 	public List<Sport> findAll() {
 		return sportRepository.findAll();
 	}
+	@Override
+	public Sport findSportByName(String name){
+		return sportRepository.findByName(name);
+	}
 
 	@PostConstruct
     private void iniDataForTesting() {

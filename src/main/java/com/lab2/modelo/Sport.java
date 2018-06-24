@@ -11,10 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "sport")
@@ -23,11 +22,11 @@ public class Sport extends AuditModel {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
 	@Column(name = "sport_id")
     private int id;
     
-    @Column(name = "name")
+	@Column(name = "name")
+	@NotEmpty(message = "*Porfavor ingresa un texto")
 	private String name;
 	
 	@Column(name = "img")
@@ -43,7 +42,7 @@ public class Sport extends AuditModel {
     )
     private List<Quiniela> quinielas = new ArrayList<>();
 	
-	private Sport() {
+	public Sport() {
 		
 	}
 
