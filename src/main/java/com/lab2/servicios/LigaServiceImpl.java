@@ -21,5 +21,8 @@ public class LigaServiceImpl implements LigaService{
 	public void saveLiga(Liga liga) {
 		ligaRepository.save(liga);
 	}
+	public Liga findByID(Integer id){
+		return ligaRepository.findByid(id);
+	}
 
 }

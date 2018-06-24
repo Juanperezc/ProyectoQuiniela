@@ -5,6 +5,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.AuthenticatedPrincipal;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -40,4 +44,13 @@ public class UserServiceImpl implements UserService{
 		userRepository.save(user);
 	}
 
+	@Override
+	public User getAuthUser() {
+		 Authentication auth = SecurityContextHolder
+		.getContext()
+		.getAuthentication();
+	String email = (String)auth.getName();
+    User user = userRepository.findByEmail(email);
+	return user;
+	}
 }

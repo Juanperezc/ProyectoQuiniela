@@ -10,5 +10,5 @@ import com.lab2.modelo.Liga;
 @Repository("ligaRepository")
 public interface LigaRepository extends JpaRepository<Liga, Integer>{
 	//Liga findByRole(String role);
-
+     Liga findByid(Integer id);
 }
