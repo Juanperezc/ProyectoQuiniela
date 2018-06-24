@@ -70,12 +70,12 @@ public class Rule extends AuditModel{
 		this.teamScore = teamScore;
 	}
 
-	public Quiniela getQuiniela() {
+	/* public Quiniela getQuiniela() {
 		return quiniela;
 	}
 
 	public void setQuiniela(Quiniela quiniela) {
 		this.quiniela = quiniela;
-	}
+	} */
 
 }
