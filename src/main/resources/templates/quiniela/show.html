@@ -15,7 +15,7 @@
   <link th:href="@{/css/style.css}" rel="stylesheet">
 
   <!-- separados -->
-
+  <link th:href="@{/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css}" rel="stylesheet">
   <!-- FooTable -->
   <link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
 
@@ -132,24 +132,27 @@
           <div class="col-md-6">
             <div class="ibox-content">
               <h2 class="text-center">Resultado</h2>
-              <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Buscar..">
+
               <table class="footable table table-stripped" data-page-size="2" data-filter="#filter">
                 <thead>
                   <tr>
+                    <th>icono</th>
                     <th>Equipo</th>
                     <th>Resultado</th>
                   </tr>
                 </thead>
                 <tbody th:each="game : ${quiniela.games}" th:remove="tag">
                   <tr class="gradeX">
-                    <td class="center"th:text="${game.team1}"></td>
-                    <td class="center"th:text="${game.scoreTeam1}"></td>
+                      <td  class="center" th:text="${game.team1}" >   class="img-responsive equipo"</td>
+                    <td class="center" th:text="${game.team1}"></td>
+                    <td class="center" th:text="${game.scoreTeam1}"></td>
                   </tr>
                   <tr class="gradeX">
-                      <td class="center"th:text="${game.team2}"></td>
-                      <td class="center"th:text="${game.scoreTeam2}"></td>
+                    <td  class="center" th:text="${game.team2}" >   class="img-responsive equipo"</td>
+                    <td class="center" th:text="${game.team2}"></td>
+                    <td class="center" th:text="${game.scoreTeam2}"></td>
                   </tr>
-<!--                <tr class="gradeC">
+                  <!--                <tr class="gradeC">
                     <td class="center">Iran</td>
                     <td class="center">0</td>
                   </tr> -->
@@ -231,11 +234,11 @@
                 <!-- Se muestran los usuarios de la quiniela y sus puntajes-->
                 <tbody th:each="user : ${users}" th:remove="tag">
                   <tr class="table-active">
-                      <td th:text="${user.name}"></td>
-                      <!-- Aqui el calculo del puntaje -->
-                      <td th:text="${user.scoreCALCULADO}"></td>
+                    <td th:text="${user.name}"></td>
+                    <!-- Aqui el calculo del puntaje -->
+                    <td th:text="${user.scoreCALCULADO}"></td>
                   </tr>
-<!--                   <tr class="table-active">
+                  <!--                   <tr class="table-active">
                     <td>Dorys</td>
                     <td>0</td> -->
                   </tr>
@@ -245,87 +248,154 @@
           </div>
         </div>
       </div>
-
-      <!-- Seccion de preguntas de usuarios -->
       <div class="row">
-        <div class="col-lg-12">
-          <br/>
-          <br/>
-          <div class="jumbotron">
-            <h2>Pregunta</h2>
-            <div class="social-feed-box">
-              <div class="social-avatar">
-                <a href="" class="pull-left"></a>
-                <div class="media-body">
-                  <a href="#">
-                    Dorys
-                  </a>
-                  <small class="text-muted">
-                    7/5/2018</small>
-                </div>
-              </div>
-              <div class="social-body">
-                <p>Son todos los juegos de la fase de grupos</p>
-              </div>
-              <div class="social-footer">
-                <div class="social-comment">
-                  <a href="" class="pull-left"></a>
-                  <div class="media-body">
-                    <a href="#">
-                      Leon
-                    </a>
-                    Si.
-                    <br/>
-                    <small class="text-muted">8/5/2018</small>
-                  </div>
-                </div>
+        <!-- datos del juego -->
+        <div class="col-md-6">
+          <div class="ibox-content">
+            <form role="form">
+              <h2 class="text-center">Ingrese su pronostico</h2>
+              <table class="footable table table-stripped" data-page-size="2" data-filter="#filter">
+                <thead>
+                  <tr>
+                    <th>icono </th>
+                    <th>Equipo</th>
+                    <th>Pronostico</th>
+                    
+                  </tr>
+                </thead>
+                <tbody th:each="game : ${quiniela.games}" th:remove="tag">
+                  <tr class="gradeX">
+                    <td  class="center" th:text="${game.team1}" >     class="img-responsive icono-equipo" </td>
+                    <td class="center" th:text="${game.team1}"></td>
+                    <td>
+                        <div class="col-sm-6">
+                            <input class="touchspin" type="text" value="0" name="" readonly="readonly" style="background-color: white">
+                          </div>
+                    </td>
+                  </tr>
+                  <tr class="gradeX">
+                      <td  class="center" th:text="${game.team2}" >   class="img-responsive equipo"</td>
+                    <td class="center" th:text="${game.team2}"></td>
+                    <td>
+                        <div class="col-sm-6">
+                            <input class="touchspin" type="text" value="0" name="" readonly="readonly" style="background-color: white">
+                          </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <td colspan="2">
+                    <ul class="pagination pull-left"></ul>
+                  </td>
 
-                <div class="social-comment">
-                  <a href="" class="pull-left"></a>
-                  <div class="media-body">
-                    <textarea class="form-control" placeholder="Write comment..."></textarea>
-                  </div>
-                </div>
+                  <td>
+                    <button class="btn btn-large btn-primary " data-toggle="confirmation" data-btn-ok-label="SI" data-btn-ok-class="btn-success"
+                      data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check" data-btn-cancel-label="NO" data-btn-cancel-class="btn-danger"
+                      data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close" data-title="¿Esta Seguro?"
+                      data-content="Estos resultados no podran ser cambiados, pofavor complete el pronostico de todos los juegos antes"
+                      data-placement="right">Confirmar</button>
+                  </td>
 
-              </div>
-            </div>
+                </tfoot>
+              </table>
+            </form>
           </div>
         </div>
 
+        <!-- Seccion de preguntas de usuarios -->
+        <div class="row">
+          <div class="col-lg-12">
+            <br/>
+            <br/>
+            <div class="jumbotron">
+              <h2>Pregunta</h2>
+              <div class="social-feed-box">
+                <div class="social-avatar">
+                  <a href="" class="pull-left"></a>
+                  <div class="media-body">
+                    <a href="#">
+                      Dorys
+                    </a>
+                    <small class="text-muted">
+                      7/5/2018</small>
+                  </div>
+                </div>
+                <div class="social-body">
+                  <p>Son todos los juegos de la fase de grupos</p>
+                </div>
+                <div class="social-footer">
+                  <div class="social-comment">
+                    <a href="" class="pull-left"></a>
+                    <div class="media-body">
+                      <a href="#">
+                        Leon
+                      </a>
+                      Si.
+                      <br/>
+                      <small class="text-muted">8/5/2018</small>
+                    </div>
+                  </div>
+
+                  <div class="social-comment">
+                    <a href="" class="pull-left"></a>
+                    <div class="media-body">
+                      <textarea class="form-control" placeholder="Write comment..."></textarea>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div th:replace="layouts/footer :: footer" />
       </div>
-      <div th:replace="layouts/footer :: footer" />
+
+      <!-- end content! -->
     </div>
 
-    <!-- end content! -->
-  </div>
+    <!-- Mainly scripts -->
+    <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/bootstrap-confirmation.js}"></script>
+    <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+    <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
-  <!-- Mainly scripts -->
-  <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
-  <script th:src="@{/js/bootstrap.min.js}"></script>
-  <script th:src="@{/js/bootstrap-confirmation.js}"></script>
-  <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
-  <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+    <!-- FooTable -->
+    <script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
 
-  <!-- FooTable -->
-  <script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
+    <!-- Custom and plugin javascript -->
+    <script th:src="@{/js/inspinia.js}"></script>
+    <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
 
-  <!-- Custom and plugin javascript -->
-  <script th:src="@{/js/inspinia.js}"></script>
-  <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+     <!-- TouchSpin -->
+     <script th:src="@{/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js}"></script>
 
-  <!-- Page-Level Scripts -->
-  <script>
-    $(document).ready(function () {
 
-      $('.footable').footable();
+    <!-- Page-Level Scripts -->
+    <script>
+      $(document).ready(function () {
 
-      $('[data-toggle=confirmation]').confirmation({
-        rootSelector: '[data-toggle=confirmation]',
-        // other options
+        $('.footable').footable();
+        $(".touchspin").TouchSpin({
+                min: 0,
+                max: 9999,
+                step: 1,
+                decimals: 0,
+                boostat: 5,
+                maxboostedstep: 10,
+                buttondown_class: 'btn btn-white',
+                buttonup_class: 'btn btn-white'
+              });
+
+        $('[data-toggle=confirmation]').confirmation({
+          rootSelector: '[data-toggle=confirmation]',
+          // other options
+        });
       });
-    });
 
-  </script>
+    </script>
 </body>
 
 </html>
