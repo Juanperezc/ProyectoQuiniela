@@ -10398,6 +10398,11 @@ body.md-skin {
 	max-height: 20%;
 }
 
+.icono-equipo {
+	max-width: 10%;
+	max-height: 10%;
+}
+
 .table-borderless td, .table-borderless th {
 	border: none;
 }
