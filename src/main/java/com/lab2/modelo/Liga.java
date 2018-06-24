@@ -42,17 +42,17 @@ public class Liga extends AuditModel {
         cascade = javax.persistence.CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<Team> team = new ArrayList<>();
+    private List<Team> teams = new ArrayList<>();
 
 	
 	private Liga() {
 
 	}
-	public void setTeam(List<Team> team){
-		this.team = team;
+	public void setTeams(List<Team> teams){
+		this.teams = teams;
 	}
-	public List<Team> getTeam(){
-	return team;
+	public List<Team> getTeams(){
+	return teams;
 	}
 	public int getId() {
 		return id;

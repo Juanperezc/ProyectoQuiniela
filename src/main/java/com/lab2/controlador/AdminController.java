@@ -70,9 +70,7 @@ public class AdminController {
 			bindingResult.rejectValue("name", "error.sport",
 					"Ya existe un deporte con este nombre");
 		}
-		if (bindingResult.hasErrors()) {
-			modelAndView.setViewName("pgadmin/sport");
-		} else {
+		if (!bindingResult.hasErrors()) {
 			sportService.saveSport(sport);
 			modelAndView.addObject("sport", new Sport());
 			modelAndView.addObject("successMessage", "Los Datos se han guardado correctamente");

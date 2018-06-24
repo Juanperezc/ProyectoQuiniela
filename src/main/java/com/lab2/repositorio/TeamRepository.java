@@ -10,5 +10,5 @@ import com.lab2.modelo.Team;
 @Repository("teamRepository")
 public interface TeamRepository extends JpaRepository<Team, Integer>{
 	//Team findByRole(String role);
-
+	Team findByName(String sport);
 }

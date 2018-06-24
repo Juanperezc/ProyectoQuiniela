@@ -16,9 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.lab2.modelo.Liga;
 import com.lab2.modelo.Sport;
+import com.lab2.modelo.Team;
 import com.lab2.modelo.User;
 import com.lab2.servicios.LigaService;
 import com.lab2.servicios.SportService;
+import com.lab2.servicios.TeamService;
 import com.lab2.servicios.UserService;
 
 @Controller
@@ -34,6 +36,9 @@ public class UserController {
 
 	@Autowired
 	private LigaService ligaService;
+
+	@Autowired
+	private TeamService teamService;
 
 	@RequestMapping(value = {"/myprofile"}, method = RequestMethod.GET)
 	public ModelAndView profile() {
@@ -63,10 +68,36 @@ public class UserController {
 		//User admin = userService.findUserByid(quiniela.getAdmin());		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("liga", liga);
+		modelAndView.addObject("team", new Team());
 		modelAndView.addObject("sports", sports);
-		modelAndView.setViewName("user/leage");
+		modelAndView.setViewName("user/league");
 		return modelAndView;
 	}
 
+
+
+
+	@RequestMapping(value = { "/user/league/{id}/team/create" }, method = RequestMethod.POST)
+	public ModelAndView saveTeam(@PathVariable("id") Integer id, @Valid Team team, BindingResult bindingResult) {
+		ModelAndView modelAndView = new ModelAndView();
+		Team teamExists = teamService.findTeamByName(team.getName());
+		if (teamExists != null) {
+			bindingResult.rejectValue("name", "error.team",
+					"Ya existe un equipo con este nombre");
+		}
+		if (bindingResult.hasErrors()) {
+			modelAndView.setViewName("pgadmin/sport");
+		} else {
+			teamService.saveTeam(team);
+			modelAndView.addObject("successMessage", "Los Datos se han guardado correctamente");
+		}
+		Liga liga = ligaService.findByID(id);
+		List<Sport> sports = sportService.findAll();
+		modelAndView.addObject("liga", liga);
+		modelAndView.addObject("team", new Team());
+		modelAndView.addObject("sports", sports);
+		modelAndView.setViewName("user/league");
+		return modelAndView;
+	}
 
 }

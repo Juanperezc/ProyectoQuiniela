@@ -33,7 +33,7 @@ public class Team extends AuditModel {
 	private Liga liga;
 
 	
-	private Team() {
+	public Team() {
 		
 	}
 	public int getId() {
