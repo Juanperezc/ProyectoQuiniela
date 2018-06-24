@@ -2,12 +2,14 @@ package com.lab2.controlador;
 
 import java.util.List;
 import com.lab2.modelo.Sport;
+import com.lab2.modelo.Liga;
 import com.lab2.modelo.Quiniela;
 import com.lab2.modelo.User;
 import com.lab2.repositorio.UserRepository;
 import com.lab2.servicios.QuinielaService;
 import com.lab2.servicios.SportService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
@@ -37,6 +39,12 @@ public class ApiController {
 	@RequestMapping("/sports")
 	public List<Sport> getAllSport() {
 		return sportService.findAll();
+	}
+
+	@RequestMapping("/user/{id}/leagues")
+	public List<Liga> getAllLigas(@PathVariable("id") Integer id) {
+		List<Liga> liga = userRepository.findByid(id).getLigas();
+		return liga;
 	}
 	// Get All Notes
 

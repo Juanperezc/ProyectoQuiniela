@@ -64,6 +64,13 @@ public class User extends AuditModel{
 		orphanRemoval = true)	
 	private List<GameUser> games = new ArrayList<>();
 
+	@OneToMany(
+        mappedBy = "user",
+        cascade = javax.persistence.CascadeType.ALL,
+        orphanRemoval = true
+    )
+	private List<Liga> ligas = new ArrayList<>();
+	
 	/*@OneToMany(fetch = FetchType.LAZY,
     cascade =  CascadeType.ALL,
     mappedBy = "user")
@@ -125,13 +132,11 @@ public class User extends AuditModel{
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-
-	/*public List<User> getAdmins() {
-		return admins;
+	public List<Liga> getLigas() {
+		return ligas;
 	}
-
-	public void setAdmins(List<User> admins) {
-		this.admins = admins;
-	}*/
+	public void setLigas(List<Liga> ligas) {
+		this.ligas = ligas;
+	}
 
 }
