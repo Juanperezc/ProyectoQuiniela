@@ -48,6 +48,9 @@ public class Liga extends AuditModel {
 	private Liga() {
 
 	}
+	public void addTeam(Team team){
+		this.teams.add(team);
+	}
 	public void setTeams(List<Team> teams){
 		this.teams = teams;
 	}

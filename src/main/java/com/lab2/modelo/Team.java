@@ -54,6 +54,9 @@ public class Team extends AuditModel {
 	public String getImg() {
 		return img;
 	}
+	public void setLiga(Liga liga){
+		this.liga = liga;
+	}
 
 	public void setImg(String img) {
 		this.img = img;
