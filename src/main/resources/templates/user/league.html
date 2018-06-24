@@ -61,7 +61,7 @@
                                 class="form-horizontal"
                                 role="form"
                                 id="form">
-                                
+
                                 <div class="ibox float-e-margins">
                                     <div class="ibox-title">
                                         <h5>Datos Liga</h5>
@@ -75,7 +75,7 @@
                                                     <label class="col-sm-2 control-label">Nombre de la liga:
                                                     </label>
                                                     <div class="col-sm-6">
-                                                        <input type="text" class="form-control" placeholder="quiniela 1">
+                                                        <input type="text" th:field="*{name}" class="form-control" placeholder="quiniela 1">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -83,17 +83,11 @@
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <select
-                                                                data-placeholder="Escoge un deporte..."
+                                                                th:field="*{sport}" data-placeholder="Escoge un deporte..."
                                                                 class="chosen-select"
                                                                 tabindex="-1">
-                                                                <option value="">Seleccione un deporte</option>
-                                                                <option value="Futbol">Futbol</option>
-                                                                <option value="Beisbol">Beisbol</option>
-                                                                <option value="Hockey">Hockey</option>
-                                                                <option value="Rugby">Rugby</option>
-                                                                <option value="waterpolo">Waterpolo</option>
-                                                                <option value="Lol">Lol</option>
-                                                                <option value="Dota">Dota 2</option>
+                                                                <option th:each="sp : ${sports}" th:value="${sp.id}"
+                                                                th:text="${sp.name}" ></option>
                                                             </select>
                                                         </div>
                                                     </div>

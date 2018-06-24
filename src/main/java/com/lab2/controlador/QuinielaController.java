@@ -40,7 +40,6 @@ public class QuinielaController {
 		modelAndView.addObject("quiniela", quiniela);
 	//	modelAndView.addObject("admin", admin);
 		modelAndView.setViewName("quiniela/show");
-		
 		return modelAndView;
 	}
 
