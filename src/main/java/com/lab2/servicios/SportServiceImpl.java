@@ -31,16 +31,14 @@ public class SportServiceImpl implements SportService{
 		return sportRepository.findByName(name);
 	}
 
-	@PostConstruct
+	/*@PostConstruct
     private void iniDataForTesting() {
 
-        /*users = new ArrayList<User>();
+        //sport = new ArrayList<User>();
 
-        Sport sport= new User("mkyong", "password111", "mkyong@yahoo.com");
+		Sport sport= new Sport();
+		sport.setName("Tentis");
+      
 
-        users.add(user1);
-        users.add(user2);
-        users.add(user3);*/
-
-    }
+    }*/
 }
