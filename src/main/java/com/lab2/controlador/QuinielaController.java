@@ -35,10 +35,10 @@ public class QuinielaController {
 	@RequestMapping(value = { "/show/{id}" }, method = RequestMethod.GET)
 	public ModelAndView show(@PathVariable("id") Integer id) {
 		Quiniela quiniela = quinielaService.findByID(id);
-		User admin = userService.findUserByid(quiniela.getAdmin());		
+		//User admin = userService.findUserByid(quiniela.getAdmin());		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("quiniela", quiniela);
-		modelAndView.addObject("admin", admin);
+	//	modelAndView.addObject("admin", admin);
 		modelAndView.setViewName("quiniela/show");
 		
 		return modelAndView;

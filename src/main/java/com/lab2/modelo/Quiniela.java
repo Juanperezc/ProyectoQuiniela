@@ -34,8 +34,6 @@ public class Quiniela extends AuditModel {
     //privada 1 y publica 2
     @Column(name = "type")
     private Integer type;
-    @Column(name = "admin")
-    private Integer admin;
     @Column(name = "name")
     private String name;
     @Column(name = "start_date")
@@ -48,6 +46,10 @@ public class Quiniela extends AuditModel {
     @Column(name = "imagenFondo")
     private String imagenFondo;
     
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "admin_id")
+    private User admin;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sport_id")
     private Sport sport;
@@ -77,10 +79,10 @@ public class Quiniela extends AuditModel {
     public void setType(Integer type) {
         this.type = type;
     }
-    public Integer getAdmin() {
+    public User getAdmin() {
         return admin;
     }
-    public void setAdmin(Integer admin) {
+    public void setAdmin(User admin) {
         this.admin = admin;
     }
     public String getName() {

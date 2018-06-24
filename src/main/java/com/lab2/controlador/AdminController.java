@@ -1,5 +1,7 @@
 package com.lab2.controlador;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.lab2.modelo.Configuration;
 import com.lab2.modelo.User;
+import com.lab2.modelo.Sport;
 import com.lab2.servicios.ConfigurationService;
+import com.lab2.servicios.SportService;
 import com.lab2.servicios.UserService;
 
 @Controller
@@ -25,6 +29,11 @@ public class AdminController {
 	@Autowired
 	private ConfigurationService confiService;
 
+
+	@Autowired
+	private SportService sportService;
+
+
 	@RequestMapping(value = { "/account-management" }, method = RequestMethod.GET)
 	public ModelAndView accountmanagement() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -33,7 +42,10 @@ public class AdminController {
 	}
 	@RequestMapping(value = { "/sport" }, method = RequestMethod.GET)
 	public ModelAndView sport() {
+
 		ModelAndView modelAndView = new ModelAndView();
+		List<Sport> sports = sportService.findAll();
+		modelAndView.addObject("sports", sports);
 		modelAndView.setViewName("pgadmin/sport");
 		return modelAndView;
 	}

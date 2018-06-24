@@ -23,7 +23,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotEmpty;
 import org.springframework.data.annotation.Transient;
 
-@Entity
+@Entity(name="User")
 @Table(name = "users")
 public class User extends AuditModel{
 
@@ -64,8 +64,11 @@ public class User extends AuditModel{
 		orphanRemoval = true)	
 	private List<GameUser> games = new ArrayList<>();
 
-
-   
+	/*@OneToMany(fetch = FetchType.LAZY,
+    cascade =  CascadeType.ALL,
+    mappedBy = "user")
+	private List<User> admins = new ArrayList<>();
+   */
 	
 	public int getId() {
 		return id;
@@ -122,5 +125,13 @@ public class User extends AuditModel{
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+	/*public List<User> getAdmins() {
+		return admins;
+	}
+
+	public void setAdmins(List<User> admins) {
+		this.admins = admins;
+	}*/
 
 }
