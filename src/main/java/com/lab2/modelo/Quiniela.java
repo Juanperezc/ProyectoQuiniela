@@ -59,13 +59,21 @@ public class Quiniela extends AuditModel {
         cascade = javax.persistence.CascadeType.ALL,
         mappedBy = "quiniela"
     )
-    private Rule regla;
+    private Rule rule;
+    
     @OneToMany(
         mappedBy = "quiniela",
         cascade = javax.persistence.CascadeType.ALL,
         orphanRemoval = true
     )
     private List<QuinielaUser> users = new ArrayList<>();
+
+    @OneToMany(
+        mappedBy = "quiniela",
+        cascade = javax.persistence.CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<Game> games = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -125,9 +133,30 @@ public class Quiniela extends AuditModel {
     public String getimagenFondo() {
         return imagenFondo;
     }
-    public void setQuinielaUser(List<QuinielaUser> users){
+    public void setUsers(List<QuinielaUser> users){
         this.users = users;
     }
+
+    public List<QuinielaUser>getUsers(){
+        return users;
+    }
+
+    public void setGames(List<Game> games){
+        this.games = games;
+    }
+
+    public List<Game>getGames(){
+        return games;
+    }
+
+    public Rule getRule(){
+        return rule;
+    }
+
+    public void setRule(Rule rule){
+        this.rule = rule;
+    }
+
 
 
 }

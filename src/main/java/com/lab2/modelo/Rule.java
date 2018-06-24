@@ -54,7 +54,7 @@ public class Rule extends AuditModel{
 		this.id = id;
     }
     
-    public int getPuntajeVictoria() {
+    public int getVictorScore() {
 		return victorScore;
 	}
 
@@ -68,6 +68,14 @@ public class Rule extends AuditModel{
 
 	public void setTeamScore(int teamScore) {
 		this.teamScore = teamScore;
+	}
+
+	public Quiniela getQuiniela() {
+		return quiniela;
+	}
+
+	public void setQuiniela(Quiniela quiniela) {
+		this.quiniela = quiniela;
 	}
 
 }

@@ -140,54 +140,19 @@
                     <th>Resultado</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody th:each="game : ${quiniela.games}" th:remove="tag">
                   <tr class="gradeX">
-                    <td class="center">Marruecos</td>
-                    <td class="center">0</td>
-                  </tr>
-                  <tr class="gradeC">
-                    <td class="center">Ir�n</td>
-                    <td class="center">0</td>
-                  </tr>
-                  <tr class="gradeA">
-                    <td class="center">Portugal</td>
-                    <td class="center">0</td>
-                  </tr>
-                  <tr class="gradeA">
-                    <td class="center">Espa�a</td>
-                    <td class="center">0</td>
+                    <td class="center"th:text="${game.team1}"></td>
+                    <td class="center"th:text="${game.scoreTeam1}"></td>
                   </tr>
                   <tr class="gradeX">
-                    <td class="center">Ir�n</td>
-                    <td class="center">0</td>
+                      <td class="center"th:text="${game.team2}"></td>
+                      <td class="center"th:text="${game.scoreTeam2}"></td>
                   </tr>
-                  <tr class="gradeA">
-                    <td class="center">Espa�a</td>
+<!--                <tr class="gradeC">
+                    <td class="center">Iran</td>
                     <td class="center">0</td>
-                  </tr>
-                  <tr class="gradeA">
-                    <td class="center">Portugal</td>
-                    <td class="center">0</td>
-                    <tr class="gradeC">
-                      <td class="center">Marruecos</td>
-                      <td class="center">0</td>
-                    </tr>
-                    <tr class="gradeA">
-                      <td class="center">Ir�n</td>
-                      <td class="center">0</td>
-                    </tr>
-                    <tr class="gradeX">
-                      <td class="center">Portugal</td>
-                      <td class="center">0</td>
-                    </tr>
-                    <tr class="gradeC">
-                      <td class="center">Espa�a</td>
-                      <td class="center">0</td>
-                    </tr>
-                    <tr class="gradeA">
-                      <td class="center">Marruecos</td>
-                      <td class="center">0</td>
-                    </tr>
+                  </tr> -->
                 </tbody>
                 <tfoot>
                   <tr>
@@ -204,7 +169,6 @@
                   <form role="form">
                     <h2 class="hide">Participa</h2>
                     <div class="form-group hide">
-
                       <label for="imput-equipo">
                         Alemania</label>
                       <div class="input-group mb-3">
@@ -214,7 +178,7 @@
                         <input type="text" class="form-control" aria-label="Text input with checkbox">
                       </div>
                       <label for="imput-equipo">
-                        M�xico</label>
+                        México</label>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <div class="input-group-text"></div>
@@ -224,7 +188,7 @@
                     </div>
                     <button class="btn btn-large btn-primary hide" data-toggle="confirmation" data-btn-ok-label="SI" data-btn-ok-class="btn-success"
                       data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check" data-btn-cancel-label="NO" data-btn-cancel-class="btn-danger"
-                      data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close" data-title="�Esta Seguro?"
+                      data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close" data-title="¿Esta Seguro?"
                       data-content="Estos resultados no podran ser cambiados" data-placement="right">Confirmar</button>
                   </form>
                 </div>
@@ -240,11 +204,11 @@
                     <tbody>
                       <tr>
                         <td>Acertar quien gana</td>
-                        <td>4 Pts</td>
+                        <td th:text="${quiniela.rule.victorScore}"></td>
                       </tr>
                       <tr class="table-active">
                         <td>Puntaje correcto por equipo</td>
-                        <td>2 pt(c/u)</td>
+                        <td th:text="${quiniela.rule.teamScore}"></td>
                       </tr>
                     </tbody>
                   </table>
@@ -263,22 +227,16 @@
                     <th>Resultado</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>Rafael</td>
-                    <td>0</td>
-                  </tr>
+                <!-- Se muestran los usuarios de las quinielas y sus puntajes-->
+                <tbody th:each="user : ${users}" th:remove="tag">
                   <tr class="table-active">
-                    <td>Jose</td>
-                    <td>0</td>
+                      <td th:text="${user.name}"></td>
+                      <!-- Aqui el calculo del puntaje -->
+                      <td th:text="${user.scoreCALCULADO}"></td>
                   </tr>
-                  <tr class="table-active">
-                    <td>Luis</td>
-                    <td>0</td>
-                  </tr>
-                  <tr class="table-active">
+<!--                   <tr class="table-active">
                     <td>Dorys</td>
-                    <td>0</td>
+                    <td>0</td> -->
                   </tr>
                 </tbody>
               </table>
@@ -312,7 +270,7 @@
                 <div class="social-comment">
                   <a href="" class="pull-left"></a>
                   <div class="media-body">
-                    <a th:href="#">
+                    <a href="#">
                       Leon
                     </a>
                     Si.
