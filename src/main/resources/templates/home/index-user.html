@@ -52,26 +52,26 @@
                     <li data-slide-to="2" data-target="#carousel2" class=""></li>
                   </ol>
                   <div class="carousel-inner">
-                    <div class="item active">
-                      <img alt="image" class="img-responsive" src="img/mundial-russia.jpg">
+                    <div class="item active" th:if="${configuration.img1 != null}">
+                      <img alt="Imagen 1 " class="img-responsive" th:src="@{${'/downloadFile/'+ configuration.img1}}">
                       <div class="carousel-caption">
                         <p></p>
                       </div>
                     </div>
-                    <div class="item ">
-                      <img alt="image" class="img-responsive" src="/img/bvsm.png">
+                    <div class="item " th:if="${configuration.img2 != null}">
+                      <img alt="imagen 2" class="img-responsive" th:src="@{${'/downloadFile/'+ configuration.img2}}">
                       <div class="carousel-caption">
-                        <p>El ultimo clasico del futbol español se disputara, igual que su quiniela</p>
+                        <h3 th:text="${configuration.txt2}"></h3>
                       </div>
                     </div>
-                    <div class="item">
-                      <img alt="image" class="img-responsive" src="/img/twitter.png">
+                    <div class="item" th:if="${configuration.img3 != null}">
+                      <img alt="imagen 3" class="img-responsive" th:src="@{${'/downloadFile/'+ configuration.img3}}">
                       <div class="carousel-caption">
                         <p>
 
 
                           <div sec:authorize="hasAuthority('MEMBER')">
-                            Siguenos en Twitter
+                            <h3 th:text="${configuration.txt3}"></h3>
 
 
                           </div>
@@ -92,7 +92,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <a class="twitter-timeline" data-height="500" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets de TwitterDev</a>
+            <a class="twitter-timeline" data-height="500" th:href="${configuration.twitter}">Tweets de TwitterDev</a>
           </div>
 
         </div>
@@ -118,8 +118,8 @@
                       <th>Ingresar</th>
                     </tr>
                   </thead>
-                  <tbody >
-                    <tr th:each="quiniela : ${quinielas}" th:remove="tag">
+                  <tbody th:each="quiniela : ${quinielas}" th:remove="tag" >
+                    <tr>
                       <td class="center">
                         <!-- <span th:if="">X</span>
                                                         <span th:unless=""></span> -->
