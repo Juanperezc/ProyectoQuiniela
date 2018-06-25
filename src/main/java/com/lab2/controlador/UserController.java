@@ -41,8 +41,28 @@ public class UserController {
     }, method = RequestMethod.GET)
     public ModelAndView profile() {
         ModelAndView modelAndView = new ModelAndView();
+        User user = userService.getAuthUser();
+        modelAndView.addObject("user", user);
         modelAndView.setViewName("user/profile");
         return modelAndView;
+    }
+    @RequestMapping(value = {
+        "/myprofile"
+    }, method = RequestMethod.POST)
+    public ModelAndView saveProfile(@Valid User user, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();
+        if (!bindingResult.hasErrors()) {
+            User userl = userService.getAuthUser();
+            userl.setName(user.getName());
+			userl.setLastName(user.getLastName());
+			userService.saveUser(user);
+            return new ModelAndView("redirect:/user/myprofile");
+        } else {
+            modelAndView.addObject("user", user);
+            modelAndView.setViewName("user/profile");
+            return modelAndView;
+        }
+
     }
     @RequestMapping(value = {
         "/solicitudes"
@@ -66,7 +86,7 @@ public class UserController {
     @RequestMapping(value = {
         "/myleagues/{id}"
     }, method = RequestMethod.GET)
-    public ModelAndView show(@PathVariable("id")Integer id) {
+    public ModelAndView showLeague(@PathVariable("id")Integer id) {
         Liga liga = ligaService.findByID(id);
         List<Sport> sports = sportService.findAll();
         //User admin = userService.findUserByid(quiniela.getAdmin());
@@ -77,7 +97,39 @@ public class UserController {
         modelAndView.setViewName("user/league");
         return modelAndView;
     }
+    @RequestMapping(value = {
+        "/myleagues"
+    }, method = RequestMethod.POST)
+    public ModelAndView saveLeague(@Valid Liga liga, BindingResult bindingResult) {
+        List<Sport> sports = sportService.findAll();
 
+        ModelAndView modelAndView = new ModelAndView();
+        User user = userService.getAuthUser();
+        Liga ligaold = ligaService.findByID(liga.getId());
+        liga.setTeams(ligaold.getTeams());
+        liga.setUser(user);
+        liga = ligaService.saveAndFlush(liga);
+        modelAndView.addObject("liga", liga);
+        modelAndView.addObject("team", new Team());
+        modelAndView.addObject("sports", sports);
+        Integer id = (Integer)liga.getId();
+        String redirectUrl = "/user/myleagues/" + id.toString();
+        return new ModelAndView("redirect:" + redirectUrl);
+    }
+    @RequestMapping(value = {
+        "/myleagues/create"
+    }, method = RequestMethod.POST)
+    public String createLeague() {
+        User user = userService.getAuthUser();
+        Liga liga = new Liga();
+        liga.setName("Mi Liga");
+        liga.setUser(user);
+        liga = ligaService.saveAndFlush(liga);
+        Integer id = (Integer)liga.getId();
+        String redirectUrl = "user/myleagues/" + id.toString();
+        return "redirect:/" + redirectUrl;
+
+    }
     @RequestMapping(value = {
         "/createteam/{id}"
     }, method = RequestMethod.POST)
@@ -95,19 +147,15 @@ public class UserController {
                 "Ya existe un equipo con este nombre"
             );
         }
-        if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("pgadmin/sport");
-        } else {
-		
-			Liga liga = ligaService.findByID(id);
-            if (team.getId() != 0){
-				Team teamlast = teamService.findTeamByID(team.getId());
-				if (team.getImg().equals(""))
-				team.setImg(teamlast.getImg());
-			}
-			team.setLiga(liga);
+        if (!bindingResult.hasErrors()) {
+
+            if (team.getImg().equals("")) {
+                team.setImg(null);
+            }
+            Liga liga = ligaService.findByID(id);
+            team.setLiga(liga);
             teamService.saveTeam(team);
-			modelAndView.addObject("liga", liga);
+            modelAndView.addObject("liga", liga);
             modelAndView.addObject(
                 "successMessage",
                 "Los Datos se han guardado correctamente"
@@ -121,5 +169,32 @@ public class UserController {
         return modelAndView;
     }
 
-	
+    @RequestMapping(value = {
+        "/editteam/{id}"
+    }, method = RequestMethod.POST)
+    public ModelAndView editTeam(
+        @PathVariable("id")Integer id,
+        @Valid Team team,
+        BindingResult bindingResult
+    ) {
+        ModelAndView modelAndView = new ModelAndView();
+        Liga liga = ligaService.findByID(id);
+
+        if (!bindingResult.hasErrors()) {
+
+            team.setLiga(liga);
+            teamService.saveTeam(team);
+
+            modelAndView.addObject(
+                "successMessage",
+                "Los Datos se han guardado correctamente"
+            );
+        }
+        modelAndView.addObject("liga", liga);
+        List<Sport> sports = sportService.findAll();
+        modelAndView.addObject("team", new Team());
+        modelAndView.addObject("sports", sports);
+        modelAndView.setViewName("user/league");
+        return modelAndView;
+    }
 }

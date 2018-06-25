@@ -17,13 +17,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
 //import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotEmpty;
 import org.springframework.data.annotation.Transient;
 
-@Entity(name="User")
+@Entity
 @Table(name = "users")
 public class User extends AuditModel{
 
@@ -66,10 +67,22 @@ public class User extends AuditModel{
 
 	@OneToMany(
         mappedBy = "user",
+        cascade = javax.persistence.CascadeType.ALL
+    )
+	private List<Liga> ligas = new ArrayList<>();
+
+	/*@OneToMany(
+        mappedBy = "user",
+        cascade = CascadeType.ALL
+	)
+	private List<Request> sent = new ArrayList<>();
+	
+	/*@OneToMany(
+        mappedBy = "idto",
         cascade = javax.persistence.CascadeType.ALL,
         orphanRemoval = true
     )
-	private List<Liga> ligas = new ArrayList<>();
+	private List<Request> taken = new ArrayList<>();*/
 	
 	/*@OneToMany(fetch = FetchType.LAZY,
     cascade =  CascadeType.ALL,
@@ -138,5 +151,10 @@ public class User extends AuditModel{
 	public void setLigas(List<Liga> ligas) {
 		this.ligas = ligas;
 	}
-
+	/*public List<Request> getSent() {
+		return sent;
+	}
+/*	public List<Request> getTaken() {
+		return taken;
+	}*/
 }

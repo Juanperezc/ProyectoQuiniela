@@ -1,179 +1,178 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
+<html
+    lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Quiniela | Main view</title>
+        <title>Quiniela | Main view</title>
 
-<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-<link th:href="@{font-awesome/css/font-awesome.css}" rel="stylesheet">
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+        <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
 
-<link th:href="@{/css/animate.css}" rel="stylesheet">
-<link th:href="@{/css/style.css}" rel="stylesheet">
+        <link th:href="@{/css/animate.css}" rel="stylesheet">
+        <link th:href="@{/css/style.css}" rel="stylesheet">
 
-<!--  separados -->
+        <!-- separados -->
 
-<!-- FooTable -->
-<link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
+        <!-- FooTable -->
+        <link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
 
-<!--   -->
-</head>
+        <!-- -->
+    </head>
 
-<body class="skin-1 pace-done fixed-sidebar mini-navbar body-small">
+    <body class="skin-1 pace-done fixed-sidebar mini-navbar body-small">
 
-	<div id="wrapper">
-		<!--  menu sidebar -->
-		<div th:replace="layouts/menu :: menu"/>
-		<!--  end menu sidebar -->
-		<div id="page-wrapper" class="gray-bg">
-			<div class="row border-bottom">
-					<div th:replace="layouts/topbar :: topbar"/>
-			</div>
+        <div id="wrapper">
+            <!-- menu sidebar -->
+            <div th:replace="layouts/menu :: menu"/>
+            <!-- end menu sidebar -->
+            <div id="page-wrapper" class="gray-bg">
+                <div class="row border-bottom">
+                    <div th:replace="layouts/topbar :: topbar"/>
+                </div>
 
-			<!--  content ! -->
-			<div class="wrapper wrapper-content animated fadeInRight">
-				<div class="row animated fadeInRight">
-					<div class="col-md-4">
-						<div class="ibox float-e-margins">
-							<div class="ibox-title">
-								<h5>Detalle del Perfil</h5>
-							</div>
-							<div>
-								<div class="ibox-content no-padding border-left-right">
-									<center>
-										<img alt="image" class="profile img-responsive img-circle circle-border" th:src="@{/img/man.png}">
-									</center>
-								</div>
-								<div class="ibox-content profile-content">
-									<h4>
-										<strong>Juan Perez</strong>
-									</h4>
-									<p>
-										<i class="fa fa-map-marker"></i> 21 a�os
-									</p>
-								
-									<div class="row m-t-lg">
-										<div class="col-md-4">
-											<span class="bar">5,3,9,6,5,9,7,3,5,2</span>
-											<h5>
-												<strong>169</strong> Quinielas
-											</h5>
-										</div>
-										<div class="col-md-4">
-										</div>
-										<!--  --><div class="col-md-4">
-										 <img alt="image" class="rank-ico img-responsive" th:src="@{/ico/chess.svg}">
-										
-										</div>
-								
-									</div>
-									<div class="user-button">
-										<div class="row">
-										<br>
-											<div class="col-md-12">
-												<button type="button"
-													class="btn btn-warning btn-sm btn-block">
-													<i class="fa fa-coffee"></i> Quiero ser un adminsitrador de quinielas 
-												</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-8">
-						<div class="ibox float-e-margins">
-							<div class="ibox-title">
-								<h5>
-									Editar Perfil 
-								</h5>
-							
-							</div>
-							<div class="ibox-content">
-								<form method="get" class="form-horizontal">
-									<div class="form-group">
-										<label class="col-sm-2 control-label">Nombre</label>
+                <!-- content ! -->
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="row animated fadeInRight">
+                        <div class="col-md-4">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Detalle del Perfil</h5>
+                                </div>
+                                <div>
+                                    <div class="ibox-content no-padding border-left-right">
+                                        <center>
+                                            <img
+                                                alt="image"
+                                                class="profile img-responsive img-circle circle-border"
+                                                th:src="@{/img/man.png}">
+                                        </center>
+                                    </div>
+                                    <div class="ibox-content profile-content">
+                                        <h4>
+                                            <strong th:text="@{${user.name} + ' ' + ${user.lastName}}">Juan </strong>
+                                        </h4>
+                                        <!--<p>
+                                            <i class="fa fa-map-marker"></i>
+                                            21 a�os
+                                        </p>-->
 
-										<div class="col-sm-10">
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="hr-line-dashed"></div>
-									<div class="form-group">
-										<label class="col-sm-2 control-label">Correo</label>
-										<div class="col-sm-10">
-											<input type="text" class="form-control"> 
-										</div>
-									</div>
-									<div class="hr-line-dashed"></div>
-									<div class="form-group">
-										<label class="col-sm-2 control-label">Contrase�a</label>
+                                        <div class="row m-t-lg">
+                                            <div class="col-md-4">
+                                                <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
+                                                <h5>
+                                                    <strong>169</strong>
+                                                    Quinielas
+                                                </h5>
+                                            </div>
+                                            <div class="col-md-4"></div>
+                                            <!-- -->
+                                            <div class="col-md-4">
+                                                <img alt="image" class="rank-ico img-responsive" th:src="@{/ico/chess.svg}">
 
-										<div class="col-sm-10">
-											<input type="password" class="form-control" name="password">
-										</div>
-									</div>
-															<div class="hr-line-dashed"></div>
-									<div class="form-group">
-										<label class="col-sm-2 control-label">Repite tu contrase�a</label>
+                                            </div>
 
-										<div class="col-sm-10">
-											<input type="password" class="form-control" name="password">
-										</div>
-									</div>
-					
-									<div class="hr-line-dashed"></div>
-									<div class="form-group">
-										<div class="col-sm-4 col-sm-offset-2">
-											<button class="btn btn-primary" type="submit">Guardar Cambios</button>
-										</div>
-									</div>
-								</form>
+                                        </div>
+                                        <div class="user-button">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-md-12">
+                                                    <button type="button" class="btn btn-warning btn-sm btn-block">
+                                                        <i class="fa fa-coffee"></i>
+                                                        Quiero ser un adminsitrador de quinielas
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>
+                                        Editar Perfil
+                                    </h5>
 
-							</div>
-						</div>
+                                </div>
+                                <div class="ibox-content">
+                                    <span th:text="${successMessage}"></span>
+                                    <form
+                                        autocomplete="off"
+                                        action="#"
+                                        th:action="@{/user/myprofile}"
+                                        th:object="${user}"
+                                        method="post"
+                                        class="form-horizontal"
+                                        id="form">
 
-					</div>
-				</div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Nombre</label>
+                                            <div class="col-sm-10">
+                                                <label
+                                                    th:if="${#fields.hasErrors('name')}"
+                                                    th:errors="*{name}"
+                                                    class="validation-message"></label>
+                                                <input type="text" class="form-control" th:field="*{name}">
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Apellido</label>
+                                            <div class="col-sm-10">
+                                                <label
+                                                    th:if="${#fields.hasErrors('lastName')}"
+                                                    th:errors="*{lastName}"
+                                                    class="validation-message"></label>
+                                                <input type="text" class="form-control" th:field="*{lastName}">
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+                                        <div class="form-group">
+                                            <div class="col-sm-4 col-sm-offset-2">
+                                                <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+                                            </div>
+                                        </div>
+                                    </form>
 
-			</div>
+                                </div>
+                            </div>
 
-			<!--  end content! -->
+                        </div>
+                    </div>
 
-			<div th:replace="layouts/footer :: footer"/>
-		</div>
-	</div>
+                </div>
 
+                <!-- end content! -->
 
+                <div th:replace="layouts/footer :: footer"/>
+            </div>
+        </div>
 
+        <!-- Mainly scripts -->
+        <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+        <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
+        <!-- FooTable -->
+        <script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
 
-	<!-- Mainly scripts -->
-	<script th:src="@{/js/jquery-3.1.1.min.js}"></script>
-	<script th:src="@{/js/bootstrap.min.js}"></script>
-	<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
-	<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+        <!-- Custom and plugin javascript -->
+        <script th:src="@{/js/inspinia.js}"></script>
+        <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
 
-	<!-- FooTable -->
-	<script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
+        <!-- Peity -->
+        <script th:src="@{/js/plugins/peity/jquery.peity.min.js}"></script>
 
-	<!-- Custom and plugin javascript -->
-	<script th:src="@{/js/inspinia.js}"></script>
-	<script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+        <!-- Peity -->
+        <script th:src="@{/js/demo/peity-demo.js}"></script>
 
-
-
-	<!-- Peity -->
-	<script th:src="@{/js/plugins/peity/jquery.peity.min.js}"></script>
-
-	<!-- Peity -->
-	<script th:src="@{/js/demo/peity-demo.js}"></script>
-
-
-</body>
+    </body>
 
 </html>

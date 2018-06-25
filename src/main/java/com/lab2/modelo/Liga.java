@@ -16,6 +16,7 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "liga")
@@ -27,6 +28,7 @@ public class Liga extends AuditModel {
 	private int id;
 
 	@Column(name = "name")
+	@NotEmpty(message = "*Porfavor ingresa un nombre")
 	private String name;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -34,7 +36,7 @@ public class Liga extends AuditModel {
 	private User user;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "sport_id", nullable = false)
+	@JoinColumn(name = "sport_id", nullable = true)
 	private Sport sport;
 
     @OneToMany(
@@ -45,7 +47,7 @@ public class Liga extends AuditModel {
     private List<Team> teams = new ArrayList<>();
 
 	
-	private Liga() {
+	public Liga() {
 
 	}
 	public void addTeam(Team team){
@@ -82,11 +84,15 @@ public class Liga extends AuditModel {
 	/*public User getUser() {
 		return user;
 	}
-
+*/
 	public void setUser(User user) {
 		this.user = user;
-	}*/
+	}
 
+	/*@Override
+	public String toString() {
+		return (Integer)getId();
+	}*/
 
 	
 	

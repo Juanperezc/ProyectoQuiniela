@@ -30,5 +30,6 @@ public class QuinielaServiceImpl implements QuinielaService{
 	public Quiniela findByID(Integer id){
 		return quinielaRepository.findByid(id);
 	}
+	
 
 }

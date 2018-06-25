@@ -24,5 +24,8 @@ public class LigaServiceImpl implements LigaService{
 	public Liga findByID(Integer id){
 		return ligaRepository.findByid(id);
 	}
+	public Liga saveAndFlush(Liga quiniela){
+		return ligaRepository.saveAndFlush(quiniela);
+	}
 
 }
