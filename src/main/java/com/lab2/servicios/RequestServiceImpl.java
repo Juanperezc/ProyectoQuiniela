@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.lab2.modelo.Request;
 import com.lab2.modelo.User;
+import com.lab2.modelo.Quiniela;
 import com.lab2.repositorio.RequestRepository;
 
 
@@ -45,5 +46,26 @@ public class RequestServiceImpl implements RequestService{
 	public List<Request> getToByUser(){
 	User user = userService.getAuthUser();
 	return requestRepository.findByToid(user);
+	}
+	@Override
+	public boolean isrequestQuiniela(Quiniela quiniela,User user){
+		List<Request> requests = requestRepository.findByFromid(user);
+		for (Request r :requests) {
+			if(r.getQuiniela().equals(quiniela))
+			return true;
+		}
+		return false;
+
+	}
+	@Override
+	public boolean isrequestAdmin(User user){
+		List<Request> requests = requestRepository.findByFromid(user);
+		User admin = userService.findUserByid(1);
+		for (Request r :requests) {
+			if(r.getToid().equals(admin))
+			return true;
+		}
+		return false;
+
 	}
 }

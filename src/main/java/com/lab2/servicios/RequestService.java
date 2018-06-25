@@ -3,6 +3,7 @@ import java.util.List;
 
 import com.lab2.modelo.Request;
 import com.lab2.modelo.User;
+import com.lab2.modelo.Quiniela;
 
 public interface RequestService{
 	//public User findUserByEmail(String email);
@@ -11,4 +12,6 @@ public interface RequestService{
 	public List<Request> findByUser(User user);
 	public List<Request> getFromByUser();
 	public List<Request> getToByUser();
+	public boolean isrequestQuiniela(Quiniela quiniela,User user);
+	public boolean isrequestAdmin(User user);
 }

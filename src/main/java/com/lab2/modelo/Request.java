@@ -49,7 +49,7 @@ public class Request extends AuditModel {
     @Column(name = "state")
     private Integer state;
 
-    private Request() {}
+    public Request() {}
     public int getId() {
         return id;
     }

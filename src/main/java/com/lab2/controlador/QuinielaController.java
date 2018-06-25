@@ -19,6 +19,7 @@ import com.lab2.repositorio.UserRepository;
 import com.lab2.servicios.UserService;
 import com.lab2.modelo.Quiniela;
 import com.lab2.servicios.QuinielaService;
+import com.lab2.servicios.RequestService;
 import com.lab2.modelo.Sport;
 import com.lab2.servicios.SportService;
 @Controller
@@ -33,6 +34,9 @@ public class QuinielaController {
 	@Autowired
 	private SportService sportService;
 
+	@Autowired
+	private RequestService requestService;
+
 	@RequestMapping(value = { "/show/{id}" }, method = RequestMethod.GET)
 	public ModelAndView show(@PathVariable("id") Integer id) {
 		Quiniela quiniela = quinielaService.findByID(id);
@@ -42,6 +46,8 @@ public class QuinielaController {
 		modelAndView.addObject("quiniela", quiniela);
 		boolean esta=quinielaService.participaQuiniela(id,user);
 		modelAndView.addObject("esta",esta);
+		boolean request_quiniela = requestService.isrequestQuiniela(quiniela,user);
+		modelAndView.addObject("request_quiniela", request_quiniela);
 	//	modelAndView.addObject("admin", admin);
 		modelAndView.setViewName("quiniela/show");
 		return modelAndView;

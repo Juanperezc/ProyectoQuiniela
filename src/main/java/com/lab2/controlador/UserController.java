@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lab2.modelo.Liga;
+import com.lab2.modelo.Quiniela;
 import com.lab2.modelo.Request;
 import com.lab2.modelo.Sport;
 import com.lab2.modelo.Team;
 import com.lab2.modelo.User;
 import com.lab2.servicios.LigaService;
+import com.lab2.servicios.QuinielaService;
 import com.lab2.servicios.RequestService;
 import com.lab2.servicios.SportService;
 import com.lab2.servicios.TeamService;
@@ -40,6 +42,8 @@ public class UserController {
 
     @Autowired private RequestService requestService;
 
+    @Autowired private QuinielaService quinielaService;
+
     @RequestMapping(value = {
         "/myprofile"
     }, method = RequestMethod.GET)
@@ -47,6 +51,8 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
         User user = userService.getAuthUser();
         modelAndView.addObject("user", user);
+        boolean request_admin = requestService.isrequestAdmin(user);
+        modelAndView.addObject("request_admin", request_admin);
         modelAndView.setViewName("user/profile");
         return modelAndView;
     }
@@ -58,11 +64,13 @@ public class UserController {
         if (!bindingResult.hasErrors()) {
             User userl = userService.getAuthUser();
             userl.setName(user.getName());
-			userl.setLastName(user.getLastName());
-			userService.save(user);
+            userl.setLastName(user.getLastName());
+            userService.save(user);
             return new ModelAndView("redirect:/user/myprofile");
         } else {
             modelAndView.addObject("user", user);
+            boolean request_admin = requestService.isrequestAdmin(user);
+            modelAndView.addObject("request_admin", request_admin);
             modelAndView.setViewName("user/profile");
             return modelAndView;
         }
@@ -79,16 +87,33 @@ public class UserController {
         return modelAndView;
     }
     @RequestMapping(value = {
-    "/request"
+        "/request/{id}"
     }, method = RequestMethod.POST)
-    public ModelAndView sendrequest() {
-        ModelAndView modelAndView = new ModelAndView();
-        List<Request> requests = requestService.getToByUser();
-        modelAndView.addObject("requests", requests);
-        modelAndView.setViewName("user/request");
-        return modelAndView;
-    }
+    public ModelAndView sendRequest(
+        @PathVariable("id")Integer id,
+        @RequestParam("type")Integer type,
+        @RequestParam("quiniela_id")Integer quiniela_id
+    ) {
+        User from = userService.getAuthUser();
+        User to = userService.findUserByid(id);
+        Request request = new Request();
+        request.setFromid(from);
+        request.setToid(to);
+        if (quiniela_id != 0){
+            Quiniela quiniela = quinielaService.findByID(quiniela_id);
+            request.setQuiniela(quiniela);
+        }
+        request.setTipo(type);
+        request.setState(1);
+        requestService.saveRequest(request);
+        String redirectUrl = "";
+        if (type == 1)
+        redirectUrl = "/user/myprofile";
+        else
+        redirectUrl = "/quiniela/show/" + quiniela_id.toString();
 
+        return new ModelAndView("redirect:" + redirectUrl);
+    }
     @RequestMapping(value = {
         "/myleagues"
     }, method = RequestMethod.GET)
@@ -96,10 +121,10 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
         User user = userService.getAuthUser();
         modelAndView.addObject("leagues", user.getLigas());
+        modelAndView.addObject("request_admin", user.getLigas());
         modelAndView.setViewName("user/myleague"); //
         return modelAndView;
     }
-
     @RequestMapping(value = {
         "/myleagues/{id}"
     }, method = RequestMethod.GET)
