@@ -83,14 +83,15 @@ public class QuinielaController {
 		modelAndView.setViewName("quiniela/show");
 		return modelAndView;
 	}
-	@RequestMapping(value = { "/","/index" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/index" }, method = RequestMethod.GET)
 	public ModelAndView index() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quiniela/index");
 		return modelAndView;
 	}
-	@RequestMapping(value = { "/","/myindex" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/myindex" }, method = RequestMethod.GET)
 	public ModelAndView myindex() {
+		User user = userService.getAuthUser();
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("quiniela/myindex");
 		return modelAndView;
