@@ -14,8 +14,7 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 
     @Autowired private ConfigurationRepository configurationRepository;
 
-    @Override public void saveConfiguration(Configuration configuration) {
-
+    @Override public void saveConfiguration(Configuration configuration){
         configurationRepository.save(configuration);
     }
 	@Override

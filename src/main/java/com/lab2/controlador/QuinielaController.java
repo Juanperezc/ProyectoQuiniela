@@ -46,8 +46,8 @@ public class QuinielaController {
 		modelAndView.addObject("quiniela", quiniela);
 		boolean esta=quinielaService.participaQuiniela(id,user);
 		modelAndView.addObject("esta",esta);
-		boolean request_quiniela = requestService.isrequestQuiniela(quiniela,user);
-		modelAndView.addObject("request_quiniela", request_quiniela);
+		/*boolean request_quiniela = requestService.isrequestQuiniela(quiniela,user);
+		modelAndView.addObject("request_quiniela", request_quiniela);*/
 	//	modelAndView.addObject("admin", admin);
 		modelAndView.setViewName("quiniela/show");
 		return modelAndView;
@@ -84,7 +84,7 @@ public class QuinielaController {
 		user.addQuiniela(quiniela);
 		//quinielas.add(quiniela);
 		//user.setQuinielas(quiniela);
-		userService.save(user);
+		userService.saveNew(user);
 		return new ModelAndView("redirect:/quiniela/show/"+id.toString());
 	}
 

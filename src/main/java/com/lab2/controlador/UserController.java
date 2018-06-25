@@ -59,21 +59,24 @@ public class UserController {
     @RequestMapping(value = {
         "/myprofile"
     }, method = RequestMethod.POST)
-    public ModelAndView saveProfile(@Valid User user, BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView();
-        if (!bindingResult.hasErrors()) {
-            User userl = userService.getAuthUser();
-            userl.setName(user.getName());
-            userl.setLastName(user.getLastName());
-            userService.save(user);
-            return new ModelAndView("redirect:/user/myprofile");
-        } else {
+    public ModelAndView saveProfile(
+        @RequestParam("name")String name,
+        @RequestParam("lastName")String lastName
+    ) {
+        /// if (!bindingResult.hasErrors()) {
+        User userl = userService.getAuthUser();
+        userl.setName(name);
+        userl.setLastName(lastName);
+        userService.saveNew(userl);
+        return new ModelAndView("redirect:/user/myprofile");
+        //   } else {
+        /*  ModelAndView modelAndView = new ModelAndView();
             modelAndView.addObject("user", user);
             boolean request_admin = requestService.isrequestAdmin(user);
             modelAndView.addObject("request_admin", request_admin);
             modelAndView.setViewName("user/profile");
             return modelAndView;
-        }
+        }*/
 
     }
     @RequestMapping(value = {
@@ -99,7 +102,7 @@ public class UserController {
         Request request = new Request();
         request.setFromid(from);
         request.setToid(to);
-        if (quiniela_id != 0){
+        if (quiniela_id != 0) {
             Quiniela quiniela = quinielaService.findByID(quiniela_id);
             request.setQuiniela(quiniela);
         }
@@ -107,11 +110,11 @@ public class UserController {
         request.setState(1);
         requestService.saveRequest(request);
         String redirectUrl = "";
-        if (type == 1)
-        redirectUrl = "/user/myprofile";
-        else
-        redirectUrl = "/quiniela/show/" + quiniela_id.toString();
-
+        if (type == 1) 
+            redirectUrl = "/user/myprofile";
+        else 
+            redirectUrl = "/quiniela/show/" + quiniela_id.toString();
+        
         return new ModelAndView("redirect:" + redirectUrl);
     }
     @RequestMapping(value = {
