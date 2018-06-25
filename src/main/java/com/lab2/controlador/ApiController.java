@@ -47,7 +47,7 @@ public class ApiController {
 	}
 	@RequestMapping("/request/from/me")
     public List<Request> getAllRequestofme() {
-	return requestService.getFromByUser();
+	return requestService.getFromByUser();//
 	}
 	@RequestMapping("/request/to/me")
     public List<Request> getAllRequesttome() {
