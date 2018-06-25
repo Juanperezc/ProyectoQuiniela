@@ -49,7 +49,7 @@
                 <table class="footable table table-stripped" data-page-size="4" data-filter=#filter>
                   <thead>
                     <tr>
-                      <th>Participando</th>
+                      <!-- <th>Participando</th> -->
                       <th>Codigo</th>
                       <th>Quiniela</th>
                       <th data-hide="phone,tablet">Deporte</th>
@@ -59,27 +59,32 @@
                       <th>Accion</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody th:each="quiniela : ${quinielas}" th:remove="tag">
                     <tr class="gradeA">
-                      <td class="center"></td>
-                      <td class="center">015</td>
-                      <td class="center">BarcaVsRealMadrid</td>
-                      <td class="center">
-                        <img alt="Bootstrap Image Preview" src="/ico/football.png" class="img-responsive icono-deporte">
-                        <div> Football</div>
+                      <!-- <td class="center"></td> -->
+                      <td class="center" th:text="${quiniela.id}"></td>
+                      <td class="center" th:text="${quiniela.name}"></td>
+                      <td class="center hide-text" th:switch="${quiniela.sport}">
+                        <span th:case="*">
+                          <img th:alt="${quiniela.sport.name}" th:src="@{${'/downloadFile/'+ quiniela.sport.img}}" class="img-responsive icono-deporte">
+                          <span th:text="${quiniela.sport.name}"></span>
+                        </span>
+                      <td class="center" th:text="${quiniela.start}"></td>
+                      <td class="center" th:text="${quiniela.end}"></td>
+                      <td class="center" th:switch=${quiniela.type}>
+                        <span class="center" th:case="1">NO</span>
+                        <span class="center" th:case="2">SI</span>
                       </td>
-                      <td class="center">10/5/2018</td>
-                      <td class="center">15/6/2018</td>
-                      <td class="center">NO</td>
                       <td class="center">
 
                         <div class="btn-group" role="group" aria-label="...">
-                          <a th:href="@{/quiniela/show}" class="btn btn-success">Ver </a>
-                          <a th:href="@{/quiniela/show}" class="btn btn-warning"> Modificar </a>
-                          <button class="btn btn-large btn-primary btn-danger" data-toggle="confirmation" data-btn-ok-label="SI" data-btn-ok-class="btn-success"
+                          <a th:href="@{${'/quiniela/show/'+ quiniela.id}}" class="btn btn-success">Ver </a>
+                          <!--Aqui falta revisar para llamar el modal-->
+                          <a th:href="@{${'/quiniela/show/'+ quiniela.id}}" class="btn btn-warning"> Modificar </a>
+                          <!-- <button class="btn btn-large btn-primary btn-danger" data-toggle="confirmation" data-btn-ok-label="SI" data-btn-ok-class="btn-success"
                             data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check" data-btn-cancel-label="NO"
                             data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
-                            data-title="�Esta Seguro?" data-content="Estos resultados no podran ser cambiados" data-placement="top">Eliminar</button>
+                            data-title="�Esta Seguro?" data-content="Estos resultados no podran ser cambiados" data-placement="top">Eliminar</button> -->
                         </div>
 
                       </td>
