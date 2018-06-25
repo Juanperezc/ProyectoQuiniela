@@ -59,7 +59,7 @@ public class UserController {
             User userl = userService.getAuthUser();
             userl.setName(user.getName());
 			userl.setLastName(user.getLastName());
-			userService.saveUser(user);
+			userService.save(user);
             return new ModelAndView("redirect:/user/myprofile");
         } else {
             modelAndView.addObject("user", user);
