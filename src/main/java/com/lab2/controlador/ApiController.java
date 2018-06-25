@@ -5,8 +5,10 @@ import com.lab2.modelo.Sport;
 import com.lab2.modelo.Liga;
 import com.lab2.modelo.Quiniela;
 import com.lab2.modelo.User;
+import com.lab2.modelo.Request;
 import com.lab2.repositorio.UserRepository;
 import com.lab2.servicios.QuinielaService;
+import com.lab2.servicios.RequestService;
 import com.lab2.servicios.SportService;
 import com.lab2.servicios.UserService;
 
@@ -30,7 +32,7 @@ public class ApiController {
     @Autowired private SportService sportService;
 
     @Autowired private UserService userService;
-
+	@Autowired private RequestService requestService;
     @RequestMapping("/users")
     public List<User> getAllusers() {
         return userRepository.findAll();
@@ -38,6 +40,18 @@ public class ApiController {
     @RequestMapping("/quinielas")
     public List<Quiniela> geindextAllQuinielas() {
         return quinielaService.findAll();
+	}
+	@RequestMapping("/request")
+    public List<Request> geindextAllRequest() {
+        return requestService.findAllRequests();
+	}
+	@RequestMapping("/request/from/me")
+    public List<Request> getAllRequestofme() {
+	return requestService.getFromByUser();
+	}
+	@RequestMapping("/request/to/me")
+    public List<Request> getAllRequesttome() {
+	return requestService.getToByUser();
     }
     @RequestMapping("/sports")
     public List<Sport> getAllSport() {

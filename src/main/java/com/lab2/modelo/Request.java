@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "request")
 public class Request extends AuditModel {
 
-	public enum Type {
+	/*public enum Type {
 		ADMINISTRADOR,
 		QUINIELAPRIVADA;
 	}
@@ -24,17 +24,17 @@ public class Request extends AuditModel {
 		VISTA,
 		APROBADA,
 		RECHAZADA;
-	}
+	}*/
 	private static final long serialVersionUID = 1L;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "from_id")
-	private User from_id;
+	@JoinColumn(name = "fromid")
+	private User fromid;
 	
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "to_id")
-	private User to_id;
+    @JoinColumn(name = "toid")
+	private User toid;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,10 +42,10 @@ public class Request extends AuditModel {
     private int id;
     
 	@Column(name = "type")
-	private Type type;
+	private Integer type;
 
 	@Column(name = "state")
-	private State state;
+	private Integer state;
 	
 	private Request() {
 		
@@ -58,32 +58,32 @@ public class Request extends AuditModel {
 		this.id = id;
 	}
 
-	public Type getType() {
+	public Integer getType() {
 		return type;
 	}
 
-	public void setTipo(Type type) {
+	public void setTipo(Integer type) {
 		this.type = type;
 	}
 
-	public State getState() {
+	public Integer getState() {
 		return state;
 	}
 
-	public void setState(State state) {
+	public void setState(Integer state) {
 		this.state = state;
 	}
-	public void setToID(User to_id){
-		this.to_id = to_id;
+	public void setToid(User toid){
+		this.toid = toid;
 	}
-	public void setFromID(User from_id){
-		this.from_id = from_id;
+	public void setFromid(User fromid){
+		this.fromid = fromid;
 	}
-	public User getFromID(){
-		return from_id;
+	public User getFromid(){
+		return fromid;
 	}
-	public User getToID(){
-		return to_id;
+	public User getToid(){
+		return toid;
 	}
 }
 
