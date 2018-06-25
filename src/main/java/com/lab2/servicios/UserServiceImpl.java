@@ -2,6 +2,7 @@ package com.lab2.servicios;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticatedPrincipal;
@@ -32,8 +33,9 @@ public class UserServiceImpl implements UserService {
     @Override public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
-        Role userRole = roleRepository.findByRole("USER");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+		Role userRole = roleRepository.findByRole("USER");
+		user.addRole(userRole);
+     //   user.setRoles(new List<Role>(Arrays.asList(userRole)));
         userRepository.save(user);
     }
 

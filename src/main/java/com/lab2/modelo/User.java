@@ -55,7 +55,8 @@ public class User extends AuditModel{
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles;
+	private List<Role> roles = new ArrayList<>();
+	;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -151,12 +152,15 @@ public class User extends AuditModel{
 		this.active = active;
 	}
 
-	public Set<Role> getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles) {
+	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+	public void addRole(Role role) {
+		this.roles.add(role);
 	}
 	public List<Liga> getLigas() {
 		return ligas;
