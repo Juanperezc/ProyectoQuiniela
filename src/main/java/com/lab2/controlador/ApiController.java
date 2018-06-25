@@ -69,5 +69,19 @@ public class ApiController {
     public User getUserme() {
         return userService.getAuthUser();
     }
+
+    @RequestMapping("/user/quiniela")
+    public List<Quiniela> getQuinielas() {
+        User user = userService.getAuthUser();
+        return user.getQuinielas();
+    }
+
+    @RequestMapping("/user/participando")
+    public boolean getQuinielasUser() {
+        User user = userService.getAuthUser();
+        return quinielaService.participaQuiniela(1, user);
+    }
+
+
     // Get All Notes Create a new Note Get a Single Note Update a Note Delete a Note
 }

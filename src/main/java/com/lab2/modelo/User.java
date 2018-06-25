@@ -22,9 +22,12 @@ import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 //import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.springframework.data.annotation.Transient;
 
-@Entity
+@Entity(name = "User")
 @Table(name = "users")
 public class User extends AuditModel{
 
@@ -35,6 +38,7 @@ public class User extends AuditModel{
 	@Column(name = "email")
 	@NotEmpty(message = "*Please provide an email")
 	private String email;
+
 	@Column(name = "password")
 	@Length(min = 5, message = "*Your password must have at least 5 characters")
 	@NotEmpty(message = "*Please provide your password")
@@ -52,12 +56,21 @@ public class User extends AuditModel{
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
-	@OneToMany(
+
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "quiniela_user", 
+        joinColumns = { @JoinColumn(name = "user_id") }, 
+        inverseJoinColumns = { @JoinColumn(name = "quiniela_id") }
+    )
+    private List<Quiniela> quinielas = new ArrayList<>();
+
+	/* @OneToMany(
         mappedBy = "user",
         cascade = CascadeType.ALL,
         orphanRemoval = true
 	)	
-	private List<QuinielaUser> quinielas = new ArrayList<>();
+	private List<QuinielaUser> quinielas = new ArrayList<>(); */
 
 	@OneToMany(
 		mappedBy = "user",
@@ -151,6 +164,18 @@ public class User extends AuditModel{
 	public void setLigas(List<Liga> ligas) {
 		this.ligas = ligas;
 	}
+
+	public List<Quiniela> getQuinielas() {
+		return quinielas;
+	}
+	public void setQuinielas(List<Quiniela> quinielas) {
+		this.quinielas = quinielas;
+	}
+
+	public void addQuiniela(Quiniela quiniela) {
+		this.quinielas.add(quiniela);
+	}
+
 	/*public List<Request> getSent() {
 		return sent;
 	}

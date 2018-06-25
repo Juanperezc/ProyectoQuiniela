@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lab2.modelo.Quiniela;
+import com.lab2.modelo.User;
 import com.lab2.repositorio.QuinielaRepository;
 
 
@@ -31,5 +32,14 @@ public class QuinielaServiceImpl implements QuinielaService{
 		return quinielaRepository.findByid(id);
 	}
 	
+	@Override
+	public boolean participaQuiniela(Integer id,User user){
+		List<User> users = quinielaRepository.findByid(id).getUsers();
+		for (User u : users) {
+			if(user.equals(u))
+			return true;
+		}
+		return false;
 
+	}
 }

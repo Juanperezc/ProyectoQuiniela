@@ -10,10 +10,12 @@ import java.awt.print.Pageable;
 import java.util.List;
 
 import com.lab2.modelo.Quiniela;
+import com.lab2.modelo.User;
 
 @Repository("quinielaRepository")
 public interface QuinielaRepository extends JpaRepository<Quiniela, Integer>{
 	//Quiniela findByRole(String role);
 	List<Quiniela> findAll(); 
 	Quiniela findByid(Integer id);
+	Quiniela findByUsers(User user);
 }

@@ -46,6 +46,7 @@ public class Quiniela extends AuditModel {
     @Column(name = "imagenFondo")
     private String imagenFondo;
     
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "admin_id")
     private User admin;
@@ -60,13 +61,17 @@ public class Quiniela extends AuditModel {
         mappedBy = "quiniela"
     )
     private Rule rule;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "quinielas")
+    private List<User> users = new ArrayList<>(); 
     
-    @OneToMany(
+    /* @OneToMany(
         mappedBy = "quiniela",
         cascade = javax.persistence.CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<QuinielaUser> users = new ArrayList<>();
+    private List<QuinielaUser> users = new ArrayList<>(); */
 
     @OneToMany(
         mappedBy = "quiniela",
@@ -133,12 +138,16 @@ public class Quiniela extends AuditModel {
     public String getimagenFondo() {
         return imagenFondo;
     }
-    public void setUsers(List<QuinielaUser> users){
+     public void setUsers(List<User> users){
         this.users = users;
-    }
+    } 
 
-    public List<QuinielaUser>getUsers(){
+    public List<User>getUsers(){
         return users;
+    } 
+
+    public void addUser(User user){
+        this.users.add(user);
     }
 
     public void setGames(List<Game> games){
