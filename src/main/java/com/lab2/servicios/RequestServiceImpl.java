@@ -68,4 +68,14 @@ public class RequestServiceImpl implements RequestService{
 		return false;
 
 	}
+
+	@Override
+	public Request findByUsuarioAndQuiniela(User user, Quiniela quiniela) {
+		List<Request> requests = requestRepository.findByFromid(user);
+		for (Request r :requests) {
+			if(r.getQuiniela().equals(quiniela))
+			return r;
+		}
+		return null;
+	}
 }

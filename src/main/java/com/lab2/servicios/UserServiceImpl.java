@@ -2,6 +2,7 @@ package com.lab2.servicios;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticatedPrincipal;
@@ -11,6 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.lab2.modelo.Quiniela;
 import com.lab2.modelo.Role;
 import com.lab2.modelo.User;
 import com.lab2.repositorio.RoleRepository;
@@ -49,4 +51,8 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByEmail(email);
         return user;
     }
+	@Override
+	public List<User> findByQuiniela(Quiniela quiniela) {
+		return userRepository.findByQuinielas(quiniela);
+	}
 }

@@ -71,8 +71,11 @@
                 <form th:if="${quiniela.type == 1}" th:action="@{${'/quiniela/joinrequest/'+ quiniela.id}}" method="POST">
                   <button class="btn btn-primary btn-large" type="submit" value="Solicitar Unirse">Unirse a la quiniela</button>
                 </form>
-                <form th:if="${quiniela.type == 2}" th:action="@{/quiniela/joinrequestpriv}" method="POST">
-                  <button class="btn btn-primary btn-large" type="submit" value="Solicitar Subcripcion de Participación">Solicitar Subcripcion de Participación</button>
+                <form th:if="${quiniela.type == 2}" th:action="@{${'/user/request/'+ quiniela.id}}" method="POST">
+                  <input type="hidden" name="quiniela_id" th:value="${quiniela.id}"></input>
+                  <input type="hidden" name="type" value="2"></input>
+                  <h3 th:if="${request_quiniela}">La solicitud ya ha sido enviada</h3>
+                  <button th:if="${!request_quiniela}" class="btn btn-primary btn-large" type="submit" value="Solicitar Subcripcion de Participación">Solicitar Subcripcion de Participación</button>
                 </form>
               </div>
               </p>
@@ -245,7 +248,7 @@
                   <tr class="table-active">
                     <td th:text="${user.name}"></td>
                     <!-- Aqui el calculo del puntaje -->
-                    <td th:text="${user.scoreCALCULADO}"></td>
+                    <!-- <td th:text="${user.scoreCALCULADO}"></td> -->
                   </tr>
                   <!--                   <tr class="table-active">
                     <td>Dorys</td>
