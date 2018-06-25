@@ -71,13 +71,24 @@ public class UserController {
     @RequestMapping(value = {
         "/request"
     }, method = RequestMethod.GET)
-    public ModelAndView request() {
+    public ModelAndView showrequest(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
         List<Request> requests = requestService.getToByUser();
         modelAndView.addObject("requests", requests);
         modelAndView.setViewName("user/request");
         return modelAndView;
     }
+    @RequestMapping(value = {
+    "/request"
+    }, method = RequestMethod.POST)
+    public ModelAndView sendrequest() {
+        ModelAndView modelAndView = new ModelAndView();
+        List<Request> requests = requestService.getToByUser();
+        modelAndView.addObject("requests", requests);
+        modelAndView.setViewName("user/request");
+        return modelAndView;
+    }
+
     @RequestMapping(value = {
         "/myleagues"
     }, method = RequestMethod.GET)
