@@ -1,5 +1,6 @@
 package com.lab2.controlador;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -9,14 +10,18 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lab2.modelo.Configuration;
+import com.lab2.modelo.Role;
 import com.lab2.modelo.User;
 import com.lab2.modelo.Sport;
 import com.lab2.servicios.ConfigurationService;
+import com.lab2.servicios.RoleService;
 import com.lab2.servicios.SportService;
 import com.lab2.servicios.UserService;
 
@@ -29,10 +34,11 @@ public class AdminController {
 	@Autowired
 	private ConfigurationService confiService;
 
-
 	@Autowired
 	private SportService sportService;
 
+	@Autowired
+	private RoleService roleService;
 
 	@RequestMapping(value = { "/account-management" }, method = RequestMethod.GET)
 	public ModelAndView accountmanagement() {
@@ -102,5 +108,26 @@ public class AdminController {
 		}
 		return modelAndView;
 	}
+
+	/* @RequestMapping(value = { "/request/{id}" }, method = RequestMethod.POST)
+	public ModelAndView joinpriv(@PathVariable("id") Integer id) {
+		
+		User user = userService.findUserByid(id);
+		List<Role> roles = new ArrayList<>();
+		Role role = roleService.findByName("ADMIN");
+		roles.add(role);
+		user.setRoles(roles);
+		Quiniela quiniela = quinielaService.findByID(id);
+		ModelAndView modelAndView = new ModelAndView();
+		Request request = requestService.findByUsuarioAndQuiniela(user, quiniela);
+		//List<Quiniela> quinielas = user.getQuinielas();
+		request.setState(3);
+		requestService.saveRequest(request);
+		user.addQuiniela(quiniela);
+		//quinielas.add(quiniela);
+		//user.setQuinielas(quiniela);
+		userService.saveNew(user);
+		return new ModelAndView("redirect:/quiniela/show/"+id.toString());
+	} */
 	
 }

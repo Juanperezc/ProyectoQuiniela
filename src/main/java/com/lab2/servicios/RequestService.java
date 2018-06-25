@@ -14,4 +14,5 @@ public interface RequestService{
 	public List<Request> getToByUser();
 	public boolean isrequestQuiniela(Quiniela quiniela,User user);
 	public boolean isrequestAdmin(User user);
+	public Request findByUsuarioAndQuiniela(User user,Quiniela quiniela);
 }

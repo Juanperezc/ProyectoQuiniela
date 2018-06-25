@@ -12,12 +12,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lab2.modelo.User;
 import com.lab2.repositorio.UserRepository;
 import com.lab2.servicios.UserService;
 import com.lab2.modelo.Quiniela;
+import com.lab2.modelo.Request;
 import com.lab2.servicios.QuinielaService;
 import com.lab2.servicios.RequestService;
 import com.lab2.modelo.Sport;
@@ -41,13 +43,16 @@ public class QuinielaController {
 	public ModelAndView show(@PathVariable("id") Integer id) {
 		Quiniela quiniela = quinielaService.findByID(id);
 		User user = userService.getAuthUser();
-		//User admin = userService.findUserByid(quiniela.getAdmin());		
+		List<User> users = userService.findByQuiniela(quiniela);
+		//User admin = userService.findUserByid(quiniela.getAdmin());
+
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("quiniela", quiniela);
+		modelAndView.addObject("users",users);
 		boolean esta=quinielaService.participaQuiniela(id,user);
 		modelAndView.addObject("esta",esta);
-		/*boolean request_quiniela = requestService.isrequestQuiniela(quiniela,user);
-		modelAndView.addObject("request_quiniela", request_quiniela);*/
+		boolean request_quiniela = requestService.isrequestQuiniela(quiniela,user);
+		modelAndView.addObject("request_quiniela", request_quiniela);
 	//	modelAndView.addObject("admin", admin);
 		modelAndView.setViewName("quiniela/show");
 		return modelAndView;
@@ -88,6 +93,22 @@ public class QuinielaController {
 		return new ModelAndView("redirect:/quiniela/show/"+id.toString());
 	}
 
+	@RequestMapping(value = { "/joinpriv/{id}" }, method = RequestMethod.POST)
+	public ModelAndView joinpriv(@PathVariable("id") Integer id, @RequestParam("user_id")Integer user_id) {
+		
+		User user = userService.findUserByid(user_id);
+		Quiniela quiniela = quinielaService.findByID(id);
+		ModelAndView modelAndView = new ModelAndView();
+		Request request = requestService.findByUsuarioAndQuiniela(user, quiniela);
+		//List<Quiniela> quinielas = user.getQuinielas();
+		request.setState(3);
+		requestService.saveRequest(request);
+		user.addQuiniela(quiniela);
+		//quinielas.add(quiniela);
+		//user.setQuinielas(quiniela);
+		userService.saveNew(user);
+		return new ModelAndView("redirect:/quiniela/show/"+id.toString());
+	}
 
 	@RequestMapping(value = { "/show" }, method = RequestMethod.GET)
 	public ModelAndView show() {

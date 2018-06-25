@@ -1,5 +1,9 @@
 package com.lab2.servicios;
+import java.util.List;
+
+import com.lab2.modelo.Quiniela;
 import com.lab2.modelo.User;
+
 
 
 
@@ -9,4 +13,5 @@ public interface UserService {
 	public void saveUser(User user);
 	public void saveNew(User user);
 	public User getAuthUser();
+	public List<User> findByQuiniela(Quiniela quiniela);
 }

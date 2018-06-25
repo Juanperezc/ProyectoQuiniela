@@ -12,6 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.lab2.modelo.Quiniela;
 import com.lab2.modelo.Role;
 import com.lab2.modelo.User;
 import com.lab2.repositorio.RoleRepository;
@@ -51,4 +52,8 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByEmail(email);
         return user;
     }
+	@Override
+	public List<User> findByQuiniela(Quiniela quiniela) {
+		return userRepository.findByQuinielas(quiniela);
+	}
 }
