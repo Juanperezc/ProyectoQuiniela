@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lab2.modelo.Liga;
+import com.lab2.modelo.Request;
 import com.lab2.modelo.Sport;
 import com.lab2.modelo.Team;
 import com.lab2.modelo.User;
 import com.lab2.servicios.LigaService;
+import com.lab2.servicios.RequestService;
 import com.lab2.servicios.SportService;
 import com.lab2.servicios.TeamService;
 import com.lab2.servicios.UserService;
@@ -35,6 +37,8 @@ public class UserController {
     @Autowired private LigaService ligaService;
 
     @Autowired private TeamService teamService;
+
+    @Autowired private RequestService requestService;
 
     @RequestMapping(value = {
         "/myprofile"
@@ -65,10 +69,12 @@ public class UserController {
 
     }
     @RequestMapping(value = {
-        "/solicitudes"
+        "/request"
     }, method = RequestMethod.GET)
     public ModelAndView request() {
         ModelAndView modelAndView = new ModelAndView();
+        List<Request> requests = requestService.getToByUser();
+        modelAndView.addObject("requests", requests);
         modelAndView.setViewName("user/request");
         return modelAndView;
     }
