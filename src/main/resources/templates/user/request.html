@@ -52,7 +52,7 @@
                                 <th>Fecha de la solicitud</th> 
                                 <th>Correo</th> 
                                 <th>Solicitud</th>  
-                                <th>Estado</th>             
+                                <th>Estado</th>  
                               </tr>
                             </thead>
                         <tbody th:each="request : ${requests}" th:remove="tag">
@@ -78,6 +78,7 @@
                                   th:action="@{${'/pgadmin/request/' + request.fromid.id}}"
                                   id="form">
                                   <button type="submit" class="btn-primary btn btn-xs">Aceptar</button>
+                                  <button type="submit" class="btn-primary btn btn-xs btn-danger">Rechazar</button>
                                 </form>
                                 
                               </div>
@@ -90,7 +91,8 @@
                                   id="form">
                                   <input type="hidden" name="user_id" th:value="${request.fromid.id}" ></input>
                                   <button type="submit" class="btn-primary btn btn-xs">Aceptar</button>
-                                </form>
+                                  <button type="submit" class="btn-primary btn btn-xs btn-danger">Rechazar</button>
+                                 </form>
                                 
                               </div>
 
