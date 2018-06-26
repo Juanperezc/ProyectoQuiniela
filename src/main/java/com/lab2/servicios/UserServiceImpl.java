@@ -49,9 +49,15 @@ public class UserServiceImpl implements UserService {
         Authentication auth = SecurityContextHolder
             .getContext()
             .getAuthentication();
-        String email = (String)auth.getName();
-        User user = userRepository.findByEmail(email);
-        return user;
+        if (auth != null){
+            String email = (String)auth.getName();
+            User user = userRepository.findByEmail(email);
+            return user;
+        }else{
+            return null;
+        }
+
+   
     }
 	@Override
 	public List<User> findByQuiniela(Quiniela quiniela) {
