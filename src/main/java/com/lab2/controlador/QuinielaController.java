@@ -51,8 +51,8 @@ public class QuinielaController {
 		modelAndView.addObject("users",users);
 		boolean esta=quinielaService.participaQuiniela(id,user);
 		modelAndView.addObject("esta",esta);
-		boolean request_quiniela = requestService.isrequestQuiniela(quiniela,user);
-		modelAndView.addObject("request_quiniela", request_quiniela);
+		boolean requestQ = requestService.isrequestQuiniela(quiniela,user);
+		modelAndView.addObject("requestQ", requestQ);
 	//	modelAndView.addObject("admin", admin);
 		modelAndView.setViewName("quiniela/show");
 		return modelAndView;
@@ -107,7 +107,7 @@ public class QuinielaController {
 		//quinielas.add(quiniela);
 		//user.setQuinielas(quiniela);
 		userService.saveNew(user);
-		return new ModelAndView("redirect:/quiniela/show/"+id.toString());
+		return new ModelAndView("redirect:/user/request");
 	}
 
 	@RequestMapping(value = { "/show" }, method = RequestMethod.GET)

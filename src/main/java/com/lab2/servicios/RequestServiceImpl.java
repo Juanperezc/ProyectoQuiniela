@@ -14,6 +14,7 @@ import com.lab2.modelo.Request;
 import com.lab2.modelo.User;
 import com.lab2.modelo.Quiniela;
 import com.lab2.repositorio.RequestRepository;
+import com.lab2.repositorio.UserRepository;
 
 
 @Service("requestService")
@@ -51,8 +52,11 @@ public class RequestServiceImpl implements RequestService{
 	public boolean isrequestQuiniela(Quiniela quiniela,User user){
 		List<Request> requests = requestRepository.findByFromid(user);
 		for (Request r :requests) {
-			if(r.getQuiniela().equals(quiniela))
-			return true;
+			if (r.getQuiniela() != null){
+				if(r.getQuiniela().equals(quiniela))
+				return true;
+			}
+			
 		}
 		return false;
 
@@ -73,7 +77,20 @@ public class RequestServiceImpl implements RequestService{
 	public Request findByUsuarioAndQuiniela(User user, Quiniela quiniela) {
 		List<Request> requests = requestRepository.findByFromid(user);
 		for (Request r :requests) {
-			if(r.getQuiniela().equals(quiniela))
+			if (r.getQuiniela() != null){
+				if(r.getQuiniela().equals(quiniela))
+				return r;
+		}
+	}
+		return null;
+	}
+
+	@Override
+	public Request findByUserAdmin(User user) {
+		List<Request> requests = requestRepository.findByFromid(user);
+		User admin = userService.findUserByid(1);
+		for (Request r :requests) {
+			if(r.getToid().equals(admin))
 			return r;
 		}
 		return null;

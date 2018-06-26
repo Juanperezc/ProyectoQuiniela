@@ -78,20 +78,22 @@
                                         <div class="user-button">
                                             <div class="row">
                                                 <br>
-                                                <div th:if="${!request_admin}" class="col-md-12">
-                                                    <form
-                                                        autocomplete="off"
-                                                        action="#"
-                                                        method="POST"
-                                                        th:action="@{/user/request/1}"
-                                                        id="form">
-                                                        <input type="hidden" name="quiniela_id" value="0"></input>
-                                                        <input type="hidden" name="type" value="1"></input>
-                                                        <button type="submit" class="btn btn-warning btn-sm btn-block">
-                                                            <i class="fa fa-coffee"></i>
-                                                            Quiero ser un adminsitrador de quinielas
-                                                        </button>
-                                                    </form>
+                                                <div sec:authorize="hasAuthority('MEMBER')">
+                                                    <div th:if="${!request_admin}" class="col-md-12">
+                                                        <form
+                                                            autocomplete="off"
+                                                            action="#"
+                                                            method="POST"
+                                                            th:action="@{/user/request/1}"
+                                                            id="form">
+                                                            <input type="hidden" name="quiniela_id" value="0"></input>
+                                                            <input type="hidden" name="type" value="1"></input>
+                                                            <button type="submit" class="btn btn-warning btn-sm btn-block">
+                                                                <i class="fa fa-coffee"></i>
+                                                                Quiero ser un adminsitrador de quinielas
+                                                            </button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

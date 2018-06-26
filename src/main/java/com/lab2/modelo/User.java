@@ -98,11 +98,11 @@ public class User extends AuditModel{
     )
 	private List<Request> taken = new ArrayList<>();*/
 	
-	/*@OneToMany(fetch = FetchType.LAZY,
+
+	/* @OneToMany(fetch = FetchType.LAZY,
     cascade =  CascadeType.ALL,
     mappedBy = "user")
-	private List<User> admins = new ArrayList<>();
-   */
+	private List<User> admins = new ArrayList<>(); */
 	
 	public int getId() {
 		return id;

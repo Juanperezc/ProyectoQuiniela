@@ -15,7 +15,10 @@
               <span class="clear">
                 <span class="block m-t-xs">
                   <strong class="font-bold">
-                    Usuario
+                    <!--Falta ponerlo dinamico-->
+                    <span>
+                      Usuario
+                    </span>
                   </strong>
                 </span>
                 <span sec:authorize="hasAuthority('USER')" class="text-muted text-xs block">Usuario
@@ -105,7 +108,7 @@
               <a th:href="@{/pgadmin/account-management}">Administrar cuentas</a>
             </li>
             <li>
-              <a th:href="@{/pgadmin/account-management}">Administrar Solicitudes</a>
+              <a th:href="@{/user/request}">Administrar Solicitudes</a>
             </li>
             <li>
               <a th:href="@{/report/admin}">Estadisticas</a>
@@ -114,7 +117,7 @@
               <a th:href="@{/pgadmin/sport}">Ingresar Deportes</a>
             </li>
             <li>
-              <a th:href="@{/pgadmin/page-config}">Configuraciones del Portal</a>
+              <a th:href="@{/pgadmin/config}">Configuraciones del Portal</a>
             </li>
           </ul>
         </li>

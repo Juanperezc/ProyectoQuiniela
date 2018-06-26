@@ -1,5 +1,6 @@
 package com.lab2.servicios;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -56,4 +57,19 @@ public class UserServiceImpl implements UserService {
 	public List<User> findByQuiniela(Quiniela quiniela) {
 		return userRepository.findByQuinielas(quiniela);
 	}
+	@Override
+	public List<User> findAll() {
+		return userRepository.findAll();
+    }
+	@Override
+	public List<User> findAllWithoutAdmin() {
+        List<User> users = new ArrayList<>();
+		for (User u : findAll()) {
+            if(u.getId()!=1)
+                users.add(u);
+        }
+        return users;
+	}
+    
+
 }
