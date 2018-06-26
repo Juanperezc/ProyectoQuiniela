@@ -52,7 +52,8 @@
                                 <th>Fecha de la solicitud</th> 
                                 <th>Correo</th> 
                                 <th>Solicitud</th>  
-                                <th>Estado</th>  
+                                <th>Estado</th>
+                                <th>Accion</th>  
                               </tr>
                             </thead>
                         <tbody th:each="request : ${requests}" th:remove="tag">
@@ -112,13 +113,9 @@
                                     <input type="hidden" name="state" value="4"></input>
                                     <button type="submit" class="btn-primary btn btn-xs btn-danger">Rechazar</button>
                                   </form>
-                                
                               </div>
-
                             </td>
                           </tr>
-                         
-
                         </tbody>
                         <tfoot>
                             <tr>
