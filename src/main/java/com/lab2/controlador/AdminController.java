@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lab2.modelo.Configuration;
+import com.lab2.modelo.Request;
 import com.lab2.modelo.Role;
 import com.lab2.modelo.User;
 import com.lab2.modelo.Sport;
 import com.lab2.servicios.ConfigurationService;
+import com.lab2.servicios.RequestService;
 import com.lab2.servicios.RoleService;
 import com.lab2.servicios.SportService;
 import com.lab2.servicios.UserService;
@@ -40,9 +42,14 @@ public class AdminController {
 	@Autowired
 	private RoleService roleService;
 
+	@Autowired
+	private RequestService requestService;
+
 	@RequestMapping(value = { "/account-management" }, method = RequestMethod.GET)
 	public ModelAndView accountmanagement() {
+		List<User> users = userService.findAll();
 		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("users", users);
 		modelAndView.setViewName("pgadmin/account-management");
 		return modelAndView;
 	}
@@ -109,25 +116,20 @@ public class AdminController {
 		return modelAndView;
 	}
 
-	/* @RequestMapping(value = { "/request/{id}" }, method = RequestMethod.POST)
-	public ModelAndView joinpriv(@PathVariable("id") Integer id) {
+	@RequestMapping(value = { "/request/{id}" }, method = RequestMethod.POST)
+	public ModelAndView requestAdmin(@PathVariable("id") Integer id) {
 		
 		User user = userService.findUserByid(id);
 		List<Role> roles = new ArrayList<>();
-		Role role = roleService.findByName("ADMIN");
+		Role role = roleService.findByName("MEMBER");
 		roles.add(role);
 		user.setRoles(roles);
-		Quiniela quiniela = quinielaService.findByID(id);
+		userService.saveNew(user);
 		ModelAndView modelAndView = new ModelAndView();
-		Request request = requestService.findByUsuarioAndQuiniela(user, quiniela);
-		//List<Quiniela> quinielas = user.getQuinielas();
+		Request request = requestService.findByUserAdmin(user);
 		request.setState(3);
 		requestService.saveRequest(request);
-		user.addQuiniela(quiniela);
-		//quinielas.add(quiniela);
-		//user.setQuinielas(quiniela);
-		userService.saveNew(user);
-		return new ModelAndView("redirect:/quiniela/show/"+id.toString());
-	} */
+		return new ModelAndView("redirect:/user/request");
+	} 
 	
 }

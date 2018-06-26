@@ -107,7 +107,7 @@ public class Request extends AuditModel {
         }
 	}
 	public String getTypename() {
-        switch (state) {
+        switch (type) {
             case 1:
                 return "Quiero ser Administrador de quinielas";
             case 2:

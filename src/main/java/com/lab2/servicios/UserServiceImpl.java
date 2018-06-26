@@ -56,4 +56,8 @@ public class UserServiceImpl implements UserService {
 	public List<User> findByQuiniela(Quiniela quiniela) {
 		return userRepository.findByQuinielas(quiniela);
 	}
+	@Override
+	public List<User> findAll() {
+		return userRepository.findAll();
+	}
 }

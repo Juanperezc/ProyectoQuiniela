@@ -22,7 +22,7 @@
   <!--   -->
 </head>
 
-<body class="skin-1 pace-done fixed-sidebar mini-navbar body-small" sec:authorize="hasAuthority('MEMBER')">
+<body class="skin-1 pace-done fixed-sidebar mini-navbar body-small">
 
   <div id="wrapper">
     <!--  menu sidebar -->
@@ -68,7 +68,7 @@
                                   autocomplete="off"
                                   action="#"
                                   method="POST"
-                                  th:action="@{${'/admin/request/' + request.fromid.id}}"
+                                  th:action="@{${'/pgadmin/request/' + request.fromid.id}}"
                                   id="form">
                                   <button type="submit" class="btn-primary btn btn-xs">Aceptar</button>
                                 </form>

@@ -14,4 +14,5 @@ public interface UserService {
 	public void saveNew(User user);
 	public User getAuthUser();
 	public List<User> findByQuiniela(Quiniela quiniela);
+	public List<User> findAll();
 }

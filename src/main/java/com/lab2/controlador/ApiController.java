@@ -76,10 +76,10 @@ public class ApiController {
         return user.getQuinielas();
     }
 
-    @RequestMapping("/user/participando")
-    public boolean getQuinielasUser() {
+    @RequestMapping("/user/participando/{id}")
+    public boolean getQuinielasUser(@PathVariable("id") Integer id) {
         User user = userService.getAuthUser();
-        return quinielaService.participaQuiniela(1, user);
+        return quinielaService.participaQuiniela(id, user);
     }
 
 
