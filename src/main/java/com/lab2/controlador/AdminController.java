@@ -20,6 +20,7 @@ import com.lab2.modelo.Configuration;
 import com.lab2.modelo.Request;
 import com.lab2.modelo.Role;
 import com.lab2.modelo.User;
+import com.lab2.repositorio.UserRepository;
 import com.lab2.modelo.Sport;
 import com.lab2.servicios.ConfigurationService;
 import com.lab2.servicios.RequestService;
@@ -47,12 +48,23 @@ public class AdminController {
 
 	@RequestMapping(value = { "/account-management" }, method = RequestMethod.GET)
 	public ModelAndView accountmanagement() {
-		List<User> users = userService.findAll();
+		List<User> users = userService.findAllWithoutAdmin();
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("users", users);
 		modelAndView.setViewName("pgadmin/account-management");
 		return modelAndView;
 	}
+
+	@RequestMapping(value = { "/account-management/{id}" }, method = RequestMethod.POST)
+	public ModelAndView accountmanagement(@PathVariable("id") Integer id,
+	 @RequestParam("active")Integer active) {
+		User user = userService.findUserByid(id);
+		user.setActive(active);
+		userService.saveNew(user);
+		ModelAndView modelAndView = new ModelAndView();
+		return new ModelAndView("redirect:/pgadmin/account-management");
+	}
+
 	@RequestMapping(value = { "/sport" }, method = RequestMethod.GET)
 	public ModelAndView sport() {
 

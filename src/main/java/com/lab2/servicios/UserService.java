@@ -15,4 +15,5 @@ public interface UserService {
 	public User getAuthUser();
 	public List<User> findByQuiniela(Quiniela quiniela);
 	public List<User> findAll();
+	public List<User> findAllWithoutAdmin();
 }

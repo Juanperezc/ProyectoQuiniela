@@ -76,12 +76,20 @@
                               <span class="label label-warning">Inactivo</span>
                             </td>
                             <td> <!--Aqui lo de poner inactivo el usuario-->
+                              <form
+                                  autocomplete="off"
+                                  method="POST"
+                                  th:action="@{${'/pgadmin/account-management/' + user.id}}"
+                                  id="form">     
                               <div class="btn-group" th:if="${user.active == 1}">
+                                <input type="hidden" name="active" value="2" ></input>
                                 <button class="btn-danger btn btn-xs">Desactivar</button>
                               </div>
                               <div class="btn-group" th:if="${user.active == 2}">
+                                <input type="hidden" name="active" value="1" ></input>
                                 <button class="btn-danger btn btn-xs">Activar</button>
                               </div>
+                            </form>
                             </td>
                           </tr>  
                         </tbody>
