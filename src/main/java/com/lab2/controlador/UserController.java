@@ -51,7 +51,7 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
         User user = userService.getAuthUser();
         modelAndView.addObject("user", user);
-        boolean request_admin = requestService.isrequestAdmin(user);
+        Request request_admin = requestService.isrequestAdmin(user);
         modelAndView.addObject("request_admin", request_admin);
         modelAndView.setViewName("user/profile");
         return modelAndView;
