@@ -129,18 +129,26 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = { "/request/{id}" }, method = RequestMethod.POST)
-	public ModelAndView requestAdmin(@PathVariable("id") Integer id) {
+	public ModelAndView requestAdmin(@PathVariable("id") Integer id,
+	 @RequestParam("state")Integer state) {
 		
 		User user = userService.findUserByid(id);
 		List<Role> roles = new ArrayList<>();
-		Role role = roleService.findByName("MEMBER");
-		roles.add(role);
-		user.setRoles(roles);
-		userService.saveNew(user);
-		ModelAndView modelAndView = new ModelAndView();
-		Request request = requestService.findByUserAdmin(user);
-		request.setState(3);
-		requestService.saveRequest(request);
+		if(state==3){
+			Role role = roleService.findByName("MEMBER");
+			roles.add(role);
+			user.setRoles(roles);
+			userService.saveNew(user);
+			ModelAndView modelAndView = new ModelAndView();
+			Request request = requestService.findByUserAdmin(user);
+			request.setState(3);
+			requestService.saveRequest(request);
+		}else if(state==4){
+			ModelAndView modelAndView = new ModelAndView();
+			Request request = requestService.findByUserAdmin(user);
+			request.setState(4);
+			requestService.saveRequest(request);
+		}
 		return new ModelAndView("redirect:/user/request");
 	} 
 	

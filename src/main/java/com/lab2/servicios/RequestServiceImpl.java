@@ -62,14 +62,14 @@ public class RequestServiceImpl implements RequestService{
 
 	}
 	@Override
-	public boolean isrequestAdmin(User user){
+	public Request isrequestAdmin(User user){
 		List<Request> requests = requestRepository.findByFromid(user);
 		User admin = userService.findUserByid(1);
 		for (Request r :requests) {
 			if(r.getToid().equals(admin))
-			return true;
+			return r;
 		}
-		return false;
+		return null;
 
 	}
 
