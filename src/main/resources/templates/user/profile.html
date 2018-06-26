@@ -1,193 +1,203 @@
 <!DOCTYPE html>
-<html
-    lang="en"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
-    <head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
 
-        <title>Quiniela | Main view</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-        <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
+  <title>Quiniela | Main view</title>
 
-        <link th:href="@{/css/animate.css}" rel="stylesheet">
-        <link th:href="@{/css/style.css}" rel="stylesheet">
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
 
-        <!-- separados -->
+  <link th:href="@{/css/animate.css}" rel="stylesheet">
+  <link th:href="@{/css/style.css}" rel="stylesheet">
 
-        <!-- FooTable -->
-        <link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
+  <!-- separados -->
 
-        <!-- -->
-    </head>
+  <!-- FooTable -->
+  <link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
 
-    <body class="skin-1 pace-done fixed-sidebar mini-navbar body-small">
+  <!-- -->
+</head>
 
-        <div id="wrapper">
-            <!-- menu sidebar -->
-            <div th:replace="layouts/menu :: menu"/>
-            <!-- end menu sidebar -->
-            <div id="page-wrapper" class="gray-bg">
-                <div class="row border-bottom">
-                    <div th:replace="layouts/topbar :: topbar"/>
+<body class="skin-1 pace-done fixed-sidebar mini-navbar body-small">
+
+  <div id="wrapper">
+    <!-- menu sidebar -->
+    <div th:replace="layouts/menu :: menu" />
+    <!-- end menu sidebar -->
+    <div id="page-wrapper" class="gray-bg">
+      <div class="row border-bottom">
+        <div th:replace="layouts/topbar :: topbar" />
+      </div>
+
+      <!-- content ! -->
+      <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row animated fadeInRight">
+          <div class="col-md-4">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>Detalle del Perfil</h5>
+              </div>
+              <div>
+                <div class="ibox-content no-padding border-left-right">
+                    <center>
+                    <img alt="image" class="profile img-responsive img-circle circle-border" th:src="@{/img/man.png}">
+                  </center>
                 </div>
+                <div class="ibox-content profile-content">
+                    <h3>Usuario:</h3>
+                    <h4>
+                    <strong th:text="@{${user.name} + ' ' + ${user.lastName}}">Juan
+                    </strong>
+                  </h4>
+                  <!--<p> <i class="fa fa-map-marker"></i> 21 a�os </p>-->
 
-                <!-- content ! -->
-                <div class="wrapper wrapper-content animated fadeInRight">
-                    <div class="row animated fadeInRight">
-                        <div class="col-md-4">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
-                                    <h5>Detalle del Perfil</h5>
-                                </div>
-                                <div>
-                                    <div class="ibox-content no-padding border-left-right">
-                                        <center>
-                                            <img
-                                                alt="image"
-                                                class="profile img-responsive img-circle circle-border"
-                                                th:src="@{/img/man.png}">
-                                        </center>
-                                    </div>
-                                    <div class="ibox-content profile-content">
-                                        <h4>
-                                            <strong th:text="@{${user.name} + ' ' + ${user.lastName}}">Juan
-                                            </strong>
-                                        </h4>
-                                        <!--<p> <i class="fa fa-map-marker"></i> 21 a�os </p>-->
-
-                                        <div class="row m-t-lg">
-                                            <div class="col-md-4">
-                                                <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
-                                                <h5>
-                                                    <strong>169</strong>
-                                                    Quinielas
-                                                </h5>
-                                            </div>
-                                            <div class="col-md-4"></div>
-                                            <!-- -->
-                                            <div class="col-md-4">
-                                                <div sec:authorize="hasAuthority('USER')">
-                                                    <img alt="image" title="Usuario" class="rank-ico img-responsive" th:src="@{/ico/chess.svg}">
-                                                </div>
-                                                <div sec:authorize="hasAuthority('MEMBER')">
-                                                    <img alt="image" title="Administrador de quinielas" class="rank-ico img-responsive" th:src="@{/ico/megaphone.svg}">
-                                                </div>
-                                                <div sec:authorize="hasAuthority('ADMIN')">
-                                                    <img alt="image" title="Administrador" class="rank-ico img-responsive" th:src="@{/ico/checklist.svg}">
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                        <div class="user-button">
-                                            <div class="row">
-                                                <br>
-                                                <div sec:authorize="hasAuthority('USER')">
-                                                    <div th:if="${request_admin==null}" class="col-md-12">
-                                                        <form
-                                                            autocomplete="off"
-                                                            action="#"
-                                                            method="POST"
-                                                            th:action="@{/user/request/1}"
-                                                            id="form">
-                                                            <input type="hidden" name="quiniela_id" value="0"></input>
-                                                            <input type="hidden" name="type" value="1"></input>
-                                                            <button type="submit" class="btn btn-warning btn-sm btn-block">
-                                                                <i class="fa fa-coffee"></i>
-                                                                Quiero ser un adminsitrador de quinielas
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div sec:authorize="hasAuthority('USER')">
-                                                        <div th:if="${request_admin != null && request_admin.state==4}" class="col-md-12">
-                                                                <h2>Su Solicitud para ser admin de quiniela fue rechazada </h2>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
+                  <div class="row m-t-lg">
+                    <div class="col-md-6">
+                        
+                            <center>
+                            <div sec:authorize="hasAuthority('USER')">
+                                    <img alt="image" title="Administrador de quinielas" class="rank-ico img-responsive" th:src="@{/ico/line-chart.svg}">
                                     <h5>
-                                        Editar Perfil
-                                    </h5>
+                        <strong>169</strong>
+                        Quinielas
+                      </h5>
+                      </div>
+                      <div sec:authorize="hasAuthority('MEMBER')">
+                            <img alt="image" title="Administrador de quinielas" class="rank-ico img-responsive" th:src="@{/ico/line-chart.svg}">
+                        <h5><strong>169</strong>Quinielas</h5>
+                    
+                    </div>
+                </center>
+                </div>
+                    <!-- -->
+                    
+                    <div class="col-md-6">
 
-                                </div>
-                                <div class="ibox-content">
-                                    <span th:text="${successMessage}"></span>
-                                    <form
-                                        autocomplete="off"
-                                        action="#"
-                                        th:action="@{/user/myprofile}"
-                                        method="post"
-                                        class="form-horizontal"
-                                        id="form">
-
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Nombre</label>
-                                            <div class="col-sm-10">
-                                          
-                                                <input type="text" class="form-control" name="name" th:value="${user.name}" required>
-                                            </div>
-                                        </div>
-                                        <div class="hr-line-dashed"></div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Apellido</label>
-                                            <div class="col-sm-10">
-
-                                                    <input type="text" class="form-control" name="lastName" th:value="${user.lastName}" required>
-                                            </div>
-                                        </div>
-                                        <div class="hr-line-dashed"></div>
-                                        <div class="form-group">
-                                            <div class="col-sm-4 col-sm-offset-2">
-                                                <button class="btn btn-primary" type="submit">Guardar Cambios</button>
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </div>
-
-                        </div>
+                        
+                      <div sec:authorize="hasAuthority('USER')">
+                            <center>
+                                    <div>Tipo de Usuario</div>
+                        <img alt="image" title="Usuario" class="rank-ico img-responsive" th:src="@{/ico/chess.svg}">
+                     </center>
+                     </div>
+                      <div sec:authorize="hasAuthority('MEMBER')">
+                          <center>
+                            <div>Tipo de Usuario</div>
+                        <img alt="image" title="Administrador de quinielas" class="rank-ico img-responsive" th:src="@{/ico/megaphone.svg}">
+                    </center>
+                    </div>
+                      <div sec:authorize="hasAuthority('ADMIN')">
+                            <center>
+                                    <div>Tipo de Usuario</div>
+                        <img alt="image" title="Administrador" class="rank-ico img-responsive" th:src="@{/ico/checklist.svg}">
+                      </center>
+                    
+                </div>
                     </div>
 
+                  </div>
+                  <div class="ibox-footer">
+                  <div class="user-button">
+                    <div class="row">
+                      <br>
+                      <div sec:authorize="hasAuthority('USER')">
+                        <div th:if="${request_admin==null}" class="col-md-12">
+                          <form autocomplete="off" action="#" method="POST" th:action="@{/user/request/1}" id="form">
+                            <input type="hidden" name="quiniela_id" value="0"></input>
+                            <input type="hidden" name="type" value="1"></input>
+                            <button type="submit" class="btn btn-warning btn-sm btn-block">
+                              <i class="fa fa-coffee"></i>
+                              Quiero ser un adminsitrador de quinielas
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                      <div sec:authorize="hasAuthority('USER')">
+                          <center>
+                        <div th:if="${request_admin != null && request_admin.state==4}" class="col-md-12">
+                          <h2>Su Solicitud para ser admin de quiniela fue rechazada </h2>
+                        </div>
+                    </center>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-                <!-- end content! -->
-
-                <div th:replace="layouts/footer :: footer"/>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="col-md-8">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>
+                  Editar Perfil
+                </h5>
+
+              </div>
+              <div class="ibox-content">
+                <span th:text="${successMessage}"></span>
+                <form autocomplete="off" action="#" th:action="@{/user/myprofile}" method="post" class="form-horizontal" id="form">
+
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Nombre</label>
+                    <div class="col-sm-10">
+
+                      <input type="text" class="form-control" name="name" th:value="${user.name}" required>
+                    </div>
+                  </div>
+                  <div class="hr-line-dashed"></div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Apellido</label>
+                    <div class="col-sm-10">
+
+                      <input type="text" class="form-control" name="lastName" th:value="${user.lastName}" required>
+                    </div>
+                  </div>
+                  <div class="hr-line-dashed"></div>
+                  <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                      <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        <!-- Mainly scripts -->
-        <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
-        <script th:src="@{/js/bootstrap.min.js}"></script>
-        <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
-        <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+      </div>
 
-        <!-- FooTable -->
-        <script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
+      <!-- end content! -->
 
-        <!-- Custom and plugin javascript -->
-        <script th:src="@{/js/inspinia.js}"></script>
-        <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+      <div th:replace="layouts/footer :: footer" />
+    </div>
+  </div>
 
-        <!-- Peity -->
-        <script th:src="@{/js/plugins/peity/jquery.peity.min.js}"></script>
+  <!-- Mainly scripts -->
+  <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+  <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+  <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
-        <!-- Peity -->
-        <script th:src="@{/js/demo/peity-demo.js}"></script>
+  <!-- FooTable -->
+  <script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
 
-    </body>
+  <!-- Custom and plugin javascript -->
+  <script th:src="@{/js/inspinia.js}"></script>
+  <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+
+  <!-- Peity -->
+  <script th:src="@{/js/plugins/peity/jquery.peity.min.js}"></script>
+
+  <!-- Peity -->
+  <script th:src="@{/js/demo/peity-demo.js}"></script>
+
+</body>
 
 </html>
