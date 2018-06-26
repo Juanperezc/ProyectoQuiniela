@@ -45,7 +45,7 @@
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
                   <div class="full-height-scroll" style="overflow: hidden; width: auto; height: 100%;">
                     <div class="table-responsive">
-                      <table class="footable table table-hover" data-filter=#filter>
+                      <table class="footable table table-hover" data-page-size="10" data-filter=#filter>
                           <thead>
                               <tr>
                                 <th>Nombre de usuario </th>
@@ -99,6 +99,13 @@
                          
 
                         </tbody>
+                        <tfoot>
+                          <tr>
+                            <td colspan="5">
+                              <ul class="pagination pull-right"></ul>
+                            </td>
+                          </tr>
+                        </tfoot>
                       </table>
                     </div>
                   </div>
