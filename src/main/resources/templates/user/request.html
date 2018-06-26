@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Quiniela | Administrar peticiones</title>
+  <title>Solicitudes</title>
 
   <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
   <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
@@ -39,25 +39,32 @@
           <div class="col-sm-12">
             <div class="ibox">
               <div class="ibox-content">
-                
-                  
+                                  
                 <h2>Solicitudes</h2>
 
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
                   <div class="full-height-scroll" style="overflow: hidden; width: auto; height: 100%;">
                     <div class="table-responsive">
                       <table class="footable table table-hover" data-filter=#filter>
+                          <thead>
+                              <tr>
+                                <th>Nombre de usuario </th>
+                                <th>Fecha de la solicitud</th> 
+                                <th>Correo</th> 
+                                <th>Solicitud</th>  
+                                <th>Estado</th>             
+                              </tr>
+                            </thead>
                         <tbody th:each="request : ${requests}" th:remove="tag">
                           <tr>
-
                             <td>
                               <span th:text="${request.fromid.name}"></span>
                             </td>
                             <td th:text="${request.createdAt}"></td>
-                            <td class="contact-type">
-                              <i class="fa fa-envelope"> </i>
+                            <td>
+                              <i class="fa fa-envelope"></i>
+                              <span th:text="${request.fromid.email}"></span>
                             </td>
-                            <td th:text="${request.fromid.email}"></td>
                             <td th:text="${request.typename}"></td>
                             <td class="client-status">
                               <span th:text="${request.statename}"></span>
