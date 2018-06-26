@@ -118,12 +118,12 @@
                               <label class="col-sm-6 control-label">Fecha de apertura:</label>
                               <div class="form-group" id="fecha_1">
                                 <div class="col-sm-6">
-                                  <div class="input-group date">
+                                  <div class='input-group date' id='datetimepicker1'>
+                                    <input type='text' class="form-control" />
                                     <span class="input-group-addon">
-                                      <i class="fa fa-calendar"></i>
+                                        <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
-                                    <input type="text" class="form-control" value="11/05/2018" disabled="disabled" style="background-color: white">
-                                  </div>
+                                </div>
                                 </div>
                               </div>
                             </div>
@@ -131,12 +131,11 @@
                               <label class="col-sm-6 control-label">Fecha de cierre:</label>
                               <div class="form-group" id="fecha_2">
                                 <div class="col-sm-6">
-                                  <div class="input-group date">
+                                  <div class='input-group date' id='datetimepicker1'>
+                                    <input type='text' class="form-control" />
                                     <span class="input-group-addon">
-                                      <i class="fa fa-calendar"></i>
+                                        <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
-                                    <input type="text" class="form-control" value="11/05/2018" disabled="disabled" style="background-color: white">
-                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -267,12 +266,12 @@
                                       <label class="col-sm-2 control-label">Fecha</label>
                                       <div class="col-sm-3">
                                         <div class="form-group" id="fecha_1">
-                                          <div class="input-group date">
+                                          <div class='input-group date' id='datetimepicker1'>
+                                            <input type='text' class="form-control" />
                                             <span class="input-group-addon">
-                                              <i class="fa fa-calendar"></i>
+                                                <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
-                                            <input type="text" class="form-control" value="" disabled="disabled">
-                                          </div>
+                                        </div>
                                         </div>
                                       </div>
                                     </div>
@@ -318,12 +317,12 @@
                                       <label class="col-sm-2 control-label">Fecha</label>
                                       <div class="col-sm-3">
                                         <div class="form-group" id="fecha_1">
-                                          <div class="input-group date">
+                                          <div class='input-group date' id='datetimepicker1'>
+                                            <input type='text' class="form-control" />
                                             <span class="input-group-addon">
-                                              <i class="fa fa-calendar"></i>
+                                                <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
-                                            <input type="text" class="form-control" value="" disabled="disabled" style="background-color: white">
-                                          </div>
+                                        </div>
                                         </div>
                                       </div>
                                     </div>
@@ -457,11 +456,9 @@
 
           <script>
             $(document).ready(function () {
-
               $('.chosen-select').chosen({
                 width: "100%"
               });
-
               $(".touchspin").TouchSpin({
                 min: 1,
                 max: 10,
@@ -472,6 +469,7 @@
                 buttondown_class: 'btn btn-white',
                 buttonup_class: 'btn btn-white'
               });
+            $('#datetimepicker1').datetimepicker();
               $('#fecha_1 .input-group.date').datepicker({
                 todayBtn: "linked",
                 keyboardNavigation: false,
