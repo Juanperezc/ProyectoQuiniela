@@ -72,27 +72,46 @@
                             <td class="client-status">
                               <div th:if="${request.type == 1 && request.state == 1}" class="btn-group">
                                   <form
-                                  autocomplete="off"
-                                  action="#"
-                                  method="POST"
-                                  th:action="@{${'/pgadmin/request/' + request.fromid.id}}"
-                                  id="form">
-                                  <button type="submit" class="btn-primary btn btn-xs">Aceptar</button>
-                                  <button type="submit" class="btn-primary btn btn-xs btn-danger">Rechazar</button>
-                                </form>
+                                    autocomplete="off"
+                                    action="#"
+                                    method="POST"
+                                    th:action="@{${'/pgadmin/request/' + request.fromid.id}}"
+                                    id="form">
+                                    <input type="hidden" name="state" value="3" ></input>
+                                    <button type="submit" class="btn-primary btn btn-xs">Aceptar</button>
+                                  </form>
+                                  <form
+                                    autocomplete="off"
+                                    action="#"
+                                    method="POST"
+                                    th:action="@{${'/pgadmin/request/' + request.fromid.id}}"
+                                    id="form">
+                                    <input type="hidden" name="state" value="4"></input>
+                                    <button type="submit" class="btn-primary btn btn-xs btn-danger">Rechazar</button>
+                                  </form>
                                 
                               </div>
-                              <div  th:if="${request.type == 2 && request.state == 1}" class="btn-group">
+                              <div th:if="${request.type == 2 && request.state == 1}" class="btn-group">
                                   <form
-                                  autocomplete="off"
-                                  action="#"
-                                  method="POST"
-                                  th:action="@{${'/quiniela/joinpriv/' + request.quiniela.id}}"
-                                  id="form">
-                                  <input type="hidden" name="user_id" th:value="${request.fromid.id}" ></input>
-                                  <button type="submit" class="btn-primary btn btn-xs">Aceptar</button>
-                                  <button type="submit" class="btn-primary btn btn-xs btn-danger">Rechazar</button>
-                                 </form>
+                                    autocomplete="off"
+                                    action="#"
+                                    method="POST"
+                                    th:action="@{${'/quiniela/joinpriv/' + request.quiniela.id}}"
+                                    id="form">
+                                    <input type="hidden" name="user_id" th:value="${request.fromid.id}"></input>
+                                    <input type="hidden" name="state" value="3"></input>
+                                    <button type="submit" class="btn-primary btn btn-xs">Aceptar</button>
+                                  </form>
+                                  <form
+                                    autocomplete="off"
+                                    action="#"
+                                    method="POST"
+                                    th:action="@{${'/quiniela/joinpriv/' + request.quiniela.id}}"
+                                    id="form">
+                                    <input type="hidden" name="user_id" th:value="${request.fromid.id}"></input>
+                                    <input type="hidden" name="state" value="4"></input>
+                                    <button type="submit" class="btn-primary btn btn-xs btn-danger">Rechazar</button>
+                                  </form>
                                 
                               </div>
 
