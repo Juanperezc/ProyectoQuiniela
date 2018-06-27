@@ -71,8 +71,8 @@
                       <td class="center" th:text="${quiniela.name}"></td>
                       <td class="center hide-text" th:switch="${quiniela.sport}">
                         <span th:case="*">
-                          <img th:alt="${quiniela.sport}" th:src="@{${'/ico/'+ quiniela.sport + '.png'}}" class="img-responsive icono-deporte">
-                          <span th:text="${quiniela.sport}"></span>
+                            <img th:alt="${quiniela.sport.name}" th:src="@{${'/downloadFile/'+ quiniela.sport.img}}" class="img-responsive icono-deporte">
+                          <span th:text="${quiniela.sport.name}"></span>
                         </span>
 
                       </td>

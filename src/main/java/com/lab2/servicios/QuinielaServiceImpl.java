@@ -1,8 +1,7 @@
 package com.lab2.servicios;
 
 
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +39,18 @@ public class QuinielaServiceImpl implements QuinielaService{
 			return true;
 		}
 		return false;
+
+	}
+	@Override
+	public List<Quiniela> findByUser(User user) {
+		List<Quiniela> quinielas = quinielaRepository.findByUsers(user);
+		return quinielas;
+
+	}
+	@Override
+	public List<Quiniela> findByAdmin(User user) {
+		List<Quiniela> quinielas = quinielaRepository.findByAdmin(user);
+		return quinielas;
 
 	}
 }

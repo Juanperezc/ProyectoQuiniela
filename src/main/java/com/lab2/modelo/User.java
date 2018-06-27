@@ -58,6 +58,7 @@ public class User extends AuditModel{
 	private List<Role> roles = new ArrayList<>();
 	;
 
+	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
         name = "quiniela_user", 

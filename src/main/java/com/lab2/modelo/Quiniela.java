@@ -46,7 +46,6 @@ public class Quiniela extends AuditModel {
     @Column(name = "imagenFondo")
     private String imagenFondo;
     
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "admin_id")
     private User admin;
@@ -79,6 +78,10 @@ public class Quiniela extends AuditModel {
         orphanRemoval = true
     )
     private List<Game> games = new ArrayList<>();
+
+
+    public Quiniela(){
+    }
 
     public int getId() {
         return id;
@@ -165,7 +168,5 @@ public class Quiniela extends AuditModel {
     public void setRule(Rule rule){
         this.rule = rule;
     }
-
-
 
 }
