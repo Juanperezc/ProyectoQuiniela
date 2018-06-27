@@ -12,7 +12,7 @@ public interface RequestService{
 	public List<Request> findByUser(User user);
 	public List<Request> getFromByUser();
 	public List<Request> getToByUser();
-	public boolean isrequestQuiniela(Quiniela quiniela,User user);
+	public Request isrequestQuiniela(Quiniela quiniela,User user);
 	public Request isrequestAdmin(User user);
 	public Request findByUsuarioAndQuiniela(User user,Quiniela quiniela);
 	public Request findByUserAdmin(User user);

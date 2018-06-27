@@ -49,16 +49,16 @@ public class RequestServiceImpl implements RequestService{
 	return requestRepository.findByToid(user);
 	}
 	@Override
-	public boolean isrequestQuiniela(Quiniela quiniela,User user){
+	public Request isrequestQuiniela(Quiniela quiniela,User user){
 		List<Request> requests = requestRepository.findByFromid(user);
 		for (Request r :requests) {
 			if (r.getQuiniela() != null){
 				if(r.getQuiniela().equals(quiniela))
-				return true;
+				return r;
 			}
 			
 		}
-		return false;
+		return null;
 
 	}
 	@Override

@@ -51,7 +51,7 @@ public class QuinielaController {
 		modelAndView.addObject("users",users);
 		boolean esta=quinielaService.participaQuiniela(id,user);
 		modelAndView.addObject("esta",esta);
-		boolean requestQ = requestService.isrequestQuiniela(quiniela,user);
+		Request requestQ = requestService.isrequestQuiniela(quiniela,user);
 		modelAndView.addObject("requestQ", requestQ);
 	//	modelAndView.addObject("admin", admin);
 		modelAndView.setViewName("quiniela/show");
@@ -94,19 +94,21 @@ public class QuinielaController {
 	}
 
 	@RequestMapping(value = { "/joinpriv/{id}" }, method = RequestMethod.POST)
-	public ModelAndView joinpriv(@PathVariable("id") Integer id, @RequestParam("user_id")Integer user_id) {
+	public ModelAndView joinpriv(@PathVariable("id") Integer id, 
+	@RequestParam("user_id")Integer user_id,@RequestParam("state")Integer state) {
 		
 		User user = userService.findUserByid(user_id);
 		Quiniela quiniela = quinielaService.findByID(id);
+		boolean participando=true;
 		ModelAndView modelAndView = new ModelAndView();
 		Request request = requestService.findByUsuarioAndQuiniela(user, quiniela);
-		//List<Quiniela> quinielas = user.getQuinielas();
-		request.setState(3);
+		request.setState(state);
 		requestService.saveRequest(request);
-		user.addQuiniela(quiniela);
-		//quinielas.add(quiniela);
-		//user.setQuinielas(quiniela);
-		userService.saveNew(user);
+		if(state==3){
+			user.addQuiniela(quiniela);
+			userService.saveNew(user);	
+		}
+
 		return new ModelAndView("redirect:/user/request");
 	}
 
