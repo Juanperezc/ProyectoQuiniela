@@ -38,28 +38,28 @@
 
       <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
-                <h5>Visitas
+                <h5>Cantidad y Tipos de Quinielas en el Portal
 
                 </h5>
               </div>
               <div class="ibox-content">
                 <div>
-                  <canvas id="lineChart" height="140"></canvas>
+                  <canvas id="Quinielas" height="140"></canvas>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
-                <h5>cantidad de tipos de usuarios </h5>
+                <h5>Cantidad de Tipos de Usuarios </h5>
               </div>
               <div class="ibox-content">
                 <div>
-                  <canvas id="doughnutChart" height="140"></canvas>
+                  <canvas id="Usuarios" height="140"></canvas>
                 </div>
               </div>
             </div>
@@ -67,14 +67,14 @@
         </div>
         <div class="row">
 
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
-                <h5>cantidad de quinielas por deporte </h5>
+                <h5>Cantidad de Quinielas por Deporte </h5>
               </div>
               <div class="ibox-content">
                 <div>
-                  <canvas id="doughnutChart" height="140"></canvas>
+                  <canvas id="Deportes" height="140"></canvas>
                 </div>
               </div>
             </div>
@@ -109,8 +109,76 @@
 
   <!-- ChartJS-->
   <script th:src="@{/js/plugins/chartJs/Chart.min.js}"></script>
-  <script th:src="@{/js/demo/chartjs-demo.js}"></script>
+  <!-- <script th:src="@{/js/demo/chartjs-demo.js}"></script> -->
 
+
+  <script>
+    $(document).ready(function () {
+      var ctx2 = document.getElementById("Deportes").getContext("2d");
+      var barData = {
+        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+          "Octubre", "Noviembre", "Diciembre"
+        ],
+        datasets: [
+
+          {
+            label: "Quinielas",
+            backgroundColor: 'rgba(26,179,148,0.5)',
+            borderColor: "rgba(26,179,148,0.7)",
+            pointBackgroundColor: "rgba(26,179,148,1)",
+            pointBorderColor: "#fff",
+            data: [28, 48, 40, 19, 86, 27, 90, 30, 20, 15, 30, 15]
+          }
+        ]
+      };
+      var barOptions = {
+        responsive: true
+      };
+      new Chart(ctx2, {
+        type: 'bar',
+        data: barData,
+        options: barOptions
+      });
+
+
+      var ctx6 = document.getElementById("Usuarios").getContext("2d");
+      var Usuarios = {
+        labels: ["Administradores del Portal", "Administradores de quinielas", "Jugadores"],
+        datasets: [{
+          data: [3, 2, 2],
+          backgroundColor: ["#a3e1d4", "#dedede", "#b5b8cf"]
+        }]
+      };
+      var doughnutOptions = {
+        responsive: true
+      };
+      new Chart(ctx6, {
+        type: 'doughnut',
+        data: Usuarios,
+        options: doughnutOptions
+      });
+
+
+      var ctx3 = document.getElementById("Quinielas").getContext("2d");
+      var Usuarios2 = {
+        labels: ["Privadas", "Publicas"],
+        datasets: [{
+          data: [3, 2],
+          backgroundColor: ["#a3e1d4", "#dedede"]
+        }]
+      };
+      var doughnutOptions2 = {
+        responsive: true
+      };
+      new Chart(ctx3, {
+        type: 'doughnut',
+        data: Usuarios2,
+        options: doughnutOptions2
+      });
+
+    })
+
+  </script>
 
 
 </body>

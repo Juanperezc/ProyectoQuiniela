@@ -75,10 +75,10 @@
                       </td>
                       <td>vacio</td>
                       <td class="center">
-                          <a th:href="@{${'/quiniela/show/'+ quiniela.id}}">
-                            <button type="button" class="btn btn-success">ir</button>
-                          </a>
-                        </td>
+                        <a th:href="@{${'/quiniela/show/'+ quiniela.id}}">
+                          <button type="button" class="btn btn-success">ir</button>
+                        </a>
+                      </td>
                     </tr>
                   </tbody>
                   <tfoot>
@@ -94,41 +94,46 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
                 <h5> Quinielas por deportes en las que he participado</h5>
               </div>
               <div class="ibox-content">
                 <div>
-                  <canvas id="doughnutChart" height="140"></canvas>
+                  <canvas id="Deportes" height="140"></canvas>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
                 <h5>Porcentaje de victorias</h5>
               </div>
               <div class="ibox-content">
                 <div>
-                  <canvas id="doughnutChart" height="140"></canvas>
+                  <canvas id="Victoria" height="140"></canvas>
+                </div>
+              </div>
+              <div class="ibox-footer">
+                <div class="panel panel-danger">
+                  <div class="panel-body"> se considera victoria al obtenre un resultado igual o mayor al 75% de acertividad en las quinielas</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    
-  
- 
 
-  <!--  end content! -->
-  <div th:replace="layouts/footer :: footer" />
 
- </div>
-</div>
+
+
+      <!--  end content! -->
+      <div th:replace="layouts/footer :: footer" />
+
+    </div>
+  </div>
 
 
 
@@ -138,8 +143,8 @@
   <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
   <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
-<!-- FooTable -->
-<script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
+  <!-- FooTable -->
+  <script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
 
 
   <!-- Custom and plugin javascript -->
@@ -150,19 +155,60 @@
 
   <!-- ChartJS-->
   <script th:src="@{/js/plugins/chartJs/Chart.min.js}"></script>
-  <script th:src="@{/js/demo/chartjs-demo.js}"></script>
+  <!--   <script th:src="@{/js/demo/chartjs-demo.js}"></script> -->
 
   <script>
-      $(document).ready(function () {
-        $('.footable').footable();
+    $(document).ready(function () {
+      $('.footable').footable();
 
-              $('[data-toggle=confirmation]').confirmation({
-                  rootSelector: '[data-toggle=confirmation]',
-                  // other options
-              });
-            });
+      var ct2 = document.getElementById("Deportes").getContext("2d");
+      var barData = {
+        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+          "Octubre", "Noviembre", "Diciembre"
+        ],
+        datasets: [
 
-          </script>
+          {
+            label: "Quinielas",
+            backgroundColor: 'rgba(26,179,148,0.5)',
+            borderColor: "rgba(26,179,148,0.7)",
+            pointBackgroundColor: "rgba(26,179,148,1)",
+            pointBorderColor: "#fff",
+            data: [28, 48, 40, 19, 86, 27, 90, 30, 20, 15, 30, 15]
+          }
+        ]
+      };
+      var barOptions = {
+        responsive: true
+      };
+      new Chart(ct2, {
+        type: 'bar',
+        data: barData,
+        options: barOptions
+      });
+
+
+      var ct1 = document.getElementById("Victoria").getContext("2d");
+      var VictoriaV = {
+        labels: ["Victoria", "Derrota"],
+        datasets: [{
+          data: [3, 2],
+          backgroundColor: ["#a3e1d4", "#dedede"]
+        }]
+      };
+      var doughnutOptions1 = {
+        responsive: true
+      };
+      new Chart(ct1, {
+        type: 'doughnut',
+        data: VictoriaV,
+        options: doughnutOptions1
+      });
+
+
+    });
+
+  </script>
 
 </body>
 
