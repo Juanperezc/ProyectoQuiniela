@@ -155,22 +155,23 @@
               <table class="footable table table-stripped" data-page-size="2" data-filter="#filter">
                 <thead>
                   <tr>
-                    <th>icono</th>
                     <th>Equipo</th>
                     <th>Resultado</th>
                   </tr>
                 </thead>
                 <tbody th:each="game : ${quiniela.games}" th:remove="tag">
-                  <tr class="gradeX">
-                      <td  class="center" th:text="${game.team1}" >   class="img-responsive equipo"</td>
-                    <td class="center" th:text="${game.team1}"></td>
+                  <tr class="gradeX">  
+                    <td class="center">
+                        <span th:text="${game.team1}"></span>
+                      </td>
                     <td class="center" th:text="${game.scoreTeam1}"></td>
                   </tr>
-                  <tr class="gradeX">
-                    <td  class="center" th:text="${game.team2}" >   class="img-responsive equipo"</td>
-                    <td class="center" th:text="${game.team2}"></td>
-                    <td class="center" th:text="${game.scoreTeam2}"></td>
-                  </tr>
+                  <tr class="gradeX">  
+                      <td class="center">                      
+                          <span th:text="${game.team2}"></span>
+                        </td>
+                      <td class="center" th:text="${game.scoreTeam2}"></td>
+                    </tr>
                   <!--                <tr class="gradeC">
                     <td class="center">Iran</td>
                     <td class="center">0</td>
