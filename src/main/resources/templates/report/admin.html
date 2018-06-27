@@ -1,147 +1,191 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html
+    lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
 
-<head>
+    <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Quiniela | Main view</title>
+        <title>Quiniela | Main view</title>
 
-  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-  <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+        <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet">
 
-  <link th:href="@{/css/animate.css}" rel="stylesheet">
-  <link th:href="@{/css/style.css}" rel="stylesheet">
+        <link th:href="@{/css/animate.css}" rel="stylesheet">
+        <link th:href="@{/css/style.css}" rel="stylesheet">
 
-  <!--  separados -->
+        <!-- separados -->
 
-  <!-- FooTable -->
-  <link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
+        <!-- FooTable -->
+        <link th:href="@{/css/plugins/footable/footable.core.css}" rel="stylesheet">
 
-  <!--   -->
-</head>
+        <!-- -->
+    </head>
 
-<body class="skin-1 pace-done fixed-sidebar mini-navbar body-small" sec:authorize="hasAuthority('ADMIN')">
+    <body
+        class="skin-1 pace-done fixed-sidebar mini-navbar body-small"
+        sec:authorize="hasAuthority('ADMIN')">
 
-  <div id="wrapper">
-    <!--  menu sidebar -->
-    <div th:replace="layouts/menu :: menu" />
-    <!--  end menu sidebar -->
-    <div id="page-wrapper" class="gray-bg">
-      <div class="row border-bottom">
-        <div th:replace="layouts/topbar :: topbar" />
-      </div>
-
-      <!--  content ! -->
-
-
-      <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                <h5>Cantidad y Tipos de Quinielas en el Portal
-
-                </h5>
-              </div>
-              <div class="ibox-content">
-                <div>
-                  <canvas id="Quinielas" height="140"></canvas>
+        <div id="wrapper">
+            <!-- menu sidebar -->
+            <div th:replace="layouts/menu :: menu"/>
+            <!-- end menu sidebar -->
+            <div id="page-wrapper" class="gray-bg">
+                <div class="row border-bottom">
+                    <div th:replace="layouts/topbar :: topbar"/>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                <h5>Cantidad de Tipos de Usuarios </h5>
-              </div>
-              <div class="ibox-content">
-                <div>
-                  <canvas id="Usuarios" height="140"></canvas>
+
+                <!-- content ! -->
+
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Cantidad y Tipos de Quinielas en el Portal
+
+                                    </h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div>
+                                        <canvas id="Quinielas" height="140"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Cantidad de Tipos de Usuarios
+                                    </h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div>
+                                        <canvas id="Usuarios" height="140"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-              </div>
+
+                <!-- end content! -->
+
+                <div th:replace="layouts/footer :: footer"/>
             </div>
-          </div>
         </div>
 
+        <!-- Mainly scripts -->
+        <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+        <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
-      </div>
+        <!-- Custom and plugin javascript -->
+        <script th:src="@{/js/inspinia.js}"></script>
+        <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
 
+        <!-- ChartJS-->
+        <script th:src="@{/js/plugins/chartJs/Chart.min.js}"></script>
+        <!-- <script th:src="@{/js/demo/chartjs-demo.js}"></script> -->
 
+        <script>
+            $(document).ready(function () {
 
-      <!--  end content! -->
+                $.ajax({
+                    url: '/api/count/users',
+                    type: 'POST',
+                    data: {},
+                    success: function (r) {
+                       
+                var ctx6 = document
+                    .getElementById("Usuarios")
+                    .getContext("2d");
+                var Usuarios = {
+                    labels: [
+                        "Administradores del Portal", "Administradores de quinielas", "Jugadores"
+                    ],
 
-      <div th:replace="layouts/footer :: footer" />
-    </div>
-  </div>
-
-
-
-  <!-- Mainly scripts -->
-  <script th:src="@{/js/jquery-3.1.1.min.js}"></script>
-  <script th:src="@{/js/bootstrap.min.js}"></script>
-  <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
-  <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
-
-
-
-  <!-- Custom and plugin javascript -->
-  <script th:src="@{/js/inspinia.js}"></script>
-  <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
-
-
-
-  <!-- ChartJS-->
-  <script th:src="@{/js/plugins/chartJs/Chart.min.js}"></script>
-  <!-- <script th:src="@{/js/demo/chartjs-demo.js}"></script> -->
-
-
-  <script>
-    $(document).ready(function () {
-
-
-      var ctx6 = document.getElementById("Usuarios").getContext("2d");
-      var Usuarios = {
-        labels: ["Administradores del Portal", "Administradores de quinielas", "Jugadores"],
-        datasets: [{
-          data: [3, 2, 2],
-          backgroundColor: ["#a3e1d4", "#dedede", "#b5b8cf"]
-        }]
-      };
-      var doughnutOptions = {
-        responsive: true
-      };
-      new Chart(ctx6, {
-        type: 'doughnut',
-        data: Usuarios,
-        options: doughnutOptions
-      });
-
-
-      var ctx3 = document.getElementById("Quinielas").getContext("2d");
-      var Usuarios2 = {
-        labels: ["Privadas", "Publicas"],
-        datasets: [{
-          data: [3, 2],
-          backgroundColor: ["#a3e1d4", "#dedede"]
-        }]
-      };
-      var doughnutOptions2 = {
-        responsive: true
-      };
-      new Chart(ctx3, {
-        type: 'doughnut',
-        data: Usuarios2,
-        options: doughnutOptions2
-      });
-
-    })
-
-  </script>
+                    datasets: [
+                        {
+                            data: [
+                               r.admin, r.member, r.user
+                            ],
+                            backgroundColor: ["#a3e1d4", "#dedede", "#b5b8cf"]
+                        }
+                    ]
+                };
+                var doughnutOptions = {
+                    responsive: true
+                };
+                new Chart(ctx6, {
+                    type: 'doughnut',
+                    data: Usuarios,
+                    options: doughnutOptions
+                });
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
 
 
-</body>
+$.ajax({
+                    url: '/api/count/quinielas',
+                    type: 'POST',
+                    data: {},
+                    success: function (r) {
+                       
+                      var ctx3 = document
+                    .getElementById("Quinielas")
+                    .getContext("2d");
+                var Usuarios2 = {
+                    labels: [
+                        "Privadas", "Publicas"
+                    ],
+                    datasets: [
+                        {
+                            data: [
+                                r.private, r.public
+                            ],
+                            backgroundColor: ["#a3e1d4", "#dedede"]
+                        }
+                    ]
+                };
+                var doughnutOptions2 = {
+                    responsive: true
+                };
+                new Chart(ctx3, {
+                    type: 'doughnut',
+                    data: Usuarios2,
+                    options: doughnutOptions2
+                });
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+
+
+
+
+
+
+              
+
+            })
+        </script>
+
+    </body>
 
 </html>
