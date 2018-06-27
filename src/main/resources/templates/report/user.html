@@ -94,18 +94,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
-            <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                <h5> Quinielas por deportes en las que he participado</h5>
-              </div>
-              <div class="ibox-content">
-                <div>
-                  <canvas id="Deportes" height="140"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
+          
           <div class="col-md-6">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
@@ -161,32 +150,7 @@
     $(document).ready(function () {
       $('.footable').footable();
 
-      var ct2 = document.getElementById("Deportes").getContext("2d");
-      var barData = {
-        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
-          "Octubre", "Noviembre", "Diciembre"
-        ],
-        datasets: [
-
-          {
-            label: "Quinielas",
-            backgroundColor: 'rgba(26,179,148,0.5)',
-            borderColor: "rgba(26,179,148,0.7)",
-            pointBackgroundColor: "rgba(26,179,148,1)",
-            pointBorderColor: "#fff",
-            data: [28, 48, 40, 19, 86, 27, 90, 30, 20, 15, 30, 15]
-          }
-        ]
-      };
-      var barOptions = {
-        responsive: true
-      };
-      new Chart(ct2, {
-        type: 'bar',
-        data: barData,
-        options: barOptions
-      });
-
+     
 
       var ct1 = document.getElementById("Victoria").getContext("2d");
       var VictoriaV = {
