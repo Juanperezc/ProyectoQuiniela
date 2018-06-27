@@ -2,8 +2,10 @@ package com.lab2.servicios;
 
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,10 @@ public class QuinielaServiceImpl implements QuinielaService{
 		quinielaRepository.save(quiniela);
 	}
 	@Override
+	public Quiniela saveAndFlush(Quiniela quiniela) {
+		return quinielaRepository.saveAndFlush(quiniela);
+	}
+	@Override
 	public List<Quiniela> findAll() {
 		return quinielaRepository.findAll();
 	}
@@ -42,4 +48,15 @@ public class QuinielaServiceImpl implements QuinielaService{
 		return false;
 
 	}
+	@Override
+	public Map<String, String> countTypeQuinielas() {
+		HashMap<String, String> map = new HashMap<>();
+		List<Quiniela> q1 = quinielaRepository.findByType(1);
+		List<Quiniela> q2 = quinielaRepository.findByType(2);
+		Integer qpri = (Integer)q1.size();
+		Integer qpu = (Integer)q2.size();
+        map.put("public", qpri.toString());
+        map.put("private", qpu.toString());
+        return map;
+    }
 }

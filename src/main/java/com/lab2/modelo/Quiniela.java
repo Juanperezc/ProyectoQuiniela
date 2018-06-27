@@ -14,11 +14,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,14 +36,21 @@ public class Quiniela extends AuditModel {
     private int id;
     //privada 1 y publica 2
     @Column(name = "type")
+    @NotNull(message = "*Porfavor ingrese un tipo de quiniela")
     private Integer type;
     @Column(name = "name")
+    @NotEmpty(message = "*Porfavor ingrese un nombre a la quiniela")
     private String name;
     @Column(name = "start_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm")
+    @NotNull(message = "*Porfavor ingrese una fecha de inicio")
     private Date start;
     @Column(name = "end_date")
+    @NotNull(message = "*Porfavor ingrese una fecha de finalizacion")
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm")
     private Date end;
     @Column(name = "description")
+    @NotEmpty(message = "*Porfavor ingrese una descripcion")
     private String description;
 
     @Column(name = "imagenFondo")
@@ -59,6 +69,7 @@ public class Quiniela extends AuditModel {
         fetch = FetchType.LAZY,
         cascade = javax.persistence.CascadeType.ALL,
         mappedBy = "quiniela"
+        
     )
     private Rule rule;
 
@@ -153,7 +164,9 @@ public class Quiniela extends AuditModel {
     public void setGames(List<Game> games){
         this.games = games;
     }
-
+    public void addGame(Game game){
+        this.games.add(game);
+    }
     public List<Game>getGames(){
         return games;
     }

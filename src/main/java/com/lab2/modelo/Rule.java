@@ -19,6 +19,9 @@ import org.hibernate.annotations.JoinColumnOrFormula;
 //import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.springframework.data.annotation.Transient;
 
 @Entity
@@ -35,14 +38,15 @@ public class Rule extends AuditModel{
 
     //puntaje para los que acierten el puntaje de cualquier equipo
     @Column(name = "team_score")
-    private int teamScore;
-
+	private int teamScore;
+	
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "quiniela_id", nullable = false)
+    @JoinColumn(name = "quiniela_id", nullable = true)
     private Quiniela quiniela; 
 
 
-    private Rule(){
+    public Rule(){
 
     }
     
@@ -70,12 +74,12 @@ public class Rule extends AuditModel{
 		this.teamScore = teamScore;
 	}
 
-	/* public Quiniela getQuiniela() {
+	 public Quiniela getQuiniela() {
 		return quiniela;
 	}
 
 	public void setQuiniela(Quiniela quiniela) {
 		this.quiniela = quiniela;
-	} */
+	} 
 
 }

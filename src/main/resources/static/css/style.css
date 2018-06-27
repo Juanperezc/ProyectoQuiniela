@@ -10424,3 +10424,6 @@ body.md-skin {
 .row{
 margin-bottom: 15px;	
 }
+.validation-message{
+	color:red;
+}

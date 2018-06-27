@@ -3,10 +3,12 @@ package com.lab2.servicios;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lab2.modelo.Liga;
 import com.lab2.modelo.Team;
 import com.lab2.repositorio.TeamRepository;
 
@@ -28,5 +30,9 @@ public class TeamServiceImpl implements TeamService{
 	@Override
 	public Team findTeamByID(Integer id){
 		return teamRepository.findByid(id);
+	}
+	@Override
+	public List<Team> findByLiga(Liga liga){
+		return teamRepository.findByLiga(liga);
 	}
 }

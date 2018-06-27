@@ -11,6 +11,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,23 +35,23 @@ public class Game extends AuditModel{
 	@Column(name="team1")
 	private String team1;
 	@Column(name="team2")
-    private String team2;
-    @Column(name="date")
+	private String team2;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm")
+	@NotNull(message = "*Porfavor ingrese una fecha de inicio")
+	@Column(name="date")
     private Date date;
-    @Column(name="description")
+	@Column(name="description")
+	@NotEmpty(message = "*Porfavor ingrese una descripcion")
     private String description;
-
     @Column(name="score_team1")
     private int scoreTeam1;
-
     @Column(name="score_team2")
     private int scoreTeam2;
-
     @Column(name="state")
     private int state;
-
     @ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "quiniela_id", nullable = false)
+	@JoinColumn(name = "quiniela_id", nullable = true)
 	private Quiniela quiniela; 
 	
 	@OneToMany(
@@ -56,7 +60,7 @@ public class Game extends AuditModel{
 		orphanRemoval = true)	
 	private List<GameUser> users = new ArrayList<>();
 
-    private Game(){
+    public Game(){
     	
     }
     
@@ -123,6 +127,8 @@ public class Game extends AuditModel{
 	public void setState(int state) {
 		this.state = state;
 	}
-   
+    public void setQuiniela(Quiniela quiniela){
+		this.quiniela = quiniela;
+	}
     
 }

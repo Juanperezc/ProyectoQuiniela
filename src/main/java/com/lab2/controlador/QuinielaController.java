@@ -18,10 +18,15 @@ import org.springframework.web.servlet.ModelAndView;
 import com.lab2.modelo.User;
 import com.lab2.repositorio.UserRepository;
 import com.lab2.servicios.UserService;
+import com.lab2.modelo.Game;
+import com.lab2.modelo.Liga;
 import com.lab2.modelo.Quiniela;
 import com.lab2.modelo.Request;
+import com.lab2.modelo.Rule;
+import com.lab2.servicios.LigaService;
 import com.lab2.servicios.QuinielaService;
 import com.lab2.servicios.RequestService;
+import com.lab2.servicios.RuleService;
 import com.lab2.modelo.Sport;
 import com.lab2.servicios.SportService;
 @Controller
@@ -38,6 +43,12 @@ public class QuinielaController {
 
 	@Autowired
 	private RequestService requestService;
+
+	@Autowired
+	private RuleService ruleService;
+	@Autowired
+	private LigaService ligaService;
+
 
 	@RequestMapping(value = { "/show/{id}" }, method = RequestMethod.GET)
 	public ModelAndView show(@PathVariable("id") Integer id) {
@@ -106,6 +117,7 @@ public class QuinielaController {
 		requestService.saveRequest(request);
 		if(state==3){
 			user.addQuiniela(quiniela);
+
 			userService.saveNew(user);	
 		}
 
@@ -135,14 +147,108 @@ public class QuinielaController {
 	}
 
 	@RequestMapping(value = {"/create" }, method = RequestMethod.GET)
-	public ModelAndView create() {
-		List<Sport> allsports = sportService.findAll();
+	public ModelAndView getcreate() {
+		List<Sport> sports = sportService.findAll();
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("sports", allsports);
+	    Quiniela quiniela = new Quiniela();
+		modelAndView.addObject("quiniela", quiniela);
+		modelAndView.addObject("sports", sports);
+		modelAndView.addObject("edit", false);
+		modelAndView.addObject("editroute", "/quiniela/create");
 		modelAndView.setViewName("quiniela/create");
 		return modelAndView;
 	}
 
+	@RequestMapping(value = {"/create" }, method = RequestMethod.POST)
+	public ModelAndView savecreate(@Valid Quiniela quiniela, BindingResult bindingResult) {
+		List<Sport> sports = sportService.findAll();
+		User user = userService.getAuthUser();
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("sports", sports);
+		modelAndView.addObject("edit", false);
+		modelAndView.addObject("editroute", "/quiniela/create");
+		quiniela.setAdmin(user);
 	
+	
+		if (bindingResult.hasErrors()) {
+			modelAndView.setViewName("quiniela/create");
+		} else {
+			//quiniela.setRule();
+			
+
+			//quiniela.setRule(rule);
+			Quiniela qui = quinielaService.saveAndFlush(quiniela);
+			Rule rule = new Rule();
+			rule.setTeamScore(quiniela.getRule().getTeamScore());
+			rule.setVictorScore(quiniela.getRule().getVictorScore());
+			rule.setQuiniela(qui);			
+			ruleService.saveRule(rule);
+			Integer id = (Integer)qui.getId();
+		    String redirect = "/quiniela/edit/" + id.toString();
+			return new ModelAndView("redirect:" + redirect);
+		}
+		return modelAndView;
+	}
+	
+    @RequestMapping(value = {"/edit/{id}" }, method = RequestMethod.GET)
+	public ModelAndView getcreate(@PathVariable("id") Integer id) {
+		List<Sport> sports = sportService.findAll();
+		ModelAndView modelAndView = new ModelAndView();
+		Quiniela quiniela = quinielaService.findByID(id);
+		List<Liga> ligas = ligaService.findBySport(quiniela.getSport());
+		modelAndView.addObject("quiniela", quiniela);
+		modelAndView.addObject("sports", sports);
+		modelAndView.addObject("ligas", ligas);
+		modelAndView.addObject("game", new Game());
+		modelAndView.addObject("edit", true);
+		modelAndView.addObject("editroute", "/quiniela/edit/" + id.toString());
+
+		modelAndView.setViewName("quiniela/create");
+		return modelAndView;
+	}
+
+	@RequestMapping(value = {"/edit/{id}" }, method = RequestMethod.POST)
+	public ModelAndView setcreate(@PathVariable("id") Integer id, 
+	@Valid Quiniela quiniela, BindingResult bindingResult) {
+		List<Sport> sports = sportService.findAll();
+		User user = userService.getAuthUser();
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("quiniela", quiniela);
+		modelAndView.addObject("sports", sports);
+		modelAndView.addObject("edit", true);
+		modelAndView.addObject("editroute", "/quiniela/create");
+		if (bindingResult.hasErrors()) {
+			modelAndView.setViewName("quiniela/create");
+		} else {
+			Quiniela qui = quinielaService.saveAndFlush(quiniela);
+		    String redirect = "/quiniela/edit/" + id.toString();
+			return new ModelAndView("redirect:" + redirect);
+		}
+		return modelAndView;
+	}
+
+	@RequestMapping(value = {"/create/game/{id}" }, method = RequestMethod.POST)
+	public ModelAndView setcreategame(@PathVariable("id") Integer id, 
+	@Valid Game game, BindingResult bindingResult) {
+		List<Sport> sports = sportService.findAll();
+		User user = userService.getAuthUser();
+		ModelAndView modelAndView = new ModelAndView();
+		Quiniela quiniela = quinielaService.findByID(id);
+		modelAndView.addObject("quiniela", quiniela);
+		modelAndView.addObject("sports", sports);
+		modelAndView.addObject("edit", true);
+		modelAndView.addObject("game", game);
+		modelAndView.addObject("editroute", "/quiniela/create");
+		if (bindingResult.hasErrors()) {
+			modelAndView.setViewName("quiniela/create");
+		} else {
+			 game.setQuiniela(quiniela);
+			 quiniela.addGame(game);
+			 quinielaService.saveAndFlush(quiniela);
+		    String redirect = "/quiniela/edit/" + id.toString();
+			return new ModelAndView("redirect:" + redirect);
+		}
+		return modelAndView;
+	}
 
 }

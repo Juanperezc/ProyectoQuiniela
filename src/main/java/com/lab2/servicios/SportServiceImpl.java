@@ -8,6 +8,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
+
+import com.lab2.modelo.Liga;
 import com.lab2.modelo.Sport;
 import com.lab2.repositorio.SportRepository;
 
@@ -25,6 +27,10 @@ public class SportServiceImpl implements SportService{
 	@Override
 	public List<Sport> findAll() {
 		return sportRepository.findAll();
+	}
+	@Override
+	public List<Sport> findSportByLiga(Liga liga) {
+		return sportRepository.findByLiga(liga);
 	}
 	@Override
 	public Sport findSportByName(String name){

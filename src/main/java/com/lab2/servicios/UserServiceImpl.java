@@ -2,8 +2,10 @@ package com.lab2.servicios;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticatedPrincipal;
@@ -76,6 +78,23 @@ public class UserServiceImpl implements UserService {
         }
         return users;
 	}
-    
+    @Override
+	public Map<String, String> countTypeUser() {
+        HashMap<String, String> map = new HashMap<>();
+        Role r1 = roleRepository.findByRole("ADMIN");
+        Role r2 = roleRepository.findByRole("MEMBER");
+        Role r3 = roleRepository.findByRole("USER");
+        List<User> u1 = userRepository.findByRoles(r1);
+        List<User> u2 = userRepository.findByRoles(r2);
+        List<User> u3 = userRepository.findByRoles(r3);
+		
+		Integer qu1 = (Integer)u1.size();
+        Integer qp2 = (Integer)u2.size();
+        Integer qp3 = (Integer)u3.size();
+        map.put("admin", qu1.toString());
+        map.put("member", qp2.toString());
+        map.put("user", qp3.toString());
+        return map;
+    }
 
 }
