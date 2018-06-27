@@ -58,16 +58,12 @@
                   </thead>
                   <tbody th:each="quiniela : ${quinielas}" th:remove="tag">
                     <tr class="gradeX">
-                      <td class="center">
-                        <!-- <span th:if="">X</span>
-                                                        <span th:unless=""></span> -->
-                      </td>
                       <td class="center" th:text="${quiniela.id}"></td>
                       <td class="center" th:text="${quiniela.name}"></td>
-                      <td class="center hide-text" th:switch="${quiniela.sport}">
+                      <td class="center hide-text" th:switch="${quiniela.sport.name}">
                         <span th:case="*">
-                          <img th:alt="${quiniela.sport}" th:src="@{${'/ico/'+quiniela.sport+'.png'}}" class="img-responsive icono-deporte">
-                          <span th:text="${quiniela.sport}"></span>
+                          <img th:alt="${quiniela.sport.name}" th:src="@{${'/ico/'+quiniela.sport.name+'.png'}}" class="img-responsive icono-deporte">
+                          <span th:text="${quiniela.sport.name}"></span>
                         </span>
 
                       </td>
@@ -77,11 +73,12 @@
                         <span class="center" th:case="'1'">SI</span>
                         <span class="center" th:case="'2'">NO</span>
                       </td>
+                      <td>vacio</td>
                       <td class="center">
-                        <a href="/quinielaMundialPrivada">
-                          <button type="button" class="btn btn-success">ir</button>
-                        </a>
-                      </td>
+                          <a th:href="@{${'/quiniela/show/'+ quiniela.id}}">
+                            <button type="button" class="btn btn-success">ir</button>
+                          </a>
+                        </td>
                     </tr>
                   </tbody>
                   <tfoot>
@@ -100,7 +97,7 @@
           <div class="col-lg-6">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
-                <h5> Quinielas por deportes en las que he participado2</h5>
+                <h5> Quinielas por deportes en las que he participado</h5>
               </div>
               <div class="ibox-content">
                 <div>

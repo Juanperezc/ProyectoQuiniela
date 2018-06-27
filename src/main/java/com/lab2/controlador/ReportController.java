@@ -37,7 +37,10 @@ public class ReportController {
 
 	@RequestMapping(value = { "/user" }, method = RequestMethod.GET)
 	public ModelAndView userreport() {
+		User user = userService.getAuthUser();
+		List<Quiniela> quinielas = quinielaService.findByUser(user);
 		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("quinielas", quinielas);
 		modelAndView.setViewName("/report/user");
 		return modelAndView;
 	}	
