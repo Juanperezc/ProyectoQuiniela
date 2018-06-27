@@ -17,6 +17,9 @@ public interface QuinielaRepository extends JpaRepository<Quiniela, Integer>{
 	//Quiniela findByRole(String role);
 	List<Quiniela> findAll(); 
 	Quiniela findByid(Integer id);
-	Quiniela findByUsers(User user);
+
 	List<Quiniela> findByType(int type);
+	List<Quiniela> findByUsers(User user);
+	List<Quiniela> findByAdmin(User user);
+
 }

@@ -38,7 +38,7 @@
           <div class="col-lg-12">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
-                <h5>Quinielas disponibles</h5>
+                <h5>Quinielas en las que estoy Participando</h5>
               </div>
               <div class="ibox-content">
                 <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Buscar..">
@@ -58,16 +58,12 @@
                   </thead>
                   <tbody th:each="quiniela : ${quinielas}" th:remove="tag">
                     <tr class="gradeX">
-                      <td class="center">
-                        <!-- <span th:if="">X</span>
-                                                        <span th:unless=""></span> -->
-                      </td>
                       <td class="center" th:text="${quiniela.id}"></td>
                       <td class="center" th:text="${quiniela.name}"></td>
-                      <td class="center hide-text" th:switch="${quiniela.sport}">
+                      <td class="center hide-text" th:switch="${quiniela.sport.name}">
                         <span th:case="*">
-                          <img th:alt="${quiniela.sport}" th:src="@{${'/ico/'+quiniela.sport+'.png'}}" class="img-responsive icono-deporte">
-                          <span th:text="${quiniela.sport}"></span>
+                          <img th:alt="${quiniela.sport.name}" th:src="@{${'/ico/'+quiniela.sport.name+'.png'}}" class="img-responsive icono-deporte">
+                          <span th:text="${quiniela.sport.name}"></span>
                         </span>
 
                       </td>
@@ -77,8 +73,9 @@
                         <span class="center" th:case="'1'">SI</span>
                         <span class="center" th:case="'2'">NO</span>
                       </td>
+                      <td>vacio</td>
                       <td class="center">
-                        <a href="/quinielaMundialPrivada">
+                        <a th:href="@{${'/quiniela/show/'+ quiniela.id}}">
                           <button type="button" class="btn btn-success">ir</button>
                         </a>
                       </td>
@@ -97,40 +94,34 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-6">
-            <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                <h5>Total de mis tipos de quinielas</h5>
-              </div>
-              <div class="ibox-content">
-                <div>
-                  <canvas id="doughnutChart" height="140"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
+          
+          <div class="col-md-6">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
                 <h5>Porcentaje de victorias</h5>
               </div>
               <div class="ibox-content">
                 <div>
-                  <canvas id="doughnutChart" height="140"></canvas>
+                  <canvas id="Victoria" height="140"></canvas>
+                </div>
+              </div>
+              <div class="ibox-footer">
+                <div class="panel panel-danger">
+                  <div class="panel-body"> se considera victoria al obtenre un resultado igual o mayor al 75% de acertividad en las quinielas</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+
+
+
+      <!--  end content! -->
+      <div th:replace="layouts/footer :: footer" />
+
     </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  <!--  end content! -->
-  <div th:replace="layouts/footer :: footer" />
-  </div>
   </div>
 
 
@@ -141,8 +132,8 @@
   <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
   <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
 
-<!-- FooTable -->
-<script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
+  <!-- FooTable -->
+  <script th:src="@{/js/plugins/footable/footable.all.min.js}"></script>
 
 
   <!-- Custom and plugin javascript -->
@@ -153,19 +144,35 @@
 
   <!-- ChartJS-->
   <script th:src="@{/js/plugins/chartJs/Chart.min.js}"></script>
-  <script th:src="@{/js/demo/chartjs-demo.js}"></script>
+  <!--   <script th:src="@{/js/demo/chartjs-demo.js}"></script> -->
 
   <script>
-      $(document).ready(function () {
-        $('.footable').footable();
+    $(document).ready(function () {
+      $('.footable').footable();
 
-              $('[data-toggle=confirmation]').confirmation({
-                  rootSelector: '[data-toggle=confirmation]',
-                  // other options
-              });
-            });
+     
 
-          </script>
+      var ct1 = document.getElementById("Victoria").getContext("2d");
+      var VictoriaV = {
+        labels: ["Victoria", "Derrota"],
+        datasets: [{
+          data: [3, 2],
+          backgroundColor: ["#a3e1d4", "#dedede"]
+        }]
+      };
+      var doughnutOptions1 = {
+        responsive: true
+      };
+      new Chart(ct1, {
+        type: 'doughnut',
+        data: VictoriaV,
+        options: doughnutOptions1
+      });
+
+
+    });
+
+  </script>
 
 </body>
 

@@ -52,56 +52,54 @@
                       <tr>
                         <th>Codigo</th>
                         <th>Quiniela</th>
-                        <th data-hide="phone,tablet">Deporte</th>
+                        <th>Deporte</th>
                         <th>Fecha de Apertura</th>
-                        <th data-hide="phone,tablet">Fecha de Cierre</th>
+                        <th>Fecha de Cierre</th>
                         <th>Privada</th>
                         <th>Cantidad de Usuarios Registrados</th>
-                        <th>Cantidad de Comentarios</th>
                         <th>Accion</th>
                       </tr>
                     </thead>
                     <tbody th:each="quiniela : ${quinielas}" th:remove="tag">
-                        
-                          <td class="center" th:text="${quiniela.id}"></td>
-                          <td class="center" th:text="${quiniela.name}"></td>
-                          <td class="center hide-text" th:switch="${quiniela.sport}">
-                            <span th:case="*">
-                              <img th:alt="${quiniela.sport}" th:src="@{${'/ico/'+ quiniela.sport + '.png'}}" class="img-responsive icono-deporte">
-                              <span th:text="${quiniela.sport}"></span>
-                            </span>
-    
-                          </td>
-                          <td class="center" th:text="${quiniela.start}"></td>
-                          <td class="center" th:text="${quiniela.end}"></td>
-                          <td class="center" th:switch=${quiniela.type}>
-                            <span class="center" th:case="1">NO</span>
-                            <span class="center" th:case="2">SI</span>
-                          </td>
-                          <!-- <td class="center">
+
+                      <td class="center" th:text="${quiniela.id}"></td>
+                      <td class="center" th:text="${quiniela.name}"></td>
+                      <td class="center hide-text" th:switch="${quiniela.sport.name}">
+                        <span th:case="*">
+                          <img th:alt="${quiniela.sport.name}" th:src="@{${'/ico/'+ quiniela.sport.name + '.png'}}" class="img-responsive icono-deporte">
+                          <span th:text="${quiniela.sport.name}"></span>
+                        </span>
+
+                      </td>
+                      <td class="center" th:text="${quiniela.start}"></td>
+                      <td class="center" th:text="${quiniela.end}"></td>
+                      <td class="center" th:switch=${quiniela.type}>
+                        <span class="center" th:case="1">NO</span>
+                        <span class="center" th:case="2">SI</span>
+                      </td>
+                      <!-- <td class="center">
                             <a th:href="@{${'/quiniela/show/'+ quiniela.id}}">
                               <button type="button" class="btn btn-success">ir</button>
                             </a>
                           </td> -->
-                          <td>
-                              <div> <span class="center" >cosa</span> </div> 
-                             </td>
-                          <td>
-                             <div><span class="center" >cosa</span> </div> 
-                            </td>
-                            <td class="text-right">
-                                <div class="btn-group">
-                                  <button class="btn btn-info" data-toggle="modal" data-target="#modalVer">Ver</button>
-                                  <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditar">Editar</button>
-                                  <button class="btn btn-large btn-primary btn-danger" data-toggle="confirmation" data-btn-ok-label="SI" data-btn-ok-class="btn-success"
-                                    data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check" data-btn-cancel-label="NO"
-                                    data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons"
-                                    data-btn-cancel-icon-content="close" data-title="¿Esta Seguro?" data-content="Estos resultados no podran ser cambiados"
-                                    data-placement="top">Eliminar</button>
-                                </div>
-                              </td>
-                        </tr>
-                      </tbody>
+                      <td>
+                        <div>
+                          <span class="center">cantidade de usuarios registrados</span>
+                        </div>
+                      </td>
+
+                      <td class="text-right">
+                        <div class="btn-group">
+                          <button class="btn btn-info" data-toggle="modal" data-target="#modalVer">Ver</button>
+                          <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditar">Editar</button>
+                          <button class="btn btn-large btn-primary btn-danger" data-toggle="confirmation" data-btn-ok-label="SI" data-btn-ok-class="btn-success"
+                            data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check" data-btn-cancel-label="NO"
+                            data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
+                            data-title="¿Esta Seguro?" data-content="Estos resultados no podran ser cambiados" data-placement="top">Eliminar</button>
+                        </div>
+                      </td>
+                      </tr>
+                    </tbody>
                     <tfoot>
                       <tr>
                         <td colspan="5">
@@ -114,46 +112,53 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-md-6">
                 <div class="ibox float-e-margins">
                   <div class="ibox-title">
-                    <h5>Total de mi participacion</h5>
+                    <h5>Total de mis Participaciones en Quinielas</h5>
                   </div>
                   <div class="ibox-content">
                     <div>
-                      <canvas id="doughnutChart" height="140"></canvas>
+                      <canvas id="Usuarios" height="140"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="ibox float-e-margins">
+                  <div class="ibox-title">
+                    <h5>Total de mis tipos de Quinielas por Privacidad</h5>
+                  </div>
+                  <div class="ibox-content">
+                    <div>
+                      <canvas id="QuinielasP" height="140"></canvas>
                     </div>
                   </div>
                 </div>
               </div>
 
-
-              <div class="col-lg-6">
-                <div class="ibox float-e-margins">
-                  <div class="ibox-title">
-                    <h5>Total de mis tipos de quinielas</h5>
-                  </div>
-                  <div class="ibox-content">
-                    <div>
-                      <canvas id="doughnutChart" height="140"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
             </div>
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-md-6">
+
                 <div class="ibox float-e-margins">
                   <div class="ibox-title">
                     <h5>Porcentaje de victorias</h5>
                   </div>
                   <div class="ibox-content">
                     <div>
-                      <canvas id="doughnutChart" height="140"></canvas>
+                      <canvas id="Victoria" height="140"></canvas>
+                    </div>
+                  </div>
+                  <div class="ibox-footer">
+                    <div class="panel panel-danger">
+                      <div class="panel-body"> se considera victoria al obtenre un resultado igual o mayor al 75% de acertividad en las quinielas</div>
                     </div>
                   </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>
@@ -190,19 +195,92 @@
 
   <!-- ChartJS-->
   <script th:src="@{/js/plugins/chartJs/Chart.min.js}"></script>
-  <script th:src="@{/js/demo/chartjs-demo.js}"></script>
+  <!--  <script th:src="@{/js/demo/chartjs-demo.js}"></script> -->
 
   <script>
-      $(document).ready(function () {
-        $('.footable').footable();
+    $(document).ready(function () {
+      $('.footable').footable();
 
-              $('[data-toggle=confirmation]').confirmation({
-                  rootSelector: '[data-toggle=confirmation]',
-                  // other options
-              });
-            });
+      $('[data-toggle=confirmation]').confirmation({
+        rootSelector: '[data-toggle=confirmation]',
+        // other options
+      });
 
-          </script>
+
+
+      var ct0 = document.getElementById("Usuarios").getContext("2d");
+      var UsuariosV = {
+        labels: ["Administradores del Portal", "Administradores de quinielas", "Jugadores"],
+        datasets: [{
+          data: [3, 2, 2],
+          backgroundColor: ["#a3e1d4", "#dedede", "#b5b8cf"]
+        }]
+      };
+      var doughnutOptions = {
+        responsive: true
+      };
+      new Chart(ct0, {
+        type: 'doughnut',
+        data: UsuariosV,
+        options: doughnutOptions
+      });
+
+
+      var ct2 = document.getElementById("QuinielasP").getContext("2d");
+      var QuinielasPV = {
+        labels: ["Privadas", "Publicas"],
+        datasets: [{
+          data: [3, 2],
+          backgroundColor: ["#a3e1d4", "#dedede"]
+        }]
+      };
+      var doughnutOptions2 = {
+        responsive: true
+      };
+      new Chart(ct2, {
+        type: 'doughnut',
+        data: QuinielasPV,
+        options: doughnutOptions2
+      });
+
+
+      var ct1 = document.getElementById("Victoria").getContext("2d");
+      var VictoriaV = {
+        labels: ["Victoria", "Derrota"],
+        datasets: [{
+          data: [3, 2],
+          backgroundColor: ["#a3e1d4", "#dedede"]
+        }]
+      };
+      var doughnutOptions1 = {
+        responsive: true
+      };
+      new Chart(ct1, {
+        type: 'doughnut',
+        data: VictoriaV,
+        options: doughnutOptions1
+      });
+
+
+      var ct4 = document.getElementById("Quinielas").getContext("2d");
+      var QuinielasV = {
+        labels: ["Privadas", "Publicas"],
+        datasets: [{
+          data: [3, 2],
+          backgroundColor: ["#a3e1d4", "#dedede"]
+        }]
+      };
+      var doughnutOptions4 = {
+        responsive: true
+      };
+      new Chart(ct4, {
+        type: 'doughnut',
+        data: QuinielasV,
+        options: doughnutOptions4
+      });
+    });
+
+  </script>
 
 </body>
 

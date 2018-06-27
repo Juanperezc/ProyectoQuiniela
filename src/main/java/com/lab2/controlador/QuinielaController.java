@@ -133,13 +133,16 @@ public class QuinielaController {
 	@RequestMapping(value = { "/index" }, method = RequestMethod.GET)
 	public ModelAndView index() {
 		ModelAndView modelAndView = new ModelAndView();
+		User user = userService.getAuthUser();
+		List<Quiniela> quinielas = quinielaService.findByUser(user);
+		modelAndView.addObject("quinielas",quinielas);
 		modelAndView.setViewName("quiniela/index");
 		return modelAndView;
 	}
 	@RequestMapping(value = { "/myindex" }, method = RequestMethod.GET)
 	public ModelAndView myindex() {
 		User user = userService.getAuthUser();
-		List<Quiniela> quinielas = user.getQuinielas();
+		List<Quiniela> quinielas = quinielaService.findByAdmin(user);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("quinielas", quinielas);
 		modelAndView.setViewName("quiniela/myindex");
