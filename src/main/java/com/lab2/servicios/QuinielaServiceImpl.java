@@ -1,13 +1,9 @@
 package com.lab2.servicios;
 
 
-<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-=======
-import java.util.ArrayList;
->>>>>>> 96e073d47f26b05b48266ea0b78806673d692efd
 import java.util.List;
 import java.util.Map;
 
@@ -53,7 +49,6 @@ public class QuinielaServiceImpl implements QuinielaService{
 
 	}
 	@Override
-<<<<<<< HEAD
 	public Map<String, String> countTypeQuinielas() {
 		HashMap<String, String> map = new HashMap<>();
 		List<Quiniela> q1 = quinielaRepository.findByType(1);
@@ -64,7 +59,6 @@ public class QuinielaServiceImpl implements QuinielaService{
         map.put("private", qpu.toString());
         return map;
     }
-=======
 	public List<Quiniela> findByUser(User user) {
 		List<Quiniela> quinielas = quinielaRepository.findByUsers(user);
 		return quinielas;
@@ -76,5 +70,4 @@ public class QuinielaServiceImpl implements QuinielaService{
 		return quinielas;
 
 	}
->>>>>>> 96e073d47f26b05b48266ea0b78806673d692efd
 }
