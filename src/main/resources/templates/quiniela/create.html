@@ -171,14 +171,14 @@
                                 <div class="panel-heading"> <h2> Reglas </h2></div>
                                   <div class="panel-body">
                             <div class="form-group">
-                              <label class="col-sm-6 control-label">Puntuación para acierto de score del equipo ganador
+                              <label class="col-sm-6 control-label">Puntuación para acierto del equipo ganador
                               </label>
                               <div class="col-sm-6">
                                 <input class="touchspin" th:disabled="${edit}"  type="text" th:field="*{rule.teamScore}"  placeholder="0" readonly="readonly" style="background-color: white">
                               </div>
                             </div>
                             <div class="form-group">
-                              <label class="col-sm-6 control-label">Puntuación para acierto de score excato de un equipo
+                              <label class="col-sm-6 control-label">Puntuación para acierto de score exacto de un equipo
                               </label>
                               <div class="col-sm-6">
                                 <input class="touchspin" th:disabled="${edit}"  type="text" th:field="*{rule.victorScore}"  placeholder="0" readonly="readonly" style="background-color: white">
@@ -261,7 +261,7 @@
                                       </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Equipo 1:</label>
+                                        <label class="col-sm-2 control-label">Equipo 2:</label>
                                         <div class="col-sm-10">
                                             <select id="select-eq2"
                                             data-placeholder="Escoge un equipo..."
