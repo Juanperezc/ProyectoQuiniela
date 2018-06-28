@@ -6,10 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 @Entity
 @Table(name = "configuration")
 public class Configuration extends AuditModel {
+	private static final long serialVersionUID = 1284395170500251836L;
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="configuration_id")

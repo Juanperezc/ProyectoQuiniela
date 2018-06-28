@@ -2,7 +2,6 @@ package com.lab2.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,9 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
 //import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
@@ -31,6 +28,7 @@ import org.springframework.data.annotation.Transient;
 @Table(name = "users")
 public class User extends AuditModel{
 
+	private static final long serialVersionUID = -5657647023544068786L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")

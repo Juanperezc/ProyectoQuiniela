@@ -1,13 +1,9 @@
 package com.lab2.servicios;
 
-
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.annotation.PostConstruct;
 
 import com.lab2.modelo.Liga;
 import com.lab2.modelo.Sport;

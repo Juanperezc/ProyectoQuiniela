@@ -1,13 +1,6 @@
 package com.lab2.controlador;
 
-import com.lab2.modelo.User;
-import com.lab2.repositorio.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-
 
 //
 @Controller

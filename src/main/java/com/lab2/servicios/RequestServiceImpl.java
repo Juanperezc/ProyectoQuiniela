@@ -1,21 +1,14 @@
 package com.lab2.servicios;
 
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.AuthenticatedPrincipal;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import com.lab2.modelo.Request;
 import com.lab2.modelo.User;
 import com.lab2.modelo.Quiniela;
 import com.lab2.repositorio.RequestRepository;
-import com.lab2.repositorio.UserRepository;
-
 
 @Service("requestService")
 public class RequestServiceImpl implements RequestService{
